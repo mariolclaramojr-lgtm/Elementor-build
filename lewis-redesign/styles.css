@@ -202,6 +202,13 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .prose .btn{margin-top:16px}
 .section--dark .prose p.lead{color:var(--white)}
 
+/* Photo background band — Elementor: Section › Style › Background image + Background Overlay (dark gradient, ~50–80%) */
+.section--photo{background:linear-gradient(180deg,rgba(20,16,12,.78) 0%,rgba(20,16,12,.5) 50%,rgba(20,16,12,.82) 100%),
+  var(--bg-img,none) center/cover no-repeat,var(--espresso);color:var(--white)}
+.section--photo .form{background:rgba(31,27,23,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.section--photo .statement p{color:rgba(255,255,255,.78)}
+.section--photo .map{outline-color:rgba(255,255,255,.22)}
+
 /* Split: image + text (Elementor: 2-column container) */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,8vw,112px);align-items:center}
 .split-img{position:relative;isolation:isolate;aspect-ratio:5/4;max-width:100%}
