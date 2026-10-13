@@ -27,7 +27,8 @@ html{scroll-behavior:smooth}
 body{background:var(--ivory);color:var(--espresso);font-family:var(--font-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+/* ACCESSIBILITY OFF for now — remove the comment marks to re-enable the keyboard focus outline:
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px} */
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 @media (max-width:600px){.wrap{padding:0 16px}}
 
@@ -375,4 +376,6 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .band p{color:rgba(255,255,255,.75);margin:0 auto 36px;max-width:40em}
 
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-media video{display:none}}
+/* ACCESSIBILITY OFF for now — remove the comment marks to re-enable reduced-motion support
+   (stops the video + animations for visitors who turn on "reduce motion"):
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-media video{display:none}} */
