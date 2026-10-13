@@ -1,0 +1,371 @@
+/* LEWIS — shared styles for every page.
+   Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
+/* Layout: full-bleed image sections alternating with ivory and espresso bands, 1200px content */
+:root{
+  /* Global colours */
+  --ivory:#F7F2EB;        /* cream page background */
+  --linen:#EDE4D8;        /* sand band */
+  --espresso:#1F1B17;     /* ink: text + dark bands */
+  --espresso-2:#2A2420;
+  --ink-soft:#57504A;
+  --accent:#A51C30;       /* Lewis red: buttons, accents on light */
+  --accent-dark:#7F1424;
+  --accent-light:#E85D6C; /* bright Lewis red: accents on dark */
+  --white:#FFFFFF;
+  --line-light:rgba(23,19,15,.12);
+  --line-dark:rgba(255,255,255,.14);
+  /* Global fonts */
+  --font-head:"Fraunces", Georgia, serif;
+  --font-body:"Inter", system-ui, -apple-system, sans-serif;
+  /* Layout */
+  --wrap:1200px;
+  --radius:4px;
+  --pad-section:clamp(88px, 11vw, 152px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--espresso);font-family:var(--font-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+h1,h2,h3{font-family:var(--font-head);font-weight:500;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(46px,7.6vw,96px)}
+h2{font-size:clamp(36px,4.8vw,60px)}
+h3{font-size:25px;line-height:1.15}
+h1 em,h2 em{font-style:italic;color:var(--accent-light)}
+.welcome h2 em,.pathways h2 em,.section:not(.section--dark) h2 em{color:var(--accent)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.eyebrow::before{content:"";width:32px;height:1px;background:currentColor}
+.on-dark .eyebrow{color:var(--accent-light)}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--ink-soft);max-width:34em}
+
+/* Buttons — one global style, three variants */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s}
+.btn svg{width:15px;height:15px;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--accent);color:var(--white)}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-dark{background:var(--espresso);color:var(--ivory)}
+.btn-dark:hover{background:var(--accent-dark)}
+.btn-ghost{border:1px solid rgba(255,255,255,.45);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+
+/* ============ 1. HERO + HEADER ============ */
+.hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;color:var(--white);
+  background:linear-gradient(180deg,rgba(15,12,9,.7) 0%,rgba(15,12,9,.3) 38%,rgba(15,12,9,.88) 100%),
+    var(--hero-img,none) center 35%/cover no-repeat,var(--espresso)}
+.hero > .wrap{position:relative;z-index:1;width:100%}
+/* Video background — Elementor: Section › Style › Background › Video (MP4 link), image as fallback */
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.4) 40%,rgba(15,12,9,.9) 100%)}
+.header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;border-bottom:1px solid var(--line-dark)}
+.logo{display:flex;align-items:center;gap:14px;font-family:var(--font-head);font-size:25px;font-weight:600;letter-spacing:.01em}
+.logo svg{width:30px;height:30px;color:var(--accent-light)}
+.nav{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.nav a:not(.btn){opacity:.85;transition:opacity .2s,color .2s}
+.nav a:not(.btn):hover{opacity:1;color:var(--accent-light)}
+.nav .btn{padding:13px 22px;font-size:12px}
+.menu-toggle{display:none;background:none;border:0;color:inherit;cursor:pointer}
+.menu-toggle svg{width:28px;height:28px}
+
+.hero-content{margin-top:auto;padding-top:96px}
+.hero h1{max-width:11ch;margin-bottom:28px}
+.hero .lead{color:rgba(255,255,255,.82);max-width:500px;margin-bottom:40px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-times{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,8vw,96px);border-top:1px solid var(--line-dark)}
+.hero-times div{padding:26px 0 34px;font-size:15px;color:rgba(255,255,255,.78)}
+.hero-times div + div{padding-left:32px;border-left:1px solid var(--line-dark)}
+.hero-times span{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-light);margin-bottom:6px}
+
+/* one orchestrated moment: hero copy rises in on load */
+@keyframes rise{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-content > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-content > *:nth-child(2){animation-delay:.08s}
+.hero-content > *:nth-child(3){animation-delay:.16s}
+.hero-content > *:nth-child(4){animation-delay:.24s}
+.hero-content > *:nth-child(5){animation-delay:.32s}
+
+@media (max-width:960px){
+  .menu-toggle{display:block}
+  .nav{display:none;position:absolute;top:92px;left:16px;right:16px;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--ivory);color:var(--espresso);padding:12px 20px 20px;box-shadow:0 24px 60px rgba(0,0,0,.35);z-index:10}
+  .nav.open{display:flex}
+  .nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--line-light);opacity:1}
+  .nav .btn{justify-content:center;margin-top:16px}
+}
+@media (max-width:700px){
+  .hero-times{grid-template-columns:1fr}
+  .hero-times div{padding:18px 0}
+  .hero-times div + div{padding-left:0;border-left:0;border-top:1px solid var(--line-dark)}
+}
+
+/* ============ 2. WELCOME ============ */
+.welcome{padding:var(--pad-section) 0}
+.welcome-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(48px,8vw,120px);align-items:center}
+.welcome-img{position:relative;isolation:isolate;aspect-ratio:4/5;max-width:100%}
+.welcome-img img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.welcome-img::after{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--accent);border-radius:var(--radius);z-index:-1}
+.welcome h2{margin-bottom:28px}
+.welcome p{color:var(--ink-soft);margin-bottom:20px}
+.welcome p.lead{color:var(--espresso)}
+.scripture{margin:36px 0 40px;padding-left:24px;border-left:2px solid var(--accent)}
+.scripture q{display:block;font-family:var(--font-head);font-style:italic;font-size:22px;line-height:1.3;color:var(--espresso)}
+.scripture cite{display:block;margin-top:10px;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:860px){.welcome-grid{grid-template-columns:1fr}.welcome-img{aspect-ratio:4/3;margin-right:22px}}
+
+/* ============ 3. PATHWAYS (4 cards) ============ */
+.pathways{padding:var(--pad-section) 0;background:var(--linen)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:56px}
+.section-head p{max-width:360px;color:var(--ink-soft)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4.3;max-width:100%;border-radius:var(--radius);overflow:hidden;color:var(--white);padding:28px}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.05) 30%,rgba(15,12,9,.9) 100%);z-index:1}
+.card::after{content:"";position:absolute;inset:12px;border:1px solid rgba(232,93,108,0);border-radius:2px;z-index:1;transition:border-color .4s}
+.card > *:not(img){position:relative;z-index:2}
+.card h3{margin-bottom:10px}
+.card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin-bottom:22px}
+.card .more{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line-dark);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.card .more svg{width:16px;height:16px;color:var(--accent-light);transition:transform .3s}
+.card:hover img{transform:scale(1.06)}
+.card:hover::after{border-color:rgba(232,93,108,.7)}
+.card:hover .more svg{transform:translateX(4px)}
+@media (max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}.card{aspect-ratio:4/3.4}}
+
+/* ============ 4. GET IN TOUCH ============ */
+.touch{padding:var(--pad-section) 0;background:var(--espresso);color:var(--white)}
+.touch-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:stretch}
+.touch h2{margin-bottom:24px}
+.touch .lead{color:rgba(255,255,255,.72);margin-bottom:48px;max-width:440px}
+.info-boxes{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:48px}
+.info h3{display:flex;align-items:center;gap:14px;font-size:22px;margin-bottom:12px}
+.info .icon{flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.info .icon svg{width:16px;height:16px;color:var(--white)}
+.info dl div{padding:14px 0;border-top:1px solid var(--line-dark)}
+.info dt{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px}
+.info dd{font-size:16px}
+.info dd a:hover{color:var(--accent-light)}
+.touch-actions{display:flex;flex-wrap:wrap;gap:14px}
+/* Map — Elementor "Google Maps" widget, set the address + height in the widget.
+   The filter tones Google's colours to the palette (Elementor: widget › Style › CSS Filters). */
+.map{position:relative;min-height:500px;max-width:100%;border-radius:var(--radius);overflow:hidden;background:var(--espresso-2);outline:1px solid var(--line-dark);outline-offset:10px}
+.map iframe,.map img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.map iframe{filter:grayscale(1) sepia(.25) contrast(1.05)}
+@media (max-width:960px){.touch-grid{grid-template-columns:1fr}.map{min-height:360px;margin:10px}}
+@media (max-width:560px){.info-boxes{grid-template-columns:1fr}}
+
+/* ============ 5. FOOTER ============ */
+.footer{background:var(--espresso);color:rgba(255,255,255,.7);padding:0 0 32px;font-size:14px}
+.footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px;padding:44px 0;border-top:1px solid var(--line-dark)}
+.footer .logo{color:var(--white)}
+.footer-nav{display:flex;flex-wrap:wrap;gap:10px 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.footer-nav a:hover{color:var(--accent-light)}
+.social{display:flex;gap:10px}
+.social a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;transition:border-color .25s,background .25s}
+.social a:hover{border-color:var(--accent);background:var(--accent)}
+.social svg{width:16px;height:16px;fill:var(--white)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid var(--line-dark);font-size:12px;color:rgba(255,255,255,.45)}
+.footer-bottom a:hover{color:var(--accent-light)}
+
+/* =====================================================================
+   INNER PAGES — same tokens, a handful of reusable section types
+   ===================================================================== */
+
+/* Active menu item */
+.nav a[aria-current="page"]:not(.btn){opacity:1;color:var(--accent-light)}
+.footer-nav a[aria-current="page"]{color:var(--white)}
+
+/* Page header (hero, shorter) — Elementor: Section with background image + overlay */
+.hero--page{min-height:auto;
+  background:linear-gradient(90deg,rgba(15,12,9,.82) 0%,rgba(15,12,9,.55) 60%,rgba(15,12,9,.4) 100%),
+    linear-gradient(180deg,rgba(15,12,9,.55) 0%,rgba(15,12,9,0) 30%,rgba(15,12,9,.5) 100%),
+    var(--hero-img,none) center/cover no-repeat,var(--espresso)}
+.hero--page .hero-content{padding-top:clamp(88px,12vw,160px);padding-bottom:clamp(64px,8vw,104px)}
+.hero--page h1{max-width:16ch;margin-bottom:22px}
+.hero--page .lead{margin-bottom:0}
+
+/* Generic section bands */
+.section{padding:var(--pad-section) 0}
+.section--sand{background:var(--linen)}
+.section--dark{background:var(--espresso);color:var(--white)}
+.section--dark .lead,.section--dark .prose p{color:rgba(255,255,255,.72)}
+.section h2{margin-bottom:24px}
+.section-head--center{flex-direction:column;align-items:center;text-align:center}
+.section-head--center p{max-width:560px}
+.prose p{color:var(--ink-soft);margin-bottom:20px}
+.prose p.lead{color:var(--espresso)}
+.prose .btn{margin-top:16px}
+.section--dark .prose p.lead{color:var(--white)}
+
+/* Split: image + text (Elementor: 2-column container) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,8vw,112px);align-items:center}
+.split-img{position:relative;isolation:isolate;aspect-ratio:5/4;max-width:100%}
+.split-img img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.split-img::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--accent);border-radius:var(--radius);z-index:-1}
+.section--dark .split-img::after{border-color:var(--accent-light)}
+.split--reverse .split-img{order:2}
+.split--reverse .split-img::after{inset:18px 18px -18px -18px}
+@media (max-width:860px){
+  .split{grid-template-columns:1fr}
+  .split-img{aspect-ratio:4/3;margin-right:18px}
+  .split--reverse .split-img{order:0;margin:0 0 0 18px}
+}
+
+/* FAQ — Elementor Accordion widget */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,96px);align-items:start}
+.faq details{border-top:1px solid var(--line-light)}
+.faq details:last-child{border-bottom:1px solid var(--line-light)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;cursor:pointer;list-style:none;font-family:var(--font-head);font-size:23px;line-height:1.3}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-light);
+  background:linear-gradient(var(--accent),var(--accent)) center/12px 1.5px no-repeat,linear-gradient(var(--accent),var(--accent)) center/1.5px 12px no-repeat;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--ink-soft);padding:0 56px 26px 0;max-width:38em}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+/* Forms — Elementor Form widget */
+.form-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,96px);align-items:start}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:clamp(28px,4vw,44px);background:var(--espresso-2);border:1px solid var(--line-dark);border-radius:var(--radius)}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field--full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.field input,.field textarea,.field select{font:inherit;font-size:16px;color:var(--white);background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:var(--radius);padding:14px 16px;width:100%;color-scheme:dark}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent-light)}
+.form .btn{justify-self:start;border:0;cursor:pointer}
+.form-done{display:none;grid-column:1/-1;color:var(--accent-light);font-weight:600}
+.form.sent .form-done{display:block}
+@media (max-width:960px){.form-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+
+/* Mission statement */
+.statement{max-width:900px}
+.statement h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:32px}
+.statement p{max-width:40em;color:var(--ink-soft)}
+
+/* Values — 3 columns (Elementor: Icon Box ×3) */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px)}
+.value{padding-top:28px;border-top:1px solid var(--accent)}
+.value .num{display:block;font-family:var(--font-head);font-style:italic;font-size:22px;color:var(--accent);margin-bottom:14px}
+.value h3{font-size:32px;margin-bottom:14px}
+.value p{color:var(--ink-soft)}
+@media (max-width:860px){.values{grid-template-columns:1fr}}
+
+/* Beliefs — 6 items */
+.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(28px,4vw,56px)}
+.belief{padding:28px 0;border-top:1px solid var(--line-light)}
+.belief h3{font-size:24px;margin-bottom:8px}
+.belief p{color:var(--ink-soft);font-size:16px}
+@media (max-width:960px){.beliefs{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.beliefs{grid-template-columns:1fr}}
+
+/* Team — Elementor: Image + Heading + Text ×3 */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,36px)}
+.person img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);margin-bottom:20px;filter:grayscale(.15)}
+.person h3{font-size:26px;margin-bottom:4px}
+.person p{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:860px){.team{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
+
+/* Video player (Watch Live) — Elementor Video widget */
+.player{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:var(--radius);overflow:hidden;background:#000;outline:1px solid var(--line-dark);outline-offset:10px;margin-top:clamp(40px,6vw,64px)}
+.player iframe,.player img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.player .play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(15,12,9,.35)}
+.player .play span{width:84px;height:84px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .25s}
+.player .play:hover span{transform:scale(1.08)}
+.player .play svg{width:26px;height:26px;fill:var(--white);margin-left:4px}
+.live-badge{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
+.live-badge::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent-light);box-shadow:0 0 0 5px rgba(232,93,108,.25)}
+
+/* Link tiles (Watch Live › Get connected / Previous messages) */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tile{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:clamp(28px,4vw,44px);background:var(--ivory);border:1px solid var(--line-light);border-radius:var(--radius);transition:border-color .25s,background .25s}
+.tile h3{font-size:clamp(26px,3vw,34px);margin-bottom:6px}
+.tile p{color:var(--ink-soft);font-size:15px}
+.tile .arrow{flex:none;width:52px;height:52px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .25s}
+.tile .arrow svg{width:18px;height:18px;color:var(--white)}
+.tile:hover{border-color:var(--accent)}
+.tile:hover .arrow{transform:translateX(4px)}
+@media (max-width:760px){.tiles{grid-template-columns:1fr}}
+
+/* Messages — filters + sermon list (Sermon Manager) */
+.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px}
+.filters select{font:inherit;font-size:15px;color:var(--espresso);background:var(--white);border:1px solid var(--line-light);border-radius:var(--radius);padding:14px 16px;width:100%}
+.sermons{display:grid;gap:22px}
+.sermon{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,48px);align-items:center;padding:20px;background:var(--white);border-radius:var(--radius);transition:box-shadow .3s}
+.sermon:hover{box-shadow:0 18px 50px rgba(31,27,23,.1)}
+.sermon-thumb{position:relative;aspect-ratio:16/10;border-radius:2px;overflow:hidden}
+.sermon-thumb img{width:100%;height:100%;object-fit:cover}
+.sermon-thumb span{position:absolute;left:14px;bottom:14px;width:48px;height:48px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.sermon-thumb svg{width:16px;height:16px;fill:var(--white);margin-left:3px}
+.sermon-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sermon-meta span + span{color:var(--ink-soft)}
+.sermon h3{font-size:30px;margin-bottom:10px}
+.sermon p{color:var(--ink-soft);font-size:16px;margin-bottom:14px;max-width:44em}
+.sermon dl{display:flex;flex-wrap:wrap;gap:6px 28px;font-size:14px}
+.sermon dt{display:inline;color:var(--ink-soft)}
+.sermon dd{display:inline;font-weight:600;margin-left:6px}
+@media (max-width:860px){.filters{grid-template-columns:1fr 1fr}.sermon{grid-template-columns:1fr}}
+
+/* Events — calendar (Modern Events Calendar) */
+.cal-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.cal-month{display:flex;align-items:center;gap:18px}
+.cal-month h2{font-size:clamp(32px,4vw,46px);margin:0;min-width:7ch}
+.cal-month button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-light);background:var(--white);cursor:pointer;display:grid;place-items:center}
+.cal-month button svg{width:16px;height:16px}
+.cal-month button:hover{border-color:var(--accent);color:var(--accent)}
+.cal-filter{display:flex;gap:12px;flex-wrap:wrap}
+.cal-filter select,.cal-filter input{font:inherit;font-size:15px;background:var(--white);border:1px solid var(--line-light);border-radius:var(--radius);padding:12px 14px;color:var(--espresso)}
+.cal-layout{display:grid;gap:clamp(40px,5vw,64px)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:var(--white);border:1px solid var(--line-light);border-radius:var(--radius);overflow:hidden}
+.cal .dow{padding:14px 10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-light)}
+.cal .day{min-height:108px;padding:10px;border-right:1px solid var(--line-light);border-bottom:1px solid var(--line-light);font-size:14px;font-variant-numeric:tabular-nums;min-width:0}
+.cal .day:nth-child(7n){border-right:0}
+.cal .day.out{color:rgba(31,27,23,.3);background:rgba(31,27,23,.02)}
+.cal .day.today b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--white)}
+.cal .day b{font-weight:600}
+.cal .evt{display:block;margin-top:8px;padding:6px 8px;border-left:2px solid var(--accent);background:rgba(165,28,48,.07);font-size:13px;line-height:1.35;color:var(--espresso)}
+.cal .evt small{display:block;font-size:11px;color:var(--ink-soft)}
+.cal .evt.alt{border-color:var(--espresso);background:rgba(31,27,23,.06)}
+.upcoming h3{font-size:26px;margin-bottom:6px}
+.upcoming > p{color:var(--ink-soft);margin-bottom:18px;font-size:15px}
+.upcoming-list{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px}
+.event{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center;padding:18px 0;border-top:1px solid var(--line-light)}
+.event .date{display:grid;place-items:center;aspect-ratio:1;background:var(--espresso);color:var(--white);border-radius:var(--radius);line-height:1.1;text-align:center}
+.event .date small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-light)}
+.event .date strong{font-family:var(--font-head);font-size:28px;font-weight:500}
+.event h4{font-family:var(--font-head);font-size:21px;font-weight:500;line-height:1.2}
+.event p{font-size:14px;color:var(--ink-soft)}
+@media (max-width:1024px){.upcoming-list{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.upcoming-list{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .cal .day{min-height:64px;padding:6px}
+  .cal .dow{padding:10px 4px;font-size:10px;letter-spacing:.08em;text-align:center}
+  .cal .evt{font-size:0;padding:0;height:6px;width:6px;border:0;border-radius:50%;background:var(--accent);margin-top:6px}
+  .cal .evt.alt{background:var(--espresso)}
+  .cal .evt small{display:none}
+}
+
+/* Give — ways to give (3 columns) */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.way{display:flex;flex-direction:column;padding:clamp(28px,3.5vw,40px);background:var(--white);border-radius:var(--radius);border-top:3px solid var(--accent)}
+.way .icon{width:46px;height:46px;border-radius:50%;background:rgba(165,28,48,.08);display:grid;place-items:center;margin-bottom:22px}
+.way .icon svg{width:20px;height:20px;color:var(--accent)}
+.way h3{font-size:28px;margin-bottom:12px}
+.way p,.way address{color:var(--ink-soft);font-style:normal;margin-bottom:24px}
+.way .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:900px){.ways{grid-template-columns:1fr}}
+
+/* Big centred statement band (Give › Why we give) */
+.band{text-align:center}
+.band .wrap{max-width:900px}
+.band h2{margin-bottom:24px}
+.band p{color:rgba(255,255,255,.75);margin:0 auto 36px;max-width:40em}
+
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-media video{display:none}}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messages · Lewis Church</title>
+<meta name="description" content="Watch and listen to recent messages from Lewis Church.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  LEWIS — MESSAGES (same section count as the original theme page)
+    1. Page header
+    2. Filters + message list (Sermon Manager)
+    3. Footer (global)
+  Shared colours, fonts and components: styles.css
+-->
+</head>
+<body>
+<!-- ======================= 1. PAGE HEADER ======================= -->
+<section class="hero hero--page on-dark" style="--hero-img:url(https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Lewis Church home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html" aria-current="page">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit</a>
+      </nav>
+    </header>
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Messages</span>
+    <h1>Here's what we've been <em>talking about.</em></h1>
+    <p class="lead">Watch or listen to recent Sunday messages, or filter by speaker, series, topic or book.</p>
+  </div>
+</section>
+<!-- ======================= 2. MESSAGES ======================= -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="filters">
+      <select aria-label="Speaker"><option>Speaker</option><option>Guest Speaker</option><option>Magen Hyatt</option></select>
+      <select aria-label="Series"><option>Series</option><option>New Series</option><option>Second Series</option></select>
+      <select aria-label="Topic"><option>Topic</option><option>Courage</option><option>Faith</option><option>Grace</option></select>
+      <select aria-label="Book"><option>Book</option><option>Genesis</option><option>Mark</option><option>Matthew</option></select>
+    </div>
+    <div class="sermons">
+      <a href="#" class="sermon">
+        <div class="sermon-thumb"><img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=75&auto=format&fit=crop" alt=""><span><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></div>
+        <div>
+          <div class="sermon-meta"><span>Second Series</span><span>Feb 10, 2019</span></div>
+          <h3>Rooted in Grace</h3>
+          <p>What does it look like to build a life on what Jesus actually said? We open the Sermon on the Mount and start with the Beatitudes.</p>
+          <dl><div><dt>Speaker</dt><dd>Magen Hyatt</dd></div><div><dt>Scripture</dt><dd>Matthew 5:1–12</dd></div></dl>
+        </div>
+      </a>
+      <a href="#" class="sermon">
+        <div class="sermon-thumb"><img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=75&auto=format&fit=crop" alt=""><span><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></div>
+        <div>
+          <div class="sermon-meta"><span>Second Series</span><span>Feb 03, 2019</span></div>
+          <h3>You Can Do It!</h3>
+          <p>Courage for uncertain days. Jesus prepares His friends for what's ahead, and His words still steady us today.</p>
+          <dl><div><dt>Speaker</dt><dd>Guest Speaker</dd></div><div><dt>Scripture</dt><dd>Mark 13</dd></div></dl>
+        </div>
+      </a>
+      <a href="#" class="sermon">
+        <div class="sermon-thumb"><img src="https://images.unsplash.com/photo-1445445290350-18a3b86e0b5a?w=800&q=75&auto=format&fit=crop" alt=""><span><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></div>
+        <div>
+          <div class="sermon-meta"><span>New Series</span><span>Jan 27, 2019</span></div>
+          <h3>Pretty Simple</h3>
+          <p>In the beginning, God. Before anything else in Scripture, we meet the One who made it all, and it changes how we see everything.</p>
+          <dl><div><dt>Speaker</dt><dd>Magen Hyatt</dd></div><div><dt>Scripture</dt><dd>Genesis 1:1</dd></div></dl>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <nav class="footer-nav">
+        <a href="plan-your-visit.html">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html" aria-current="page">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+      </nav>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7.1c-.1-1.6-.4-3-1.6-4.2S17.7 1.3 16.1 1.2C14.4 1.1 9.6 1.1 7.9 1.2 6.3 1.3 4.9 1.6 3.7 2.8S2.1 5.5 2.1 7.1C2 8.8 2 13.6 2.1 15.3c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.7.1 6.5.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.7.1-6.5 0-8.2zM19.8 17.3a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9a3.3 3.3 0 0 1 1.9-1.9C7.4 3.1 10.5 3.2 12 3.2s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lewis Church. All rights reserved.</span>
+      <span><a href="https://reachrightstudios.com">Church websites</a> by REACHRIGHT</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

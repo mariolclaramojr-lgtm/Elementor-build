@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch Live · Lewis Church</title>
+<meta name="description" content="Watch Lewis Church services live online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  LEWIS — WATCH LIVE (same section count as the original theme page)
+    1. Page header + live video
+    2. Get connected / previous messages
+    3. Give online
+    4. Prayer request (form)
+    5. Footer (global)
+  Shared colours, fonts and components: styles.css
+-->
+</head>
+<body>
+<!-- ======================= 1. PAGE HEADER + LIVE VIDEO ======================= -->
+<section class="hero hero--page on-dark" style="--hero-img:url(https://images.unsplash.com/photo-1478147427282-58a87a120781?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Lewis Church home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html" aria-current="page">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit</a>
+      </nav>
+    </header>
+  </div>
+  <div class="wrap hero-content">
+    <span class="live-badge">Watch live</span>
+    <h1 style="margin-top:22px">Join us Sundays at <em>10 am.</em></h1>
+    <p class="lead">Worship with us from wherever you are. The stream starts a few minutes before service.</p>
+    <div class="player">
+      <iframe title="Lewis Church live stream" src="https://www.youtube.com/embed/4FZBkcOA6jI" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. GET CONNECTED / PREVIOUS MESSAGES ======================= -->
+<section class="section section--sand">
+  <div class="wrap tiles">
+    <a href="connect.html" class="tile">
+      <div><h3>Get Connected</h3><p>Find a group, a class or a place to serve.</p></div>
+      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="messages.html" class="tile">
+      <div><h3>Previous Messages</h3><p>Missed a Sunday? Catch up on past messages.</p></div>
+      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ======================= 3. GIVE ONLINE ======================= -->
+<section class="section">
+  <div class="wrap split">
+    <div class="split-img"><img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=75&auto=format&fit=crop" alt="Open hands holding coins and a note"></div>
+    <div class="prose">
+      <span class="eyebrow">Give online</span>
+      <h2>Thank you for <em>giving.</em></h2>
+        <p class="lead">None of the work we do would be possible without God moving the hearts of our people to give.</p>
+        <p>Your generosity helps create a church where people feel welcomed, led, and loved: a place where life-changing stories are being written every week. Thank you for giving from your heart.</p>
+      <a href="give.html" class="btn btn-primary">Give Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+<!-- ======================= 4. PRAYER REQUEST ======================= -->
+<section class="section section--dark on-dark">
+  <div class="wrap form-grid">
+    <div>
+      <span class="eyebrow">Prayer</span>
+      <h2>How can we pray <em>for you?</em></h2>
+      <p class="lead">Our prayer team reads every request and prays over it this week. Share as much or as little as you like.</p>
+    </div>
+    <form class="form" onsubmit="event.preventDefault();this.classList.add('sent')">
+      <div class="field"><label for="p-first">First name</label><input id="p-first" autocomplete="given-name"></div>
+      <div class="field"><label for="p-last">Last name</label><input id="p-last" autocomplete="family-name"></div>
+      <div class="field"><label for="p-phone">Phone</label><input id="p-phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="p-email">Email</label><input id="p-email" type="email" autocomplete="email"></div>
+      <div class="field field--full"><label for="p-request">How can we pray? *</label><textarea id="p-request" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="form-done">Thank you. We're praying with you.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <nav class="footer-nav">
+        <a href="plan-your-visit.html">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html" aria-current="page">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+      </nav>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7.1c-.1-1.6-.4-3-1.6-4.2S17.7 1.3 16.1 1.2C14.4 1.1 9.6 1.1 7.9 1.2 6.3 1.3 4.9 1.6 3.7 2.8S2.1 5.5 2.1 7.1C2 8.8 2 13.6 2.1 15.3c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.7.1 6.5.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.7.1-6.5 0-8.2zM19.8 17.3a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9a3.3 3.3 0 0 1 1.9-1.9C7.4 3.1 10.5 3.2 12 3.2s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lewis Church. All rights reserved.</span>
+      <span><a href="https://reachrightstudios.com">Church websites</a> by REACHRIGHT</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

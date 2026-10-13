@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <!--
   LEWIS — REDESIGN MOCKUP (premium)
   Same 5 sections as the original theme (header lives inside the hero):
@@ -20,189 +21,14 @@
   Every block maps to a stock Elementor widget (Heading, Text Editor, Button,
   Image, Icon List, Nav Menu, Social Icons, Google Maps). The italic word in a
   heading is just <em> inside the Heading widget. All colours/fonts are the
-  variables below → set them once as Elementor Global Colors / Global Fonts.
+  variables in styles.css → set them once as Elementor Global Colors / Global Fonts.
   Images: Unsplash. Hero video: Mixkit clip 14084 (free licence), compressed to hero.mp4.
 -->
-<style>
-  /* Layout: full-bleed image sections alternating with ivory and espresso bands, 1200px content */
-  :root{
-    /* Global colours */
-    --ivory:#F7F2EB;        /* cream page background */
-    --linen:#EDE4D8;        /* sand band */
-    --espresso:#1F1B17;     /* ink: text + dark bands */
-    --espresso-2:#2A2420;
-    --ink-soft:#57504A;
-    --accent:#A51C30;       /* Lewis red: buttons, accents on light */
-    --accent-dark:#7F1424;
-    --accent-light:#E85D6C; /* bright Lewis red: accents on dark */
-    --white:#FFFFFF;
-    --line-light:rgba(23,19,15,.12);
-    --line-dark:rgba(255,255,255,.14);
-    /* Global fonts */
-    --font-head:"Fraunces", Georgia, serif;
-    --font-body:"Inter", system-ui, -apple-system, sans-serif;
-    /* Layout */
-    --wrap:1200px;
-    --radius:4px;
-    --pad-section:clamp(88px, 11vw, 152px);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--ivory);color:var(--espresso);font-family:var(--font-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
-  img{display:block;max-width:100%}
-  a{color:inherit;text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-  @media (max-width:600px){.wrap{padding:0 16px}}
-
-  h1,h2,h3{font-family:var(--font-head);font-weight:500;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
-  h1{font-size:clamp(46px,7.6vw,96px)}
-  h2{font-size:clamp(36px,4.8vw,60px)}
-  h3{font-size:25px;line-height:1.15}
-  h1 em,h2 em{font-style:italic;color:var(--accent-light)}
-  .welcome h2 em,.pathways h2 em{color:var(--accent)}
-  .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
-  .eyebrow::before{content:"";width:32px;height:1px;background:currentColor}
-  .on-dark .eyebrow{color:var(--accent-light)}
-  .lead{font-size:clamp(17px,1.5vw,19px);color:var(--ink-soft);max-width:34em}
-
-  /* Buttons — one global style, three variants */
-  .btn{display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s}
-  .btn svg{width:15px;height:15px;transition:transform .25s}
-  .btn:hover svg{transform:translateX(4px)}
-  .btn-primary{background:var(--accent);color:var(--white)}
-  .btn-primary:hover{background:var(--accent-dark)}
-  .btn-dark{background:var(--espresso);color:var(--ivory)}
-  .btn-dark:hover{background:var(--accent-dark)}
-  .btn-ghost{border:1px solid rgba(255,255,255,.45);color:var(--white)}
-  .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
-
-  /* ============ 1. HERO + HEADER ============ */
-  .hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;color:var(--white);
-    background:linear-gradient(180deg,rgba(15,12,9,.7) 0%,rgba(15,12,9,.3) 38%,rgba(15,12,9,.88) 100%),
-      url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=2000&q=75&auto=format&fit=crop") center 35%/cover no-repeat}
-  .hero > .wrap{position:relative;z-index:1;width:100%}
-  /* Video background — Elementor: Section › Style › Background › Video (MP4 link), image as fallback */
-  .hero-media{position:absolute;inset:0;overflow:hidden}
-  .hero-media video{width:100%;height:100%;object-fit:cover}
-  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.4) 40%,rgba(15,12,9,.9) 100%)}
-  .header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;border-bottom:1px solid var(--line-dark)}
-  .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-head);font-size:25px;font-weight:600;letter-spacing:.01em}
-  .logo svg{width:30px;height:30px;color:var(--accent-light)}
-  .nav{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-  .nav a:not(.btn){opacity:.85;transition:opacity .2s,color .2s}
-  .nav a:not(.btn):hover{opacity:1;color:var(--accent-light)}
-  .nav .btn{padding:13px 22px;font-size:12px}
-  .menu-toggle{display:none;background:none;border:0;color:inherit;cursor:pointer}
-  .menu-toggle svg{width:28px;height:28px}
-
-  .hero-content{margin-top:auto;padding-top:96px}
-  .hero h1{max-width:11ch;margin-bottom:28px}
-  .hero .lead{color:rgba(255,255,255,.82);max-width:500px;margin-bottom:40px}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-  .hero-times{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,8vw,96px);border-top:1px solid var(--line-dark)}
-  .hero-times div{padding:26px 0 34px;font-size:15px;color:rgba(255,255,255,.78)}
-  .hero-times div + div{padding-left:32px;border-left:1px solid var(--line-dark)}
-  .hero-times span{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-light);margin-bottom:6px}
-
-  /* one orchestrated moment: hero copy rises in on load */
-  @keyframes rise{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .hero-content > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-  .hero-content > *:nth-child(2){animation-delay:.08s}
-  .hero-content > *:nth-child(3){animation-delay:.16s}
-  .hero-content > *:nth-child(4){animation-delay:.24s}
-  .hero-content > *:nth-child(5){animation-delay:.32s}
-
-  @media (max-width:960px){
-    .menu-toggle{display:block}
-    .nav{display:none;position:absolute;top:92px;left:16px;right:16px;flex-direction:column;align-items:stretch;gap:0;
-      background:var(--ivory);color:var(--espresso);padding:12px 20px 20px;box-shadow:0 24px 60px rgba(0,0,0,.35);z-index:10}
-    .nav.open{display:flex}
-    .nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--line-light);opacity:1}
-    .nav .btn{justify-content:center;margin-top:16px}
-  }
-  @media (max-width:700px){
-    .hero-times{grid-template-columns:1fr}
-    .hero-times div{padding:18px 0}
-    .hero-times div + div{padding-left:0;border-left:0;border-top:1px solid var(--line-dark)}
-  }
-
-  /* ============ 2. WELCOME ============ */
-  .welcome{padding:var(--pad-section) 0}
-  .welcome-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(48px,8vw,120px);align-items:center}
-  .welcome-img{position:relative;isolation:isolate;aspect-ratio:4/5;max-width:100%}
-  .welcome-img img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
-  .welcome-img::after{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--accent);border-radius:var(--radius);z-index:-1}
-  .welcome h2{margin-bottom:28px}
-  .welcome p{color:var(--ink-soft);margin-bottom:20px}
-  .welcome p.lead{color:var(--espresso)}
-  .scripture{margin:36px 0 40px;padding-left:24px;border-left:2px solid var(--accent)}
-  .scripture q{display:block;font-family:var(--font-head);font-style:italic;font-size:22px;line-height:1.3;color:var(--espresso)}
-  .scripture cite{display:block;margin-top:10px;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
-  @media (max-width:860px){.welcome-grid{grid-template-columns:1fr}.welcome-img{aspect-ratio:4/3;margin-right:22px}}
-
-  /* ============ 3. PATHWAYS (4 cards) ============ */
-  .pathways{padding:var(--pad-section) 0;background:var(--linen)}
-  .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:56px}
-  .section-head p{max-width:360px;color:var(--ink-soft)}
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4.3;max-width:100%;border-radius:var(--radius);overflow:hidden;color:var(--white);padding:28px}
-  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-  .card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.05) 30%,rgba(15,12,9,.9) 100%);z-index:1}
-  .card::after{content:"";position:absolute;inset:12px;border:1px solid rgba(232,93,108,0);border-radius:2px;z-index:1;transition:border-color .4s}
-  .card > *:not(img){position:relative;z-index:2}
-  .card h3{margin-bottom:10px}
-  .card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin-bottom:22px}
-  .card .more{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line-dark);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-  .card .more svg{width:16px;height:16px;color:var(--accent-light);transition:transform .3s}
-  .card:hover img{transform:scale(1.06)}
-  .card:hover::after{border-color:rgba(232,93,108,.7)}
-  .card:hover .more svg{transform:translateX(4px)}
-  @media (max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:560px){.cards{grid-template-columns:1fr}.card{aspect-ratio:4/3.4}}
-
-  /* ============ 4. GET IN TOUCH ============ */
-  .touch{padding:var(--pad-section) 0;background:var(--espresso);color:var(--white)}
-  .touch-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:stretch}
-  .touch h2{margin-bottom:24px}
-  .touch .lead{color:rgba(255,255,255,.72);margin-bottom:48px;max-width:440px}
-  .info-boxes{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:48px}
-  .info h3{display:flex;align-items:center;gap:14px;font-size:22px;margin-bottom:12px}
-  .info .icon{flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
-  .info .icon svg{width:16px;height:16px;color:var(--white)}
-  .info dl div{padding:14px 0;border-top:1px solid var(--line-dark)}
-  .info dt{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px}
-  .info dd{font-size:16px}
-  .info dd a:hover{color:var(--accent-light)}
-  .touch-actions{display:flex;flex-wrap:wrap;gap:14px}
-  /* Map — Elementor "Google Maps" widget, set the address + height in the widget.
-     The filter tones Google's colours to the palette (Elementor: widget › Style › CSS Filters). */
-  .map{position:relative;min-height:500px;max-width:100%;border-radius:var(--radius);overflow:hidden;background:var(--espresso-2);outline:1px solid var(--line-dark);outline-offset:10px}
-  .map iframe,.map img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
-  .map iframe{filter:grayscale(1) sepia(.25) contrast(1.05)}
-  @media (max-width:960px){.touch-grid{grid-template-columns:1fr}.map{min-height:360px;margin:10px}}
-  @media (max-width:560px){.info-boxes{grid-template-columns:1fr}}
-
-  /* ============ 5. FOOTER ============ */
-  .footer{background:var(--espresso);color:rgba(255,255,255,.7);padding:0 0 32px;font-size:14px}
-  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px;padding:44px 0;border-top:1px solid var(--line-dark)}
-  .footer .logo{color:var(--white)}
-  .footer-nav{display:flex;flex-wrap:wrap;gap:10px 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-  .footer-nav a:hover{color:var(--accent-light)}
-  .social{display:flex;gap:10px}
-  .social a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;transition:border-color .25s,background .25s}
-  .social a:hover{border-color:var(--accent);background:var(--accent)}
-  .social svg{width:16px;height:16px;fill:var(--white)}
-  .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid var(--line-dark);font-size:12px;color:rgba(255,255,255,.45)}
-  .footer-bottom a:hover{color:var(--accent-light)}
-
-  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-media video{display:none}}
-</style>
 </head>
 <body>
 
 <!-- ======================= 1. HERO + HEADER ======================= -->
-<section class="hero on-dark">
+<section class="hero on-dark" style="--hero-img:url(https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=2000&q=75&auto=format&fit=crop)">
   <div class="hero-media" aria-hidden="true">
     <video autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg">
       <source src="hero.webm" type="video/webm">
@@ -212,7 +38,7 @@
   </div>
   <div class="wrap">
     <header class="header">
-      <a href="#" class="logo" aria-label="Lewis Church home">
+      <a href="index.html" class="logo" aria-label="Lewis Church home">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
         Lewis Church
       </a>
@@ -220,13 +46,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
       </button>
       <nav class="nav">
-        <a href="#">About</a>
-        <a href="#">Connect</a>
-        <a href="#">Messages</a>
-        <a href="#">Events</a>
-        <a href="#">Watch Live</a>
-        <a href="#">Give</a>
-        <a href="#" class="btn btn-primary">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit</a>
       </nav>
     </header>
   </div>
@@ -236,9 +62,9 @@
     <h1>We're saving you a <em>seat.</em></h1>
     <p class="lead">Whoever you are and wherever you're coming from, there's a place for you here. Come as you are.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn-primary">Plan Your Visit
+      <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#" class="btn btn-ghost">Watch Live</a>
+      <a href="watch-live.html" class="btn btn-ghost">Watch Live</a>
     </div>
     <div class="hero-times">
       <div><span>Sundays</span>8:30 am &amp; 10:00 am</div>
@@ -263,7 +89,7 @@
         <q>Come to me, all you who are weary and burdened, and I will give you rest.</q>
         <cite>Matthew 11:28</cite>
       </blockquote>
-      <a href="#" class="btn btn-dark">Our Story
+      <a href="about.html" class="btn btn-dark">Our Story
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
@@ -281,25 +107,25 @@
     </div>
 
     <div class="cards">
-      <a href="#" class="card">
+      <a href="about.html" class="card">
         <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=75&auto=format&fit=crop" alt="People seated during a church service">
         <h3>About Us</h3>
         <p>Learn who we are, our mission and vision, and meet our team.</p>
         <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#" class="card">
+      <a href="watch-live.html" class="card">
         <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800&q=75&auto=format&fit=crop" alt="Hands raised in worship">
         <h3>Watch Live</h3>
         <p>Can't make it in person? Worship with us from home.</p>
         <span class="more">Join online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#" class="card">
+      <a href="events.html" class="card">
         <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=75&auto=format&fit=crop" alt="A group gathered together in prayer">
         <h3>Events</h3>
         <p>See what's happening at Lewis Church and stay up to date.</p>
         <span class="more">View calendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#" class="card">
+      <a href="give.html" class="card">
         <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=75&auto=format&fit=crop" alt="Open hands holding coins and a note">
         <h3>Give</h3>
         <p>Your generosity helps us serve our community in many ways.</p>
@@ -335,7 +161,7 @@
       </div>
 
       <div class="touch-actions">
-        <a href="#" class="btn btn-primary">Plan Your Visit
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="https://maps.google.com/?q=Franklin,TN" class="btn btn-ghost">Get Directions</a>
       </div>
@@ -352,18 +178,18 @@
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
         Lewis Church
       </a>
       <nav class="footer-nav">
-        <a href="#">Plan Your Visit</a>
-        <a href="#">About</a>
-        <a href="#">Connect</a>
-        <a href="#">Watch Live</a>
-        <a href="#">Messages</a>
-        <a href="#">Events</a>
-        <a href="#">Give</a>
+        <a href="plan-your-visit.html">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
       </nav>
       <div class="social">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>

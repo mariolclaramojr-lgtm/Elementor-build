@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events · Lewis Church</title>
+<meta name="description" content="See what's happening at Lewis Church.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  LEWIS — EVENTS (same section count as the original theme page)
+    1. Page header
+    2. Calendar + upcoming events (Modern Events Calendar)
+    3. Footer (global)
+  Shared colours, fonts and components: styles.css
+-->
+</head>
+<body>
+<!-- ======================= 1. PAGE HEADER ======================= -->
+<section class="hero hero--page on-dark" style="--hero-img:url(https://images.unsplash.com/photo-1609234656388-0ff363383899?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Lewis Church home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html" aria-current="page">Events</a>
+        <a href="give.html">Give</a>
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit</a>
+      </nav>
+    </header>
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Upcoming events</span>
+    <h1>Here's what's happening <em>next.</em></h1>
+    <p class="lead">Services, groups and gatherings at Lewis Church. Everyone is welcome.</p>
+  </div>
+</section>
+<!-- ======================= 2. CALENDAR ======================= -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="cal-bar">
+      <div class="cal-month">
+        <button aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <h2>October <em>2026</em></h2>
+        <button aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="cal-filter">
+        <select aria-label="Category"><option>All categories</option><option>Worship</option><option>Students</option><option>Kids</option></select>
+        <input type="search" aria-label="Search events" placeholder="Search events">
+      </div>
+    </div>
+    <div class="cal-layout">
+      <div class="cal">
+        <div class="dow">Sun</div><div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div>
+        <div class="day out"><b>27</b></div>
+        <div class="day out"><b>28</b></div>
+        <div class="day out"><b>29</b></div>
+        <div class="day out"><b>30</b></div>
+        <div class="day"><b>1</b></div>
+        <div class="day"><b>2</b></div>
+        <div class="day"><b>3</b></div>
+        <div class="day"><b>4</b><span class="evt"><small>10:00 am</small>Sunday Worship</span></div>
+        <div class="day"><b>5</b></div>
+        <div class="day"><b>6</b></div>
+        <div class="day"><b>7</b><span class="evt alt"><small>6:30 pm</small>Wednesday Night</span></div>
+        <div class="day"><b>8</b></div>
+        <div class="day"><b>9</b></div>
+        <div class="day"><b>10</b></div>
+        <div class="day"><b>11</b><span class="evt"><small>10:00 am</small>Sunday Worship</span></div>
+        <div class="day"><b>12</b></div>
+        <div class="day today"><b>13</b></div>
+        <div class="day"><b>14</b><span class="evt alt"><small>6:30 pm</small>Wednesday Night</span></div>
+        <div class="day"><b>15</b></div>
+        <div class="day"><b>16</b></div>
+        <div class="day"><b>17</b></div>
+        <div class="day"><b>18</b><span class="evt"><small>10:00 am</small>Sunday Worship</span></div>
+        <div class="day"><b>19</b></div>
+        <div class="day"><b>20</b></div>
+        <div class="day"><b>21</b><span class="evt alt"><small>6:30 pm</small>Wednesday Night</span></div>
+        <div class="day"><b>22</b></div>
+        <div class="day"><b>23</b></div>
+        <div class="day"><b>24</b></div>
+        <div class="day"><b>25</b><span class="evt"><small>10:00 am</small>Sunday Worship</span></div>
+        <div class="day"><b>26</b></div>
+        <div class="day"><b>27</b></div>
+        <div class="day"><b>28</b><span class="evt alt"><small>6:30 pm</small>Wednesday Night</span></div>
+        <div class="day"><b>29</b></div>
+        <div class="day"><b>30</b></div>
+        <div class="day"><b>31</b></div>
+      </div>
+      <aside class="upcoming">
+        <h3>Coming up</h3>
+        <p>The next few things on the calendar.</p>
+        <div class="upcoming-list">
+      <div class="event"><div class="date"><div><small>Oct</small><strong>14</strong></div></div><div><h4>Wednesday Night</h4><p>6:30 pm – 8:00 pm · Student Center</p></div></div>
+      <div class="event"><div class="date"><div><small>Oct</small><strong>18</strong></div></div><div><h4>Sunday Worship</h4><p>10:00 am – 11:30 am · Main Auditorium</p></div></div>
+      <div class="event"><div class="date"><div><small>Oct</small><strong>21</strong></div></div><div><h4>Wednesday Night</h4><p>6:30 pm – 8:00 pm · Student Center</p></div></div>
+      <div class="event"><div class="date"><div><small>Oct</small><strong>25</strong></div></div><div><h4>Sunday Worship</h4><p>10:00 am – 11:30 am · Main Auditorium</p></div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <nav class="footer-nav">
+        <a href="plan-your-visit.html">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html" aria-current="page">Events</a>
+        <a href="give.html">Give</a>
+      </nav>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7.1c-.1-1.6-.4-3-1.6-4.2S17.7 1.3 16.1 1.2C14.4 1.1 9.6 1.1 7.9 1.2 6.3 1.3 4.9 1.6 3.7 2.8S2.1 5.5 2.1 7.1C2 8.8 2 13.6 2.1 15.3c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.7.1 6.5.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.7.1-6.5 0-8.2zM19.8 17.3a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9a3.3 3.3 0 0 1 1.9-1.9C7.4 3.1 10.5 3.2 12 3.2s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lewis Church. All rights reserved.</span>
+      <span><a href="https://reachrightstudios.com">Church websites</a> by REACHRIGHT</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

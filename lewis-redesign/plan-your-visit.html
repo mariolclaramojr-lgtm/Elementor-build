@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan Your Visit · Lewis Church</title>
+<meta name="description" content="Plan your first visit to Lewis Church.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  LEWIS — PLAN YOUR VISIT (same section count as the original theme page)
+    1. Page header
+    2. Welcome home (image + text)
+    3. Frequently asked questions (accordion)
+    4. Let us know you're coming (form)
+    5. Footer (global)
+  Shared colours, fonts and components: styles.css
+-->
+</head>
+<body>
+<!-- ======================= 1. PAGE HEADER ======================= -->
+<section class="hero hero--page on-dark" style="--hero-img:url(https://images.unsplash.com/photo-1511895426328-dc8714191300?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Lewis Church home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=document.querySelector('.nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+        <a href="plan-your-visit.html" class="btn btn-primary" aria-current="page">Plan Your Visit</a>
+      </nav>
+    </header>
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Plan your visit</span>
+    <h1>Let's make your first visit a <em>great one.</em></h1>
+    <p class="lead">Sundays at 8:30 &amp; 10:00 am · Wednesdays at 6:30 pm</p>
+  </div>
+</section>
+<!-- ======================= 2. WELCOME HOME ======================= -->
+<section class="section">
+  <div class="wrap split">
+    <div class="split-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=75&auto=format&fit=crop" alt="Two people sharing coffee"></div>
+    <div class="prose">
+      <span class="eyebrow">Welcome home</span>
+      <h2>Come as you <em>are.</em></h2>
+        <p class="lead">We want church to be a place where your entire family is encouraged to draw closer to Christ.</p>
+        <p>Visiting somewhere new can be intimidating. We want you to feel comfortable and welcome when you walk through our doors. Smiling faces will greet you and show you where to go. Enjoy a cup of coffee and relax with us!</p>
+    </div>
+  </div>
+</section>
+<!-- ======================= 3. FAQ ======================= -->
+<section class="section section--sand">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Good to know</span>
+      <h2>Frequently asked <em>questions.</em></h2>
+      <p class="lead">Still wondering about something? Call us at 111-123-4567 and we'll help.</p>
+    </div>
+    <div class="faq">
+        <details open>
+          <summary>What should I wear?</summary>
+          <p>Whatever you're comfortable in. You'll see everything from jeans to dresses on a Sunday morning, so come as you are.</p>
+        </details>
+        <details>
+          <summary>What should I expect when I arrive?</summary>
+          <p>Our greeters will meet you at the front doors, help you find a seat and point you to the coffee bar. Services include worship music, a short welcome and a message from the Bible.</p>
+        </details>
+        <details>
+          <summary>What do you have for my kids?</summary>
+          <p>Lewis Kids runs during both Sunday services for children from birth through 5th grade. Check-in is in the main lobby, and every volunteer is background-checked.</p>
+        </details>
+        <details>
+          <summary>How long is a service?</summary>
+          <p>About 75 minutes, start to finish. Feel free to stay afterwards to meet people and grab another cup of coffee.</p>
+        </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. VISIT FORM ======================= -->
+<section class="section section--dark on-dark">
+  <div class="wrap form-grid">
+    <div>
+      <span class="eyebrow">Plan ahead</span>
+      <h2>Let us know you're <em>coming!</em></h2>
+      <p class="lead">Tell us when you're planning to visit and we'll have someone ready to welcome you and show you around.</p>
+    </div>
+    <form class="form" onsubmit="event.preventDefault();this.classList.add('sent')">
+      <div class="field"><label for="v-first">First name</label><input id="v-first" autocomplete="given-name"></div>
+      <div class="field"><label for="v-last">Last name</label><input id="v-last" autocomplete="family-name"></div>
+      <div class="field"><label for="v-phone">Phone</label><input id="v-phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="v-date">When will you be visiting?</label><input id="v-date" type="date"></div>
+      <div class="field field--full"><label for="v-guests">Will you be bringing anyone?</label><textarea id="v-guests" placeholder="Names and ages of anyone coming with you"></textarea></div>
+      <button class="btn btn-primary" type="submit">Let us know <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="form-done">Thanks! We can't wait to meet you.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M9 11h14"/><circle cx="16" cy="16" r="15" stroke-width="1" opacity=".6"/></svg>
+        Lewis Church
+      </a>
+      <nav class="footer-nav">
+        <a href="plan-your-visit.html" aria-current="page">Plan Your Visit</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
+        <a href="watch-live.html">Watch Live</a>
+        <a href="messages.html">Messages</a>
+        <a href="events.html">Events</a>
+        <a href="give.html">Give</a>
+      </nav>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7.1c-.1-1.6-.4-3-1.6-4.2S17.7 1.3 16.1 1.2C14.4 1.1 9.6 1.1 7.9 1.2 6.3 1.3 4.9 1.6 3.7 2.8S2.1 5.5 2.1 7.1C2 8.8 2 13.6 2.1 15.3c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.7.1 6.5.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.7.1-6.5 0-8.2zM19.8 17.3a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9a3.3 3.3 0 0 1 1.9-1.9C7.4 3.1 10.5 3.2 12 3.2s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lewis Church. All rights reserved.</span>
+      <span><a href="https://reachrightstudios.com">Church websites</a> by REACHRIGHT</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
