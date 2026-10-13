@@ -12,8 +12,8 @@
 <!--
   LEWIS — ABOUT (same section count as the original theme page)
     1. Page header
-    2. Mission &amp; vision
-    3. Our values (3)
+    2. Mission &amp; vision + welcome video
+    3. Our values (3, photo background)
     4. Our beliefs (6)
     5. Our team (3)
     6. Get in touch + map
@@ -52,15 +52,30 @@
 </section>
 <!-- ======================= 2. MISSION & VISION ======================= -->
 <section class="section">
-  <div class="wrap statement">
-    <span class="eyebrow">Our mission &amp; vision</span>
-    <h2>Connect people to a growing, <em>life&#8209;changing</em> relationship with Jesus Christ.</h2>
-    <p class="lead">Our vision is to create a church where people can experience God, connect in relationship with God and others, and respond to what God is doing.</p>
+  <div class="wrap split split--video">
+    <div class="prose">
+      <span class="eyebrow">Our mission &amp; vision</span>
+      <h2>Connect people to a growing, <em>life&#8209;changing</em> relationship with Jesus.</h2>
+      <p class="lead">Our vision is to create a church where people can experience God, connect in relationship with God and others, and respond to what God is doing.</p>
+      <p>Press play to hear from our pastor and get a feel for a Sunday at Lewis Church before you visit.</p>
+      <a href="plan-your-visit.html" class="btn btn-dark">Plan Your Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="video-wrap">
+      <div class="video-card">
+        <video preload="metadata" playsinline poster="welcome-poster.jpg" onplay="this.parentNode.classList.add('playing')">
+          <source src="welcome.webm" type="video/webm">
+          <source src="welcome.mp4" type="video/mp4">
+          <source src="https://lewistheme.wpengine.com/wp-content/uploads/2021/09/Conference-seats.mp4" type="video/mp4">
+        </video>
+        <button class="play" type="button" onclick="var v=this.parentNode.querySelector('video');v.controls=true;v.play()"><span><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span>Watch our welcome</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ======================= 3. VALUES ======================= -->
-<section class="section section--sand">
+<section class="section section--dark section--photo on-dark" style="--bg-img:url(https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=2000&q=75&auto=format&fit=crop)">
   <div class="wrap">
     <div class="section-head">
       <div>
