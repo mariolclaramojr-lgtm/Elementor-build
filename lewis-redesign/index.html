@@ -11,7 +11,7 @@
 <!--
   LEWIS — REDESIGN MOCKUP (premium)
   Same 5 sections as the original theme (header lives inside the hero):
-    1. Hero          — background image, heading, subheading, 2 buttons, service-times bar
+    1. Hero          — background video (image fallback), heading, subheading, 2 buttons, service-times bar
     2. Welcome       — image + heading + text + scripture + button
     3. Pathways      — 4 identical image cards (About, Watch Live, Events, Give)
     4. Get in Touch  — heading + text, two info lists, 2 buttons, Google Map
@@ -21,7 +21,7 @@
   Image, Icon List, Nav Menu, Social Icons, Google Maps). The italic word in a
   heading is just <em> inside the Heading widget. All colours/fonts are the
   variables below → set them once as Elementor Global Colors / Global Fonts.
-  Images: Unsplash (free to use).
+  Images: Unsplash. Hero video: Mixkit clip 14084 (free licence), compressed to hero.mp4.
 -->
 <style>
   /* Layout: full-bleed image sections alternating with ivory and espresso bands, 1200px content */
@@ -81,7 +81,11 @@
   .hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;color:var(--white);
     background:linear-gradient(180deg,rgba(15,12,9,.7) 0%,rgba(15,12,9,.3) 38%,rgba(15,12,9,.88) 100%),
       url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=2000&q=75&auto=format&fit=crop") center 35%/cover no-repeat}
-  .hero > .wrap{width:100%}
+  .hero > .wrap{position:relative;z-index:1;width:100%}
+  /* Video background — Elementor: Section › Style › Background › Video (MP4 link), image as fallback */
+  .hero-media{position:absolute;inset:0;overflow:hidden}
+  .hero-media video{width:100%;height:100%;object-fit:cover}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.4) 40%,rgba(15,12,9,.9) 100%)}
   .header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;border-bottom:1px solid var(--line-dark)}
   .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-head);font-size:25px;font-weight:600;letter-spacing:.01em}
   .logo svg{width:30px;height:30px;color:var(--accent-light)}
@@ -192,13 +196,20 @@
   .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid var(--line-dark);font-size:12px;color:rgba(255,255,255,.45)}
   .footer-bottom a:hover{color:var(--accent-light)}
 
-  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-media video{display:none}}
 </style>
 </head>
 <body>
 
 <!-- ======================= 1. HERO + HEADER ======================= -->
 <section class="hero on-dark">
+  <div class="hero-media" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg">
+      <source src="hero.webm" type="video/webm">
+      <source src="hero.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/14084/14084-720.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
     <header class="header">
       <a href="#" class="logo" aria-label="Lewis Church home">
