@@ -252,7 +252,7 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 @media (max-width:560px){.form{grid-template-columns:1fr}}
 
 /* Mission statement */
-.statement{max-width:900px}
+.statement > *{max-width:900px}
 .statement h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:32px}
 .statement p{max-width:40em;color:var(--ink-soft)}
 
