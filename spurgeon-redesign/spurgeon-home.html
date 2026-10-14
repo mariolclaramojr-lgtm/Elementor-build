@@ -121,7 +121,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--white);background:var(--ink) url(hero-poster.jpg) center/cover no-repeat;overflow:hidden}
 /* Background video (Elementor: Container › Background › Video, with Background Overlay) */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(22,24,27,.6) 0%,rgba(22,24,27,.35) 30%,rgba(22,24,27,.45) 55%,rgba(22,24,27,.92) 100%),rgba(12,28,44,.25)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(22,24,27,.6) 0%,rgba(22,24,27,.35) 30%,rgba(22,24,27,.45) 55%,rgba(22,24,27,.92) 100%),rgba(22,24,27,.2)}
 .hero-main,.hero-bar{z-index:2}
 .hero-main{position:relative;width:100%;padding-bottom:clamp(48px,6vw,80px)}
 .kicker{display:inline-flex;align-items:center;gap:12px;font-size:var(--t-label);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
@@ -176,27 +176,23 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 @media (max-width:480px){.cards{column-gap:16px;row-gap:32px}.card h3{font-size:17px}.card h3 i{font-size:13px}.card-meta span{display:none}}
 
 /* ============ 4. GET IN TOUCH — 3 columns + map/image row ============ */
-.touch-cols{row-gap:48px;margin-bottom:clamp(64px,7vw,96px)}
-.touch-cols>div{grid-column:span 4}
-.touch-cols .intro h2{margin-bottom:24px}
-.touch-cols .intro p{margin-bottom:32px;max-width:24em}
-.info h4{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px}
-.info dl{border-top:1px solid var(--line)}
-.info dl>div{padding:16px 0;border-bottom:1px solid var(--line)}
-.info dt{font-size:14px;color:var(--ink-soft);margin-bottom:2px}
-.info dd{font-family:var(--font-head);font-weight:500;font-size:var(--t-h3);letter-spacing:-.015em;line-height:1.3}
-.info dd a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
-.info dd a:hover{background-size:100% 1px}
+.touch{row-gap:48px;align-items:start;margin-bottom:clamp(64px,7vw,96px)}
+.touch-intro{grid-column:1/6}
+.touch-intro h2{margin-bottom:24px}
+.touch-intro p{margin-bottom:32px;max-width:26em}
+.details{grid-column:7/13;border-top:1px solid var(--line-strong)}
+.details>div{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.details dt{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.details dd{font-size:18px;font-weight:500}
+.details dd a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+.details dd a:hover{background-size:100% 1px}
 .visit-row{align-items:stretch}
 .visit-row .map{grid-column:1/9;height:clamp(360px,36vw,480px)}
 .visit-row .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.02)}
 .visit-row .img-c{grid-column:9/13;height:clamp(360px,36vw,480px)}
-@media (max-width:1000px){
-  .touch-cols .intro{grid-column:1/-1}
-  .touch-cols .info{grid-column:span 6}
-}
+@media (max-width:1000px){.touch-intro,.details{grid-column:1/-1}}
 @media (max-width:700px){
-  .touch-cols .info{grid-column:1/-1}
+  .details>div{grid-template-columns:100px 1fr;gap:16px}
   .visit-row{row-gap:16px}
   .visit-row .map,.visit-row .img-c{grid-column:1/-1}
   .visit-row .map{height:340px}.visit-row .img-c{height:auto;aspect-ratio:4/3}
@@ -232,13 +228,14 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 </style>
 <!--
   SPURGEON — REDESIGN v2 (columns)
-  Same 5 sections and copy as the original theme. Hero video: Mixkit (free licence), compressed copy in
+  Same 5 sections and copy as the original theme. Hero video: Pexels 37639456 "Inspiring Christian Concert with Worship"
+  by Mariano Quintero (free licence), compressed copy in
   hero.webm/.mp4 with hero-poster.jpg. Photos: Unsplash (free licence), modern-church set.
     1. Hero          — background video, "Loving God. Loving People.", 2 buttons, 3-column service bar
     2. Welcome Home  — 2 columns: heading + text + About Us | two photos side by side
     3. Our Ministries— dark band: heading | text + Get Connected; 4 photo cards captioned with the
                        "single or married / with children or without / young or old / male or female" pairs
-    4. Get in Touch  — 3 columns: heading + text + button | service times | contact; map (8 cols) + photo (4 cols)
+    4. Get in Touch  — 2 columns: heading + text + button | one simple details list; map (8 cols) + photo (4 cols)
     5. Footer        — logo + tagline, menu, socials, credit, wordmark
 
   System: 12-column grid, 8px spacing steps, 1px hairlines, 14px image radius, 8px buttons. No circles.
@@ -346,27 +343,19 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 <section class="section" id="visit">
   <div class="wrap">
     <div class="label reveal"><span class="num">03</span>Visit</div>
-    <div class="grid touch-cols reveal">
-      <div class="intro">
+    <div class="grid touch reveal">
+      <div class="touch-intro">
         <h2>Get in Touch</h2>
         <p class="muted">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
         <a href="#" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="info">
-        <h4>Service Times</h4>
-        <dl>
-          <div><dt>Sunday Mornings</dt><dd>8:30 am &amp; 10:00 am</dd></div>
-          <div><dt>Wednesday Evenings</dt><dd>6:30 pm</dd></div>
-        </dl>
-      </div>
-      <div class="info">
-        <h4>Contact</h4>
-        <dl>
-          <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
-        </dl>
-      </div>
+      <dl class="details">
+        <div><dt>Sundays</dt><dd>8:30 am &amp; 10:00 am</dd></div>
+        <div><dt>Wednesdays</dt><dd>6:30 pm</dd></div>
+        <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
+      </dl>
     </div>
     <div class="grid visit-row reveal">
       <div class="frame map">

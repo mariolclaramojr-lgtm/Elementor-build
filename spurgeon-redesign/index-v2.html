@@ -12,13 +12,14 @@
 <link rel="stylesheet" href="styles-v2.css">
 <!--
   SPURGEON — REDESIGN v2 (columns)
-  Same 5 sections and copy as the original theme. Hero video: Mixkit (free licence), compressed copy in
+  Same 5 sections and copy as the original theme. Hero video: Pexels 37639456 "Inspiring Christian Concert with Worship"
+  by Mariano Quintero (free licence), compressed copy in
   hero.webm/.mp4 with hero-poster.jpg. Photos: Unsplash (free licence), modern-church set.
     1. Hero          — background video, "Loving God. Loving People.", 2 buttons, 3-column service bar
     2. Welcome Home  — 2 columns: heading + text + About Us | two photos side by side
     3. Our Ministries— dark band: heading | text + Get Connected; 4 photo cards captioned with the
                        "single or married / with children or without / young or old / male or female" pairs
-    4. Get in Touch  — 3 columns: heading + text + button | service times | contact; map (8 cols) + photo (4 cols)
+    4. Get in Touch  — 2 columns: heading + text + button | one simple details list; map (8 cols) + photo (4 cols)
     5. Footer        — logo + tagline, menu, socials, credit, wordmark
 
   System: 12-column grid, 8px spacing steps, 1px hairlines, 14px image radius, 8px buttons. No circles.
@@ -126,27 +127,19 @@
 <section class="section" id="visit">
   <div class="wrap">
     <div class="label reveal"><span class="num">03</span>Visit</div>
-    <div class="grid touch-cols reveal">
-      <div class="intro">
+    <div class="grid touch reveal">
+      <div class="touch-intro">
         <h2>Get in Touch</h2>
         <p class="muted">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
         <a href="#" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="info">
-        <h4>Service Times</h4>
-        <dl>
-          <div><dt>Sunday Mornings</dt><dd>8:30 am &amp; 10:00 am</dd></div>
-          <div><dt>Wednesday Evenings</dt><dd>6:30 pm</dd></div>
-        </dl>
-      </div>
-      <div class="info">
-        <h4>Contact</h4>
-        <dl>
-          <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
-        </dl>
-      </div>
+      <dl class="details">
+        <div><dt>Sundays</dt><dd>8:30 am &amp; 10:00 am</dd></div>
+        <div><dt>Wednesdays</dt><dd>6:30 pm</dd></div>
+        <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
+      </dl>
     </div>
     <div class="grid visit-row reveal">
       <div class="frame map">
