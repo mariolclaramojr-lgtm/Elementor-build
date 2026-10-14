@@ -1,1 +1,10 @@
-{"header": 241, "footer": 242, "header_solid": 274}
+{
+ "header": 241,
+ "footer": 242,
+ "header_solid": 274,
+ "header_sermon": 276,
+ "header_sermon_archive": 277,
+ "header_sermon_all": 278,
+ "header_event": 279,
+ "header_archive": 280
+}

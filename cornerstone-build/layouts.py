@@ -27,7 +27,7 @@ def nav_inline(menu, color='rgba(255, 255, 255, 0.85)', alt=ACCENT_LIGHT, size='
     return el('nav-inline', **d)
 
 
-def header_regions(solid=False):
+def header_regions(solid=False, hero=None):
     pill = el('headline', text_tag='span', text_content='This Sunday', text_font_family=F_BODY, text_font_weight='700',
               text_font_size='10px', text_letter_spacing='0.2em', text_text_transform='uppercase', text_line_height='1.4',
               text_text_color=WHITE, text_bg_color='rgba(255, 255, 255, 0.18)', text_padding='4px 10px',
@@ -71,7 +71,28 @@ def header_regions(solid=False):
         bar_border_width='0px 0px 1px 0px', bar_border_style='solid', bar_border_color=LINE_DARK,
         bar_sticky=True, bar_sticky_trigger_offset='160', bar_sticky_shrink='1', bar_sticky_slide_enabled=True,
         bar_sticky_hide_initially=False, bar_z_index='9999', **{'class': 'lc-nav'})
-    return {'top': [topbar, nav]}
+    bars = [topbar, nav]
+    if hero:
+        bars.append(hero_bar(**hero))
+    return {'top': bars}
+
+
+def hero_bar(eyebrow_txt, title, image='', lead_txt=None):
+    """Page-title hero for templates that are not built in Cornerstone (posts, sermons, events, archives).
+    Same look as the page heroes: photo + overlay, eyebrow, big Fraunces title; the nav floats over it."""
+    mods = [eyebrow(eyebrow_txt, dark=True),
+            heading(title, tag='h1', size='clamp(40px, 6.2vw, 80px)', color=WHITE, mb='0px', maxw='900px')]
+    if lead_txt:
+        mods.append(lead(lead_txt, color='rgba(255, 255, 255, 0.82)', mb='0px', maxw='560px',
+                         text_margin='22px 0px 0px 0px'))
+    d = dict(_label='Page Hero', bar_height='auto', bar_padding='clamp(190px, 17vw, 240px) 0px clamp(56px, 7vw, 96px) 0px',
+             bar_bg_color=ESP, bar_global_container=True, bar_box_shadow_dimensions='!0px 0px 0px 0px',
+             bar_z_index='1', bar_row_flex_justify='flex-start', bar_row_flex_align='flex-end')
+    if image:
+        d.update(bar_bg_advanced=True, bg_lower_type='image', bg_lower_image=image, bg_lower_image_size='cover',
+                 bg_lower_image_position='center', bg_upper_type='color', bg_upper_color=OVERLAY)
+    return el('bar', [el('container', mods, container_flex='1 1 auto', container_row_flex_direction='column',
+                         container_row_flex_align='flex-start', container_row_flex_justify='flex-end')], **d)
 
 
 # The only header rule Cornerstone has no control for: the bar turns red once it is stuck.

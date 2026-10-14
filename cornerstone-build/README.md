@@ -11,7 +11,8 @@ Set `CS_MCP_AUTH` to `Basic <base64 of user:application-password>` before runnin
 | `upload.py` | Uploads the design images and videos to the Media Library (`media.json` maps them) |
 | `lc.py` | Element builders: sections, rows, eyebrows, headings, buttons, framed images, shared blocks |
 | `pages.py` | One function per page (home, about, connect, plan, watch, give, messages, events) |
-| `layouts.py` | Pro header (transparent + solid) and footer |
+| `layouts.py` | Pro header bars (top bar, nav, title hero) and footer |
+| `headers.py` | Creates the title-hero headers for posts, sermons, events and archives, with their assignments |
 | `run.py` | `python3 run.py <page> <post id>` saves a page tree |
 | `lewis.css` / `applycss.py` | The only global CSS: heading accent word + Gravity Forms, Sermon Manager Pro and MEC styling |
 

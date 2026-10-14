@@ -45,92 +45,148 @@ body .lc-form .gform_wrapper .ginput_complex > span > label { font-size: 10px !i
   .lc-form .gform_wrapper ul.gform_fields, .lc-form .gform_wrapper .ginput_complex { grid-template-columns: 1fr; }
 }
 
-/* ---------- Sermon Manager Pro  [smpro_archive] ---------- */
-.lc-sermons #wpfc_sermon_sorting { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0 0 48px; padding: 0; }
-.lc-sermons #wpfc_sermon_sorting > div { display: block !important; width: auto; max-width: none; margin: 0; }
-.lc-sermons #wpfc_sermon_sorting select { width: 100%; font: 400 15px/1.4 "Inter", sans-serif; color: #1F1B17; background-color: #fff; border: 1px solid rgba(23,19,15,.12); border-radius: 4px; padding: 14px 16px; height: auto; box-shadow: none; }
-.lc-sermons .smpro-items-container { display: grid !important; grid-template-columns: 1fr !important; gap: 22px; }
-.lc-sermons article.wpfc-sermon { margin: 0 !important; }
-.lc-sermons .smpro-item { display: grid; grid-template-columns: 320px 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: 20px !important; background: #fff; border: 0; border-radius: 4px; box-shadow: none; transition: box-shadow .3s; }
-.lc-sermons .smpro-item:hover { box-shadow: 0 18px 50px rgba(31,27,23,.1); }
-.lc-sermons .smpro-image { padding: 0 !important; aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; }
-.lc-sermons .smpro-image__link, .lc-sermons .smpro-image__background { display: block; height: 100%; }
-.lc-sermons .smpro-item__main { padding: 0 !important; }
-.lc-sermons .smpro-item__topline { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 6px 18px; margin: 0 0 10px; font: 700 12px/1.4 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
-.lc-sermons .smpro-item__topline, .lc-sermons .smpro-item__topline a { color: #A51C30; }
-.lc-sermons .smpro-meta-item_type_date .smpro-meta-item__text { color: #57504A; }
-.lc-sermons .smpro-item .smpro-title { margin: 0 0 10px !important; line-height: 1.15 !important; letter-spacing: -.02em !important; }
-.lc-sermons .smpro-title__text { font: 500 30px/1.15 "Fraunces", Georgia, serif; color: #1F1B17; }
-.lc-sermons .smpro-title__text:hover { color: #A51C30; }
-.lc-sermons .smpro-description { padding: 0 !important; margin: 0 0 14px; color: #57504A; font-size: 16px; line-height: 1.7; max-width: 44em; }
-.lc-sermons .smpro-item__metadata, .lc-sermons .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0 28px 0 0; font-size: 14px; font-style: normal; }
-.lc-sermons .smpro-meta-item__prefix { color: #57504A; }
-.lc-sermons .smpro-item__metadata .smpro-meta-item__text, .lc-sermons .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #1F1B17; }
-.lc-sermons .smpro-item__footer { display: none; }
+/* ---------- Shared: filter controls (Sermon Manager + MEC) ---------- */
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] {
+  -webkit-appearance: none; appearance: none; width: 100% !important; height: 50px !important; margin: 0 !important;
+  font: 400 15px/1.2 "Inter", sans-serif !important; color: #1F1B17 !important; background-color: #fff !important;
+  border: 1px solid rgba(23,19,15,.12) !important; border-radius: 4px !important; box-shadow: none !important;
+  padding: 0 44px 0 16px !important; transition: border-color .2s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A51C30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; cursor: pointer; }
+.lc-mec .mec-search-form input[type=search] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2357504A' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:hover, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:focus, .lc-mec .mec-search-form select:hover, .lc-mec .mec-search-form select:focus,
+.lc-mec .mec-search-form input[type=search]:focus { outline: none; border-color: #A51C30 !important; }
+
+/* ---------- Sermon Manager Pro  [smpro_archive] + sermon archive templates ---------- */
+.post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset { margin-top: 0; margin-bottom: 0; padding: clamp(56px, 7vw, 96px) 0; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .sm-filtering { margin: 0 0 40px; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0; padding: 0; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting > div { display: block !important; width: auto !important; max-width: none !important; margin: 0 !important; float: none !important; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting form { margin: 0; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-items-container { display: grid !important; grid-template-columns: 1fr !important; gap: 22px; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) article.wpfc-sermon { margin: 0 !important; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { display: grid !important; grid-template-columns: 340px 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: 20px !important;
+  background: #fff; border: 0; border-radius: 4px; box-shadow: none; transition: box-shadow .35s, transform .35s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px rgba(31,27,23,.1); transform: translateY(-2px); }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image { position: relative; padding: 0 !important; margin: 0 !important; aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link { position: absolute; inset: 0; display: block; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__background { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__background { transform: scale(1.05); }
+/* play button on the thumbnail */
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: #A51C30; box-shadow: 0 0 0 8px rgba(165,28,48,.22); transition: transform .25s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::after { content: ""; position: absolute; left: 34px; bottom: 31px; z-index: 2; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__link::before { transform: scale(1.08); }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 28px; padding: 0 !important; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > * { flex: 0 0 100%; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline { order: 1; display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 6px 18px; margin: 0 0 10px;
+  font: 700 12px/1.4 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item { margin: 0; padding: 0; border: 0; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::before, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::after { display: none; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: #A51C30; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: #57504A; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item .smpro-title { order: 2; margin: 0 0 10px !important; padding: 0; line-height: 1.15 !important; letter-spacing: -.02em !important; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Fraunces", Georgia, serif; color: #1F1B17; transition: color .2s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: #A51C30; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: #57504A; font-size: 16px; line-height: 1.7; max-width: 44em; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata { order: 4; flex: 0 0 auto; margin: 0; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > .smpro-meta-item_type_bible-passage { order: 5; flex: 0 0 auto; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0; padding: 0; font: 400 14px/1.6 "Inter", sans-serif; font-style: normal; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: #57504A; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #1F1B17; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__footer { display: none; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-pagination, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .navigation, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .pagination { margin-top: 40px; text-align: center; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid rgba(23,19,15,.12); border-radius: 999px; background: #fff; color: #1F1B17; font: 600 14px/1 "Inter", sans-serif; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: #A51C30; border-color: #A51C30; color: #fff; }
 @media (max-width: 860px) {
-  .lc-sermons #wpfc_sermon_sorting { grid-template-columns: 1fr 1fr; }
-  .lc-sermons .smpro-item { grid-template-columns: 1fr; }
+  :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { grid-template-columns: 1fr 1fr; }
+  :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { grid-template-columns: 1fr; gap: 20px; }
 }
+@media (max-width: 480px) { :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font-size: 25px; } }
 
-/* ---------- Modern Events Calendar — monthly (simple) [MEC id="250"] ---------- */
-.lc-mec .mec-wrap { font-family: "Inter", sans-serif; }
-.lc-mec .mec-search-form.mec-totalcal-box { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding: 0; margin: 0 0 20px; background: none; border: 0; box-shadow: none; }
-.lc-mec .mec-search-form .mec-dropdown-wrap, .lc-mec .mec-search-form .mec-text-input-search { width: auto; min-width: 220px; margin: 0; padding: 0; display: block; }
-.lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] { font: 400 15px/1.4 "Inter", sans-serif; color: #1F1B17; background-color: #fff; border: 1px solid rgba(23,19,15,.12); border-radius: 4px; height: auto; padding: 12px 14px 12px 40px; box-shadow: none; }
-.lc-mec .mec-calendar.mec-event-container-simple { background: none; border: 0; box-shadow: none; padding: 0; margin: 0; }
-.lc-mec .mec-month-navigator { display: flex; align-items: center; justify-content: flex-start; gap: 18px; padding: 0 0 28px; }
-.lc-mec .mec-month-navigator .mec-calendar-header { order: 2; }
-.lc-mec .mec-month-navigator .mec-next-month { order: 3; }
-.lc-mec .mec-calendar-header h2 { font: 500 clamp(32px, 4vw, 46px)/1.05 "Fraunces", Georgia, serif; letter-spacing: -.02em; color: #1F1B17; text-transform: none; margin: 0; }
-.lc-mec .mec-previous-month, .lc-mec .mec-next-month { position: static; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; }
-.lc-mec .mec-load-month-link { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(23,19,15,.12); border-radius: 50%; background: #fff; font-size: 0; color: #1F1B17; }
-.lc-mec .mec-load-month-link i { font-size: 14px; margin: 0; }
-.lc-mec .mec-load-month-link:hover { border-color: #A51C30; color: #A51C30; }
-.lc-mec .mec-calendar-table { background: #fff; border: 1px solid rgba(23,19,15,.12); border-radius: 4px; overflow: hidden; }
-.lc-mec .mec-calendar dl { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100%; margin: 0; }
-.lc-mec .mec-calendar dl dt { display: block; width: auto; }
-.lc-mec .mec-calendar .mec-calendar-day-head { padding: 14px 10px; font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .18em; text-transform: uppercase; color: #57504A; text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(23,19,15,.12); }
-.lc-mec .mec-calendar .mec-calendar-day { height: auto; min-height: 108px; padding: 10px; text-align: left; font: 600 14px/1.4 "Inter", sans-serif; color: #1F1B17; background: none; border: 0; border-right: 1px solid rgba(23,19,15,.12); border-bottom: 1px solid rgba(23,19,15,.12); }
-.lc-mec .mec-calendar .mec-calendar-day:nth-child(7n) { border-right: 0; }
-.lc-mec .mec-calendar .mec-calendar-day.mec-table-nullday { color: rgba(31,27,23,.3); background: rgba(31,27,23,.02); }
-.lc-mec .mec-calendar .mec-calendar-day .mec-event-title { display: block; margin: 8px 0 0; padding: 6px 8px; border-left: 2px solid #A51C30; background: rgba(165,28,48,.07); font: 400 13px/1.35 "Inter", sans-serif; color: #1F1B17; text-transform: none; letter-spacing: 0; }
-.lc-mec .mec-calendar .mec-calendar-day a:hover .mec-event-title { background: rgba(165,28,48,.14); }
-@media (max-width: 640px) {
-  .lc-mec .mec-calendar .mec-calendar-day { min-height: 64px; padding: 6px; }
-  .lc-mec .mec-calendar .mec-calendar-day-head { padding: 10px 4px; font-size: 10px; letter-spacing: .08em; text-align: center; }
-  .lc-mec .mec-calendar .mec-calendar-day .mec-event-title { font-size: 0; padding: 0; width: 6px; height: 6px; border: 0; border-radius: 50%; background: #A51C30; margin-top: 6px; }
-}
-
-
-/* MEC overrides (MEC ships high-specificity / !important rules) */
+/* ---------- Modern Events Calendar — monthly [MEC id="250"] ---------- */
+.lc-mec .mec-wrap { position: relative; margin: 0; font-family: "Inter", sans-serif; color: #1F1B17; }
+.lc-mec .mec-wrap * { box-sizing: border-box; }
+/* filters: top-right on desktop, beside the month title */
+.lc-mec-month .mec-search-form.mec-totalcal-box { position: absolute; top: 0; right: 0; z-index: 2; display: flex !important; gap: 12px; width: auto !important;
+  margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+.lc-mec .mec-search-form .mec-dropdown-wrap, .lc-mec .mec-search-form .mec-text-input-search { display: block !important; width: 220px !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; float: none !important; }
+.lc-mec .mec-search-form .mec-dropdown-search { display: block !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
 .lc-mec .mec-search-form i { display: none !important; }
-.lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] { padding-left: 14px !important; }
+.lc-mec .mec-calendar { width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; overflow: visible !important; }
+.lc-mec .mec-calendar .mec-calendar-side { display: block !important; width: 100% !important; min-width: 0 !important; padding: 0 !important; box-shadow: none !important; border: 0 !important; }
+/* month navigator: Title  (<) (>) */
+.lc-mec .mec-calendar .mec-skin-monthly-view-month-navigator-container { margin: 0; padding: 0; border: 0; }
+.lc-mec .mec-calendar .mec-month-navigator { position: static !important; display: flex !important; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { order: 1; position: static !important; width: auto !important; margin: 0 14px 0 0 !important; padding: 0 !important; }
+.lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Fraunces", Georgia, serif !important; letter-spacing: -.02em !important; color: #1F1B17 !important; text-transform: none !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-previous-month { order: 2; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-next-month { order: 3; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month,
-.lc-mec .mec-calendar .mec-month-navigator .mec-next-month { position: static !important; inset: auto !important; transform: none !important; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { position: static !important; padding: 0 !important; width: auto !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { color: #1F1B17 !important; font-size: 0 !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link i { font-size: 14px !important; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day-head { background: none !important; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day,
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day > div:first-child { font-size: 14px !important; font-weight: 600 !important; line-height: 1.4 !important; color: #1F1B17; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day.mec-table-nullday > div:first-child { color: rgba(31,27,23,.3) !important; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day.mec-selected-day { border-bottom: 1px solid rgba(23,19,15,.12) !important; background: none !important; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day.mec-selected-day { background: radial-gradient(circle 14px at 18px 19px, #A51C30 96%, transparent 100%) no-repeat !important; color: #fff !important; }
-.lc-mec .mec-calendar.mec-event-container-simple dl dt.mec-calendar-day.mec-selected-day > div:first-child { color: #fff !important; }
-.lc-mec .mec-calendar.mec-event-calendar-classic dl.mec-calendar-table-head { background: none !important; }
-.lc-mec .mec-search-form .mec-dropdown-wrap select { width: 100% !important; min-width: 220px; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-next-month { position: static !important; inset: auto !important; transform: none !important; float: none !important; width: 44px !important; height: 44px !important;
+  margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; line-height: 1 !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid rgba(23,19,15,.12); border-radius: 50%;
+  background: #fff; color: #1F1B17 !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link i { position: static !important; margin: 0 !important; padding: 0 !important; font-size: 14px !important; line-height: 1 !important; color: inherit !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: #A51C30; background: #A51C30; color: #fff !important; }
+/* grid */
+.lc-mec .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid rgba(23,19,15,.12); border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(31,27,23,.06); }
+.lc-mec .mec-calendar .mec-month-container dl { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt { display: block !important; float: none !important; width: auto !important; height: auto !important; min-height: 116px; margin: 0 !important; padding: 10px 10px 12px !important;
+  background: #fff !important; border: 0 !important; border-right: 1px solid rgba(23,19,15,.1) !important; border-bottom: 1px solid rgba(23,19,15,.1) !important;
+  font: 600 14px/1.4 "Inter", sans-serif !important; color: #1F1B17 !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
+.lc-mec .mec-calendar .mec-month-container dl > dt:nth-child(7n) { border-right: 0 !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row:last-child > dt { border-bottom: 0 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt > div:first-child { font: inherit !important; color: inherit !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Inter", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #57504A !important; background: #FBF8F4 !important; border-right: 0 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(31,27,23,.28) !important; background: #FBF8F4 !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #FDFBF8 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt .mec-past-event { opacity: 1 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt a { display: block; text-decoration: none; }
+.lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #A51C30; border-radius: 0 2px 2px 0; background: rgba(165,28,48,.07);
+  font: 500 13px/1.35 "Inter", sans-serif !important; color: #1F1B17 !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
+.lc-mec .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #A51C30; color: #fff !important; }
+/* hover card (MEC tooltip, rendered at the end of <body>) */
+.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px rgba(31,27,23,.18) !important; }
+.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Fraunces", Georgia, serif; color: #1F1B17; margin: 0 0 6px; }
+.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #A51C30; margin: 0 0 10px; }
+.tooltipster-box .mec-tooltip-event-time i { display: none; }
+.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Inter", sans-serif; color: #57504A; }
+.tooltipster-box .mec-tooltip-event-featured img { border-radius: 2px; }
+@media (max-width: 860px) {
+  .lc-mec-month .mec-search-form.mec-totalcal-box { position: static; flex-wrap: wrap; margin: 0 0 24px !important; }
+  .lc-mec .mec-search-form .mec-dropdown-wrap, .lc-mec .mec-search-form .mec-text-input-search { flex: 1 1 200px; width: auto !important; }
+}
+@media (max-width: 640px) {
+  .lc-mec .mec-calendar .mec-month-navigator { justify-content: space-between; }
+  .lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { order: 2; margin: 0 !important; }
+  .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month { order: 1; }
+  .lc-mec .mec-calendar .mec-calendar-header h2 { font-size: 28px !important; }
+  .lc-mec .mec-calendar .mec-month-container dl > dt { min-height: 58px; padding: 6px !important; font-size: 13px !important; text-align: center !important; }
+  .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; }
+  .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #A51C30; font-size: 0 !important; }
+  .lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; }
+}
 
 /* ---------- Modern Events Calendar — coming up (list, minimal) [MEC id="252"] ---------- */
-.lc-mec-list .mec-event-list-minimal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 28px; }
-.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0; padding: 18px 0; border: 0; border-top: 1px solid rgba(23,19,15,.12); background: none; }
-.lc-mec-list .mec-event-list-minimal .col-md-9 { display: grid; grid-template-columns: 76px 1fr; gap: 4px 18px; align-items: center; width: 100%; padding: 0; float: none; }
-.lc-mec-list .mec-event-list-minimal .btn-wrapper { display: none; }
-.lc-mec-list .mec-event-list-minimal .mec-event-date { grid-row: span 2; display: grid; place-items: center; align-content: center; aspect-ratio: 1; width: 76px; margin: 0; padding: 0; border-radius: 4px; background: #1F1B17 !important; color: #E85D6C; font: 700 11px/1.1 "Inter", sans-serif; letter-spacing: .18em; text-transform: uppercase; }
-.lc-mec-list .mec-event-list-minimal .mec-event-date span { display: block; order: 2; font: 500 28px/1.1 "Fraunces", Georgia, serif; letter-spacing: 0; color: #fff; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title { margin: 0; font: 500 21px/1.2 "Fraunces", Georgia, serif; letter-spacing: -.01em; text-transform: none; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: #1F1B17; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: #A51C30; }
-.lc-mec-list .mec-event-list-minimal .event-color { display: none; }
-.lc-mec-list .mec-event-list-minimal .mec-event-detail { margin: 0; font-size: 14px; color: #57504A; }
-@media (max-width: 1024px) { .lc-mec-list .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .lc-mec-list .mec-event-list-minimal { grid-template-columns: 1fr; } }
+.lc-mec-list .mec-wrap .mec-event-list-minimal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 28px; margin: 0; }
+.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid rgba(23,19,15,.12) !important; background: none !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .col-md-9 { display: grid !important; grid-template-columns: 76px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; align-items: center; align-content: center;
+  width: 100% !important; padding: 0 !important; float: none !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .btn-wrapper { display: none !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-date { grid-row: 1 / span 3; display: flex !important; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 2px;
+  aspect-ratio: 1; width: 76px !important; height: auto !important; margin: 0 !important; padding: 0 !important; float: none !important; border-radius: 4px;
+  background: #1F1B17 !important; color: #E85D6C !important; font: 700 11px/1 "Inter", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
+.lc-mec-list .mec-event-list-minimal .mec-event-date span { display: block; margin: 0 !important; font: 500 28px/1 "Fraunces", Georgia, serif !important; letter-spacing: 0; color: #fff !important; }
+.lc-mec-list .mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #A51C30; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title { grid-column: 2; margin: 2px 0 !important; padding: 0 !important; font: 500 21px/1.2 "Fraunces", Georgia, serif !important; letter-spacing: -.01em; text-transform: none !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: #1F1B17 !important; transition: color .2s; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: #A51C30 !important; }
+.lc-mec-list .mec-event-list-minimal .event-color { display: none !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Inter", sans-serif !important; color: #57504A !important; text-align: left !important; }
+@media (max-width: 1024px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr; } }
