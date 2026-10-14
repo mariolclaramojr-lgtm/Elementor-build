@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spurgeon Church Redesign v2</title>
-<meta name="description" content="Second redesign direction for the Spurgeon church theme — sunlit editorial: warm cream, large grotesk type, cyan accents.">
+<meta name="description" content="Second redesign direction for the Spurgeon church theme — warm cream, large grotesk type, column layouts with the theme's own photography.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* SPURGEON v2 — "Sunlit editorial" (refined)
-   One system: 8px spacing grid · 1px hairlines · 20px radius + pills · 5-step type scale.
+/* SPURGEON v2 — "Sunlit editorial" (columns)
+   One system: 12-column grid · 8px spacing steps · 1px hairlines · 14px image radius · 8px button radius.
+   No circles: every shape is a rectangle or rounded rectangle.
    Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
 :root{
   /* Colours */
   --cream:#F6F2EA;       /* page background */
-  --sand:#ECE6DA;        /* map placeholder */
+  --sand:#ECE6DA;        /* image/map placeholder */
   --ink:#16181B;         /* text + dark bands */
+  --ink-2:#202328;
   --ink-soft:#5E6166;    /* secondary text */
   --cyan:#3DB6DB;        /* Spurgeon cyan */
   --cyan-ink:#1B7FA0;    /* cyan for small text on cream */
@@ -31,12 +33,13 @@
   --t-display:clamp(56px,9.2vw,148px);
   --t-h2:clamp(40px,5.2vw,76px);
   --t-statement:clamp(28px,3.1vw,44px);
-  --t-h3:clamp(22px,1.9vw,26px);
+  --t-h3:clamp(20px,1.7vw,24px);
   --t-label:12px;
   /* Layout */
   --wrap:1240px;
   --gutter:32px;
-  --radius:20px;
+  --radius:14px;
+  --radius-btn:8px;
   --pad:clamp(88px,11vw,168px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -46,25 +49,28 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:4px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-@media (max-width:600px){:root{--gutter:20px}.label{margin-bottom:40px}}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter)}
 h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:-.03em;line-height:1;text-wrap:balance}
 h2{font-size:var(--t-h2)}
 h3{font-size:var(--t-h3);letter-spacing:-.015em;line-height:1.2}
 p{text-wrap:pretty}
+.muted{color:var(--ink-soft)}
+.on-dark .muted{color:rgba(255,255,255,.66)}
 
 /* Section label — 01 / Welcome Home */
 .label{display:flex;align-items:center;gap:16px;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:64px}
 .label .num{color:var(--cyan-ink);font-variant-numeric:tabular-nums}
-.label .num::after{content:"/";margin-left:16px;color:var(--line-strong);opacity:.3}
-.on-cyan .label{color:var(--ink);border-color:rgba(22,24,27,.2)}
-.on-cyan .label .num{color:var(--ink)}
+.label .num::after{content:"/";margin-left:16px;color:var(--ink);opacity:.25}
+.on-dark .label{color:rgba(255,255,255,.6);border-color:var(--line-light)}
+.on-dark .label .num{color:var(--cyan)}
+.on-dark .label .num::after{color:var(--white)}
 
-/* Buttons — 52px tall, one shape */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15px;line-height:1;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+/* Buttons — 52px tall, 8px radius */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 24px;border-radius:var(--radius-btn);font-weight:600;font-size:15px;line-height:1;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
 .btn svg{width:16px;height:16px;transition:transform .25s}
 .btn:hover svg{transform:translateX(3px)}
 .btn-ink{background:var(--ink);color:var(--white)}
-.btn-ink:hover{background:#2C3035}
+.btn-ink:hover{background:var(--cyan-ink)}
 .btn-cyan{background:var(--cyan);color:var(--ink)}
 .btn-cyan:hover{background:var(--white)}
 .btn-white{background:var(--white);color:var(--ink)}
@@ -72,6 +78,11 @@ p{text-wrap:pretty}
 .btn-line{border:1px solid rgba(255,255,255,.5);color:var(--white)}
 .btn-line:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Image frame — one treatment everywhere */
+.frame{border-radius:var(--radius);overflow:hidden;background:var(--sand)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 
 /* ============ HEADER ============ */
 .header{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--white);transition:background .3s,color .3s,box-shadow .3s}
@@ -85,7 +96,7 @@ p{text-wrap:pretty}
 .nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .nav a:not(.btn):hover{opacity:1}
 .nav a:not(.btn):hover::after{transform:scaleX(1)}
-.nav .btn{height:44px;padding:0 20px;margin-left:8px;background:var(--cyan);color:var(--ink)}
+.nav .btn{height:44px;padding:0 18px;margin-left:8px;background:var(--cyan);color:var(--ink)}
 .nav .btn:hover{background:var(--white)}
 .header.solid .nav .btn:hover{background:var(--ink);color:var(--white)}
 .menu-toggle{display:none;background:none;border:0;color:inherit;width:44px;height:44px;margin-right:-10px;cursor:pointer}
@@ -102,90 +113,103 @@ p{text-wrap:pretty}
   body.menu-open .header .logo img{filter:none}
 }
 
-/* ============ 1. HERO ============ */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--white);background:var(--ink) var(--hero-img) 64% center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,24,27,.5) 0%,rgba(22,24,27,0) 22%,rgba(22,24,27,0) 45%,rgba(22,24,27,.82) 100%)}
-.hero .wrap{position:relative;width:100%;padding-bottom:clamp(56px,7vw,96px)}
+/* ============ 1. HERO + service columns ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--white);background:var(--ink) url(hero-poster.jpg) center/cover no-repeat;overflow:hidden}
+/* Background video (Elementor: Container › Background › Video, with Background Overlay) */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(22,24,27,.6) 0%,rgba(22,24,27,.35) 30%,rgba(22,24,27,.45) 55%,rgba(22,24,27,.92) 100%),rgba(12,28,44,.25)}
+.hero-main,.hero-bar{z-index:2}
+.hero-main{position:relative;width:100%;padding-bottom:clamp(48px,6vw,80px)}
 .kicker{display:inline-flex;align-items:center;gap:12px;font-size:var(--t-label);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
 .kicker::before{content:"";width:24px;height:1px;background:var(--cyan)}
 .hero h1{font-size:var(--t-display);line-height:.9;letter-spacing:-.04em;margin-bottom:40px}
 .hero h1 span{display:block}
 .hero h1 .c{color:var(--cyan)}
-@media (max-width:760px){.hero{background-position:70% center}}
+.hero-bar{position:relative;border-top:1px solid var(--line-light);background:rgba(22,24,27,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero-bar .grid>div{grid-column:span 4;padding:24px 0;display:flex;flex-direction:column;gap:4px}
+.hero-bar .grid>div+div{border-left:1px solid var(--line-light);padding-left:var(--gutter)}
+.hero-bar small{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.hero-bar strong{font-family:var(--font-head);font-weight:500;font-size:20px;letter-spacing:-.01em}
+@media (max-width:760px){
+  .hero-bar .grid>div{grid-column:1/-1;padding:16px 0}
+  .hero-bar .grid>div+div{border-left:0;border-top:1px solid var(--line-light);padding-left:0}
+}
 
-/* Service strip — slim, quiet ticker */
-.ticker{background:var(--cyan);color:var(--ink);overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;animation:ticker 60s linear infinite}
-.ticker span{display:inline-flex;align-items:center;height:56px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-.ticker span::after{content:"";width:4px;height:4px;border-radius:50%;background:currentColor;margin:0 40px}
-@keyframes ticker{to{transform:translateX(-50%)}}
-
-/* ============ 2. WELCOME HOME ============ */
+/* ============ 2. WELCOME HOME — statement + 3 columns + pillars ============ */
 .section{padding:var(--pad) 0}
-.statement{font-family:var(--font-head);font-weight:500;font-size:var(--t-statement);line-height:1.18;letter-spacing:-.025em;max-width:22em;margin-bottom:clamp(64px,8vw,112px)}
+.statement{grid-column:1/11;font-family:var(--font-head);font-weight:500;font-size:var(--t-statement);line-height:1.18;letter-spacing:-.025em;margin-bottom:clamp(64px,7vw,96px)}
 .statement mark{background:none;color:inherit;box-shadow:inset 0 -.32em 0 rgba(61,182,219,.32)}
-.welcome-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);align-items:start}
-.welcome-photo{grid-column:1/7}
-.welcome-photo img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:var(--radius)}
-.welcome-body{grid-column:8/13;padding-top:8px}
-.welcome-body h2{margin-bottom:32px}
-.welcome-body p{color:var(--ink-soft);margin-bottom:20px;max-width:34em}
-.welcome-body p.first{color:var(--ink);font-size:19px;line-height:1.6}
-.pillars{list-style:none;margin:40px 0 48px;border-top:1px solid var(--line)}
-.pillars li{display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--font-head);font-weight:500;font-size:var(--t-h3);letter-spacing:-.015em}
-.pillars li span{font-family:var(--font-body);font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan-ink);font-variant-numeric:tabular-nums;width:20px}
-@media (max-width:900px){.welcome-photo,.welcome-body{grid-column:1/-1}.welcome-photo{margin-bottom:48px}.welcome-photo img{aspect-ratio:4/3}}
-
-/* ============ 3. OUR MINISTRIES ============ */
-.ministries{background:var(--cyan);color:var(--ink)}
-.min-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);align-items:center}
-.min-copy{grid-column:1/7}
-.min-photo{grid-column:8/13}
-.min-copy h2{margin-bottom:40px}
-.whether{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
-.pairs{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--gutter);list-style:none;margin-bottom:32px;border-top:1px solid rgba(22,24,27,.25)}
-.pairs li{padding:16px 0;border-bottom:1px solid rgba(22,24,27,.25);font-family:var(--font-head);font-size:20px;font-weight:500;letter-spacing:-.01em}
-.pairs li i{font-style:normal;font-family:var(--font-body);font-size:15px;opacity:.6;margin:0 6px}
-.min-copy p{font-size:18px;max-width:30em;margin-bottom:40px}
-.min-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%}
-@media (max-width:900px){.min-copy,.min-photo{grid-column:1/-1}.min-photo{max-width:360px;margin:0 auto 56px;order:-1}}
-@media (max-width:480px){.pairs{grid-template-columns:1fr}}
-
-/* ============ 4. GET IN TOUCH ============ */
-.touch{padding-bottom:0}
-.touch-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);align-items:end;margin-bottom:64px}
-.touch-head h2{grid-column:1/7}
-.touch-head p{grid-column:8/13;color:var(--ink-soft);font-size:18px}
-.board{border-top:1px solid var(--line-strong)}
-.board-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);align-items:baseline;padding:32px 0;border-bottom:1px solid var(--line)}
-.board-row .day{grid-column:1/5;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
-.board-row .time{grid-column:5/13;font-family:var(--font-head);font-weight:500;font-size:clamp(40px,5.4vw,80px);letter-spacing:-.04em;line-height:1;text-align:right;font-variant-numeric:tabular-nums}
-.board-row .time small{font-size:.32em;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-left:.3em;vertical-align:.9em}
-.board-row .time i{font-style:normal;font-weight:400;color:var(--cyan-ink);margin:0 .12em}
-.contact-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);padding:40px 0 clamp(64px,7vw,96px)}
-.contact-row>div{grid-column:span 4;display:flex;flex-direction:column;gap:8px}
-.contact-row h4{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
-.contact-row p,.contact-row a{font-size:18px;font-weight:500;line-height:1.5}
-.contact-row a{width:fit-content;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
-.contact-row a:hover{background-size:100% 1px}
-.map-wrap{position:relative;max-width:calc(var(--wrap) - 2*var(--gutter));margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--sand);height:clamp(400px,40vw,520px)}
-.map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.02)}
-.map-card{position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:24px;background:var(--ink);color:var(--white);border-radius:var(--radius);padding:16px 16px 16px 28px}
-.map-card h3{font-size:20px}
-@media (max-width:900px){
-  .touch-head h2,.touch-head p{grid-column:1/-1}.touch-head h2{margin-bottom:24px}
-  .board-row .day,.board-row .time{grid-column:1/-1;text-align:left}.board-row .day{margin-bottom:12px}
-  .contact-row{row-gap:32px}.contact-row>div{grid-column:1/-1}
+.welcome-cols{align-items:start}
+.welcome-cols .img-a{grid-column:1/5;aspect-ratio:4/5}
+.welcome-cols .copy{grid-column:5/9;padding-top:8px}
+.welcome-cols .img-b{grid-column:9/13;aspect-ratio:4/5;margin-top:120px}
+.welcome-cols .copy p{margin-bottom:20px}
+.welcome-cols .copy p.first{font-size:19px;line-height:1.6}
+.welcome-cols .copy .btn{margin-top:20px}
+.pillars{list-style:none;margin-top:clamp(64px,7vw,96px)}
+.pillars li{grid-column:span 4;border-top:1px solid var(--line-strong);padding-top:20px;display:flex;gap:16px;align-items:baseline}
+.pillars li span{font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan-ink);font-variant-numeric:tabular-nums}
+.pillars li h3{font-weight:500}
+@media (max-width:1000px){
+  .statement{grid-column:1/-1}
+  .welcome-cols .img-a{grid-column:1/7}
+  .welcome-cols .img-b{grid-column:7/13;margin-top:64px}
+  .welcome-cols .copy{grid-column:1/-1;order:3;padding-top:48px}
 }
 @media (max-width:600px){
-  .map-wrap{margin:0 var(--gutter);height:auto;display:flex;flex-direction:column}
-  .map-wrap iframe{height:340px}
-  .map-card{position:static;border-radius:0;flex-direction:column;align-items:flex-start;gap:16px;padding:24px 20px}
+  .pillars{row-gap:24px}.pillars li{grid-column:1/-1}
+}
+
+/* ============ 3. OUR MINISTRIES — header columns + 4 image cards ============ */
+.ministries{background:var(--ink);color:var(--white)}
+.min-head{align-items:end;margin-bottom:64px}
+.min-head h2{grid-column:1/6}
+.min-head .copy{grid-column:7/13}
+.min-head .copy p{font-size:18px;margin-bottom:32px}
+.cards{row-gap:48px}
+.card{grid-column:span 3;display:flex;flex-direction:column}
+.card .frame{aspect-ratio:3/4;margin-bottom:20px}
+.card:nth-child(even){margin-top:64px}
+.card-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:16px;border-top:1px solid var(--line-light)}
+.card h3{font-weight:500;font-size:19px}
+.card h3 i{font-style:normal;font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,.5);margin:0 4px}
+.card-meta span{font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan);font-variant-numeric:tabular-nums}
+@media (max-width:1000px){
+  .min-head h2,.min-head .copy{grid-column:1/-1}.min-head h2{margin-bottom:32px}
+  .card{grid-column:span 6}.card:nth-child(even){margin-top:0}
+}
+@media (max-width:480px){.cards{column-gap:16px;row-gap:32px}.card h3{font-size:17px}.card h3 i{font-size:13px}.card-meta span{display:none}}
+
+/* ============ 4. GET IN TOUCH — 3 columns + map/image row ============ */
+.touch-cols{row-gap:48px;margin-bottom:clamp(64px,7vw,96px)}
+.touch-cols>div{grid-column:span 4}
+.touch-cols .intro h2{margin-bottom:24px}
+.touch-cols .intro p{margin-bottom:32px;max-width:24em}
+.info h4{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px}
+.info dl{border-top:1px solid var(--line)}
+.info dl>div{padding:16px 0;border-bottom:1px solid var(--line)}
+.info dt{font-size:14px;color:var(--ink-soft);margin-bottom:2px}
+.info dd{font-family:var(--font-head);font-weight:500;font-size:var(--t-h3);letter-spacing:-.015em;line-height:1.3}
+.info dd a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+.info dd a:hover{background-size:100% 1px}
+.visit-row{align-items:stretch}
+.visit-row .map{grid-column:1/9;height:clamp(360px,36vw,480px)}
+.visit-row .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.02)}
+.visit-row .img-c{grid-column:9/13;height:clamp(360px,36vw,480px)}
+@media (max-width:1000px){
+  .touch-cols .intro{grid-column:1/-1}
+  .touch-cols .info{grid-column:span 6}
+}
+@media (max-width:700px){
+  .touch-cols .info{grid-column:1/-1}
+  .visit-row{row-gap:16px}
+  .visit-row .map,.visit-row .img-c{grid-column:1/-1}
+  .visit-row .map{height:340px}.visit-row .img-c{height:auto;aspect-ratio:4/3}
 }
 
 /* ============ 5. FOOTER ============ */
-.footer{background:var(--ink);color:var(--white);margin-top:var(--pad);padding-top:96px;overflow:hidden}
-.footer-top{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:48px;padding-bottom:80px}
+.footer{background:var(--ink);color:var(--white);padding-top:96px;overflow:hidden}
+.footer-top{row-gap:48px;padding-bottom:80px}
 .footer-brand{grid-column:1/6}
 .footer-brand img{height:34px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
 .footer-brand p{font-family:var(--font-head);font-size:var(--t-h3);font-weight:500;letter-spacing:-.015em;color:rgba(255,255,255,.9)}
@@ -196,30 +220,35 @@ p{text-wrap:pretty}
 .footer-nav a{width:fit-content;color:rgba(255,255,255,.85);transition:color .2s}
 .footer-nav a:hover,.footer-credit a:hover{color:var(--cyan)}
 .social{display:flex;gap:8px}
-.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-light);display:grid;place-items:center;transition:.25s}
+.social a{width:44px;height:44px;border-radius:var(--radius-btn);border:1px solid var(--line-light);display:grid;place-items:center;transition:.25s}
 .social a:hover{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
 .social svg{width:16px;height:16px}
 .footer-credit{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--line-light);font-size:13px;color:rgba(255,255,255,.5)}
 .wordmark{font-family:var(--font-head);font-weight:700;font-size:clamp(72px,17.5vw,272px);letter-spacing:-.05em;line-height:.9;color:var(--cyan);white-space:nowrap;text-align:center;padding:24px 0 .14em;user-select:none}
 @media (max-width:900px){.footer-brand{grid-column:1/-1}.footer-col,.footer-col:first-of-type{grid-column:span 6}}
 
+@media (max-width:600px){:root{--gutter:20px}.label{margin-bottom:40px}}
+
 /* Reveal on scroll (Elementor: Entrance Animation › Fade In Up) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ticker-track{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
 </style>
 <!--
-  SPURGEON — REDESIGN v2 ("Sunlit editorial", refined)
-  Same 5 sections, copy and images as the original theme:
-    1. Hero          — full-bleed photo, "Loving God. Loving People.", 2 buttons + slim service-times strip
-    2. Welcome Home  — opening sentence as a statement, photo, rest of the text, 3 pillars, About Us
-    3. Our Ministries— cyan band: heading, the four "whether you're…" pairs, text, Get Connected, round photo
-    4. Get in Touch  — heading + text, service-times board, contact row, map with Plan Your Visit
+  SPURGEON — REDESIGN v2 (columns)
+  Same 5 sections and copy as the original theme. Hero video: Mixkit (free licence), compressed copy in
+  hero.webm/.mp4 with hero-poster.jpg. Photos: Unsplash (free licence), modern-church set.
+    1. Hero          — background video, "Loving God. Loving People.", 2 buttons, 3-column service bar
+    2. Welcome Home  — opening sentence as a statement; 3 columns: photo | text + About Us | photo; 3 pillar columns
+    3. Our Ministries— dark band: heading | text + Get Connected; 4 photo cards captioned with the
+                       "single or married / with children or without / young or old / male or female" pairs
+    4. Get in Touch  — 3 columns: heading + text + button | service times | contact; map (8 cols) + photo (4 cols)
     5. Footer        — logo + tagline, menu, socials, credit, wordmark
 
-  System: 12-column grid, 8px spacing steps, 1px hairlines, 20px radius + pill buttons (52px).
-  Elementor map: Heading, Text Editor, Button, Image, Icon List, Google Maps, Nav Menu, Social Icons.
-  Images, logo and map: the Spurgeon theme's own.
+  System: 12-column grid, 8px spacing steps, 1px hairlines, 14px image radius, 8px buttons. No circles.
+  Elementor map: Container (grid), Heading, Text Editor, Button, Image, Image Box (cards), Google Maps,
+  Nav Menu, Social Icons.
 -->
 </head>
 <body>
@@ -247,101 +276,123 @@ p{text-wrap:pretty}
 
 <main>
 <!-- ======================= 1. HERO ======================= -->
-<section class="hero" style="--hero-img:url(https://spurgeon.wpengine.com/wp-content/uploads/2020/07/zach-lucero-rp9hgLfpoaI-unsplash-1.jpg)">
-  <div class="wrap">
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true">
+    <source src="hero.webm" type="video/webm">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap hero-main">
     <span class="kicker">Spurgeon Church</span>
     <h1><span>Loving God.</span><span class="c">Loving People.</span></h1>
     <div class="actions">
-      <a href="#visit" class="btn btn-white">Plan Your Visit
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#visit" class="btn btn-white">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="#" class="btn btn-line">Watch Live</a>
     </div>
   </div>
-</section>
-
-<div class="ticker" role="note" aria-label="Sunday mornings 8:30 and 10:00 am. Wednesday evenings 6:30 pm. 1221 My Street, My Town.">
-  <div class="ticker-track" aria-hidden="true">
-    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
-    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
-    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
-    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
+  <div class="hero-bar">
+    <div class="wrap grid">
+      <div><small>Sunday Mornings</small><strong>8:30 am &amp; 10:00 am</strong></div>
+      <div><small>Wednesday Evenings</small><strong>6:30 pm</strong></div>
+      <div><small>Address</small><strong>1221 My Street, My Town, XX 12212</strong></div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ======================= 2. WELCOME HOME ======================= -->
 <section class="section" id="welcome">
   <div class="wrap">
     <div class="label reveal"><span class="num">01</span>Welcome Home</div>
-    <h2 class="statement reveal">New to the community, our church is <mark>planting and putting down roots</mark> to reach the people in our neighborhood and the surrounding areas for Christ.</h2>
+    <div class="grid">
+      <h2 class="statement reveal">New to the community, our church is <mark>planting and putting down roots</mark> to reach the people in our neighborhood and the surrounding areas for Christ.</h2>
+    </div>
 
-    <div class="welcome-grid">
-      <div class="welcome-photo reveal">
-        <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-1.jpg" alt="A hand raised in worship during a service" width="800" height="800" loading="lazy">
+    <div class="grid welcome-cols">
+      <div class="frame img-a reveal">
+        <img src="https://images.unsplash.com/photo-1651514645899-de1cadd1ec31?w=900&q=75&auto=format&fit=crop" alt="Church members greeting each other with smiles" width="900" height="600" loading="lazy">
       </div>
-      <div class="welcome-body reveal">
+      <div class="copy reveal">
         <p class="first">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life.</p>
-        <p>We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
-        <ul class="pillars">
-          <li><span>01</span>Welcomed in</li>
-          <li><span>02</span>Encouraged</li>
-          <li><span>03</span>Supported</li>
-        </ul>
-        <a href="#" class="btn btn-ink">About Us
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="muted">We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
+        <a href="#" class="btn btn-ink">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="frame img-b reveal">
+        <img src="https://images.unsplash.com/photo-1717278088457-b145be192237?w=900&q=75&auto=format&fit=crop" alt="People supporting one another during a church service" width="900" height="600" loading="lazy">
       </div>
     </div>
+
+    <ul class="grid pillars reveal">
+      <li><span>01</span><h3>Welcomed in</h3></li>
+      <li><span>02</span><h3>Encouraged</h3></li>
+      <li><span>03</span><h3>Supported</h3></li>
+    </ul>
   </div>
 </section>
 
 <!-- ======================= 3. OUR MINISTRIES ======================= -->
-<section class="section ministries on-cyan" id="ministries">
+<section class="section ministries on-dark" id="ministries">
   <div class="wrap">
     <div class="label reveal"><span class="num">02</span>Get Connected</div>
-    <div class="min-grid">
-      <div class="min-copy reveal">
-        <h2>Our Ministries</h2>
-        <p class="whether">Whether you’re</p>
-        <ul class="pairs">
-          <li>Single <i>or</i> married</li>
-          <li>With children <i>or</i> without</li>
-          <li>Young <i>or</i> old</li>
-          <li>Male <i>or</i> female</li>
-        </ul>
-        <p>We have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
-        <a href="#" class="btn btn-ink">Get Connected
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="grid min-head reveal">
+      <h2>Our Ministries</h2>
+      <div class="copy">
+        <p class="muted">Whether you're single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
+        <a href="#" class="btn btn-cyan">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="min-photo reveal">
-        <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/alexis-brown-omeaHbEFlN4-unsplash-1.jpg" alt="Friends studying the Bible together around a table" width="600" height="600" loading="lazy">
-      </div>
+    </div>
+    <div class="grid cards">
+      <a href="#" class="card reveal">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1658017875525-ecbf763b797e?w=700&q=75&auto=format&fit=crop" alt="A smiling couple" width="700" height="933" loading="lazy"></div>
+        <div class="card-meta"><h3>Single <i>or</i> married</h3><span>01</span></div>
+      </a>
+      <a href="#" class="card reveal">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1604072424771-7300bc5de457?w=700&q=75&auto=format&fit=crop" alt="A mother and her son sitting together in church" width="700" height="933" loading="lazy"></div>
+        <div class="card-meta"><h3>With children <i>or</i> without</h3><span>02</span></div>
+      </a>
+      <a href="#" class="card reveal">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1651514645933-c26e0eb4ace3?w=700&q=75&auto=format&fit=crop" alt="People of different ages talking together" width="700" height="933" loading="lazy"></div>
+        <div class="card-meta"><h3>Young <i>or</i> old</h3><span>03</span></div>
+      </a>
+      <a href="#" class="card reveal">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1629141650817-a4b997dc1613?w=700&q=75&auto=format&fit=crop" alt="A small group of men and women meeting on a patio" width="700" height="933" loading="lazy"></div>
+        <div class="card-meta"><h3>Male <i>or</i> female</h3><span>04</span></div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ======================= 4. GET IN TOUCH ======================= -->
-<section class="section touch" id="visit">
+<section class="section" id="visit">
   <div class="wrap">
     <div class="label reveal"><span class="num">03</span>Visit</div>
-    <div class="touch-head reveal">
-      <h2>Get in Touch</h2>
-      <p>We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
+    <div class="grid touch-cols reveal">
+      <div class="intro">
+        <h2>Get in Touch</h2>
+        <p class="muted">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
+        <a href="#" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="info">
+        <h4>Service Times</h4>
+        <dl>
+          <div><dt>Sunday Mornings</dt><dd>8:30 am &amp; 10:00 am</dd></div>
+          <div><dt>Wednesday Evenings</dt><dd>6:30 pm</dd></div>
+        </dl>
+      </div>
+      <div class="info">
+        <h4>Contact</h4>
+        <dl>
+          <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
+        </dl>
+      </div>
     </div>
-    <div class="board reveal">
-      <div class="board-row"><span class="day">Sunday Mornings</span><span class="time">8:30<i>&amp;</i>10:00<small>am</small></span></div>
-      <div class="board-row"><span class="day">Wednesday Evenings</span><span class="time">6:30<small>pm</small></span></div>
-    </div>
-    <div class="contact-row reveal">
-      <div><h4>Address</h4><p>1221 My Street, My Town, XX&nbsp;12212</p></div>
-      <div><h4>Phone</h4><a href="tel:9081231234">908-123-1234</a></div>
-      <div><h4>Email</h4><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div>
-    </div>
-  </div>
-  <div class="map-wrap reveal">
-    <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    <div class="map-card">
-      <h3>First time with us?</h3>
-      <a href="#" class="btn btn-cyan">Plan Your Visit
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="grid visit-row reveal">
+      <div class="frame map">
+        <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="frame img-c">
+        <img src="https://images.unsplash.com/photo-1623080882579-050db1182f51?w=800&q=75&auto=format&fit=crop" alt="A modern church sanctuary lit for Sunday worship" width="800" height="1000" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -350,7 +401,7 @@ p{text-wrap:pretty}
 <!-- ======================= 5. FOOTER (global) ======================= -->
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-top">
+    <div class="grid footer-top">
       <div class="footer-brand">
         <a href="spurgeon-home.html" aria-label="Spurgeon Church home"><img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76"></a>
         <p>Loving God. Loving People.</p>
