@@ -185,7 +185,7 @@ def about():
 # =============================================================== CONNECT
 def ministry(pid, alt, eb, title, lead_t, body, reverse=False, bg=None):
     return split(pid, alt, [eyebrow(eb), heading(title), lead(lead_t), text(body), gap('16px'),
-                            button('Get Connected', '/get-connected/')], reverse=reverse, bg=bg)
+                            button('Get Connected', '/get-connected/#connection-card')], reverse=reverse, bg=bg)
 
 
 def connect():
@@ -284,7 +284,7 @@ def watch():
             layout_column_flexbox=True, layout_column_flex_direction='row', layout_column_flex_wrap=False,
             layout_column_flex_justify='space-between', layout_column_flex_align='flex-end', layout_column_flex_gap='24px',
             effects_alt=True, effects_type_alt='transform', effects_transform_alt='translate(0px, -4px)')
-    tiles = section([row([tile('Get Connected', 'Find a group, a class or a place to serve.', '/connect/', 'photo-1529156069898-49953e39b3ac'),
+    tiles = section([row([tile('Get Connected', 'Find a group, a class or a place to serve.', '/get-connected/#connection-card', 'photo-1529156069898-49953e39b3ac'),
                           tile('Previous Messages', 'Missed a Sunday? Catch up on past messages.', '/messages/', 'photo-1445445290350-18a3b86e0b5a')],
                          '50% 50%', md='100%', sm='100%', xs='100%', gap='18px')], bg=LINEN, label='Next Steps')
     give = split('photo-1532629345422-7515f3d16bb6', 'Open hands holding coins and a note',
@@ -399,6 +399,7 @@ def get_connected():
                         'Thank you for connecting with us. We would love to answer any questions you may have, '
                         'and we have a free gift for you for taking the time to share a little about yourself.',
                         7, 'photo-1529156069898-49953e39b3ac')
+    card.update(id='connection-card', style='scroll-margin-top: 100px;')  # anchor for every "Get Connected" button
     return [
         page_hero('Get connected', "We'd love to get to <em>know you.</em>",
                   "Fill out a connection card and we'll help you find your next step at Lewis Church.",
