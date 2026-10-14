@@ -18,5 +18,5 @@ Set `CS_MCP_AUTH` to `Basic <base64 of user:application-password>` before runnin
 | `run.py` | `python3 run.py <page> <post id>` saves a page tree |
 | `lewis.css` / `applycss.py` | The only global CSS: heading accent word + Gravity Forms, Sermon Manager Pro and MEC styling |
 
-Page IDs: home 8, about 11, connect 12, plan 92, watch 103, give 14, messages 82, events 88, get_connected 113.
+Page IDs: home 8, about 11, connect 12, plan 92, watch 103, give 14, messages 82, events 88, get_connected 113, thank_you 287.
 Every page save is backed up by the plugin first (`cs_list_backups` / `cs_restore_backup`).

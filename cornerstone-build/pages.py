@@ -256,7 +256,7 @@ def plan():
         faq_sec,
         form_section('Plan ahead', "Let us know you're <em>coming!</em>",
                      "Tell us when you're planning to visit and we'll have someone ready to welcome you and show you around.",
-                     5, 'photo-1511632765486-a01980e01a18'),
+                     8, 'photo-1511632765486-a01980e01a18'),
     ]
 
 
@@ -273,7 +273,7 @@ def watch():
 
     def tile(title, body, href, pid):
         return col([
-            div([h3(title, size='clamp(26px, 3vw, 34px)', color=WHITE, mb='6px'),
+            div([h3(title, size='clamp(26px, 3vw, 34px)', color=WHITE, mb='6px', text_tag='h2'),
                  text(body, color='rgba(255, 255, 255, 0.8)', size='15px', mb='0px')]),
             el('icon', icon='arrow-right', icon_font_size='18px', icon_color=WHITE, icon_width='52px',
                icon_height='52px', icon_bg_color=ACCENT, icon_bg_color_alt=ACCENT_DARK, icon_border_radius='50%'),
@@ -294,7 +294,7 @@ def watch():
                   gap('16px'), button('Give Now', '/give/')])
     prayer = form_section('Prayer', 'How can we pray <em>for you?</em>',
                           'Our prayer team reads every request and prays over it this week. Share as much or as little as you like.',
-                          6, 'photo-1490730141103-6cac27aaab94')
+                          9, 'photo-1490730141103-6cac27aaab94')
     return [hero, tiles, give, prayer]
 
 
@@ -398,7 +398,7 @@ def get_connected():
     card = form_section('Connection card', "Let's get you <em>connected.</em>",
                         'Thank you for connecting with us. We would love to answer any questions you may have, '
                         'and we have a free gift for you for taking the time to share a little about yourself.',
-                        7, 'photo-1529156069898-49953e39b3ac')
+                        10, 'photo-1529156069898-49953e39b3ac')
     card.update(id='connection-card', style='scroll-margin-top: 100px;')  # anchor for every "Get Connected" button
     return [
         page_hero('Get connected', "We'd love to get to <em>know you.</em>",
@@ -408,5 +408,23 @@ def get_connected():
     ]
 
 
+# =============================================================== THANK YOU (form confirmation page)
+def thank_you():
+    mods = [eyebrow('Thank you', dark=True, center=True),
+            heading('We got your <em>message.</em>', tag='h1', size='clamp(46px, 7.6vw, 96px)', color=WHITE,
+                    mb='24px', align='center', maxw='900px'),
+            text("Thanks for reaching out. Someone from our team will be in touch with you soon. "
+                 "We can't wait to meet you.", color='rgba(255, 255, 255, 0.82)', size='clamp(17px, 1.5vw, 19px)',
+                 mb='40px', maxw='34em', align='center'),
+            button('Back to Home', '/')]
+    for i, m in enumerate(mods):
+        rise(m, i)
+    return [section([row([col(mods, layout_column_flexbox=True, layout_column_flex_direction='column',
+                              layout_column_flex_align='center', layout_column_text_align='center')])],
+                    image=url('photo-1511632765486-a01980e01a18'), overlay='rgba(15, 12, 9, 0.66)',
+                    pad='clamp(200px, 22vw, 280px) 0px clamp(120px, 14vw, 180px) 0px', label='Thank You',
+                    section_bg_color=ESP)]
+
+
 PAGES = {'home': home, 'about': about, 'connect': connect, 'plan': plan, 'watch': watch, 'give': give,
-         'messages': messages, 'events': events, 'get_connected': get_connected}
+         'messages': messages, 'events': events, 'get_connected': get_connected, 'thank_you': thank_you}

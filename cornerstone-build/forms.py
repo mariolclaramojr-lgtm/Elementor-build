@@ -1,5 +1,6 @@
 """Gravity Forms matching the design (Plan Your Visit + Prayer Request). Creates new forms; the old ones are untouched."""
 import cs, json, os
+THANK_YOU = json.load(open('thank_you.json'))['thank_you']
 
 def f(id, type, label, span=6, **kw):
     d = dict(id=id, type=type, label=label, layoutGridColumnSpan=span, isRequired=False, visibility='visible')
@@ -11,8 +12,9 @@ def form(title, fields, button, confirm, subject):
         title=title, description='', labelPlacement='top_label', descriptionPlacement='below',
         subLabelPlacement='below', requiredIndicator='asterisk', markupVersion=2,
         button=dict(type='text', text=button), fields=fields, is_active=True,
+        # Confirmation: send people to the Thank You page (Gravity Forms "Page" confirmation)
         confirmations={'5f1e00000000a': dict(id='5f1e00000000a', name='Default Confirmation', isDefault=True,
-                                             type='message', message=confirm)},
+                                             type='page', pageId=THANK_YOU, message=confirm)},
         notifications={'5f1e00000000b': dict(id='5f1e00000000b', name='Admin Notification', isActive=True,
                                              event='form_submission', to='{admin_email}', toType='email',
                                              subject=subject, message='{all_fields}')})
@@ -50,10 +52,13 @@ connect = form("Get Connected (Lewis)", [
    'New connection card: {First name:1} {Last name:2}')
 
 ids = json.load(open('form_ids.json')) if os.path.exists('form_ids.json') else {}
-for key, fm in (('plan', plan), ('prayer', prayer), ('connect', connect)):
+ids = {k: v for k, v in ids.items() if k.endswith('_v2')}  # v1 forms (5, 6, 7) used message confirmations
+for key, fm in (('plan_v2', plan), ('prayer_v2', prayer), ('connect_v2', connect)):
     kw = {'form': fm}
     if ids.get(key): print(key, ids[key], 'exists'); continue
     r = cs.call('gf_save_form', **kw)
     ids[key] = r.get('id') or ids.get(key)
     print(key, ids[key], r.get('summary', r))
-json.dump(ids, open('form_ids.json', 'w'))
+old = json.load(open('form_ids.json'))
+old.update(ids)
+json.dump(old, open('form_ids.json', 'w'))

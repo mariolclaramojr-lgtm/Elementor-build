@@ -293,7 +293,7 @@ def touch_section():
             effects_filter='grayscale(1) sepia(0.25) contrast(1.05)', **{'class': 'lc-map'}),
     ], layout_column_flexbox=True, layout_column_flex_align='stretch')
     return section([row([left, right], '50% 50%', md='100%', sm='100%', xs='100%')],
-                   image=url('photo-1470252649378-9c29740c9fa8'), overlay='rgba(20, 16, 12, 0.72)',
+                   image=url('touch-worship'), overlay='rgba(20, 16, 12, 0.72)',
                    label='Get In Touch')
 
 
