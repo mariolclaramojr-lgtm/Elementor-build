@@ -1,0 +1,56 @@
+.post_author {
+    display: none;
+}
+
+#wpfc_sermon_sorting {
+  justify-content: center;
+}
+.smpro-title__text {
+  font-size: 1.5rem;
+}
+
+.smpro-image__background {
+  background-position: center;
+}
+
+
+
+
+.single-wpfc_sermon .content_wrapper,
+.tax-wpfc_preacher .content_wrapper,
+.post-type-archive-wpfc_sermon .content_wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#wpfc_sermon_sorting { justify-content: center; }
+
+.wpfc-sermon-single-image { text-align: center; }
+
+[class*="wpfc"] h2.entry_title, [class*="wpfc"] .post_info {
+display:none ;
+}
+
+
+
+.wpfc-sermon-single .entry-header {display: none;}
+
+body.tax-wpfc_sermon_series, body.tax-wpfc_service_type, body.tax-wpfc_sermon_topics, body.tax-wpfc_bible_book, body.tax-wpfc_preacher,
+.entry-header, .p-meta {
+    display: none;
+}
+.smpro-title__text {
+  font-size: 1.5rem;
+}
+
+.smpro-image__background {
+  background-position: center;
+}
+
+.smpro-item .smpro-title {
+  margin-top: -10px !important;
+  margin-bottom: 20px !important;
+  line-height: 0.5 !important;
+  letter-spacing: 0px !important;
+}
