@@ -27,7 +27,7 @@ def nav_inline(menu, color='rgba(255, 255, 255, 0.85)', alt=ACCENT_LIGHT, size='
     return el('nav-inline', **d)
 
 
-def header_regions(solid=False, hero=None):
+def header_regions(solid=False, hero=None, nav_image=None):
     pill = el('headline', text_tag='span', text_content='This Sunday', text_font_family=F_BODY, text_font_weight='700',
               text_font_size='10px', text_letter_spacing='0.2em', text_text_transform='uppercase', text_line_height='1.4',
               text_text_color=WHITE, text_bg_color='rgba(255, 255, 255, 0.18)', text_padding='4px 10px',
@@ -71,6 +71,10 @@ def header_regions(solid=False, hero=None):
         bar_border_width='0px 0px 1px 0px', bar_border_style='solid', bar_border_color=LINE_DARK,
         bar_sticky=True, bar_sticky_trigger_offset='160', bar_sticky_shrink='1', bar_sticky_slide_enabled=True,
         bar_sticky_hide_initially=False, bar_z_index='9999', **{'class': 'lc-nav'})
+    if solid and nav_image:
+        # Menu-only header for detail pages: the menu bar sits on the same darkened photo as the page heroes
+        nav.update(bar_bg_advanced=True, bg_lower_type='image', bg_lower_image=nav_image, bg_lower_image_size='cover',
+                   bg_lower_image_position='center 40%', bg_upper_type='color', bg_upper_color='rgba(15, 12, 9, 0.72)')
     bars = [topbar, nav]
     if hero:
         bars.append(hero_bar(**hero))
@@ -96,7 +100,8 @@ def hero_bar(eyebrow_txt, title, image='', lead_txt=None):
 
 
 # The only header rule Cornerstone has no control for: the bar turns red once it is stuck.
-HEADER_CSS = """.lc-nav.x-bar-fixed { background-color: #A51C30; border-bottom-color: transparent; box-shadow: 0 10px 30px rgba(31, 27, 23, 0.22); }
+HEADER_CSS = """.lc-nav.x-bar-fixed > .x-bg { display: none; }
+.lc-nav.x-bar-fixed { background-color: #A51C30; border-bottom-color: transparent; box-shadow: 0 10px 30px rgba(31, 27, 23, 0.22); }
 .lc-nav.x-bar-fixed .lc-nav-cta { background-color: #fff; }
 .lc-nav.x-bar-fixed .lc-nav-cta .x-anchor-text-primary { color: #A51C30; }
 .lc-nav.x-bar-fixed .x-menu .x-anchor .x-anchor-text-primary { color: #fff; }"""

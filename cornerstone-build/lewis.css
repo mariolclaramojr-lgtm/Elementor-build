@@ -190,3 +190,6 @@ body .lc-form .gform_wrapper .ginput_complex > span > label { font-size: 10px !i
 .lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Inter", sans-serif !important; color: #57504A !important; text-align: left !important; }
 @media (max-width: 1024px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr; } }
+
+/* ---------- MEC single event: breathing room under the menu-only header ---------- */
+.single-mec-events #main-content { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }

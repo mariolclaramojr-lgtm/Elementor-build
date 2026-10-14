@@ -8,8 +8,8 @@ SPECS = [
     ('header_solid', 'Lewis Header – Default (title hero)',
      dict(eyebrow_txt='Lewis Church', title='{{dc:post:title}}', image=FEAT),
      [site('site:entire-site')], 10),
-    ('header_sermon', 'Lewis Header – Sermon',
-     dict(eyebrow_txt='Messages', title='{{dc:post:title}}', image=url('photo-1504052434569-70ad5836ab65')),
+    ('header_sermon', 'Lewis Header – Sermon (menu only)',
+     dict(nav_image=url('photo-1504052434569-70ad5836ab65')),
      [site('single:post-type', 'wpfc_sermon')], 1),
     ('header_sermon_archive', 'Lewis Header – Sermon Archives',
      dict(eyebrow_txt='Messages', title='{{dc:archive:name}}', image=url('photo-1504052434569-70ad5836ab65'),
@@ -20,8 +20,8 @@ SPECS = [
      dict(eyebrow_txt='Messages', title="Here's what we've been <em>talking about.</em>",
           image=url('photo-1504052434569-70ad5836ab65')),
      [site('archive:post-type', 'wpfc_sermon')], 2),
-    ('header_event', 'Lewis Header – Event',
-     dict(eyebrow_txt='Events', title='{{dc:post:title}}', image=url('photo-1609234656388-0ff363383899')),
+    ('header_event', 'Lewis Header – Event (menu only)',
+     dict(nav_image=url('photo-1609234656388-0ff363383899')),
      [site('single:post-type', 'mec-events')], 1),
     ('header_archive', 'Lewis Header – Archives',
      dict(eyebrow_txt='Archive', title='{{dc:archive:name}}', image=url('photo-1438232992991-995b7058bbb3')),
@@ -29,7 +29,9 @@ SPECS = [
       site('archive:author'), site('archive:search')], 3),
 ]
 for key, title, hero, asg, prio in SPECS:
-    kw = dict(type='header', title=title, regions=layouts.header_regions(hero=hero),
+    regions = (layouts.header_regions(solid=True, nav_image=hero['nav_image']) if 'nav_image' in hero
+               else layouts.header_regions(hero=hero))
+    kw = dict(type='header', title=title, regions=regions,
               settings={'customCSS': layouts.HEADER_CSS, 'assignments': asg, 'assignment_priority': prio})
     if ids.get(key):
         kw['id'] = ids[key]
