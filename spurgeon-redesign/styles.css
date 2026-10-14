@@ -1,0 +1,165 @@
+/* SPURGEON — shared styles.
+   Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
+:root{
+  /* Global colours */
+  --paper:#F5F3EF;        /* page background */
+  --mist:#E7EEF1;         /* cool tint band / cards */
+  --night:#0C1A28;        /* ink + dark bands */
+  --night-2:#132638;
+  --ink-soft:#4B5967;
+  --accent:#3DB6DB;       /* Spurgeon cyan: buttons, accents on dark */
+  --accent-deep:#14799B;  /* cyan for text on light */
+  --white:#FFFFFF;
+  --line:rgba(12,26,40,.12);
+  --line-dark:rgba(255,255,255,.14);
+  /* Global fonts */
+  --font-head:"Instrument Serif", Georgia, serif;
+  --font-body:"Manrope", system-ui, -apple-system, sans-serif;
+  /* Layout */
+  --wrap:1240px;
+  --radius:28px;
+  --pad-section:clamp(88px, 10vw, 148px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--night);font-family:var(--font-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+h1,h2,h3{font-family:var(--font-head);font-weight:400;line-height:1;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(56px,9vw,128px);line-height:.92}
+h2{font-size:clamp(44px,5.6vw,76px)}
+h3{font-size:30px;line-height:1.1}
+h1 em,h2 em{font-style:italic;color:var(--accent-deep)}
+.on-dark h1 em,.on-dark h2 em{color:var(--accent)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.on-dark .eyebrow{color:var(--accent)}
+.lead{font-size:clamp(17px,1.4vw,19px);color:var(--ink-soft);max-width:36em}
+.on-dark .lead{color:rgba(255,255,255,.72)}
+
+/* Buttons — one global style, three variants */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.02em;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn svg{width:16px;height:16px;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--accent);color:var(--night)}
+.btn-primary:hover{background:var(--white)}
+.btn-dark{background:var(--night);color:var(--white)}
+.btn-dark:hover{background:var(--accent-deep)}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
+
+/* ============ HEADER (global, sticky) ============ */
+.header{position:sticky;top:0;z-index:50;background:rgba(245,243,239,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 1px 0 var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .3s}
+.header.scrolled .wrap{height:72px}
+.logo img{height:40px;width:auto}
+.nav{display:flex;align-items:center;gap:34px;font-size:15px;font-weight:600}
+.nav a:not(.btn){position:relative;padding:6px 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:12px 22px}
+.menu-toggle{display:none;background:none;border:0;color:var(--night);width:44px;height:44px;cursor:pointer}
+.menu-toggle svg{width:26px;height:26px}
+@media (max-width:1020px){
+  .menu-toggle{display:grid;place-items:center}
+  .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 16px 28px;background:var(--paper);box-shadow:0 20px 40px rgba(12,26,40,.12);font-size:20px;transform:translateY(-12px);opacity:0;visibility:hidden;transition:.25s}
+  .nav.open{transform:none;opacity:1;visibility:visible}
+  .nav a:not(.btn){padding:10px 0;width:100%;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:16px}
+  .header .wrap{height:72px}
+}
+
+/* ============ 1. HERO — inset photo card ============ */
+.hero{padding:0 16px}
+.hero-card{position:relative;max-width:1440px;margin:0 auto;min-height:min(86vh,820px);border-radius:var(--radius);overflow:hidden;display:flex;align-items:flex-end;color:var(--white);background:var(--night) var(--hero-img) center/cover no-repeat}
+.hero-card::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,26,40,.92) 0%,rgba(12,26,40,.55) 45%,rgba(12,26,40,0) 75%),linear-gradient(0deg,rgba(12,26,40,.6),rgba(12,26,40,0) 45%)}
+.hero-inner{position:relative;width:100%;padding:clamp(40px,6vw,88px);display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}
+.hero h1{margin-bottom:28px}
+.hero .lead{margin-bottom:40px;max-width:30em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-times{display:grid;gap:2px;min-width:260px;background:rgba(12,26,40,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-dark);border-radius:20px;padding:24px 26px}
+.hero-times .label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.hero-times .row{display:flex;justify-content:space-between;gap:24px;padding:10px 0;border-top:1px solid var(--line-dark);font-size:15px}
+.hero-times .row span:first-child{color:rgba(255,255,255,.7)}
+.hero-times .row span:last-child{font-weight:700}
+@media (max-width:900px){
+  .hero{padding:0 10px}
+  .hero-card{min-height:auto;padding-top:220px;background-position:70% center}
+  .hero-card::before{background:linear-gradient(0deg,rgba(12,26,40,.95) 35%,rgba(12,26,40,.2))}
+  .hero-inner{grid-template-columns:1fr;padding:32px 22px 28px}
+  .hero-times{min-width:0}
+}
+
+/* ============ SPLIT SECTIONS (Welcome / Ministries) ============ */
+.section{padding:var(--pad-section) 0}
+.section--dark{background:var(--night);color:var(--white)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,8vw,120px);align-items:center}
+.split--reverse .split-media{order:-1}
+.split h2{margin-bottom:28px}
+.split .lead{margin-bottom:40px}
+
+/* Arch image — echoes a church window */
+.arch{position:relative;z-index:0;max-width:500px;justify-self:center;width:100%}
+.arch img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px var(--radius) var(--radius)}
+.arch::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1.5px solid var(--accent);border-radius:999px 999px var(--radius) var(--radius);z-index:-1}
+.split--reverse .arch::before{inset:-18px -18px 18px 18px}
+.arch-badge{position:absolute;right:-28px;bottom:48px;width:132px;height:132px;border-radius:50%;background:var(--accent);color:var(--night);display:grid;place-items:center;text-align:center;font-family:var(--font-head);font-size:22px;line-height:1.05;font-style:italic;padding:16px;box-shadow:0 20px 40px rgba(12,26,40,.2)}
+.split--reverse .arch-badge{right:auto;left:-28px}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split--reverse .split-media{order:0}
+  .arch{max-width:420px}
+  .arch-badge{right:-8px;width:108px;height:108px;font-size:19px}
+  .split--reverse .arch-badge{left:-8px}
+}
+@media (max-width:600px){
+  .arch::before{inset:-10px 10px 10px -10px}
+  .split--reverse .arch::before{inset:-10px -10px 10px 10px}
+}
+
+/* ============ 4. GET IN TOUCH ============ */
+.touch-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:64px}
+.touch-head .lead{justify-self:end}
+.touch-grid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:20px}
+.info-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;display:flex;flex-direction:column}
+.info-card .icon{width:52px;height:52px;border-radius:50%;background:var(--mist);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:28px}
+.info-card .icon svg{width:24px;height:24px}
+.info-card h3{margin-bottom:22px}
+.info-item{padding:16px 0;border-top:1px solid var(--line)}
+.info-item h4{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.info-item p{font-size:18px;font-weight:600;line-height:1.5}
+.info-item a:hover{color:var(--accent-deep)}
+.info-card .btn{margin-top:auto;align-self:flex-start}
+.info-card .spacer{flex:1;min-height:24px}
+.map{border-radius:var(--radius);overflow:hidden;min-height:420px;background:var(--mist)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:grayscale(.35) contrast(1.05)}
+@media (max-width:1020px){
+  .touch-head{grid-template-columns:1fr}
+  .touch-head .lead{justify-self:start}
+  .touch-grid{grid-template-columns:1fr 1fr}
+  .map{grid-column:1/-1}
+}
+@media (max-width:640px){.touch-grid{grid-template-columns:1fr}.info-card{padding:28px 22px}}
+
+/* ============ 5. FOOTER (global) ============ */
+.footer{background:var(--night);color:var(--white);padding:80px 0 36px}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;padding-bottom:48px;border-bottom:1px solid var(--line-dark)}
+.footer .logo img{filter:brightness(0) invert(1)}
+.footer-nav{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:15px;font-weight:600;color:rgba(255,255,255,.8)}
+.footer-nav a:hover{color:var(--accent)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-top:28px;font-size:14px;color:rgba(255,255,255,.55)}
+.footer-bottom a:hover{color:var(--accent)}
+.social{display:flex;gap:10px}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;color:var(--white);transition:.25s}
+.social a:hover{background:var(--accent);border-color:var(--accent);color:var(--night)}
+.social svg{width:18px;height:18px}
+
+/* Reveal on scroll (Elementor: Motion Effects › Entrance Animation › Fade In Up) */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
