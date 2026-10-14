@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spurgeon Church Redesign v2</title>
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
 <meta name="description" content="Second redesign direction for the Spurgeon church theme — warm cream, large grotesk type, column layouts with the theme's own photography.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,10 +88,14 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 /* ============ HEADER ============ */
 .header{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--white);transition:background .3s,color .3s,box-shadow .3s}
 .header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .3s}
-.header .logo img{height:34px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+/* Logo — mark (church window with a cross) + wordmark. Text inherits the header colour. */
+.logo{display:inline-flex;align-items:center;gap:12px;line-height:1}
+.logo-mark{width:34px;height:34px;flex:none}
+.logo-text{display:flex;flex-direction:column;gap:3px}
+.logo-text b{font-family:var(--font-head);font-weight:700;font-size:23px;letter-spacing:-.035em}
+.logo-text small{font-size:10px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;opacity:.75;padding-left:1px}
 .header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
 .header.solid .wrap{height:72px}
-.header.solid .logo img{filter:none}
 .nav{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500}
 .nav a:not(.btn){position:relative;padding:6px 0;opacity:.88;transition:opacity .2s}
 .nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
@@ -110,7 +115,6 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   .nav a:not(.btn)::after{display:none}
   .nav .btn{margin:24px 0 0;height:52px;font-family:var(--font-body);font-size:15px;letter-spacing:0}
   body.menu-open .header{background:var(--cream);color:var(--ink)}
-  body.menu-open .header .logo img{filter:none}
 }
 
 /* ============ 1. HERO + service columns ============ */
@@ -135,29 +139,20 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   .hero-bar .grid>div+div{border-left:0;border-top:1px solid var(--line-light);padding-left:0}
 }
 
-/* ============ 2. WELCOME HOME — statement + 3 columns + pillars ============ */
+/* ============ 2. WELCOME HOME — text | two photos ============ */
 .section{padding:var(--pad) 0}
-.statement{grid-column:1/11;font-family:var(--font-head);font-weight:500;font-size:var(--t-statement);line-height:1.18;letter-spacing:-.025em;margin-bottom:clamp(64px,7vw,96px)}
-.statement mark{background:none;color:inherit;box-shadow:inset 0 -.32em 0 rgba(61,182,219,.32)}
-.welcome-cols{align-items:start}
-.welcome-cols .img-a{grid-column:1/5;aspect-ratio:4/5}
-.welcome-cols .copy{grid-column:5/9;padding-top:8px}
-.welcome-cols .img-b{grid-column:9/13;aspect-ratio:4/5;margin-top:120px}
-.welcome-cols .copy p{margin-bottom:20px}
-.welcome-cols .copy p.first{font-size:19px;line-height:1.6}
-.welcome-cols .copy .btn{margin-top:20px}
-.pillars{list-style:none;margin-top:clamp(64px,7vw,96px)}
-.pillars li{grid-column:span 4;border-top:1px solid var(--line-strong);padding-top:20px;display:flex;gap:16px;align-items:baseline}
-.pillars li span{font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan-ink);font-variant-numeric:tabular-nums}
-.pillars li h3{font-weight:500}
+.welcome{align-items:center}
+.welcome-copy{grid-column:1/6}
+.welcome-copy h2{margin-bottom:32px}
+.welcome-copy p{margin-bottom:20px}
+.welcome-copy p.first{font-family:var(--font-head);font-weight:500;font-size:clamp(20px,1.7vw,24px);line-height:1.4;letter-spacing:-.015em}
+.welcome-copy .btn{margin-top:20px}
+.welcome-photos{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.welcome-photos .frame{aspect-ratio:3/4.4}
 @media (max-width:1000px){
-  .statement{grid-column:1/-1}
-  .welcome-cols .img-a{grid-column:1/7}
-  .welcome-cols .img-b{grid-column:7/13;margin-top:64px}
-  .welcome-cols .copy{grid-column:1/-1;order:3;padding-top:48px}
-}
-@media (max-width:600px){
-  .pillars{row-gap:24px}.pillars li{grid-column:1/-1}
+  .welcome-copy,.welcome-photos{grid-column:1/-1}
+  .welcome-photos{margin-top:48px}
+  .welcome-photos .frame{aspect-ratio:4/5}
 }
 
 /* ============ 3. OUR MINISTRIES — header columns + 4 image cards ============ */
@@ -211,7 +206,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .footer{background:var(--ink);color:var(--white);padding-top:96px;overflow:hidden}
 .footer-top{row-gap:48px;padding-bottom:80px}
 .footer-brand{grid-column:1/6}
-.footer-brand img{height:34px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
+.footer-brand .logo{margin-bottom:24px}
 .footer-brand p{font-family:var(--font-head);font-size:var(--t-h3);font-weight:500;letter-spacing:-.015em;color:rgba(255,255,255,.9)}
 .footer-col{grid-column:span 3}
 .footer-col:first-of-type{grid-column:7/10}
@@ -240,7 +235,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   Same 5 sections and copy as the original theme. Hero video: Mixkit (free licence), compressed copy in
   hero.webm/.mp4 with hero-poster.jpg. Photos: Unsplash (free licence), modern-church set.
     1. Hero          — background video, "Loving God. Loving People.", 2 buttons, 3-column service bar
-    2. Welcome Home  — opening sentence as a statement; 3 columns: photo | text + About Us | photo; 3 pillar columns
+    2. Welcome Home  — 2 columns: heading + text + About Us | two photos side by side
     3. Our Ministries— dark band: heading | text + Get Connected; 4 photo cards captioned with the
                        "single or married / with children or without / young or old / male or female" pairs
     4. Get in Touch  — 3 columns: heading + text + button | service times | contact; map (8 cols) + photo (4 cols)
@@ -256,9 +251,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 <!-- ======================= HEADER (global) ======================= -->
 <header class="header">
   <div class="wrap">
-    <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home">
-      <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76">
-    </a>
+    <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
     </button>
@@ -301,30 +294,19 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 <!-- ======================= 2. WELCOME HOME ======================= -->
 <section class="section" id="welcome">
   <div class="wrap">
-    <div class="label reveal"><span class="num">01</span>Welcome Home</div>
-    <div class="grid">
-      <h2 class="statement reveal">New to the community, our church is <mark>planting and putting down roots</mark> to reach the people in our neighborhood and the surrounding areas for Christ.</h2>
-    </div>
-
-    <div class="grid welcome-cols">
-      <div class="frame img-a reveal">
-        <img src="https://images.unsplash.com/photo-1651514645899-de1cadd1ec31?w=900&q=75&auto=format&fit=crop" alt="Church members greeting each other with smiles" width="900" height="600" loading="lazy">
-      </div>
-      <div class="copy reveal">
-        <p class="first">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life.</p>
-        <p class="muted">We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
+    <div class="label reveal"><span class="num">01</span>About Us</div>
+    <div class="grid welcome">
+      <div class="welcome-copy reveal">
+        <h2>Welcome Home</h2>
+        <p class="first">New to the community, our church is planting and putting down roots to reach the people in our neighborhood and the surrounding areas for Christ.</p>
+        <p class="muted">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life. We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
         <a href="#" class="btn btn-ink">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="frame img-b reveal">
-        <img src="https://images.unsplash.com/photo-1717278088457-b145be192237?w=900&q=75&auto=format&fit=crop" alt="People supporting one another during a church service" width="900" height="600" loading="lazy">
+      <div class="welcome-photos reveal">
+        <div class="frame"><img src="https://images.unsplash.com/photo-1651514645899-de1cadd1ec31?w=900&q=75&auto=format&fit=crop" alt="Church members greeting each other with smiles" width="900" height="600" loading="lazy"></div>
+        <div class="frame"><img src="https://images.unsplash.com/photo-1717278088457-b145be192237?w=900&q=75&auto=format&fit=crop" alt="People supporting one another during a church service" width="900" height="600" loading="lazy"></div>
       </div>
     </div>
-
-    <ul class="grid pillars reveal">
-      <li><span>01</span><h3>Welcomed in</h3></li>
-      <li><span>02</span><h3>Encouraged</h3></li>
-      <li><span>03</span><h3>Supported</h3></li>
-    </ul>
   </div>
 </section>
 
@@ -403,7 +385,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   <div class="wrap">
     <div class="grid footer-top">
       <div class="footer-brand">
-        <a href="spurgeon-home.html" aria-label="Spurgeon Church home"><img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76"></a>
+        <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
         <p>Loving God. Loving People.</p>
       </div>
       <div class="footer-col">

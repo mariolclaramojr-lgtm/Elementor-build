@@ -76,10 +76,14 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 /* ============ HEADER ============ */
 .header{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--white);transition:background .3s,color .3s,box-shadow .3s}
 .header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .3s}
-.header .logo img{height:34px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+/* Logo — mark (church window with a cross) + wordmark. Text inherits the header colour. */
+.logo{display:inline-flex;align-items:center;gap:12px;line-height:1}
+.logo-mark{width:34px;height:34px;flex:none}
+.logo-text{display:flex;flex-direction:column;gap:3px}
+.logo-text b{font-family:var(--font-head);font-weight:700;font-size:23px;letter-spacing:-.035em}
+.logo-text small{font-size:10px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;opacity:.75;padding-left:1px}
 .header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
 .header.solid .wrap{height:72px}
-.header.solid .logo img{filter:none}
 .nav{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500}
 .nav a:not(.btn){position:relative;padding:6px 0;opacity:.88;transition:opacity .2s}
 .nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
@@ -99,7 +103,6 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   .nav a:not(.btn)::after{display:none}
   .nav .btn{margin:24px 0 0;height:52px;font-family:var(--font-body);font-size:15px;letter-spacing:0}
   body.menu-open .header{background:var(--cream);color:var(--ink)}
-  body.menu-open .header .logo img{filter:none}
 }
 
 /* ============ 1. HERO + service columns ============ */
@@ -124,29 +127,20 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
   .hero-bar .grid>div+div{border-left:0;border-top:1px solid var(--line-light);padding-left:0}
 }
 
-/* ============ 2. WELCOME HOME — statement + 3 columns + pillars ============ */
+/* ============ 2. WELCOME HOME — text | two photos ============ */
 .section{padding:var(--pad) 0}
-.statement{grid-column:1/11;font-family:var(--font-head);font-weight:500;font-size:var(--t-statement);line-height:1.18;letter-spacing:-.025em;margin-bottom:clamp(64px,7vw,96px)}
-.statement mark{background:none;color:inherit;box-shadow:inset 0 -.32em 0 rgba(61,182,219,.32)}
-.welcome-cols{align-items:start}
-.welcome-cols .img-a{grid-column:1/5;aspect-ratio:4/5}
-.welcome-cols .copy{grid-column:5/9;padding-top:8px}
-.welcome-cols .img-b{grid-column:9/13;aspect-ratio:4/5;margin-top:120px}
-.welcome-cols .copy p{margin-bottom:20px}
-.welcome-cols .copy p.first{font-size:19px;line-height:1.6}
-.welcome-cols .copy .btn{margin-top:20px}
-.pillars{list-style:none;margin-top:clamp(64px,7vw,96px)}
-.pillars li{grid-column:span 4;border-top:1px solid var(--line-strong);padding-top:20px;display:flex;gap:16px;align-items:baseline}
-.pillars li span{font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan-ink);font-variant-numeric:tabular-nums}
-.pillars li h3{font-weight:500}
+.welcome{align-items:center}
+.welcome-copy{grid-column:1/6}
+.welcome-copy h2{margin-bottom:32px}
+.welcome-copy p{margin-bottom:20px}
+.welcome-copy p.first{font-family:var(--font-head);font-weight:500;font-size:clamp(20px,1.7vw,24px);line-height:1.4;letter-spacing:-.015em}
+.welcome-copy .btn{margin-top:20px}
+.welcome-photos{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.welcome-photos .frame{aspect-ratio:3/4.4}
 @media (max-width:1000px){
-  .statement{grid-column:1/-1}
-  .welcome-cols .img-a{grid-column:1/7}
-  .welcome-cols .img-b{grid-column:7/13;margin-top:64px}
-  .welcome-cols .copy{grid-column:1/-1;order:3;padding-top:48px}
-}
-@media (max-width:600px){
-  .pillars{row-gap:24px}.pillars li{grid-column:1/-1}
+  .welcome-copy,.welcome-photos{grid-column:1/-1}
+  .welcome-photos{margin-top:48px}
+  .welcome-photos .frame{aspect-ratio:4/5}
 }
 
 /* ============ 3. OUR MINISTRIES — header columns + 4 image cards ============ */
@@ -200,7 +194,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .footer{background:var(--ink);color:var(--white);padding-top:96px;overflow:hidden}
 .footer-top{row-gap:48px;padding-bottom:80px}
 .footer-brand{grid-column:1/6}
-.footer-brand img{height:34px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
+.footer-brand .logo{margin-bottom:24px}
 .footer-brand p{font-family:var(--font-head);font-size:var(--t-h3);font-weight:500;letter-spacing:-.015em;color:rgba(255,255,255,.9)}
 .footer-col{grid-column:span 3}
 .footer-col:first-of-type{grid-column:7/10}
