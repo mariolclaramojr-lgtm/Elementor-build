@@ -193,7 +193,7 @@ def buttons(*btns, mt='0px'):
 
 
 # ---------------------------------------------------------------- media
-def framed_image(pid, alt='', ratio='4/5', offset='22px', color=ACCENT, reverse=False, mr=True):
+def framed_image(pid, alt='', ratio='4/5', offset='22px', color=ACCENT, reverse=False, mr=True, small_ratio=None):
     """Image with the offset outline frame (two native Divs + Image)."""
     o = offset
     left, right = ('-' + o, o) if reverse else (o, '-' + o)
@@ -203,6 +203,8 @@ def framed_image(pid, alt='', ratio='4/5', offset='22px', color=ACCENT, reverse=
     im = el('image', image_src=img(pid), image_alt=alt, image_display='block', image_styled_width='100%',
             image_object_fit='cover', image_aspect_ratio_value=ratio, image_outer_border_radius='4px',
             image_inner_border_radius='4px')
+    if small_ratio:
+        im.update(bp(image_aspect_ratio_value=[small_ratio] * 3))
     m = f'0px 0px {o} 0px' if not reverse else f'0px 0px {o} {o}'
     w = f'calc(100% - {o})'
     return div([frame, im], layout_div_position='relative', layout_div_z_index='1', layout_div_width='100%',

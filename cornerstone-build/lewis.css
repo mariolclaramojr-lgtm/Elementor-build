@@ -117,7 +117,7 @@ body .lc-form .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { 
 .lc-mec .mec-calendar .mec-calendar-side { display: block !important; width: 100% !important; min-width: 0 !important; padding: 0 !important; box-shadow: none !important; border: 0 !important; }
 /* month navigator: Title  (<) (>) */
 .lc-mec .mec-calendar .mec-skin-monthly-view-month-navigator-container { margin: 0; padding: 0; border: 0; }
-.lc-mec .mec-calendar .mec-month-navigator { position: static !important; display: flex !important; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
+.lc-mec .mec-calendar .mec-month-navigator { position: static !important; display: flex; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { order: 1; position: static !important; width: auto !important; margin: 0 14px 0 0 !important; padding: 0 !important; }
 .lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Fraunces", Georgia, serif !important; letter-spacing: -.02em !important; color: #1F1B17 !important; text-transform: none !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month { order: 2; }
@@ -141,8 +141,9 @@ body .lc-form .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { 
 .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Inter", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #57504A !important; background: #FBF8F4 !important; border-right: 0 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(31,27,23,.28) !important; background: #FBF8F4 !important; }
 .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #FDFBF8 !important; }
-.lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
-.lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: #1F1B17 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt .mec-past-event { opacity: 1 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt a { display: block; text-decoration: none; }
 .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #A51C30; border-radius: 0 2px 2px 0; background: rgba(165,28,48,.07);
@@ -167,7 +168,7 @@ body .lc-form .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { 
   .lc-mec .mec-calendar .mec-month-container dl > dt { min-height: 58px; padding: 6px !important; font-size: 13px !important; text-align: center !important; }
   .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; }
   .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #A51C30; font-size: 0 !important; }
-  .lc-mec .mec-calendar .mec-month-container dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; }
+  .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; }
 }
 
 /* ---------- Modern Events Calendar — coming up (list, minimal) [MEC id="252"] ---------- */
@@ -191,3 +192,19 @@ body .lc-form .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { 
 
 /* ---------- MEC single event: breathing room under the menu-only header ---------- */
 .single-mec-events #main-content { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }
+.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Fraunces", Georgia, serif !important; letter-spacing: -.02em; color: #1F1B17; margin: 28px 0 14px; }
+.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Inter", sans-serif; color: #57504A; }
+.single-mec-events .mec-events-event-image img { border-radius: 4px; }
+.single-mec-events .mec-event-meta, .single-mec-events .mec-event-export-module, .single-mec-events .mec-events-meta-group-countdown,
+.single-mec-events .mec-event-social, .single-mec-events .mec-qrcode-details, .single-mec-events .mec-single-event .mec-frontbox { background: #fff !important; border: 0 !important; border-radius: 4px !important; box-shadow: none !important; }
+.single-mec-events .mec-event-meta h3, .single-mec-events .mec-single-event .mec-event-meta dt, .single-mec-events .mec-event-social h3 { font: 700 11px/1.4 "Inter", sans-serif !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: #1F1B17 !important; }
+.single-mec-events .mec-event-meta dd, .single-mec-events .mec-event-meta abbr, .single-mec-events .mec-event-meta .mec-events-abbr { font: 400 15px/1.5 "Inter", sans-serif !important; color: #57504A !important; }
+.single-mec-events .mec-event-meta i, .single-mec-events .mec-event-meta i:before { color: #A51C30 !important; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a { border: 1px solid rgba(23,19,15,.12) !important; border-radius: 999px !important; color: #1F1B17 !important; font: 600 12px/1 "Inter", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px !important; transition: background .25s, color .25s; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a:hover { background: #A51C30 !important; border-color: #A51C30 !important; color: #fff !important; }
+.single-mec-events .mec-countdown-details .countdown-w span, .single-mec-events .mec-end-counts h3 { font-family: "Fraunces", Georgia, serif !important; color: #A51C30 !important; }
+.single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Inter", sans-serif !important; color: #57504A !important; letter-spacing: .16em; }
+.single-mec-events .mec-event-social h3:before { border-color: #A51C30 !important; }
+
+/* GF date field: full width like the other inputs */
+.lc-form .gform-theme--orbital .ginput_container_date, .lc-form .gform-theme--orbital .ginput_container_date input { width: 100% !important; max-width: none !important; }

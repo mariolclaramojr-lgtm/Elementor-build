@@ -35,7 +35,7 @@ def home():
                    label='Hero', section_bg_color=ESP)
 
     welcome = section([row([
-        col([framed_image('photo-1511632765486-a01980e01a18', 'Friends standing together at sunset', '4/5')],
+        col([framed_image('photo-1511632765486-a01980e01a18', 'Friends standing together at sunset', '4/5', small_ratio='4/3')],
             ),
         col([eyebrow('Welcome to Lewis Church'),
              heading('More than a place to go. A family to <em>belong</em> to.', mb='28px'),
@@ -177,7 +177,7 @@ def about():
         row([person('photo-1500648767791-00dcc994a43e', 'Portrait of the senior pastor', 'Senior Pastor'),
              person('photo-1573497019940-1c28c88b4f3e', 'Portrait of the worship director', 'Worship Director'),
              person('photo-1507003211169-0a1dd7228f2d', 'Portrait of the youth director', 'Youth Director')],
-            '33.33% 33.33% 33.33%', md='50% 50%', sm='50% 50%', xs='100%', gap='clamp(20px, 3vw, 36px)'),
+            '33.33% 33.33% 33.33%', md='33.33% 33.33% 33.33%', sm='50% 50%', xs='100%', gap='clamp(20px, 3vw, 36px)'),
     ], bg=LINEN, label='Team')
     return [hero, mission, values, beliefs, team, touch_section()]
 
