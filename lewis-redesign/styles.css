@@ -54,11 +54,25 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .btn-ghost{border:1px solid rgba(255,255,255,.45);color:var(--white)}
 .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
 
+/* ============ TOP BAR (global) — announcements / Sunday service ============
+   Elementor: a full-width Container above the header with a Heading/Text + Button.
+   Edit the text in one place (Theme Builder › Header) and it updates on every page. */
+.topbar{background:var(--accent);color:var(--white);font-size:14px;line-height:1.4}
+.topbar .wrap{position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 16px;min-height:46px;padding-block:9px;text-align:center}
+.topbar .tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:999px}
+.topbar a{font-weight:700;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.55);transition:border-color .2s}
+.topbar a:hover{border-color:var(--white)}
+.topbar-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:30px;height:30px;display:grid;place-items:center;background:none;border:0;border-radius:50%;color:inherit;cursor:pointer;opacity:.8}
+.topbar-close:hover{opacity:1;background:rgba(255,255,255,.14)}
+.topbar-close svg{width:14px;height:14px}
+@media (max-width:700px){.topbar{font-size:13px}.topbar .wrap{padding-right:52px;justify-content:flex-start;text-align:left}.topbar-close{right:10px}}
+
 /* ============ 1. HERO + HEADER ============ */
 .hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;color:var(--white);
   background:linear-gradient(180deg,rgba(15,12,9,.7) 0%,rgba(15,12,9,.3) 38%,rgba(15,12,9,.88) 100%),
     var(--hero-img,none) center 35%/cover no-repeat,var(--espresso)}
-.hero > .wrap{position:relative;z-index:1;width:100%}
+.hero > .wrap{position:relative;z-index:3;width:100%}
+.hero > .wrap.hero-content{z-index:1}
 /* Video background — Elementor: Section › Style › Background › Video (MP4 link), image as fallback */
 .hero-media{position:absolute;inset:0;overflow:hidden}
 .hero-media video{width:100%;height:100%;object-fit:cover}
@@ -135,6 +149,19 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .card:hover img{transform:scale(1.06)}
 .card:hover::after{border-color:rgba(232,93,108,.7)}
 .card:hover .more svg{transform:translateX(4px)}
+/* Desktop: hovered card widens, the other three narrow (Elementor: add this as custom CSS on the cards container) */
+@media (min-width:1025px){
+  .cards{display:flex;gap:18px;height:clamp(460px,38vw,540px)}
+  .card{flex:1 1 0;min-width:0;aspect-ratio:auto;transition:flex .7s cubic-bezier(.2,.7,.2,1)}
+  .cards:hover .card{flex-grow:.72}
+  .cards .card:hover{flex-grow:2.4}
+  .card h3{white-space:nowrap}
+  .card p,.card .more{transition:opacity .35s ease,max-height .5s ease,margin .5s ease}
+  .card p{max-height:7em;overflow:hidden}
+  .card p{min-width:240px}
+  .cards:hover .card:not(:hover) p{opacity:0;max-height:0;margin-bottom:0}
+  .cards:hover .card:not(:hover) .more{opacity:0}
+}
 @media (max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.cards{grid-template-columns:1fr}.card{aspect-ratio:4/3.4}}
 
