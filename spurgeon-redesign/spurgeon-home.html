@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spurgeon Church Redesign v2</title>
+<meta name="description" content="Second redesign direction for the Spurgeon church theme — sunlit editorial: warm cream, poster-sized type, cyan blocks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* SPURGEON v2 — "Sunlit editorial": warm cream, poster-sized grotesk type, cyan as a bold block colour.
+   Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
+:root{
+  --cream:#F6F1E7;       /* page background */
+  --sand:#ECE4D4;        /* cards, soft bands */
+  --ink:#121417;         /* text + dark bands */
+  --ink-soft:#5A5C5F;
+  --cyan:#3DB6DB;        /* Spurgeon cyan: big blocks, highlights */
+  --cyan-soft:#BFE7F3;
+  --white:#FFFFFF;
+  --line:rgba(18,20,23,.14);
+  --font-head:"Bricolage Grotesque", system-ui, sans-serif;
+  --font-body:"DM Sans", system-ui, -apple-system, sans-serif;
+  --wrap:1320px;
+  --pad:clamp(96px,11vw,170px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+@media (max-width:600px){.wrap{padding:0 16px}body{font-size:17px}}
+h1,h2,h3{font-family:var(--font-head);font-weight:700;letter-spacing:-.035em;line-height:.95;text-wrap:balance}
+h2{font-size:clamp(48px,7vw,104px)}
+h3{font-size:clamp(26px,2.4vw,34px);letter-spacing:-.02em;line-height:1.05}
+.hl{background:linear-gradient(transparent 58%,var(--cyan-soft) 58%,var(--cyan-soft) 92%,transparent 92%);padding:0 .06em}
+
+/* Section label: (01) Welcome Home */
+.label{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:40px}
+.label .num{font-family:var(--font-head);font-size:14px;letter-spacing:0;border:1.5px solid currentColor;border-radius:999px;padding:3px 11px}
+.label::after{content:"";flex:1;height:1.5px;background:currentColor;opacity:.25}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 18px 18px 30px;border-radius:999px;font-weight:700;font-size:16px;transition:background .25s,color .25s}
+.btn .arrow{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;transition:transform .3s}
+.btn .arrow svg{width:16px;height:16px}
+.btn:hover .arrow{transform:rotate(-45deg)}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn-ink .arrow{background:var(--cyan);color:var(--ink)}
+.btn-cyan{background:var(--cyan);color:var(--ink)}
+.btn-cyan .arrow{background:var(--ink);color:var(--white)}
+.btn-white{background:var(--white);color:var(--ink)}
+.btn-white .arrow{background:var(--cyan);color:var(--ink)}
+.btn-line{border:1.5px solid rgba(255,255,255,.6);color:var(--white);padding:18px 30px}
+.btn-line:hover{background:var(--white);color:var(--ink)}
+
+/* ============ HEADER — transparent on hero, cream once scrolled ============ */
+.header{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--white);transition:background .3s,color .3s,box-shadow .3s}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:96px;transition:height .3s}
+.header .logo img{height:38px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+.header.solid{background:var(--cream);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.header.solid .wrap{height:76px}
+.header.solid .logo img{filter:none}
+.nav{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600}
+.nav a:not(.btn){padding:8px 14px;border-radius:999px;transition:background .2s}
+.nav a:not(.btn):hover{background:rgba(127,127,127,.18)}
+.nav .btn{margin-left:12px;padding:12px 22px;background:var(--cyan);color:var(--ink)}
+.menu-toggle{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer}
+.menu-toggle svg{width:28px;height:28px}
+@media (max-width:1060px){
+  .menu-toggle{display:grid;place-items:center}
+  .header .wrap,.header.solid .wrap{height:72px}
+  .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;padding:12px 16px 28px;background:var(--cream);color:var(--ink);font-family:var(--font-head);font-size:28px;font-weight:700;letter-spacing:-.02em;box-shadow:0 30px 50px rgba(18,20,23,.15);opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a:not(.btn){padding:12px 0;border-radius:0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin:20px 0 0;justify-content:center;font-family:var(--font-body);font-size:17px}
+  body.menu-open .header{background:var(--cream);color:var(--ink)}
+  body.menu-open .header .logo img{filter:none}
+}
+
+/* ============ 1. HERO — full-bleed poster ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--white);background:var(--ink) var(--hero-img) 62% center/cover no-repeat;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,20,23,.55) 0%,rgba(18,20,23,0) 28%,rgba(18,20,23,.25) 55%,rgba(18,20,23,.88) 100%)}
+.hero .wrap{position:relative;width:100%;padding-bottom:56px}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:28px}
+.hero-kicker{font-size:15px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.hero-kicker::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 6px rgba(61,182,219,.25)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero h1{font-size:clamp(60px,12vw,190px);line-height:.86;letter-spacing:-.045em}
+.hero h1 span{display:block}
+.hero h1 .c{color:var(--cyan)}
+@media (max-width:760px){
+  .hero{background-position:72% center}
+  .hero .wrap{padding-bottom:36px}
+  .hero .wrap{display:flex;flex-direction:column}
+  .hero-top{display:contents}
+  .hero-kicker{order:0;margin-bottom:22px}
+  .hero h1{order:1}
+  .hero-actions{order:2;margin-top:32px}
+}
+
+/* Ticker — service times on a loop (Elementor: Ticker/Marquee widget or CSS on a Heading) */
+.ticker{background:var(--cyan);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:1.5px solid var(--ink)}
+.ticker-track{display:inline-flex;animation:ticker 38s linear infinite}
+.ticker span{font-family:var(--font-head);font-weight:700;font-size:clamp(20px,2.2vw,30px);letter-spacing:-.02em;padding:18px 0;display:inline-flex;align-items:center}
+.ticker span::after{content:"✦";font-size:.7em;margin:0 36px}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ============ 2. WELCOME HOME — editorial statement ============ */
+.welcome{padding:var(--pad) 0}
+.statement{font-family:var(--font-head);font-weight:600;font-size:clamp(32px,4.4vw,64px);line-height:1.04;letter-spacing:-.035em;max-width:17em;margin-bottom:clamp(56px,7vw,100px)}
+.statement em{font-style:normal;color:var(--ink-soft)}
+.welcome-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+.welcome-photo{position:relative}
+.welcome-photo img{width:100%;aspect-ratio:1/1.08;object-fit:cover;border-radius:24px}
+.welcome-photo .tag{position:absolute;left:24px;bottom:24px;background:var(--cream);border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px}
+.welcome-body p{color:var(--ink-soft);margin-bottom:24px}
+.welcome-body p:first-child{color:var(--ink);font-size:21px;line-height:1.6}
+.pillars{list-style:none;margin:40px 0 44px;border-top:1.5px solid var(--ink)}
+.pillars li{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);font-family:var(--font-head);font-weight:700;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.025em;transition:padding .3s}
+.pillars li small{font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--ink-soft);letter-spacing:0}
+.pillars li b{font-size:15px;font-weight:600;color:var(--cyan);font-family:var(--font-body)}
+.pillars li:hover{padding-left:12px}
+@media (max-width:900px){.welcome-grid{grid-template-columns:1fr}.pillars li{grid-template-columns:44px 1fr}.pillars li small{display:none}}
+
+/* ============ 3. OUR MINISTRIES — cyan block, "a place for you" ============ */
+.ministries{background:var(--cyan);color:var(--ink);padding:var(--pad) 0;position:relative;overflow:hidden}
+.min-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.ministries h2{margin-bottom:32px}
+.ministries .intro{font-size:20px;max-width:30em;margin-bottom:40px}
+.chips{display:flex;flex-wrap:wrap;gap:12px 22px;margin-bottom:48px}
+.pair{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.chip{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--ink);border-radius:999px;padding:12px 22px;font-weight:700;font-size:17px;transition:background .25s,color .25s,transform .25s;cursor:default}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);transition:background .25s}
+.chip:hover{background:var(--ink);color:var(--cyan);transform:translateY(-3px)}
+.chip:hover::before{background:var(--cyan)}
+.chip.or{border:0;padding:12px 4px;font-weight:500;font-style:italic;opacity:.7}
+.chip.or::before{display:none}
+.chip.or:hover{background:none;color:inherit;transform:none}
+.min-photo{position:relative;justify-self:center;max-width:470px;width:100%}
+.min-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:1.5px solid var(--ink)}
+.min-photo .stamp{position:absolute;top:-14px;right:-6px;width:140px;height:140px;animation:spin 22s linear infinite}
+.min-photo .stamp text{font-family:var(--font-body);font-weight:700;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;fill:var(--ink)}
+.min-photo .stamp-dot{position:absolute;top:56px;right:64px;width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;color:var(--cyan)}
+.min-photo .stamp-dot svg{width:14px;height:14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.min-grid{grid-template-columns:1fr}.min-photo{max-width:340px;order:-1}.min-photo .stamp{width:110px;height:110px;right:-10px}.min-photo .stamp-dot{top:41px;right:31px}}
+
+/* ============ 4. GET IN TOUCH — schedule board + map ============ */
+.touch{padding:var(--pad) 0 0}
+.touch-head{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-bottom:64px}
+.touch-head p{color:var(--ink-soft);font-size:20px;max-width:24em;justify-self:end}
+.board{border-top:1.5px solid var(--ink)}
+.board-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.board-row .day{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.board-row .time{font-family:var(--font-head);font-weight:700;font-size:clamp(40px,6.4vw,96px);letter-spacing:-.05em;line-height:.9;text-align:right}
+.board-row .time small{font-size:.4em;letter-spacing:-.01em;color:var(--ink-soft);margin-left:.15em}
+.board-row .time i{font-style:normal;color:var(--cyan)}
+.contact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 0 64px}
+.contact-row div{display:flex;flex-direction:column;gap:6px}
+.contact-row h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.contact-row p,.contact-row a{font-family:var(--font-head);font-weight:600;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.02em;line-height:1.25}
+.contact-row a:hover{color:var(--cyan)}
+.map-wrap{position:relative;margin:0 16px;border-radius:28px;overflow:hidden;background:var(--sand);height:clamp(420px,46vw,600px)}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05) brightness(1.03)}
+.map-card{position:absolute;left:clamp(16px,4vw,48px);bottom:clamp(16px,4vw,48px);background:var(--ink);color:var(--white);border-radius:24px;padding:32px;max-width:360px}
+.map-card h3{margin-bottom:10px}
+.map-card p{color:rgba(255,255,255,.7);font-size:16px;margin-bottom:24px}
+@media (max-width:900px){
+  .touch-head{grid-template-columns:1fr}.touch-head p{justify-self:start}
+  .board-row{grid-template-columns:1fr;gap:10px}.board-row .time{text-align:left}
+  .contact-row{grid-template-columns:1fr}
+  .map-wrap{margin:0 10px;height:auto;display:flex;flex-direction:column}
+  .map-wrap iframe{height:360px}
+  .map-card{position:static;max-width:none;border-radius:0}
+}
+
+/* ============ 5. FOOTER — giant wordmark ============ */
+.footer{background:var(--ink);color:var(--white);margin-top:16px;padding:96px 0 0;overflow:hidden}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:64px}
+.footer .logo img{height:38px;width:auto;filter:brightness(0) invert(1)}
+.footer h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:17px;color:rgba(255,255,255,.8)}
+.footer-nav a:hover,.footer-credit a:hover{color:var(--cyan)}
+.social{display:flex;gap:10px}
+.social a{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:grid;place-items:center;transition:.25s}
+.social a:hover{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
+.social svg{width:18px;height:18px}
+.footer-credit{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 0;border-top:1px solid rgba(255,255,255,.14);font-size:14px;color:rgba(255,255,255,.55)}
+.wordmark{font-family:var(--font-head);font-weight:800;font-size:clamp(72px,19vw,300px);letter-spacing:-.06em;line-height:.78;color:var(--cyan);white-space:nowrap;text-align:center;margin-bottom:-.12em;user-select:none}
+@media (max-width:900px){.footer-top{grid-template-columns:1fr 1fr}.footer-top>div:first-child{grid-column:1/-1}}
+@media (max-width:560px){.footer-top{grid-template-columns:1fr}}
+
+/* Reveal on scroll (Elementor: Entrance Animation › Fade In Up) */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ticker-track,.min-photo .stamp{animation:none}html{scroll-behavior:auto}}
+</style>
+<!--
+  SPURGEON — REDESIGN v2 ("Sunlit editorial")
+  Same 5 sections and purpose as the original, re-imagined:
+    1. Hero          — full-bleed poster photo, giant "Loving God. Loving People.", 2 buttons
+                       + cyan ticker with service times / address
+    2. Welcome Home  — big statement sentence, photo, the rest of the story, 3 numbered pillars, About Us
+    3. Our Ministries— full cyan block: "There's a place for you", pill chips (single or married…),
+                       round photo with spinning stamp, Get Connected
+    4. Get in Touch  — schedule board with oversized times, contact row, greyscale map with Plan Your Visit card
+    5. Footer        — logo, menu, socials, credit, giant SPURGEON wordmark
+
+  Elementor map: Heading, Text Editor, Button, Image, Icon List (pillars/chips), Google Maps,
+  Nav Menu, Social Icons. Ticker = a Heading with the CSS animation in styles-v2.css.
+  Images, logo and map: the Spurgeon theme's own.
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER (global) ======================= -->
+<header class="header">
+  <div class="wrap">
+    <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home">
+      <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76">
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 15h10"/></svg>
+    </button>
+    <nav class="nav" aria-label="Main">
+      <a href="#welcome">About</a>
+      <a href="#ministries">Connect</a>
+      <a href="#">Watch Live</a>
+      <a href="#">Messages</a>
+      <a href="#">Events</a>
+      <a href="#">Give</a>
+      <a href="#visit" class="btn">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ======================= 1. HERO ======================= -->
+<section class="hero" style="--hero-img:url(https://spurgeon.wpengine.com/wp-content/uploads/2020/07/zach-lucero-rp9hgLfpoaI-unsplash-1.jpg)">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="hero-kicker">Spurgeon Church</span>
+      <div class="hero-actions">
+        <a href="#visit" class="btn btn-white">Plan Your Visit
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a href="#" class="btn btn-line">Watch Live</a>
+      </div>
+    </div>
+    <h1><span>Loving God.</span><span class="c">Loving People.</span></h1>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Service times: Sunday mornings 8:30 and 10:00 am, Wednesday evenings 6:30 pm">
+  <div class="ticker-track" aria-hidden="true">
+    <span>Sunday Mornings 8:30 &amp; 10:00 am</span><span>Wednesday Evenings 6:30 pm</span><span>1221 My Street, My Town</span><span>You're welcome here</span>
+    <span>Sunday Mornings 8:30 &amp; 10:00 am</span><span>Wednesday Evenings 6:30 pm</span><span>1221 My Street, My Town</span><span>You're welcome here</span>
+  </div>
+</div>
+
+<!-- ======================= 2. WELCOME HOME ======================= -->
+<section class="welcome" id="welcome">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">01</span>Welcome Home</div>
+    <p class="statement reveal">New to the community, our church is <span class="hl">planting and putting down roots</span> to reach the people in our neighborhood <em>and the surrounding areas</em> for Christ.</p>
+
+    <div class="welcome-grid">
+      <div class="welcome-photo reveal">
+        <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-1.jpg" alt="A hand raised in worship during a service" width="800" height="800" loading="lazy">
+        <span class="tag">Welcome home</span>
+      </div>
+      <div class="welcome-body reveal">
+        <p>We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life.</p>
+        <p>We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
+        <ul class="pillars">
+          <li><b>01</b>Welcomed in<small>Come as you are</small></li>
+          <li><b>02</b>Encouraged<small>Seeking God’s will</small></li>
+          <li><b>03</b>Supported<small>In Jesus’ name</small></li>
+        </ul>
+        <a href="#" class="btn btn-ink">About Us
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. OUR MINISTRIES ======================= -->
+<section class="ministries" id="ministries">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">02</span>Our Ministries</div>
+    <div class="min-grid">
+      <div class="reveal">
+        <h2>There’s a place for you.</h2>
+        <p class="intro">Whether you're single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
+        <div class="chips" aria-hidden="true">
+          <span class="pair"><span class="chip">Single</span><span class="chip or">or</span><span class="chip">Married</span></span>
+          <span class="pair"><span class="chip">With children</span><span class="chip or">or</span><span class="chip">Without</span></span>
+          <span class="pair"><span class="chip">Young</span><span class="chip or">or</span><span class="chip">Old</span></span>
+          <span class="pair"><span class="chip">Male</span><span class="chip or">or</span><span class="chip">Female</span></span>
+        </div>
+        <a href="#" class="btn btn-ink">Get Connected
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+      <div class="min-photo reveal">
+        <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/alexis-brown-omeaHbEFlN4-unsplash-1.jpg" alt="Friends studying the Bible together around a table" width="600" height="600" loading="lazy">
+        <svg class="stamp" viewBox="0 0 140 140" aria-hidden="true">
+          <defs><path id="circ" d="M70,70 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs>
+          <circle cx="70" cy="70" r="68" fill="var(--cream)"/>
+          <text><textPath href="#circ">Get connected • Find your fit •</textPath></text>
+        </svg>
+        <span class="stamp-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. GET IN TOUCH ======================= -->
+<section class="touch" id="visit">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">03</span>Get in Touch</div>
+    <div class="touch-head reveal">
+      <h2>Come see us.</h2>
+      <p>We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
+    </div>
+    <div class="board reveal">
+      <div class="board-row"><span class="day">Sunday Mornings</span><span class="time">8:30 <i>&amp;</i> 10:00<small>am</small></span></div>
+      <div class="board-row"><span class="day">Wednesday Evenings</span><span class="time">6:30<small>pm</small></span></div>
+    </div>
+    <div class="contact-row reveal">
+      <div><h4>Address</h4><p>1221 My Street,<br>My Town, XX&nbsp;12212</p></div>
+      <div><h4>Phone</h4><a href="tel:9081231234">908-123-1234</a></div>
+      <div><h4>Email</h4><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div>
+    </div>
+  </div>
+  <div class="map-wrap reveal">
+    <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <div class="map-card">
+      <h3>First time with us?</h3>
+      <p>Join us at one of our service times. We'd love to meet you.</p>
+      <a href="#" class="btn btn-cyan">Plan Your Visit
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= 5. FOOTER (global) ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home"><img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76"></a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#visit">Plan Your Visit</a><a href="#welcome">About</a>
+          <a href="#ministries">Connect</a><a href="#">Watch Live</a>
+          <a href="#">Messages</a><a href="#">Events</a>
+          <a href="#">Give</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <span>Loving God. Loving People.</span>
+      <a href="https://reachrightstudios.com">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Spurgeon</div>
+</footer>
+
+<script>
+  var header=document.querySelector('.header'),nav=document.querySelector('.nav'),toggle=document.querySelector('.menu-toggle');
+  function onScroll(){header.classList.toggle('solid',scrollY>40)}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function setMenu(o){nav.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);toggle.setAttribute('aria-expanded',o)}
+  toggle.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+</script>
+</body>
+</html>
