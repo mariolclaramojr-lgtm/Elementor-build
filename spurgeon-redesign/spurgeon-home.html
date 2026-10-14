@@ -165,7 +165,10 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 }
 
 /* ============ 3. OUR MINISTRIES — header columns + 4 image cards ============ */
-.ministries{background:var(--ink);color:var(--white)}
+/* Dark sections with a photo behind a strong ink overlay
+   (Elementor: Container › Background › Image + Background Overlay, colour ink at 85–90%) */
+.bg-photo{position:relative;isolation:isolate;background-color:var(--ink);background-image:linear-gradient(180deg,rgba(22,24,27,var(--ov-top,.86)),rgba(22,24,27,var(--ov-bottom,.94))),var(--bg);background-size:cover;background-position:center}
+.ministries{--bg:url(https://images.unsplash.com/photo-1609234656388-0ff363383899?w=2000&q=70&auto=format&fit=crop);--ov-top:.84;--ov-bottom:.95;color:var(--white)}
 .min-head{align-items:end;margin-bottom:64px}
 .min-head h2{grid-column:1/6}
 .min-head .copy{grid-column:7/13}
@@ -205,7 +208,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 }
 
 /* ============ 5. FOOTER ============ */
-.footer{background:var(--ink);color:var(--white);padding-top:96px;overflow:hidden}
+.footer{--bg:url(https://images.unsplash.com/photo-1541190349433-a490ea73206a?w=2000&q=70&auto=format&fit=crop);--ov-top:.9;--ov-bottom:.97;color:var(--white);padding-top:96px;overflow:hidden}
 .footer-top{row-gap:48px;padding-bottom:80px}
 .footer-brand{grid-column:1/6}
 .footer-brand .logo{margin-bottom:24px}
@@ -328,7 +331,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 </section>
 
 <!-- ======================= 3. OUR MINISTRIES ======================= -->
-<section class="section ministries on-dark" id="ministries">
+<section class="section ministries bg-photo on-dark" id="ministries">
   <div class="wrap">
     <div class="label reveal"><span class="num">02</span>Get Connected</div>
     <div class="grid min-head reveal">
@@ -386,7 +389,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 </main>
 
 <!-- ======================= 5. FOOTER (global) ======================= -->
-<footer class="footer">
+<footer class="footer bg-photo">
   <div class="wrap">
     <div class="grid footer-top">
       <div class="footer-brand">
