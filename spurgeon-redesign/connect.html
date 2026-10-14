@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="styles.css">
 <!--
   SPURGEON — Get Connected (same sections + copy as the original page)
-    Page hero · jump links · Kids (copy | photo) · Students (photo | copy) · Women + Men (dark band, two columns)
+    Page hero · Kids (light, with jump links) · Students (dark photo band) · Women (light) · Men (dark photo band)
+    Sections alternate light / dark; the photo side alternates too.
   "Get Connected" buttons point to the church's sign-up form (/get-connected/ on the original site).
 -->
 </head>
@@ -46,56 +47,68 @@
   </div>
 </section>
 
-<!-- 1–2. KIDS + STUDENTS — alternating rows -->
-<section class="section">
+<!-- 01. KIDS — light: copy | photo -->
+<section class="section" id="kids">
   <div class="wrap">
-    <div class="label reveal"><span class="num">01</span>Ministries</div>
+    <div class="label reveal"><span class="num">01</span>Kids</div>
     <nav class="jump reveal" aria-label="Ministries" style="margin:-24px 0 clamp(56px,7vw,96px)"><a href="#kids">Kids</a><a href="#students">Students</a><a href="#women">Women</a><a href="#men">Men</a></nav>
-
-    <article class="ministry grid split" id="kids">
+    <div class="grid split">
       <div class="split-copy reveal">
-        <span class="num">01</span>
         <h2>Kids</h2>
         <p class="first">We want church to be a place where your entire family is encouraged to draw closer to Christ—your kids included!</p>
         <p class="muted">That’s why, during our Sunday morning worship services, we offer fun and engaging environments where children can learn and grow in faith as well. All our kids’ programs are designed to be safe places where children in our church can learn new and exciting things about God while being led and cared for by adult volunteers from our congregation. It’s our hope to encourage children to not only discover new things about God, but also begin to understand how those things matter in their own lives.</p>
         <a href="#" class="btn btn-ink">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="split-media reveal"><div class="frame"><img src="https://images.unsplash.com/photo-1527821468487-b724210d296a?w=1000&q=75&auto=format&fit=crop" alt="Children laughing together" loading="lazy"></div></div>
-    </article>
-
-    <article class="ministry grid split split--flip" id="students">
-      <div class="split-copy reveal">
-        <span class="num">02</span>
-        <h2>Students</h2>
-        <p class="first">In student ministry, we strive to lead students to become passionate followers of Christ.</p>
-        <p class="muted">By partnering with parents and trained leaders, our mission is to teach and inspire the next generation to be founded in their faith and confident in their Creator. Through regular Bible study and small group gatherings, we encourage students to walk boldly towards Christ, apply His truth to their lives, and develop strong, life-changing relationships with the God of the universe. We want our students to know Jesus so that they might be excited about sharing His name and making Him known to others. Our prayer is that the church would be the future of our world and our students, the future of the church.</p>
-        <a href="#" class="btn btn-ink">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="split-media reveal"><div class="frame"><img src="https://images.unsplash.com/photo-1699422697971-34ac6eec8ebc?w=1000&q=75&auto=format&fit=crop" alt="Students gathered together in a small group" loading="lazy"></div></div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- 3–4. WOMEN + MEN — dark photo band, two columns -->
-<section class="section bg-photo on-dark" style="--bg:url(https://images.unsplash.com/photo-1609234656432-603fd648adf8?w=2000&q=75&auto=format&fit=crop);--ov-top:.88;--ov-bottom:.95">
+<!-- 02. STUDENTS — dark photo band: photo | copy -->
+<section class="section bg-photo on-dark" id="students" style="--bg:url(https://images.unsplash.com/photo-1609234656432-603fd648adf8?w=2000&q=75&auto=format&fit=crop);--ov-top:.88;--ov-bottom:.95">
   <div class="wrap">
-    <div class="label reveal"><span class="num">02</span>Adult Ministries</div>
-    <div class="grid adults">
-      <article class="adult reveal" id="women">
-        <div class="frame"><img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?w=1000&q=75&auto=format&fit=crop" alt="Women praying together" loading="lazy"></div>
-        <span class="num">03</span>
-        <h2>Women</h2>
-        <p class="muted">Women’s ministries at our church is designed to make the big Sunday morning church experience feel a little smaller. We’ve crafted our environments to help you connect with others who are in the same season of life, forming close-knit communities to navigate the ups and downs of those seasons together. Through small group programs, our main goal is to make women’s ministries at our church a place where anyone in our congregation can grow closer to community while ultimately growing closer to Christ.</p>
+    <div class="label reveal"><span class="num">02</span>Students</div>
+    <div class="grid split split--flip">
+      <div class="split-copy reveal">
+        <h2>Students</h2>
+        <p class="first">In student ministry, we strive to lead students to become passionate followers of Christ.</p>
+        <p class="muted">By partnering with parents and trained leaders, our mission is to teach and inspire the next generation to be founded in their faith and confident in their Creator. Through regular Bible study and small group gatherings, we encourage students to walk boldly towards Christ, apply His truth to their lives, and develop strong, life-changing relationships with the God of the universe. We want our students to know Jesus so that they might be excited about sharing His name and making Him known to others. Our prayer is that the church would be the future of our world and our students, the future of the church.</p>
         <a href="#" class="btn btn-cyan">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-      <article class="adult reveal" id="men">
-        <div class="frame"><img src="https://images.unsplash.com/photo-1651514645246-2767738810d5?w=1000&q=75&auto=format&fit=crop" alt="Men talking together at church" loading="lazy"></div>
-        <span class="num">04</span>
+      </div>
+      <div class="split-media reveal"><div class="frame"><img src="https://images.unsplash.com/photo-1699422697971-34ac6eec8ebc?w=1000&q=75&auto=format&fit=crop" alt="Students gathered together in a small group" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03. WOMEN — light: copy | photo -->
+<section class="section" id="women">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">03</span>Women</div>
+    <div class="grid split">
+      <div class="split-copy reveal">
+        <h2>Women</h2>
+        <p class="first">Women’s ministries at our church is designed to make the big Sunday morning church experience feel a little smaller.</p>
+        <p class="muted">We’ve crafted our environments to help you connect with others who are in the same season of life, forming close-knit communities to navigate the ups and downs of those seasons together. Through small group programs, our main goal is to make women’s ministries at our church a place where anyone in our congregation can grow closer to community while ultimately growing closer to Christ.</p>
+        <a href="#" class="btn btn-ink">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="split-media reveal"><div class="frame"><img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?w=1000&q=75&auto=format&fit=crop" alt="Women praying together" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04. MEN — dark photo band: photo | copy -->
+<section class="section bg-photo on-dark" id="men" style="--bg:url(https://images.unsplash.com/photo-1647476427592-c78c1e363683?w=2000&q=75&auto=format&fit=crop);--ov-top:.88;--ov-bottom:.95">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">04</span>Men</div>
+    <div class="grid split split--flip">
+      <div class="split-copy reveal">
         <h2>Men</h2>
-        <p class="muted">By meeting together, sharing meals, walking through curriculum, studying the Word, and simply doing life with another, the men in our congregation have a safe place where they can get connected with the resources, support, and friendships to help them live fuller lives in Christ.</p>
+        <p class="first">By meeting together, sharing meals, walking through curriculum, studying the Word, and simply doing life with another, the men in our congregation have a safe place where they can get connected with the resources, support, and friendships to help them live fuller lives in Christ.</p>
+        
         <p class="muted">No matter your stage or season of life, we want you to join us! Take a look at all the options we have for adult ministries to find what best suits you. We can’t wait to help you connect with others in our church.</p>
         <a href="#" class="btn btn-cyan">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
+      </div>
+      <div class="split-media reveal"><div class="frame"><img src="https://images.unsplash.com/photo-1651514645246-2767738810d5?w=1000&q=75&auto=format&fit=crop" alt="Men talking together at church" loading="lazy"></div></div>
     </div>
   </div>
 </section>
