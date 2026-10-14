@@ -128,5 +128,12 @@
   </div>
 </footer>
 
+<script>
+/* Sticky header: shrinks + turns red once you scroll past the top of the page */
+(function(){var h=document.querySelector('.header');if(!h)return;var w=h.parentNode;
+function f(){var stuck=window.scrollY>160;if(stuck===h.classList.contains('is-stuck'))return;
+w.style.paddingTop=stuck?h.offsetHeight+'px':'';h.classList.toggle('is-stuck',stuck);}
+addEventListener('scroll',f,{passive:true});f();})();
+</script>
 </body>
 </html>

@@ -71,13 +71,26 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;color:var(--white);
   background:linear-gradient(180deg,rgba(15,12,9,.7) 0%,rgba(15,12,9,.3) 38%,rgba(15,12,9,.88) 100%),
     var(--hero-img,none) center 35%/cover no-repeat,var(--espresso)}
-.hero > .wrap{position:relative;z-index:3;width:100%}
+.hero > .wrap{position:relative;z-index:40;width:100%}
 .hero > .wrap.hero-content{z-index:1}
 /* Video background — Elementor: Section › Style › Background › Video (MP4 link), image as fallback */
 .hero-media{position:absolute;inset:0;overflow:hidden}
 .hero-media video{width:100%;height:100%;object-fit:cover}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.4) 40%,rgba(15,12,9,.9) 100%)}
-.header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;border-bottom:1px solid var(--line-dark)}
+.header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;border-bottom:1px solid var(--line-dark);transition:padding .3s ease}
+.logo,.logo svg{transition:font-size .3s ease,width .3s ease,height .3s ease,color .3s ease}
+
+/* Sticky header — Elementor Pro: Header › Motion Effects › Sticky: Top, with "Effects offset" ~160px
+   and the .elementor-sticky--effects styles below (red background, smaller logo). */
+@keyframes stick-in{from{transform:translateY(-100%)}to{transform:none}}
+.header.is-stuck{position:fixed;top:0;left:0;right:0;z-index:50;padding:12px max(24px,calc((100% - var(--wrap))/2 + 24px));
+  background:var(--accent);border-bottom:0;box-shadow:0 10px 30px rgba(31,27,23,.22);animation:stick-in .35s cubic-bezier(.2,.7,.2,1)}
+.header.is-stuck .logo{font-size:21px}
+.header.is-stuck .logo svg{width:24px;height:24px;color:var(--white)}
+.header.is-stuck .nav a:not(.btn){opacity:.92}
+.header.is-stuck .nav a:not(.btn):hover,.header.is-stuck .nav a[aria-current="page"]:not(.btn){opacity:1;color:var(--white);text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:1px}
+.header.is-stuck .nav .btn-primary{background:var(--white);color:var(--accent);padding:11px 20px}
+.header.is-stuck .nav .btn-primary:hover{background:var(--espresso);color:var(--white)}
 .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-head);font-size:25px;font-weight:600;letter-spacing:.01em}
 .logo svg{width:30px;height:30px;color:var(--accent-light)}
 .nav{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
@@ -106,11 +119,16 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 
 @media (max-width:960px){
   .menu-toggle{display:block}
-  .nav{display:none;position:absolute;top:92px;left:16px;right:16px;flex-direction:column;align-items:stretch;gap:0;
+  .nav{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
     background:var(--ivory);color:var(--espresso);padding:12px 20px 20px;box-shadow:0 24px 60px rgba(0,0,0,.35);z-index:10}
   .nav.open{display:flex}
   .nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--line-light);opacity:1}
   .nav .btn{justify-content:center;margin-top:16px}
+  .header.is-stuck{padding-left:16px;padding-right:16px}
+  .header.is-stuck .nav{left:16px;right:16px}
+  .header.is-stuck .nav a:not(.btn),.header.is-stuck .nav a:not(.btn):hover{color:var(--espresso);text-decoration:none}
+  .header.is-stuck .nav a[aria-current="page"]:not(.btn){color:var(--accent)}
+  .header.is-stuck .nav .btn-primary{background:var(--accent);color:var(--white);padding:13px 22px}
 }
 @media (max-width:700px){
   .hero-times{grid-template-columns:1fr}
