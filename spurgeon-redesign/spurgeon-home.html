@@ -403,6 +403,30 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 /* Give: mail address */
 .address{font-style:normal;line-height:1.6}
 
+/* Anchor jumps land below the fixed header */
+[id]{scroll-margin-top:88px}
+
+/* Ticker items are links */
+.ticker-group li a{display:flex;align-items:center;gap:12px;color:inherit;transition:color .2s}
+.ticker-group li a:hover{color:var(--white)}
+.ticker-group li a:hover b{color:var(--white)}
+
+/* Outline button on light backgrounds */
+.btn-line-ink{border:1px solid var(--line-strong);color:var(--ink)}
+.btn-line-ink:hover{background:var(--ink);color:var(--white)}
+
+/* Single message page */
+.sermon-detail{margin-top:48px;max-width:1040px;margin-left:auto;margin-right:auto;row-gap:24px;align-items:start}
+.sermon-info{grid-column:1/5}
+.sermon-text{grid-column:6/13}
+.sermon-text p{margin-bottom:28px}
+@media (max-width:900px){.sermon-info,.sermon-text{grid-column:1/-1}}
+
+/* Form confirmation (shown after a valid submit) */
+.form-done{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:40px 32px}
+.form-done h3{margin-bottom:8px}
+.field input:user-invalid,.field textarea:user-invalid,.field select:user-invalid{border-color:#C2410C}
+
 /* Reveal on scroll (Elementor: Entrance Animation › Fade In Up) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -468,18 +492,18 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
   <div class="ticker" role="region" aria-label="Schedule and announcements">
     <div class="ticker-track">
       <ul class="ticker-group">
-        <li><b>Sundays</b> 8:30 am &amp; 10:00 am</li>
-        <li><b>Wednesdays</b> 6:30 pm</li>
-        <li><b>New here?</b> Plan your visit, we’d love to meet you</li>
-        <li><b>Watch Live</b> Join the service online every Sunday</li>
-        <li><b>Find us</b> 1221 My Street, My Town, XX 12212</li>
+        <li><a href="plan-your-visit.html"><b>Sundays</b> 8:30 am &amp; 10:00 am</a></li>
+        <li><a href="plan-your-visit.html"><b>Wednesdays</b> 6:30 pm</a></li>
+        <li><a href="plan-your-visit.html"><b>New here?</b> Plan your visit, we’d love to meet you</a></li>
+        <li><a href="watch-live.html"><b>Watch Live</b> Join the service online every Sunday</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener"><b>Find us</b> 1221 My Street, My Town, XX 12212</a></li>
       </ul>
       <ul class="ticker-group" aria-hidden="true">
-        <li><b>Sundays</b> 8:30 am &amp; 10:00 am</li>
-        <li><b>Wednesdays</b> 6:30 pm</li>
-        <li><b>New here?</b> Plan your visit, we’d love to meet you</li>
-        <li><b>Watch Live</b> Join the service online every Sunday</li>
-        <li><b>Find us</b> 1221 My Street, My Town, XX 12212</li>
+        <li><a href="plan-your-visit.html" tabindex="-1"><b>Sundays</b> 8:30 am &amp; 10:00 am</a></li>
+        <li><a href="plan-your-visit.html" tabindex="-1"><b>Wednesdays</b> 6:30 pm</a></li>
+        <li><a href="plan-your-visit.html" tabindex="-1"><b>New here?</b> Plan your visit, we’d love to meet you</a></li>
+        <li><a href="watch-live.html" tabindex="-1"><b>Watch Live</b> Join the service online every Sunday</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener" tabindex="-1"><b>Find us</b> 1221 My Street, My Town, XX 12212</a></li>
       </ul>
     </div>
   </div>
@@ -516,19 +540,19 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
       </div>
     </div>
     <div class="grid cards">
-      <a href="connect.html" class="card reveal">
+      <a href="connect.html#women" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1658017875525-ecbf763b797e?w=700&q=75&auto=format&fit=crop" alt="A smiling couple" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Single <i>or</i> married</h3><span>01</span></div>
       </a>
-      <a href="connect.html" class="card reveal">
+      <a href="connect.html#kids" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1604072424771-7300bc5de457?w=700&q=75&auto=format&fit=crop" alt="A mother and her son sitting together in church" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>With children <i>or</i> without</h3><span>02</span></div>
       </a>
-      <a href="connect.html" class="card reveal">
+      <a href="connect.html#students" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1651514645933-c26e0eb4ace3?w=700&q=75&auto=format&fit=crop" alt="People of different ages talking together" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Young <i>or</i> old</h3><span>03</span></div>
       </a>
-      <a href="connect.html" class="card reveal">
+      <a href="connect.html#men" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1629141650817-a4b997dc1613?w=700&q=75&auto=format&fit=crop" alt="A small group of men and women meeting on a patio" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Male <i>or</i> female</h3><span>04</span></div>
       </a>
@@ -549,7 +573,7 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
       <dl class="details">
         <div><dt>Sundays</dt><dd>8:30 am &amp; 10:00 am</dd></div>
         <div><dt>Wednesdays</dt><dd>6:30 pm</dd></div>
-        <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
+        <div><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX&nbsp;12212</a></dd></div>
         <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
         <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
       </dl>
@@ -585,13 +609,13 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
       <div class="footer-col">
         <h4>Follow</h4>
         <div class="social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
-          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-credit">
-      <span>1221 My Street, My Town, XX 12212</span>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX 12212</a>
       <a href="https://reachrightstudios.com">church web design by REACHRIGHT</a>
     </div>
   </div>
@@ -599,7 +623,8 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 </footer>
 
 <script>
-/* Spurgeon — shared behaviour: sticky header, mobile menu, reveal on scroll, events view toggle */
+/* Spurgeon — shared behaviour: sticky header, mobile menu, reveal on scroll, events view toggle,
+   form confirmation, message filters, Connect sign-up pre-select */
 (function(){
   var header=document.querySelector('.header'),nav=document.querySelector('.nav'),toggle=document.querySelector('.menu-toggle');
   function onScroll(){header.classList.toggle('solid',scrollY>40)}
@@ -611,10 +636,47 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+
+  // Events: Monthly / List / Tile toggle
   document.querySelectorAll('.seg').forEach(function(seg){
     seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
       seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
   });
+
+  // Forms: validate, then show a thank-you message (wire to Elementor Forms / email on the live site)
+  document.querySelectorAll('.js-form').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){form.reportValidity();return}
+      var done=document.createElement('div');done.className='form-done';done.setAttribute('role','status');done.tabIndex=-1;
+      done.innerHTML='<h3>Thank you!</h3><p class="muted">We’ve received your note and will be in touch soon.</p>';
+      form.replaceWith(done);done.focus();
+    });
+  });
+
+  // Connect: "Get Connected" buttons pre-select their ministry in the sign-up form
+  document.querySelectorAll('[data-ministry]').forEach(function(a){
+    a.addEventListener('click',function(){var s=document.getElementById('c-ministry');if(s)s.value=a.getAttribute('data-ministry')});
+  });
+
+  // Messages: filters (dropdowns + ?speaker= / ?series= / ?topic= / ?book= / ?service= links)
+  var filters=document.querySelector('.js-filters');
+  if(filters){
+    var cards=document.querySelectorAll('.sermon'),none=document.querySelector('.js-no-results');
+    var params=new URLSearchParams(location.search);
+    filters.querySelectorAll('select').forEach(function(s){var v=params.get(s.name);if(v)s.value=v});
+    var fromLink=true; // until the visitor changes a dropdown, the link's filters apply as given
+    function apply(){
+      var want={};
+      if(fromLink)['speaker','series','topic','book','service'].forEach(function(k){if(params.get(k))want[k]=params.get(k)});
+      filters.querySelectorAll('select').forEach(function(s){if(s.value)want[s.name]=s.value});
+      var shown=0;
+      cards.forEach(function(c){var ok=Object.keys(want).every(function(k){return c.getAttribute('data-'+k)===want[k]});c.hidden=!ok;if(ok)shown++});
+      if(none)none.hidden=shown>0;
+    }
+    filters.addEventListener('change',function(){fromLink=false;apply()});
+    apply();
+  }
 })();
 </script>
 </body>
