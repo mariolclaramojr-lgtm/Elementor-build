@@ -256,7 +256,7 @@ def plan():
         faq_sec,
         form_section('Plan ahead', "Let us know you're <em>coming!</em>",
                      "Tell us when you're planning to visit and we'll have someone ready to welcome you and show you around.",
-                     2, 'photo-1511632765486-a01980e01a18'),
+                     5, 'photo-1511632765486-a01980e01a18'),
     ]
 
 
@@ -294,7 +294,7 @@ def watch():
                   gap('16px'), button('Give Now', '/give/')])
     prayer = form_section('Prayer', 'How can we pray <em>for you?</em>',
                           'Our prayer team reads every request and prays over it this week. Share as much or as little as you like.',
-                          3, 'photo-1490730141103-6cac27aaab94')
+                          6, 'photo-1490730141103-6cac27aaab94')
     return [hero, tiles, give, prayer]
 
 
@@ -376,5 +376,36 @@ def events():
     ]
 
 
+# =============================================================== GET CONNECTED
+def get_connected():
+    steps = [('01', 'Fill out the card', 'Tell us a little about yourself and what you are looking for.'),
+             ('02', 'We reach out', 'Someone from our team will get in touch with you this week.'),
+             ('03', 'Find your place', 'We will help you find a group, a class or a place to serve.')]
+
+    def step(num, title, body):
+        return col([el('headline', text_tag='span', text_content=num, text_font_family=F_HEAD,
+                       text_font_style='italic', text_font_size='22px', text_line_height='1.2',
+                       text_text_color=ACCENT, text_margin='0px 0px 14px 0px'),
+                    h3(title, size='28px', mb='12px'), text(body, mb='0px')],
+                   layout_column_padding='28px 0px 0px 0px', layout_column_border_width='1px 0px 0px 0px',
+                   layout_column_border_color=ACCENT)
+    how = section([
+        row([col([section_head('How it works', 'Three simple <em>steps.</em>',
+                               "Whether you're brand new or have been around for a while, we'd love to help you take your next step.")])]),
+        row([step(*s) for s in steps], '33.33% 33.33% 33.33%', md='100%', sm='100%', xs='100%',
+            gap='clamp(28px, 4vw, 56px)'),
+    ], label='How It Works')
+    card = form_section('Connection card', "Let's get you <em>connected.</em>",
+                        'Thank you for connecting with us. We would love to answer any questions you may have, '
+                        'and we have a free gift for you for taking the time to share a little about yourself.',
+                        7, 'photo-1529156069898-49953e39b3ac')
+    return [
+        page_hero('Get connected', "We'd love to get to <em>know you.</em>",
+                  "Fill out a connection card and we'll help you find your next step at Lewis Church.",
+                  'photo-1517486808906-6ca8b3f04846'),
+        how, card,
+    ]
+
+
 PAGES = {'home': home, 'about': about, 'connect': connect, 'plan': plan, 'watch': watch, 'give': give,
-         'messages': messages, 'events': events}
+         'messages': messages, 'events': events, 'get_connected': get_connected}

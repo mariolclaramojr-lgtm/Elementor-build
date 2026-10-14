@@ -326,8 +326,20 @@ def section_head(eyebrow_txt, title_html, aside=None, dark=False, center=False, 
                   layout_div_margin=f'0px 0px {mb} 0px')
 
 
+# Gravity Forms "Orbital" theme + its own Form Style settings (passed on the shortcode), tuned to the palette.
+GF_STYLES = {"theme": "orbital", "inputSize": "lg", "inputBorderRadius": 4, "inputBorderColor": "#4A433E",
+             "inputBackgroundColor": "#2E2925", "inputColor": "#FFFFFF", "inputPrimaryColor": "#E85D6C",
+             "labelFontSize": 11, "labelColor": "#A9A39E", "descriptionColor": "#8E8781",
+             "buttonPrimaryBackgroundColor": "#A51C30", "buttonPrimaryColor": "#FFFFFF"}
+
+
+def gf_shortcode(form_id):
+    return ('[gravityform id="%s" title="false" description="false" ajax="true" theme="orbital" styles=\'%s\']'
+            % (form_id, json.dumps(GF_STYLES, separators=(',', ':'))))
+
+
 def form_panel(form_id):
-    return div([el('raw-content', raw_content=f'[gravityform id="{form_id}" title="false" description="false" ajax="true"]')],
+    return div([el('raw-content', raw_content=gf_shortcode(form_id))],
                **{'class': 'lc-form'}, layout_div_width='100%', layout_div_padding='clamp(28px, 4vw, 44px)',
                layout_div_bg_color='rgba(31, 27, 23, 0.7)', layout_div_border_width='1px',
                layout_div_border_color=LINE_DARK, layout_div_border_radius='4px',

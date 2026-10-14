@@ -9,41 +9,39 @@
 .x-text-headline em { font-style: italic; color: #A51C30; }
 .lc-on-dark em { color: #E85D6C; }
 
-/* ---------- Gravity Forms (Plan Your Visit, Prayer Request) ---------- */
-.lc-form .gform_wrapper { margin: 0; }
-.lc-form .gform_wrapper ul.gform_fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.lc-form .gform_wrapper ul.gform_fields li.gfield { margin: 0; padding: 0; width: auto; max-width: none; }
-.lc-form .gform_wrapper li.gfield--type-name,
-.lc-form .gform_wrapper li.gfield--type-textarea,
-.lc-form .gform_wrapper li.gfield--type-email:last-of-type { grid-column: 1 / -1; }
-.lc-form .gform_wrapper .gfield_label,
-.lc-form .gform_wrapper .gform-field-label--type-sub { font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0 0 8px; }
-.lc-form .gform_wrapper .gform-field-label--type-sub { margin: 8px 0 0; color: rgba(255,255,255,.45); }
-.lc-form .gform_wrapper .gfield_required { color: #E85D6C; }
-.lc-form .gform_wrapper .ginput_complex { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.lc-form .gform_wrapper .ginput_complex span { width: auto; padding: 0; margin: 0; }
-.lc-form .gform_wrapper input:not([type=submit]):not([type=hidden]):not([type=checkbox]):not([type=radio]),
-.lc-form .gform_wrapper textarea,
-.lc-form .gform_wrapper select { width: 100%; font: 400 16px/1.5 "Inter", sans-serif; color: #fff; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.14); border-radius: 4px; padding: 14px 16px; box-shadow: none; color-scheme: dark; }
-.lc-form .gform_wrapper textarea { min-height: 120px; height: 120px; resize: vertical; }
-.lc-form .gform_wrapper input:focus, .lc-form .gform_wrapper textarea:focus { outline: none; border-color: #E85D6C; }
-.lc-form .gform_wrapper .gform_footer { margin: 20px 0 0; padding: 0; }
-.lc-form .gform_wrapper .gform_footer .gform_button { display: inline-flex; align-items: center; font: 600 13px/1 "Inter", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: #A51C30; border: 0; border-radius: 999px; padding: 17px 30px; cursor: pointer; transition: background .25s; }
-.lc-form .gform_wrapper .gform_footer .gform_button:hover { background: #7F1424; }
-.lc-form .gform_confirmation_message { color: #E85D6C; font-weight: 600; }
-.lc-form .gform_wrapper .validation_message, .lc-form .gform_wrapper .gform_validation_errors { color: #E85D6C; background: none; border: 0; box-shadow: none; padding: 6px 0 0; }
-
-/* GF legacy markup + theme typography overrides */
-body .lc-form .gform_wrapper .top_label .gfield_label, body .lc-form .gform_wrapper legend.gfield_label { color: rgba(255,255,255,.6); font-weight: 700; display: block; }
-body .lc-form .gform_wrapper .ginput_complex label, body .lc-form .gform_wrapper .gform-field-label--type-sub { font: 700 10px/1.4 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); padding: 0; }
-body .lc-form .gform_wrapper input:not([type=submit]):not([type=hidden]):not([type=checkbox]):not([type=radio]), body .lc-form .gform_wrapper textarea { width: 100% !important; max-width: none !important; margin: 0; }
-body .lc-form .gform_wrapper .ginput_container { margin-top: 0 !important; }
-body .lc-form .gform_wrapper .ginput_complex.ginput_container { display: grid !important; grid-template-columns: 1fr 1fr; gap: 20px; width: 100% !important; margin: 0 !important; }
-body .lc-form .gform_wrapper .ginput_complex > span { display: block !important; width: auto !important; max-width: none !important; flex: none !important; padding: 0 !important; margin: 0 !important; float: none !important; }
-body .lc-form .gform_wrapper .ginput_complex > span > label { font-size: 10px !important; margin-top: 8px !important; }
-@media (max-width: 560px) {
-  .lc-form .gform_wrapper ul.gform_fields, .lc-form .gform_wrapper .ginput_complex { grid-template-columns: 1fr; }
+/* ---------- Gravity Forms (Orbital theme; colours come from the form-style settings on the shortcode) ---------- */
+.lc-form .gform-theme--orbital {
+  --gf-font-family-base: "Inter", sans-serif;
+  --gf-ctrl-font-family: "Inter", sans-serif;
+  --gf-ctrl-label-font-family-primary: "Inter", sans-serif;
+  --gf-ctrl-label-font-family-secondary: "Inter", sans-serif;
+  --gf-ctrl-btn-font-family: "Inter", sans-serif;
+  --gf-form-gap-x: 20px; --gf-form-gap-y: 24px;
+  --gf-ctrl-size: 50px; --gf-ctrl-font-size: 16px;
+  --gf-ctrl-label-font-size-primary: 11px; --gf-ctrl-label-font-weight-primary: 700;
+  --gf-ctrl-label-letter-spacing-primary: .2em;
+  --gf-ctrl-btn-radius: 999px; --gf-ctrl-btn-font-size: 13px; --gf-ctrl-btn-font-weight: 600;
+  --gf-ctrl-btn-letter-spacing: .12em; --gf-ctrl-btn-padding-x: 30px; --gf-ctrl-btn-size: 52px;
+  --gf-ctrl-label-color-req: #E85D6C;
+  margin: 0;
 }
+body .lc-form .gform_wrapper.gform-theme--orbital .gfield_label { font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+body .lc-form .gform_wrapper.gform-theme--orbital .gform_required_legend { display: none; }
+body .lc-form .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 52px !important; padding: 0 30px !important; font: 600 13px/1 "Inter", sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; box-shadow: none !important; }
+.lc-form .gform-theme--orbital .gfield--type-checkbox .gfield_label,
+.lc-form .gform-theme--orbital legend.gfield_label { margin-bottom: 12px; }
+.lc-form .gform-theme--orbital .gchoice label { font: 400 15px/1.4 "Inter", sans-serif; letter-spacing: 0; text-transform: none; color: rgba(255,255,255,.82); }
+.lc-form .gform-theme--orbital .gfield_checkbox { gap: 12px 24px; }
+@media (min-width: 640px) { .lc-form .gform-theme--orbital .gfield_checkbox { display: grid; grid-template-columns: 1fr 1fr; } }
+.lc-form .gform-theme--orbital textarea { min-height: 120px; height: 120px; resize: vertical; }
+.lc-form .gform-theme--orbital input::placeholder, .lc-form .gform-theme--orbital textarea::placeholder { color: rgba(255,255,255,.35); }
+.lc-form .gform-theme--orbital input, .lc-form .gform-theme--orbital textarea { color-scheme: dark; }
+.lc-form .gform-theme--orbital .gform_footer { margin-top: 8px; padding: 0; }
+.lc-form .gform-theme--orbital .gform_footer .gform_button { text-transform: uppercase; transition: background-color .25s; }
+.lc-form .gform-theme--orbital .gform_footer .gform_button:hover { background-color: #7F1424; }
+.lc-form .gform_confirmation_message { font: 600 17px/1.6 "Inter", sans-serif; color: #E85D6C; }
+.lc-form .gform-theme--orbital .gform_validation_errors { background: rgba(232,93,108,.1); border-color: rgba(232,93,108,.4); box-shadow: none; }
+.lc-form .gform-theme--orbital .gform_validation_errors * , .lc-form .gform-theme--orbital .validation_message { color: #E85D6C; }
 
 /* ---------- Shared: filter controls (Sermon Manager + MEC) ---------- */
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] {
