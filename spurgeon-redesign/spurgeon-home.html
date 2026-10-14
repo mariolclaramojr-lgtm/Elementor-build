@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spurgeon Church Redesign v2</title>
+<title>Spurgeon Church — Loving God. Loving People.</title>
 <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
 <meta name="description" content="Second redesign direction for the Spurgeon church theme — warm cream, large grotesk type, column layouts with the theme's own photography.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -229,6 +229,180 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 
 @media (max-width:600px){:root{--gutter:20px}.label{margin-bottom:40px}}
 
+/* =====================================================================
+   INNER PAGES — same system as the home page, a few extra components
+   ===================================================================== */
+
+/* Active nav item */
+.nav a[aria-current="page"]:not(.btn){opacity:1}
+.nav a[aria-current="page"]:not(.btn)::after{transform:scaleX(1);background:var(--cyan)}
+.footer-nav a[aria-current="page"]{color:var(--cyan)}
+
+/* Page hero — photo + overlay, centred title (Elementor: Container with Background Image + Overlay) */
+.page-hero{--ov-top:.55;--ov-bottom:.88;min-height:clamp(440px,62svh,640px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white);padding:120px 0 72px}
+.page-hero h1{font-size:clamp(52px,8vw,120px);line-height:.92;letter-spacing:-.04em}
+.crumbs{display:inline-flex;align-items:center;gap:12px;font-size:var(--t-label);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;color:rgba(255,255,255,.75)}
+.crumbs a:hover{color:var(--cyan)}
+.crumbs span{color:var(--cyan)}
+
+/* Generic split: copy | media (flip with .split--flip) */
+.split{align-items:center;row-gap:48px}
+.split-copy{grid-column:1/6}
+.split-media{grid-column:7/13}
+.split--flip .split-copy{grid-column:8/13;order:2}
+.split--flip .split-media{grid-column:1/7;order:1}
+.split-copy h2{margin-bottom:28px}
+.split-copy p{margin-bottom:20px}
+.split-copy p.first{font-family:var(--font-head);font-weight:500;font-size:clamp(20px,1.7vw,24px);line-height:1.4;letter-spacing:-.015em}
+.split-copy .btn{margin-top:20px}
+.split-media .frame{aspect-ratio:4/5}
+.split-media.wide .frame{aspect-ratio:4/3}
+@media (max-width:1000px){
+  .split-copy,.split-media,.split--flip .split-copy,.split--flip .split-media{grid-column:1/-1;order:0}
+  .split-media .frame{aspect-ratio:4/3}
+}
+
+/* Any dark section: light text by default */
+.on-dark{color:var(--white)}
+
+/* Section tints */
+.section--sand{background:var(--sand)}
+.section--tight-top{padding-top:0}
+
+/* Accordion (Elementor: Accordion / Toggle widget) */
+.accordion{border-top:1px solid var(--line-strong)}
+.accordion details{border-bottom:1px solid var(--line)}
+.accordion summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;cursor:pointer;font-family:var(--font-head);font-weight:500;font-size:var(--t-h3);letter-spacing:-.015em;line-height:1.25}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary:hover{color:var(--cyan-ink)}
+.pm{position:relative;flex:none;width:28px;height:28px;border:1px solid var(--line);border-radius:6px}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.5px;background:currentColor;transform:translate(-50%,-50%);transition:transform .25s}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.accordion details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.accordion details p{padding:0 52px 24px 0;max-width:42em}
+.on-dark .accordion{border-color:rgba(255,255,255,.7)}
+.on-dark .accordion details{border-color:var(--line-light)}
+.on-dark .accordion summary:hover{color:var(--cyan)}
+.on-dark .pm{border-color:var(--line-light)}
+
+/* FAQ layout: heading | accordion */
+.faq-head{grid-column:1/5}
+.faq-head h2{margin-bottom:24px}
+.faq-list{grid-column:6/13}
+@media (max-width:1000px){.faq-head,.faq-list{grid-column:1/-1}.faq-head{margin-bottom:40px}}
+
+/* Beliefs: centred intro + two accordion columns */
+.centered-head{max-width:720px;margin:0 auto 64px;text-align:center}
+.centered-head h2{margin-bottom:24px}
+.beliefs .accordion{grid-column:span 6}
+@media (max-width:800px){.beliefs .accordion{grid-column:1/-1}.beliefs .accordion+.accordion{border-top:0}}
+
+/* Statement (About › Our Mission) */
+.statement{font-family:var(--font-head);font-weight:500;font-size:var(--t-statement);line-height:1.22;letter-spacing:-.025em;max-width:24em}
+.wide-photo{margin-top:clamp(56px,7vw,96px);aspect-ratio:21/9}
+@media (max-width:700px){.wide-photo{aspect-ratio:4/3}}
+
+/* Three columns with icon (About › Vision, Give › Ways to Give) */
+.cols3{row-gap:48px}
+.cols3>.col{grid-column:span 4;border-top:1px solid var(--line-strong);padding-top:28px;display:flex;flex-direction:column}
+.on-dark .cols3>.col{border-color:rgba(255,255,255,.7)}
+.col .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:rgba(61,182,219,.14);color:var(--cyan-ink);margin-bottom:28px}
+.on-dark .col .icon{color:var(--cyan);background:rgba(61,182,219,.16)}
+.col .icon svg{width:22px;height:22px}
+.col .num{font-size:var(--t-label);font-weight:600;letter-spacing:.12em;color:var(--cyan-ink);margin-bottom:12px}
+.on-dark .col .num{color:var(--cyan)}
+.col h3{margin-bottom:14px}
+.col p{max-width:30em}
+.col .btn{margin-top:24px;align-self:flex-start}
+@media (max-width:900px){.cols3>.col{grid-column:1/-1}}
+
+/* Leadership tiles */
+.team{row-gap:48px}
+.member{grid-column:span 4}
+.member .frame{aspect-ratio:4/5;margin-bottom:20px;display:grid;place-items:center;background:var(--sand)}
+.member .frame svg{width:56px;height:56px;opacity:.35}
+.member h3{font-weight:500}
+.member p{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-ink);margin-top:6px}
+@media (max-width:900px){.member{grid-column:span 6}}
+
+/* Connect: jump links + ministry rows */
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.jump a{display:inline-flex;align-items:center;height:44px;padding:0 18px;border:1px solid var(--line-strong);border-radius:var(--radius-btn);font-weight:600;font-size:15px;transition:.2s}
+.jump a:hover{background:var(--ink);color:var(--white)}
+.ministry{padding:clamp(56px,7vw,96px) 0;border-top:1px solid var(--line)}
+.ministry:first-of-type{border-top:0;padding-top:0}
+.ministry .num{display:block;font-family:var(--font-head);font-size:var(--t-label);font-weight:600;letter-spacing:.16em;color:var(--cyan-ink);margin-bottom:20px}
+.adults{row-gap:64px}
+.adult{grid-column:span 6;display:flex;flex-direction:column}
+.adult .frame{aspect-ratio:4/3;margin-bottom:32px}
+.adult .num{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;color:var(--cyan);margin-bottom:16px}
+.adult h2{margin-bottom:24px}
+.adult p{margin-bottom:16px;max-width:34em}
+.adult .btn{margin-top:auto;align-self:flex-start}
+.adult p:last-of-type{margin-bottom:32px}
+@media (max-width:900px){.adult{grid-column:1/-1}}
+
+/* Watch Live: video */
+.live .centered-head{margin-bottom:48px}
+.video-frame{max-width:1040px;margin:0 auto;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:var(--ink);box-shadow:0 40px 80px rgba(22,24,27,.22)}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+.live .actions{justify-content:center;margin-top:48px}
+
+/* Forms (Elementor Pro: Form widget) */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
+.form .full{grid-column:1/-1}
+.field label,.field .legend{display:block;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.field .req{color:var(--cyan-ink)}
+.field input,.field textarea,.field select,.select{width:100%;height:52px;padding:0 16px;border:1px solid var(--line);border-radius:var(--radius-btn);background:var(--white);font:inherit;font-size:16px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.field textarea{height:150px;padding:14px 16px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus,.select:focus{outline:0;border-color:var(--cyan-ink);box-shadow:0 0 0 3px rgba(61,182,219,.25)}
+.form .btn{border:0;cursor:pointer;font-family:inherit;justify-self:start;margin-top:8px}
+.form-head{margin-bottom:32px}
+.split--form{align-items:stretch}
+.split--form .form-media .frame{height:100%;min-height:420px;aspect-ratio:auto}
+@media (max-width:1000px){.split--form .form-media .frame{min-height:0;height:auto;aspect-ratio:4/3}}
+.form-a{grid-column:1/8}.form-b{grid-column:9/13}
+.split--flip .form-a{grid-column:6/13}.split--flip .form-b{grid-column:1/5}
+.offset-copy{grid-column:6/13;margin-top:40px}
+@media (max-width:1000px){.form-a,.form-b,.split--flip .form-a,.split--flip .form-b,.offset-copy{grid-column:1/-1}.split .form-b{order:-1}}
+@media (max-width:600px){.form{grid-template-columns:1fr}}
+select.select,.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316181B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:44px;cursor:pointer}
+
+/* Messages */
+.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
+@media (max-width:800px){.filters{grid-template-columns:1fr 1fr}}
+.sermon{align-items:center;row-gap:32px;padding:24px;background:var(--white);border:1px solid var(--line);border-radius:calc(var(--radius) + 6px)}
+.sermon .frame{grid-column:1/8;aspect-ratio:16/9;position:relative}
+.sermon .play{position:absolute;left:24px;bottom:24px;width:56px;height:56px;border-radius:var(--radius-btn);background:var(--cyan);color:var(--ink);display:grid;place-items:center}
+.sermon .play svg{width:20px;height:20px}
+.sermon-body{grid-column:8/13;padding-right:16px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;font-size:14px;color:var(--ink-soft);margin-bottom:16px}
+.meta a{color:var(--cyan-ink);font-weight:600}
+.sermon h2{font-size:clamp(32px,3.4vw,48px);margin-bottom:20px}
+.sermon h2 a:hover{color:var(--cyan-ink)}
+.speaker{font-size:15px;margin-bottom:16px}
+.speaker span{display:block;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.speaker a{font-weight:600}
+.tag{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:6px;background:rgba(61,182,219,.14);color:var(--cyan-ink);font-size:13px;font-weight:600;margin:8px 0 24px}
+@media (max-width:900px){.sermon .frame,.sermon-body{grid-column:1/-1}.sermon{padding:16px}.sermon-body{padding:0 8px 8px}}
+
+/* Events */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:24px}
+.toolbar .selects{display:flex;gap:12px;flex-wrap:wrap}
+.toolbar .select{width:auto;min-width:200px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--radius-btn);overflow:hidden;background:var(--white)}
+.seg button{height:50px;padding:0 20px;border:0;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--ink-soft);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+.empty{border:1px dashed rgba(22,24,27,.25);border-radius:calc(var(--radius) + 6px);padding:clamp(56px,8vw,112px) 24px;text-align:center;background:rgba(255,255,255,.5)}
+.empty .icon{width:64px;height:64px;margin:0 auto 24px;border-radius:12px;display:grid;place-items:center;background:rgba(61,182,219,.14);color:var(--cyan-ink)}
+.empty .icon svg{width:28px;height:28px}
+.empty h2{font-size:clamp(28px,3vw,40px);margin-bottom:12px}
+@media (max-width:600px){.toolbar .select{min-width:0;flex:1}.toolbar .selects{width:100%}.seg{width:100%}.seg button{flex:1}}
+
+/* Give: mail address */
+.address{font-style:normal;line-height:1.6}
+
 /* Reveal on scroll (Elementor: Entrance Animation › Fade In Up) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -257,18 +431,18 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 <!-- ======================= HEADER (global) ======================= -->
 <header class="header">
   <div class="wrap">
-    <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
     </button>
     <nav class="nav" aria-label="Main">
-      <a href="#welcome">About</a>
-      <a href="#ministries">Connect</a>
-      <a href="#">Watch Live</a>
-      <a href="#">Messages</a>
-      <a href="#">Events</a>
-      <a href="#">Give</a>
-      <a href="#visit" class="btn">Plan Your Visit</a>
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html">Messages</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn">Plan Your Visit</a>
     </nav>
   </div>
 </header>
@@ -284,8 +458,8 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
     <span class="kicker">Spurgeon Church</span>
     <h1><span>Loving God.</span><span class="c">Loving People.</span></h1>
     <div class="actions">
-      <a href="#visit" class="btn btn-white">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#" class="btn btn-line">Watch Live</a>
+      <a href="plan-your-visit.html" class="btn btn-white">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="watch-live.html" class="btn btn-line">Watch Live</a>
     </div>
   </div>
   <!-- Scrolling ticker: schedule + announcements. Edit the <li> items in the first group;
@@ -320,7 +494,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
         <h2>Welcome Home</h2>
         <p class="first">New to the community, our church is planting and putting down roots to reach the people in our neighborhood and the surrounding areas for Christ.</p>
         <p class="muted">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life. We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
-        <a href="#" class="btn btn-ink">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="about.html" class="btn btn-ink">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="welcome-photos reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1651514645899-de1cadd1ec31?w=900&q=75&auto=format&fit=crop" alt="Church members greeting each other with smiles" width="900" height="600" loading="lazy"></div>
@@ -338,23 +512,23 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
       <h2>Our Ministries</h2>
       <div class="copy">
         <p class="muted">Whether you're single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
-        <a href="#" class="btn btn-cyan">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="connect.html" class="btn btn-cyan">Get Connected <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="grid cards">
-      <a href="#" class="card reveal">
+      <a href="connect.html" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1658017875525-ecbf763b797e?w=700&q=75&auto=format&fit=crop" alt="A smiling couple" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Single <i>or</i> married</h3><span>01</span></div>
       </a>
-      <a href="#" class="card reveal">
+      <a href="connect.html" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1604072424771-7300bc5de457?w=700&q=75&auto=format&fit=crop" alt="A mother and her son sitting together in church" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>With children <i>or</i> without</h3><span>02</span></div>
       </a>
-      <a href="#" class="card reveal">
+      <a href="connect.html" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1651514645933-c26e0eb4ace3?w=700&q=75&auto=format&fit=crop" alt="People of different ages talking together" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Young <i>or</i> old</h3><span>03</span></div>
       </a>
-      <a href="#" class="card reveal">
+      <a href="connect.html" class="card reveal">
         <div class="frame"><img src="https://images.unsplash.com/photo-1629141650817-a4b997dc1613?w=700&q=75&auto=format&fit=crop" alt="A small group of men and women meeting on a patio" width="700" height="933" loading="lazy"></div>
         <div class="card-meta"><h3>Male <i>or</i> female</h3><span>04</span></div>
       </a>
@@ -370,7 +544,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
       <div class="touch-intro">
         <h2>Get in Touch</h2>
         <p class="muted">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
-        <a href="#" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="plan-your-visit.html" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <dl class="details">
         <div><dt>Sundays</dt><dd>8:30 am &amp; 10:00 am</dd></div>
@@ -388,24 +562,24 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 </section>
 </main>
 
-<!-- ======================= 5. FOOTER (global) ======================= -->
+<!-- ======================= FOOTER (global) ======================= -->
 <footer class="footer bg-photo">
   <div class="wrap">
     <div class="grid footer-top">
       <div class="footer-brand">
-        <a href="spurgeon-home.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
         <p>Loving God. Loving People.</p>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#visit">Plan Your Visit</a>
-          <a href="#welcome">About</a>
-          <a href="#ministries">Connect</a>
-          <a href="#">Watch Live</a>
-          <a href="#">Messages</a>
-          <a href="#">Events</a>
-          <a href="#">Give</a>
+          <a href="plan-your-visit.html">Plan Your Visit</a>
+          <a href="about.html">About</a>
+          <a href="connect.html">Connect</a>
+          <a href="watch-live.html">Watch Live</a>
+          <a href="messages.html">Messages</a>
+          <a href="events.html">Events</a>
+          <a href="give.html">Give</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -425,6 +599,8 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 </footer>
 
 <script>
+/* Spurgeon — shared behaviour: sticky header, mobile menu, reveal on scroll, events view toggle */
+(function(){
   var header=document.querySelector('.header'),nav=document.querySelector('.nav'),toggle=document.querySelector('.menu-toggle');
   function onScroll(){header.classList.toggle('solid',scrollY>40)}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -435,6 +611,11 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  document.querySelectorAll('.seg').forEach(function(seg){
+    seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+      seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
+  });
+})();
 </script>
 </body>
 </html>

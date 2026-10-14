@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Spurgeon Church</title>
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+<meta name="description" content="Our mission, vision, beliefs and leadership at Spurgeon Church.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  SPURGEON — About Us (same sections + copy as the original page)
+    Page hero · Our Mission (statement + wide photo) · Our Vision (3 columns) · Our Beliefs (dark band, 8-item accordion)
+    · Our Leadership (6 portrait tiles — placeholders, swap in real photos) · Get in Touch (same block as home)
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER (global) ======================= -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
+    </button>
+    <nav class="nav" aria-label="Main">
+      <a href="about.html" aria-current="page">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html">Messages</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ======================= PAGE HERO ======================= -->
+<section class="page-hero bg-photo" style="--bg:url(https://images.unsplash.com/photo-1623533733598-0782b7157763?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> About Us</nav>
+    <h1>About Us</h1>
+  </div>
+</section>
+
+<!-- 1. OUR MISSION — statement + wide photo -->
+<section class="section">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">01</span>Our Mission</div>
+    <p class="statement reveal">We want to be a people who care for, welcome, and support those around us in a way that can only be inspired by God.</p>
+    <div class="grid">
+      <p class="muted offset-copy reveal">It’s our hope that people who visit our church or interact with our people walk away feeling encouraged, refreshed, and drawn closer to God. We want every man, woman, and child in our community to have the chance to experience and respond to the Gospel in action through our church.</p>
+    </div>
+    <div class="frame wide-photo reveal"><img src="https://images.unsplash.com/photo-1717278087114-c9a3efc29e1e?w=2000&q=75&auto=format&fit=crop" alt="A worship gathering in a modern church" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- 2. OUR VISION — three columns -->
+<section class="section section--tight-top">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">02</span>Our Vision</div>
+    <div class="grid cols3">
+      <div class="col reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></span><span class="num">01</span><h3>Worship &amp; Study</h3><p class="muted">Through weekly Bible studies, worship gatherings, and small groups, we will learn more about God and grow in our knowledge and love for Him.</p></div>
+      <div class="col reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l8-5 3 3-4 2"/><path d="M3 11v6h4l6 3 8-6-2-2-5 3"/></svg></span><span class="num">02</span><h3>Evangelism &amp; Outreach</h3><p class="muted">By reaching out to and serving those around us, we will share God’s love and His message of hope with the people in our community.</p></div>
+      <div class="col reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg></span><span class="num">03</span><h3>Multiplication &amp; Sending</h3><p class="muted">By making disciples and supporting fellow believers as they step out to launch new churches and ministries around the world, we will expand our reach to exhibit God’s love to people across the globe.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. OUR BELIEFS — dark photo band, centred intro, two accordion columns -->
+<section class="section bg-photo on-dark beliefs" style="--bg:url(https://images.unsplash.com/photo-1478147427282-58a87a120781?w=2000&q=75&auto=format&fit=crop);--ov-top:.84;--ov-bottom:.94">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">03</span>What We Believe</div>
+    <div class="centered-head reveal">
+      <h2>Our Beliefs</h2>
+      <p class="muted">This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>
+    </div>
+    <div class="grid reveal">
+        <div class="accordion">
+          <details><summary>The Bible<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>The Father<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>The Son<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>The Holy Spirit<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+        </div>
+        <div class="accordion">
+          <details><summary>Eternity<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>Man<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>Salvation<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+          <details><summary>The Church<span class="pm" aria-hidden="true"></span></summary><p class="muted">This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.</p></details>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OUR LEADERSHIP — six portrait tiles (placeholders until real photos are added) -->
+<section class="section">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">04</span>Our Leadership</div>
+    <h2 class="reveal" style="margin-bottom:64px">Our Leadership</h2>
+    <div class="grid team">
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+      <div class="member reveal"><div class="frame" role="img" aria-label="Leader photo placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan-ink)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg></div><h3>First &amp; Last Name</h3><p>Position / Title</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GET IN TOUCH (same block as the home page) ======================= -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">05</span>Visit</div>
+    <div class="grid touch reveal">
+      <div class="touch-intro">
+        <h2>Get in Touch</h2>
+        <p class="muted">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
+        <a href="plan-your-visit.html" class="btn btn-ink">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <dl class="details">
+        <div><dt>Sundays</dt><dd>8:30 am &amp; 10:00 am</dd></div>
+        <div><dt>Wednesdays</dt><dd>6:30 pm</dd></div>
+        <div><dt>Address</dt><dd>1221 My Street, My Town, XX&nbsp;12212</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:9081231234">908-123-1234</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="map-fluid reveal">
+    <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer bg-photo">
+  <div class="wrap">
+    <div class="grid footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+        <p>Loving God. Loving People.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="plan-your-visit.html">Plan Your Visit</a>
+          <a href="about.html" aria-current="page">About</a>
+          <a href="connect.html">Connect</a>
+          <a href="watch-live.html">Watch Live</a>
+          <a href="messages.html">Messages</a>
+          <a href="events.html">Events</a>
+          <a href="give.html">Give</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <span>1221 My Street, My Town, XX 12212</span>
+      <a href="https://reachrightstudios.com">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Spurgeon</div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>

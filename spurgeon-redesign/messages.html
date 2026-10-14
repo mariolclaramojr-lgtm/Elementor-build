@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messages — Spurgeon Church</title>
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+<meta name="description" content="Sermons from Spurgeon Church, searchable by speaker, series, topic and book.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  SPURGEON — Messages (same content as the original page)
+    Page hero · filters (Speaker, Series, Topic, Book) · sermon card (date, series, title, speaker, excerpt, service type)
+  The sermon card repeats for every message the sermon plugin returns.
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER (global) ======================= -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
+    </button>
+    <nav class="nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html" aria-current="page">Messages</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ======================= PAGE HERO ======================= -->
+<section class="page-hero bg-photo" style="--bg:url(https://images.unsplash.com/photo-1507692049790-de58290a4334?w=2000&q=75&auto=format&fit=crop)">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> Messages</nav>
+    <h1>Messages</h1>
+  </div>
+</section>
+
+<!-- 1. SERMON LIBRARY — filters + sermon card (Elementor: sermon plugin archive / Loop Grid) -->
+<section class="section">
+  <div class="wrap">
+    <div class="label reveal"><span class="num">01</span>Sermon Library</div>
+    <div class="filters reveal">
+      <select class="select" aria-label="Speaker"><option value="">Speaker</option><option>First and Last Name</option></select>
+      <select class="select" aria-label="Series"><option value="">Series</option><option>Sample Series</option></select>
+      <select class="select" aria-label="Topic"><option value="">Topic</option></select>
+      <select class="select" aria-label="Book"><option value="">Book</option></select>
+    </div>
+    <article class="grid sermon reveal">
+      <a href="#" class="frame" aria-label="Play Sample Sermon"><img src="https://images.unsplash.com/photo-1623080882579-050db1182f51?w=1400&q=75&auto=format&fit=crop" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span></a>
+      <div class="sermon-body">
+        <div class="meta"><time datetime="2022-12-18">December 18, 2022</time><span aria-hidden="true">/</span><a href="#">Sample Series</a></div>
+        <h2><a href="#">Sample Sermon</a></h2>
+        <p class="speaker"><span>Speaker</span><a href="#">First and Last Name</a></p>
+        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque libero erat, at vestib...</p>
+        <a href="#" class="tag">Sunday Service</a>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER (global) ======================= -->
+<footer class="footer bg-photo">
+  <div class="wrap">
+    <div class="grid footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="var(--cyan)" d="M0 11.5 17 1.6V15H0zM23 1.6 40 11.5V15H23zM0 21h17v19H2a2 2 0 0 1-2-2zM23 21h17v17a2 2 0 0 1-2 2H23z"/></svg><span class="logo-text"><b>Spurgeon</b><small>Church</small></span></a>
+        <p>Loving God. Loving People.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="plan-your-visit.html">Plan Your Visit</a>
+          <a href="about.html">About</a>
+          <a href="connect.html">Connect</a>
+          <a href="watch-live.html">Watch Live</a>
+          <a href="messages.html" aria-current="page">Messages</a>
+          <a href="events.html">Events</a>
+          <a href="give.html">Give</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <span>1221 My Street, My Town, XX 12212</span>
+      <a href="https://reachrightstudios.com">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Spurgeon</div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
