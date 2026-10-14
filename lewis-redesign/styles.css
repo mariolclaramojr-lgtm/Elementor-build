@@ -155,7 +155,7 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:56px}
 .section-head p{max-width:360px;color:var(--ink-soft)}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4.3;max-width:100%;border-radius:var(--radius);overflow:hidden;color:var(--white);padding:28px}
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:4/4.2;max-width:100%;border-radius:var(--radius);overflow:hidden;color:var(--white);padding:28px}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
 .card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.05) 30%,rgba(15,12,9,.9) 100%);z-index:1}
 .card::after{content:"";position:absolute;inset:12px;border:1px solid rgba(232,93,108,0);border-radius:2px;z-index:1;transition:border-color .4s}
@@ -169,7 +169,7 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
 .card:hover .more svg{transform:translateX(4px)}
 /* Desktop: hovered card widens, the other three narrow (Elementor: add this as custom CSS on the cards container) */
 @media (min-width:1025px){
-  .cards{display:flex;gap:18px;height:clamp(460px,38vw,540px)}
+  .cards{display:flex;gap:18px;height:clamp(360px,28vw,410px)}
   .card{flex:1 1 0;min-width:0;aspect-ratio:auto;transition:flex .7s cubic-bezier(.2,.7,.2,1)}
   .cards:hover .card{flex-grow:.72}
   .cards .card:hover{flex-grow:2.4}
@@ -181,7 +181,7 @@ h1 em,h2 em{font-style:italic;color:var(--accent-light)}
   .cards:hover .card:not(:hover) .more{opacity:0}
 }
 @media (max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.cards{grid-template-columns:1fr}.card{aspect-ratio:4/3.4}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}.card{aspect-ratio:4/3}}
 
 /* ============ 4. GET IN TOUCH ============ */
 .touch{padding:var(--pad-section) 0;background:var(--espresso);color:var(--white)}
