@@ -4,24 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spurgeon Church Redesign v2</title>
-<meta name="description" content="Second redesign direction for the Spurgeon church theme — sunlit editorial: warm cream, poster-sized type, cyan blocks.">
+<meta name="description" content="Second redesign direction for the Spurgeon church theme — sunlit editorial: warm cream, large grotesk type, cyan accents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-v2.css">
 <!--
-  SPURGEON — REDESIGN v2 ("Sunlit editorial")
-  Same 5 sections and purpose as the original, re-imagined:
-    1. Hero          — full-bleed poster photo, giant "Loving God. Loving People.", 2 buttons
-                       + cyan ticker with service times / address
-    2. Welcome Home  — big statement sentence, photo, the rest of the story, 3 numbered pillars, About Us
-    3. Our Ministries— full cyan block: "There's a place for you", pill chips (single or married…),
-                       round photo with spinning stamp, Get Connected
-    4. Get in Touch  — schedule board with oversized times, contact row, greyscale map with Plan Your Visit card
-    5. Footer        — logo, menu, socials, credit, giant SPURGEON wordmark
+  SPURGEON — REDESIGN v2 ("Sunlit editorial", refined)
+  Same 5 sections, copy and images as the original theme:
+    1. Hero          — full-bleed photo, "Loving God. Loving People.", 2 buttons + slim service-times strip
+    2. Welcome Home  — opening sentence as a statement, photo, rest of the text, 3 pillars, About Us
+    3. Our Ministries— cyan band: heading, the four "whether you're…" pairs, text, Get Connected, round photo
+    4. Get in Touch  — heading + text, service-times board, contact row, map with Plan Your Visit
+    5. Footer        — logo + tagline, menu, socials, credit, wordmark
 
-  Elementor map: Heading, Text Editor, Button, Image, Icon List (pillars/chips), Google Maps,
-  Nav Menu, Social Icons. Ticker = a Heading with the CSS animation in styles-v2.css.
+  System: 12-column grid, 8px spacing steps, 1px hairlines, 20px radius + pill buttons (52px).
+  Elementor map: Heading, Text Editor, Button, Image, Icon List, Google Maps, Nav Menu, Social Icons.
   Images, logo and map: the Spurgeon theme's own.
 -->
 </head>
@@ -34,7 +32,7 @@
       <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76">
     </a>
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 15h10"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
     </button>
     <nav class="nav" aria-label="Main">
       <a href="#welcome">About</a>
@@ -52,95 +50,89 @@
 <!-- ======================= 1. HERO ======================= -->
 <section class="hero" style="--hero-img:url(https://spurgeon.wpengine.com/wp-content/uploads/2020/07/zach-lucero-rp9hgLfpoaI-unsplash-1.jpg)">
   <div class="wrap">
-    <div class="hero-top">
-      <span class="hero-kicker">Spurgeon Church</span>
-      <div class="hero-actions">
-        <a href="#visit" class="btn btn-white">Plan Your Visit
-          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        <a href="#" class="btn btn-line">Watch Live</a>
-      </div>
-    </div>
+    <span class="kicker">Spurgeon Church</span>
     <h1><span>Loving God.</span><span class="c">Loving People.</span></h1>
+    <div class="actions">
+      <a href="#visit" class="btn btn-white">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#" class="btn btn-line">Watch Live</a>
+    </div>
   </div>
 </section>
 
-<div class="ticker" aria-label="Service times: Sunday mornings 8:30 and 10:00 am, Wednesday evenings 6:30 pm">
+<div class="ticker" role="note" aria-label="Sunday mornings 8:30 and 10:00 am. Wednesday evenings 6:30 pm. 1221 My Street, My Town.">
   <div class="ticker-track" aria-hidden="true">
-    <span>Sunday Mornings 8:30 &amp; 10:00 am</span><span>Wednesday Evenings 6:30 pm</span><span>1221 My Street, My Town</span><span>You're welcome here</span>
-    <span>Sunday Mornings 8:30 &amp; 10:00 am</span><span>Wednesday Evenings 6:30 pm</span><span>1221 My Street, My Town</span><span>You're welcome here</span>
+    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
+    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
+    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
+    <span>Sunday Mornings — 8:30 &amp; 10:00 am</span><span>Wednesday Evenings — 6:30 pm</span><span>1221 My Street, My Town</span>
   </div>
 </div>
 
 <!-- ======================= 2. WELCOME HOME ======================= -->
-<section class="welcome" id="welcome">
+<section class="section" id="welcome">
   <div class="wrap">
     <div class="label reveal"><span class="num">01</span>Welcome Home</div>
-    <p class="statement reveal">New to the community, our church is <span class="hl">planting and putting down roots</span> to reach the people in our neighborhood <em>and the surrounding areas</em> for Christ.</p>
+    <h2 class="statement reveal">New to the community, our church is <mark>planting and putting down roots</mark> to reach the people in our neighborhood and the surrounding areas for Christ.</h2>
 
     <div class="welcome-grid">
       <div class="welcome-photo reveal">
         <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-1.jpg" alt="A hand raised in worship during a service" width="800" height="800" loading="lazy">
-        <span class="tag">Welcome home</span>
       </div>
       <div class="welcome-body reveal">
-        <p>We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life.</p>
+        <p class="first">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life.</p>
         <p>We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
         <ul class="pillars">
-          <li><b>01</b>Welcomed in<small>Come as you are</small></li>
-          <li><b>02</b>Encouraged<small>Seeking God’s will</small></li>
-          <li><b>03</b>Supported<small>In Jesus’ name</small></li>
+          <li><span>01</span>Welcomed in</li>
+          <li><span>02</span>Encouraged</li>
+          <li><span>03</span>Supported</li>
         </ul>
         <a href="#" class="btn btn-ink">About Us
-          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======================= 3. OUR MINISTRIES ======================= -->
-<section class="ministries" id="ministries">
+<section class="section ministries on-cyan" id="ministries">
   <div class="wrap">
-    <div class="label reveal"><span class="num">02</span>Our Ministries</div>
+    <div class="label reveal"><span class="num">02</span>Get Connected</div>
     <div class="min-grid">
-      <div class="reveal">
-        <h2>There’s a place for you.</h2>
-        <p class="intro">Whether you're single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
-        <div class="chips" aria-hidden="true">
-          <span class="pair"><span class="chip">Single</span><span class="chip or">or</span><span class="chip">Married</span></span>
-          <span class="pair"><span class="chip">With children</span><span class="chip or">or</span><span class="chip">Without</span></span>
-          <span class="pair"><span class="chip">Young</span><span class="chip or">or</span><span class="chip">Old</span></span>
-          <span class="pair"><span class="chip">Male</span><span class="chip or">or</span><span class="chip">Female</span></span>
-        </div>
+      <div class="min-copy reveal">
+        <h2>Our Ministries</h2>
+        <p class="whether">Whether you’re</p>
+        <ul class="pairs">
+          <li>Single <i>or</i> married</li>
+          <li>With children <i>or</i> without</li>
+          <li>Young <i>or</i> old</li>
+          <li>Male <i>or</i> female</li>
+        </ul>
+        <p>We have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
         <a href="#" class="btn btn-ink">Get Connected
-          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="min-photo reveal">
         <img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/alexis-brown-omeaHbEFlN4-unsplash-1.jpg" alt="Friends studying the Bible together around a table" width="600" height="600" loading="lazy">
-        <svg class="stamp" viewBox="0 0 140 140" aria-hidden="true">
-          <defs><path id="circ" d="M70,70 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs>
-          <circle cx="70" cy="70" r="68" fill="var(--cream)"/>
-          <text><textPath href="#circ">Get connected • Find your fit •</textPath></text>
-        </svg>
-        <span class="stamp-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/></svg></span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======================= 4. GET IN TOUCH ======================= -->
-<section class="touch" id="visit">
+<section class="section touch" id="visit">
   <div class="wrap">
-    <div class="label reveal"><span class="num">03</span>Get in Touch</div>
+    <div class="label reveal"><span class="num">03</span>Visit</div>
     <div class="touch-head reveal">
-      <h2>Come see us.</h2>
+      <h2>Get in Touch</h2>
       <p>We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
     </div>
     <div class="board reveal">
-      <div class="board-row"><span class="day">Sunday Mornings</span><span class="time">8:30 <i>&amp;</i> 10:00<small>am</small></span></div>
+      <div class="board-row"><span class="day">Sunday Mornings</span><span class="time">8:30<i>&amp;</i>10:00<small>am</small></span></div>
       <div class="board-row"><span class="day">Wednesday Evenings</span><span class="time">6:30<small>pm</small></span></div>
     </div>
     <div class="contact-row reveal">
-      <div><h4>Address</h4><p>1221 My Street,<br>My Town, XX&nbsp;12212</p></div>
+      <div><h4>Address</h4><p>1221 My Street, My Town, XX&nbsp;12212</p></div>
       <div><h4>Phone</h4><a href="tel:9081231234">908-123-1234</a></div>
       <div><h4>Email</h4><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div>
     </div>
@@ -149,9 +141,8 @@
     <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     <div class="map-card">
       <h3>First time with us?</h3>
-      <p>Join us at one of our service times. We'd love to meet you.</p>
       <a href="#" class="btn btn-cyan">Plan Your Visit
-        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -161,19 +152,23 @@
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div>
-        <a href="index-v2.html" class="logo" aria-label="Spurgeon Church home"><img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76"></a>
+      <div class="footer-brand">
+        <a href="index-v2.html" aria-label="Spurgeon Church home"><img src="https://spurgeon.wpengine.com/wp-content/uploads/2020/07/logo-blue-green.png" alt="Spurgeon Church" width="343" height="76"></a>
+        <p>Loving God. Loving People.</p>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Explore</h4>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#visit">Plan Your Visit</a><a href="#welcome">About</a>
-          <a href="#ministries">Connect</a><a href="#">Watch Live</a>
-          <a href="#">Messages</a><a href="#">Events</a>
+          <a href="#visit">Plan Your Visit</a>
+          <a href="#welcome">About</a>
+          <a href="#ministries">Connect</a>
+          <a href="#">Watch Live</a>
+          <a href="#">Messages</a>
+          <a href="#">Events</a>
           <a href="#">Give</a>
         </nav>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Follow</h4>
         <div class="social">
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></a>
@@ -182,7 +177,7 @@
       </div>
     </div>
     <div class="footer-credit">
-      <span>Loving God. Loving People.</span>
+      <span>1221 My Street, My Town, XX 12212</span>
       <a href="https://reachrightstudios.com">church web design by REACHRIGHT</a>
     </div>
   </div>
@@ -193,7 +188,7 @@
   var header=document.querySelector('.header'),nav=document.querySelector('.nav'),toggle=document.querySelector('.menu-toggle');
   function onScroll(){header.classList.toggle('solid',scrollY>40)}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
-  function setMenu(o){nav.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);toggle.setAttribute('aria-expanded',o)}
+  function setMenu(o){nav.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);toggle.setAttribute('aria-expanded',o);toggle.setAttribute('aria-label',o?'Close menu':'Open menu')}
   toggle.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
   nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
   if('IntersectionObserver' in window){
