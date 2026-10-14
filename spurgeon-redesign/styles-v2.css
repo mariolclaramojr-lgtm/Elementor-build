@@ -117,6 +117,13 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .hero h1{font-size:var(--t-display);line-height:.9;letter-spacing:-.04em;margin-bottom:40px}
 .hero h1 span{display:block}
 .hero h1 .c{color:var(--cyan)}
+/* Centered variant — text in the middle of the screen, ticker stays at the bottom */
+.hero--center .hero-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:120px;padding-bottom:clamp(64px,8vw,104px)}
+.hero--center .kicker::after{content:"";width:24px;height:1px;background:var(--cyan)}
+.hero--center h1{margin-bottom:44px}
+.hero--center .actions{justify-content:center}
+.hero--center::before{background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(22,24,27,.55),rgba(22,24,27,.15) 70%),linear-gradient(180deg,rgba(22,24,27,.55) 0%,rgba(22,24,27,.25) 30%,rgba(22,24,27,.35) 70%,rgba(22,24,27,.9) 100%)}
+@media (max-width:600px){.hero--center .hero-main{padding-top:104px}}
 /* Ticker — schedule + announcements on a loop. Pauses on hover; still for reduced motion. */
 .ticker{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--line-light);background:rgba(22,24,27,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .ticker-track{display:flex;width:max-content;animation:ticker 45s linear infinite}
