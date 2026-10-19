@@ -8,7 +8,7 @@ Copy it, fill in the [brackets], and paste it into a new session. One short para
 >
 > First, look at every page of the template and list the sections on each one.
 >
-> Then design the home page in HTML. Make it look premium, bold and warm, with big headlines, real photos of people at church, and a worship video in the hero. Show me screenshots and wait for my OK.
+> Then design the home page in HTML. Use your website design skills (and any design skills or tools you have) to make it look like a professional designer made it: premium, bold and warm, with big headlines, real photos of people at church, and a worship video in the hero. Show me screenshots and wait for my OK.
 >
 > After I approve, build the other pages in the same style.
 >
