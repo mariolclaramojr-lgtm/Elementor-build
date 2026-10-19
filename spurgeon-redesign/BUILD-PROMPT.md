@@ -1,22 +1,20 @@
 # Template redesign prompt
 
-## Quick version (chat style)
+## Basic version
 
-Copy all six paragraphs, change the bits in [brackets], and paste them into a new session. Each paragraph is one step, so you can update one step without touching the rest.
+Copy it, fill in the [brackets], and paste it into a new session. One short paragraph per step.
 
-> **The job.** Hey! I run ReachRight, we build church websites, and I want to give one of our least-popular templates a fresh, premium look. It's [TEMPLATE NAME] at [TEMPLATE URL], for [CHURCH NAME]. Our live sites run on WordPress with Themeco Pro/X and the Cornerstone builder, so design it in a way that's easy to rebuild there.
+> I want to redesign our church website template [TEMPLATE NAME] at [TEMPLATE URL]. Keep the same sections and the same content, just give it a fresh, modern look.
 >
-> **Step 1: Study the template.** Go through every page of the template and note each section and its content: headings, copy, buttons, forms, images and embeds. The rule is same sections, same content, word for word. You can change the layout and make it way more creative, just don't add or drop sections, and tell me if you add any copy.
+> First, look at every page of the template and list the sections on each one.
 >
-> **Step 2: Design the home page first, in HTML.** I want it premium and bold but elegant through restraint, warm and welcoming, clearly modern and never churchy: big confident headlines, a full-screen worship video in the hero with a scrolling ticker for service times and announcements, real photos of people in modern churches, lots of whitespace, a clean 12-column grid, thin divider lines, light cream sections alternating with dark photo sections, no circles anywhere, and a simple text-only logo. Use the template's brand colour as the one accent, with cream, sand and near-black around it, Bricolage Grotesque for headings and DM Sans for body text. For inspiration, look at elevationchurch.org, churchome.org, hillsong.com, vous.church and mosaic.org, plus apple.com and kinfolk.com for that premium restraint.
+> Then design the home page in HTML. Make it look premium, bold and warm, with big headlines, real photos of people at church, and a worship video in the hero. Show me screenshots and wait for my OK.
 >
-> **Step 3: Show me and wait.** Send me desktop and phone screenshots of the home page and wait for my OK before going further. I'll probably ask for changes, so keep it easy to adjust.
+> After I approve, build the other pages in the same style.
 >
-> **Step 4: Build the other pages.** Once I approve the home page, build Plan Your Visit, About, Connect, Watch Live, Messages (with a single-message page), Events and Give in the same style. Same rule: same sections, same content. Mix up the layouts so pages don't feel repetitive.
+> Then make sure every button and link goes to the right page or section.
 >
-> **Step 5: Connect everything.** Make sure every button, card and link goes to a real page or to the right section (for example the home ministry cards go to the matching part of the Connect page). No dead links. The address opens Google Maps, the phone number calls and the email opens an email. Tell me about any links the church needs to give us, like the online giving page.
->
-> **Step 6: Check and deliver.** Check every page on desktop and phone, make sure text is readable over photos and nothing scrolls sideways, then send me everything in one zip with screenshots.
+> Last, check it on desktop and phone and send me everything in one zip.
 
 ---
 
