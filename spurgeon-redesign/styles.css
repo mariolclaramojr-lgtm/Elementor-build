@@ -1,7 +1,7 @@
 /* SPURGEON v2 — "Sunlit editorial" (columns)
    One system: 12-column grid · 8px spacing steps · 1px hairlines · 14px image radius · 8px button radius.
    No circles: every shape is a rectangle or rounded rectangle.
-   Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
+   Colours + fonts live in :root → set them once in Cornerstone as Global Colors / Global Fonts. */
 :root{
   /* Colours */
   --cream:#F6F2EA;       /* page background */
@@ -78,7 +78,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .3s}
 /* Logo — mark (church window with a cross) + wordmark. Text inherits the header colour. */
 .logo{display:inline-flex;align-items:center;line-height:1}
-/* Text-only logo: wordmark + tracked sub-line (Elementor: Site Logo can be swapped for a Heading) */
+/* Text-only logo: wordmark + tracked sub-line (Cornerstone Header Builder: Text element, or Image with logo.svg) */
 .logo-text{display:flex;flex-direction:column;gap:4px}
 .logo-text b{font-family:var(--font-head);font-weight:700;font-size:27px;letter-spacing:-.04em}
 .logo-text small{font-size:10.5px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.75;padding-left:2px}
@@ -107,7 +107,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 
 /* ============ 1. HERO + service columns ============ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--white);background:var(--ink) url(hero-poster.jpg) center/cover no-repeat;overflow:hidden}
-/* Background video (Elementor: Container › Background › Video, with Background Overlay) */
+/* Background video (Cornerstone: Section › Background › Lower Layer: Video, Upper Layer: ink colour overlay) */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(22,24,27,.6) 0%,rgba(22,24,27,.35) 30%,rgba(22,24,27,.45) 55%,rgba(22,24,27,.92) 100%),rgba(22,24,27,.2)}
 .hero-main{z-index:2}
@@ -154,7 +154,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 
 /* ============ 3. OUR MINISTRIES — header columns + 4 image cards ============ */
 /* Dark sections with a photo behind a strong ink overlay
-   (Elementor: Container › Background › Image + Background Overlay, colour ink at 85–90%) */
+   (Cornerstone: Section › Background › Lower Layer: Image, Upper Layer: ink at 85–95%) */
 .bg-photo{position:relative;isolation:isolate;background-color:var(--ink);background-image:linear-gradient(180deg,rgba(22,24,27,var(--ov-top,.86)),rgba(22,24,27,var(--ov-bottom,.94))),var(--bg);background-size:cover;background-position:center}
 .ministries{--bg:url(https://images.unsplash.com/photo-1609234656388-0ff363383899?w=2000&q=70&auto=format&fit=crop);--ov-top:.84;--ov-bottom:.95;color:var(--white)}
 .min-head{align-items:end;margin-bottom:64px}
@@ -226,7 +226,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .nav a[aria-current="page"]:not(.btn)::after{transform:scaleX(1);background:var(--cyan)}
 .footer-nav a[aria-current="page"]{color:var(--cyan)}
 
-/* Page hero — photo + overlay, centred title (Elementor: Container with Background Image + Overlay) */
+/* Page hero — photo + overlay, centred title (Cornerstone: Section with Background Image layer + ink overlay layer) */
 .page-hero{--ov-top:.55;--ov-bottom:.88;min-height:clamp(440px,62svh,640px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white);padding:120px 0 72px}
 .page-hero h1{font-size:clamp(52px,8vw,120px);line-height:.92;letter-spacing:-.04em}
 .crumbs{display:inline-flex;align-items:center;gap:12px;font-size:var(--t-label);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;color:rgba(255,255,255,.75)}
@@ -257,7 +257,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .section--sand{background:var(--sand)}
 .section--tight-top{padding-top:0}
 
-/* Accordion (Elementor: Accordion / Toggle widget) */
+/* Accordion (Cornerstone: Accordion element) */
 .accordion{border-top:1px solid var(--line-strong)}
 .accordion details{border-bottom:1px solid var(--line)}
 .accordion summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;cursor:pointer;font-family:var(--font-head);font-weight:500;font-size:var(--t-h3);letter-spacing:-.015em;line-height:1.25}
@@ -336,7 +336,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .video-frame iframe{width:100%;height:100%;border:0;display:block}
 .live .actions{justify-content:center;margin-top:48px}
 
-/* Forms (Elementor Pro: Form widget) */
+/* Forms (Cornerstone Forms, or a Gravity Forms / WPForms element) */
 .form{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
 .form .full{grid-column:1/-1}
 .field label,.field .legend{display:block;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
@@ -415,7 +415,7 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .form-done h3{margin-bottom:8px}
 .field input:user-invalid,.field textarea:user-invalid,.field select:user-invalid{border-color:#C2410C}
 
-/* Reveal on scroll (Elementor: Entrance Animation › Fade In Up) */
+/* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}

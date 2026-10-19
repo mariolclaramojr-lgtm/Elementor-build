@@ -18,7 +18,7 @@
       seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
   });
 
-  // Forms: validate, then show a thank-you message (wire to Elementor Forms / email on the live site)
+  // Forms: validate, then show a thank-you message (wire to Cornerstone Forms / Gravity Forms on the live site)
   document.querySelectorAll('.js-form').forEach(function(form){
     form.addEventListener('submit',function(e){
       e.preventDefault();

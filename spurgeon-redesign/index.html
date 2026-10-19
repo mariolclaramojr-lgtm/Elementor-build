@@ -23,8 +23,12 @@
     5. Footer        — logo + tagline, menu, socials, credit, wordmark
 
   System: 12-column grid, 8px spacing steps, 1px hairlines, 14px image radius, 8px buttons. No circles.
-  Elementor map: Container (grid), Heading, Text Editor, Button, Image, Image Box (cards), Google Maps,
-  Nav Menu, Social Icons.
+  Built for Themeco Pro / X + Cornerstone:
+    layout  — Section › Row › Column, or Div / Grid / Cell for the 12-column layouts
+    content — Headline, Text, Button, Image, Accordion, Map, Video elements
+    header/footer — Pro Header Builder & Footer Builder (Navigation Inline + Navigation Modal on mobile)
+    reuse   — Get in Touch is a Global Block (home + About); colours/fonts are Global Colors / Global Fonts
+    dynamic — sermons and events come through the Looper (Looper Provider + Looper Consumer)
 -->
 </head>
 <body>
@@ -65,7 +69,7 @@
   </div>
   <!-- Scrolling ticker: schedule + announcements. Edit the <li> items in the first group;
        the second group is an exact copy so the loop is seamless.
-       Elementor: Pro "Ticker"/marquee add-on, or an HTML widget with this markup + the .ticker CSS. -->
+       Cornerstone: Raw Content element with this markup + the .ticker CSS (Element CSS or Theme Options › CSS). -->
   <div class="ticker" role="region" aria-label="Schedule and announcements">
     <div class="ticker-track">
       <ul class="ticker-group">
@@ -156,7 +160,7 @@
       </dl>
     </div>
   </div>
-  <!-- Full-width map (Elementor: Google Maps widget in a full-width container, no padding) -->
+  <!-- Full-width map (Cornerstone: Map element in a full-width Section with no padding) -->
   <div class="map-fluid reveal">
     <iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>

@@ -1,5 +1,5 @@
 /* SPURGEON — shared styles.
-   Colours + fonts live in :root → set them once as Elementor Global Colors / Global Fonts. */
+   Colours + fonts live in :root → set them once in Cornerstone as Global Colors / Global Fonts. */
 :root{
   /* Global colours */
   --paper:#F5F3EF;        /* page background */
@@ -159,7 +159,7 @@ h1 em,h2 em{font-style:italic;color:var(--accent-deep)}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--night)}
 .social svg{width:18px;height:18px}
 
-/* Reveal on scroll (Elementor: Motion Effects › Entrance Animation › Fade In Up) */
+/* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
