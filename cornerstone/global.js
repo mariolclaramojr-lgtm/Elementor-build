@@ -7,8 +7,8 @@
       background it sits on, so a new form picks up the right styling automatically.
    3. Headings: the accent is the brighter red when the heading's own text is light (dark background). */
 (function () {
-  // not: forms, popups, header bars, sermon/event listing titles from plugins
-  var SKIP = '.gform_wrapper, .tooltipster-box, .x-bar, .smpro-item, .wpfc-sermon, .mec-event-list-minimal, [data-lc-no-accent]';
+  // not: forms, popups, top bar + menu bar, search/blog result titles, sermon/event listing titles from plugins
+  var SKIP = '.gform_wrapper, .tooltipster-box, .lc-topbar, .lc-nav, .x-off-canvas, article .entry-title, .smpro-item, .wpfc-sermon, .mec-event-list-minimal, [data-lc-no-accent]';
 
   function lum(rgb) {
     var p = (rgb || '').match(/[\d.]+/g);

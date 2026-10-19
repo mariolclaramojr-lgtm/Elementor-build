@@ -319,4 +319,9 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
 .single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Inter", sans-serif !important; color: #57504A !important; letter-spacing: .16em; }
 .single-mec-events .mec-event-social h3:before { border-color: #A51C30 !important; }
 
+/* Archives header banner title: search pages read  Results for "term";  the all-sermons archive
+   (WordPress gives it no title) reads "Messages". Every other archive shows its own name. */
+.search .lc-archive-title .x-text-content-text-primary::before { content: "Results for \201C"; }
+.search .lc-archive-title .x-text-content-text-primary::after { content: "\201D"; }
+.lc-archive-title .x-text-content-text-primary:empty::before { content: "Messages"; }
 /* ===== LEWIS REDESIGN END ===== */
