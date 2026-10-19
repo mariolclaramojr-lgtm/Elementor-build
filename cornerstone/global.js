@@ -1,6 +1,7 @@
 /* ===== LEWIS REDESIGN START ===== */
 /* Lewis — global helpers (Theme Options › JS). Editors type plain text; this does the formatting.
-   1. H1/H2: the last word gets the accent colour (span.lc-last-word). One-word headings stay plain.
+   1. H1/H2: the last word gets the accent colour (span.lc-last-word); headings of more than five
+      words get the last two words. One-word headings stay plain.
       A heading that already contains <em> is left as typed.
    2. Gravity Forms: each form is marked light or dark (lc-gf-light / lc-gf-dark) from the
       background it sits on, so a new form picks up the right styling automatically.
@@ -18,11 +19,13 @@
 
   function accentHeading(h) {
     if (h.querySelector('.lc-last-word, em') || h.closest(SKIP)) return;
-    if (h.textContent.trim().split(/\s+/).length < 2) return; // one-word headings stay plain
+    var words = h.textContent.trim().split(/\s+/).length;
+    if (words < 2) return; // one-word headings stay plain
     var walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT, null), node, last = null;
     while ((node = walker.nextNode())) if (/\S/.test(node.nodeValue)) last = node;
     if (!last) return;
-    var m = last.nodeValue.match(/^([\s\S]*?)(\S+)(\s*)$/);
+    // more than five words: colour the last two (when they sit in the same text run), else the last one
+    var m = (words > 5 && last.nodeValue.match(/^([\s\S]*?)(\S+\s+\S+)(\s*)$/)) || last.nodeValue.match(/^([\s\S]*?)(\S+)(\s*)$/);
     if (!m) return;
     var span = document.createElement('span');
     span.className = 'lc-last-word';
