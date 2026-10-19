@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Connected | Spurgeon Church</title>
+<meta name="description" content="Kids, Students, Women and Men's ministries at Spurgeon Church.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  SPURGEON CHURCH — GET CONNECTED
+    1. Page hero
+    2. 01 / Kids      — split, photo right   (id="kids")
+    3. 02 / Students  — split, photo left    (id="students")
+    4. 03 / Women     — DARK BAND, background image + Ink overlay (id="women")
+    5. 04 / Men       — split, photo right   (id="men")
+    6. 05 / Sign up   — Grid 12: Headline + Text | Form with Ministry select (id="signup")
+  Each "Get Connected" button links to #signup and pre-selects its ministry (data-ministry → site.js;
+  on the live site: Gravity Forms "Allow field to be populated dynamically", ?ministry=kids).
+  Added copy: section labels; lead/body splits; the sign-up section (brief requirement): its intro line,
+  field labels and thank-you message.
+-->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER — Pro Header Builder: Bar (transparent, sticky → cream + hairline) › Text (logo) + Navigation Inline (desktop) / Navigation Modal (mobile) + Button -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home">
+      <span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html" aria-current="page">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html">Messages</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<!-- PAGE HERO — Section (≈62vh) › Background Lower Layer: Image, Upper Layer: Ink 78% › Text (breadcrumb) + Headline -->
+<section class="page-hero">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1758613171176-ea64579c2dcf?w=2000&q=75&auto=format&fit=crop" alt=""></div>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Get Connected</span></nav>
+    <h1>Get Connected</h1>
+    
+  </div>
+</section>
+<!-- photo: Four young adults from different backgrounds smiling together in a park -->
+
+<!-- 01 / KIDS — Grid 12 split: Headline, Text lead, Text, Button | Image -->
+<section class="section" id="kids">
+  <div class="wrap">
+    <div class="label-row"><span class="num">01</span><span class="sep">/</span><span>Kids</span></div>
+    <div class="split">
+      <div class="split-text reveal">
+        <h2>Kids</h2>
+        <p class="lead">We want church to be a place where your entire family is encouraged to draw closer to Christ—your kids included!</p>
+        <div class="body-soft"><p>That's why, during our Sunday morning worship services, we offer fun and engaging environments where children can learn and grow in faith as well. All our kids' programs are designed to be safe places where children in our church can learn new and exciting things about God while being led and cared for by adult volunteers from our congregation. It's our hope to encourage children to not only discover new things about God, but also begin to understand how those things matter in their own lives.</p></div>
+        <div class="btn-row"><a class="btn btn-ink" href="#signup" data-ministry="Kids">Get Connected <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="split-media reveal">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1300&q=75&auto=format&fit=crop&h=1625" alt="Five smiling children crowding into the frame and making peace signs" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 02 / STUDENTS — Grid 12 split: Headline, Text lead, Text, Button | Image -->
+<section class="section section--sand" id="students">
+  <div class="wrap">
+    <div class="label-row"><span class="num">02</span><span class="sep">/</span><span>Students</span></div>
+    <div class="split split--flip">
+      <div class="split-text reveal">
+        <h2>Students</h2>
+        <p class="lead">In student ministry, we strive to lead students to become passionate followers of Christ.</p>
+        <div class="body-soft"><p>By partnering with parents and trained leaders, our mission is to teach and inspire the next generation to be founded in their faith and confident in their Creator. Through regular Bible study and small group gatherings, we encourage students to walk boldly towards Christ, apply His truth to their lives, and develop strong, life-changing relationships with the God of the universe. We want our students to know Jesus so that they might be excited about sharing His name and making Him known to others. Our prayer is that the church would be the future of our world and our students, the future of the church.</p></div>
+        <div class="btn-row"><a class="btn btn-ink" href="#signup" data-ministry="Students">Get Connected <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="split-media reveal">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1663162550932-f67b561e656f?w=1300&q=75&auto=format&fit=crop&h=1625" alt="Two teenage girls sitting on the grass reading their Bibles together" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 / WOMEN — DARK BAND: Section › Background Lower Layer Image + Upper Layer Ink 88% › Grid 12 (Headline | Text, Button) -->
+<section class="section dark-band on-dark" id="women">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=2000&q=75&auto=format&fit=crop" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="label-row"><span class="num">03</span><span class="sep">/</span><span>Women</span></div>
+    <div class="band-grid reveal">
+      <h2>Women</h2>
+      <div>
+        <p class="lead">Women's ministries at our church is designed to make the big Sunday morning church experience feel a little smaller.</p>
+        <p class="body-soft">We've crafted our environments to help you connect with others who are in the same season of life, forming close-knit communities to navigate the ups and downs of those seasons together. Through small group programs, our main goal is to make women's ministries at our church a place where anyone in our congregation can grow closer to community while ultimately growing closer to Christ.</p>
+        <div class="btn-row" style="margin-top:36px"><a class="btn btn-accent" href="#signup" data-ministry="Women">Get Connected <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- background photo: two friends, a Black woman and a white woman, laughing together -->
+
+<!-- 04 / MEN — Grid 12 split: Headline, Text lead, Text, Button | Image -->
+<section class="section" id="men">
+  <div class="wrap">
+    <div class="label-row"><span class="num">04</span><span class="sep">/</span><span>Men</span></div>
+    <div class="split">
+      <div class="split-text reveal">
+        <h2>Men</h2>
+        <p class="lead" style="font-size:clamp(24px,2.3vw,32px)">By meeting together, sharing meals, walking through curriculum, studying the Word, and simply doing life with another, the men in our congregation have a safe place where they can get connected with the resources, support, and friendships to help them live fuller lives in Christ.</p>
+        <div class="body-soft"><p>No matter your stage or season of life, we want you to join us! Take a look at all the options we have for adult ministries to find what best suits you. We can't wait to help you connect with others in our church.</p></div>
+        <div class="btn-row"><a class="btn btn-ink" href="#signup" data-ministry="Men">Get Connected <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="split-media reveal">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1683272468278-3ba6633c15a4?w=1300&q=75&auto=format&fit=crop&h=1625" alt="Two men of different generations and backgrounds talking and smiling on a couch" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 / SIGN UP — Grid 12: Headline + Text | Form (Gravity Forms; Ministry select populated from ?ministry=) -->
+<section class="section section--sand" id="signup">
+  <div class="wrap">
+    <div class="label-row"><span class="num">05</span><span class="sep">/</span><span>Sign up</span></div>
+    <div class="split" style="align-items:start">
+      <div class="split-text reveal">
+        <h2>Get Connected</h2>
+        <p class="body-soft measure">Tell us a little about yourself and which ministry you're interested in, and we'll help you take the next step.</p>
+      </div>
+      <div class="split-media reveal">
+        <form class="form-panel" data-form="signup-thanks" action="#signup" method="post">
+          <div class="form-grid">
+          <fieldset class="field field--full">
+            <legend>Name<span class="req" aria-hidden="true">*</span></legend>
+            <div class="name-pair">
+              <div><input id="signup-first" name="first" autocomplete="given-name" required><label class="sub-label" for="signup-first">First</label></div>
+              <div><input id="signup-last" name="last" autocomplete="family-name" required><label class="sub-label" for="signup-last">Last</label></div>
+            </div>
+            <span class="field-error" aria-live="polite"></span>
+          </fieldset>
+          <div class="field">
+            <label for="signup-email">Email<span class="req" aria-hidden="true">*</span></label>
+            <input id="signup-email" name="email" type="email" required autocomplete="email">
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="signup-phone">Phone</label>
+            <input id="signup-phone" name="phone" type="tel" autocomplete="tel">
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="signup-ministry">Ministry<span class="req" aria-hidden="true">*</span></label>
+            <select id="signup-ministry" name="ministry" required>
+              <option value="">Choose a ministry</option>
+              <option value="Kids">Kids</option>
+              <option value="Students">Students</option>
+              <option value="Women">Women</option>
+              <option value="Men">Men</option>
+            </select>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="form-actions"><button class="btn btn-ink" type="submit">Submit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </form>
+        <div class="form-thanks form-panel" id="signup-thanks" hidden>
+          <h3>Thanks for reaching out.</h3>
+          <p class="body-soft">A ministry leader will be in touch soon to help you get connected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER — Footer Builder: Bar with Background Lower Layer image + Ink 93% overlay
+     › Text (logo + tagline) | Navigation (Explore) | Text (address) + Social links | credit line
+     › Wordmark band = GLOBAL BLOCK (Headline, class .wordmark) -->
+<footer class="site-footer">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1622598453695-4fbaf151aadc?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span></a>
+        <p>Loving God. Loving People.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="watch-live.html">Watch Live</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Visit</h2>
+        <address>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX  12212</a><br>
+          <a href="tel:+19081231234">908-123-1234</a><br>
+          <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Spurgeon Church</span>
+      <a href="https://reachrightstudios.com" target="_blank" rel="noopener">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <p class="wordmark" aria-hidden="true">Spurgeon</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

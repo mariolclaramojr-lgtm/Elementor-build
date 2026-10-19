@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events | Spurgeon Church</title>
+<meta name="description" content="Upcoming events at Spurgeon Church.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  SPURGEON CHURCH — EVENTS
+    1. Page hero
+    2. Calendar — events plugin output (Select Month / Select Year, Monthly · List · Tile views, "No event found!")
+       restyled with the shared field, hairline and button rules. On the live site this is the calendar
+       plugin's shortcode inside a Raw Content / Text element, or a Looper over the events post type.
+  Added copy: section label; weekday headers; year options 2026–2027 (the template only lists 2022).
+-->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER — Pro Header Builder: Bar (transparent, sticky → cream + hairline) › Text (logo) + Navigation Inline (desktop) / Navigation Modal (mobile) + Button -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home">
+      <span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html">Messages</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<!-- PAGE HERO — Section (≈62vh) › Background Lower Layer: Image, Upper Layer: Ink 78% › Text (breadcrumb) + Headline -->
+<section class="page-hero">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=2000&q=75&auto=format&fit=crop" alt=""></div>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Events</span></nav>
+    <h1>Events</h1>
+    
+  </div>
+</section>
+<!-- photo: Friends laughing and talking together outside in warm sunlight -->
+
+<!-- 2 CALENDAR — Select Month / Select Year + view toggle (Monthly, List, Tile) + month grid / empty state -->
+<section class="section" id="calendar">
+  <div class="wrap">
+    <div class="label-row"><span class="num">01</span><span class="sep">/</span><span>Calendar</span></div>
+    <form class="cal-bar reveal" id="event-filters" action="events.html" method="get" onsubmit="return false">
+      <div class="field"><label for="ev-month">Select Month</label><select id="ev-month" name="month"><option value="0">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select></div>
+      <div class="field"><label for="ev-year">Select Year</label><select id="ev-year" name="year"><option value="2022">2022</option><option value="2026">2026</option><option value="2027">2027</option></select></div>
+      <div class="view-toggle" role="group" aria-label="Calendar view">
+        <button type="button" aria-pressed="true" aria-controls="view-month">Monthly</button>
+        <button type="button" aria-pressed="false" aria-controls="view-list">List</button>
+        <button type="button" aria-pressed="false" aria-controls="view-tile">Tile</button>
+      </div>
+    </form>
+    <div class="cal-title"><h2 id="cal-label">Calendar</h2></div>
+    <div class="cal-view reveal" id="view-month">
+      <div class="cal-grid"><div class="dow">Sun</div><div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div id="cal-days"></div></div>
+      <div class="cal-empty"><p>No event found!</p></div>
+    </div>
+    <div class="cal-view" id="view-list" hidden><div class="empty-state"><h3>No event found!</h3></div></div>
+    <div class="cal-view" id="view-tile" hidden><div class="empty-state"><h3>No event found!</h3></div></div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER — Footer Builder: Bar with Background Lower Layer image + Ink 93% overlay
+     › Text (logo + tagline) | Navigation (Explore) | Text (address) + Social links | credit line
+     › Wordmark band = GLOBAL BLOCK (Headline, class .wordmark) -->
+<footer class="site-footer">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1622598453695-4fbaf151aadc?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span></a>
+        <p>Loving God. Loving People.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="watch-live.html">Watch Live</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Visit</h2>
+        <address>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX  12212</a><br>
+          <a href="tel:+19081231234">908-123-1234</a><br>
+          <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Spurgeon Church</span>
+      <a href="https://reachrightstudios.com" target="_blank" rel="noopener">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <p class="wordmark" aria-hidden="true">Spurgeon</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

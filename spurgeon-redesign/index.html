@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spurgeon Church | Loving God. Loving People.</title>
+<meta name="description" content="Spurgeon Church — a church planting and putting down roots to reach our neighborhood for Christ. Sundays 8:30 am & 10:00 am.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  SPURGEON CHURCH — HOME
+  Sections (each = one Cornerstone Section):
+    0. Header            — Pro Header Builder (transparent over hero, sticky cream)
+    1. Hero              — Section, min-height 100vh › Background Lower Layer: Video (hero.mp4/.webm, poster),
+                           Upper Layer: Ink 45% + radial vignette › Text (label), Headline (2 lines), Button ×2
+                           › Ticker strip = Raw Content element
+    2. 01 / Welcome Home — Grid 12: Cell 1–6 Image | Cell 8–12 Headline, Text (lead), Text, Button  (split, photo left)
+    3. 02 / Our Ministries — Grid 12 head (Headline | Text + Button) › Grid 4 cells, staggered (photo cards, link to connect.html#…)
+    4. 03 / Get in Touch — GLOBAL BLOCK (Headline, Text, Button | label/value list) + Map element
+    5. Footer            — Footer Builder + wordmark GLOBAL BLOCK
+  Copy: word for word from spurgeon.wpengine.com. Added: section labels, hero label "Spurgeon Church"
+  (the original H1), card captions split from the Ministries sentence, ticker items reuse existing copy.
+-->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER — Pro Header Builder: Bar (transparent, sticky → cream + hairline) › Text (logo) + Navigation Inline (desktop) / Navigation Modal (mobile) + Button -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Spurgeon Church home">
+      <span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="messages.html">Messages</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- 1 HERO — Section › Background Lower Layer: Video, Upper Layer: Ink overlay + vignette › Text, Headline, Buttons; Ticker = Raw Content -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-media" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero.webm" type="video/webm">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Spurgeon Church</span>
+    <h1><span>Loving God.</span> <span class="accent">Loving People.</span></h1>
+    <div class="btn-row">
+      <a class="btn btn-accent" href="plan-your-visit.html">Plan Your Visit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="watch-live.html">Watch Live</a>
+    </div>
+  </div>
+  <div class="ticker" aria-label="Service times and announcements">
+    <div class="ticker-track"><ul><li><a href="plan-your-visit.html"><strong>Sunday Mornings</strong>8:30 am &amp; 10:00 am</a></li><li><a href="plan-your-visit.html"><strong>Wednesday Evenings</strong>6:30 pm</a></li><li><a href="watch-live.html"><strong>Watch Live</strong>Join us Sundays at 10am</a></li><li><a href="sermon.html"><strong>Messages</strong>Sample Sermon</a></li><li><a href="connect.html"><strong>Get Connected</strong>Kids · Students · Women · Men</a></li><li><a href="#contact"><strong>Find us</strong>1221 My Street, My Town</a></li></ul><ul aria-hidden="true"><li><a href="plan-your-visit.html" tabindex="-1"><strong>Sunday Mornings</strong>8:30 am &amp; 10:00 am</a></li><li><a href="plan-your-visit.html" tabindex="-1"><strong>Wednesday Evenings</strong>6:30 pm</a></li><li><a href="watch-live.html" tabindex="-1"><strong>Watch Live</strong>Join us Sundays at 10am</a></li><li><a href="sermon.html" tabindex="-1"><strong>Messages</strong>Sample Sermon</a></li><li><a href="connect.html" tabindex="-1"><strong>Get Connected</strong>Kids · Students · Women · Men</a></li><li><a href="#contact" tabindex="-1"><strong>Find us</strong>1221 My Street, My Town</a></li></ul></div>
+  </div>
+</section>
+
+<!-- 2 01 / WELCOME HOME — Grid 12 › Cell (Image) | Cell (Headline, Text lead, Text, Button) -->
+<section class="section" id="welcome">
+  <div class="wrap">
+    <div class="label-row"><span class="num">01</span><span class="sep">/</span><span>Welcome Home</span></div>
+    <div class="split split--flip">
+      <div class="split-text reveal">
+        <h2>Welcome Home</h2>
+        <p class="lead">New to the community, our church is planting and putting down roots to reach the people in our neighborhood and the surrounding areas for Christ.</p>
+        <p class="body-soft">We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life. We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>
+        <div class="btn-row"><a class="btn btn-ink" href="about.html">About Us <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="split-media reveal">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1569292567777-e5d61a759322?w=1300&q=75&auto=format&fit=crop&h=1625" alt="A large, diverse group of friends cheering together on the steps outside a church" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 02 / OUR MINISTRIES — Grid 12 (Headline | Text + Button) › Grid 4 (staggered photo cards: Image + Headline + Text, each a link) -->
+<section class="section section--sand" id="ministries">
+  <div class="wrap">
+    <div class="label-row"><span class="num">02</span><span class="sep">/</span><span>Our Ministries</span></div>
+    <div class="cards-head reveal">
+      <h2>Our Ministries</h2>
+      <div class="cards-intro">
+        <p class="body-soft">Whether you're single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>
+        <div class="btn-row"><a class="btn btn-ink" href="connect.html">Get Connected <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </div>
+    <div class="photo-cards">
+      <a class="photo-card reveal" href="connect.html#kids">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1786926274332-9864f14cf55d?w=900&q=75&auto=format&fit=crop&h=1260" alt="Three children with their arms around each other, smiling in a sunlit park" loading="lazy"></div>
+        <div class="card-caption"><h3>Kids <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span class="num">01</span></div>
+        <p class="card-sub">With children or without</p>
+      </a>
+      <a class="photo-card reveal" href="connect.html#students">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1569617084133-26942bb441f2?w=900&q=75&auto=format&fit=crop&h=1260" alt="A group of teenagers smiling together by the water at sunset" loading="lazy"></div>
+        <div class="card-caption"><h3>Students <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span class="num">02</span></div>
+        <p class="card-sub">Young or old</p>
+      </a>
+      <a class="photo-card reveal" href="connect.html#women">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1622352496174-9e1d969b1945?w=900&q=75&auto=format&fit=crop&h=1260" alt="Four women of different backgrounds laughing together outdoors at golden hour" loading="lazy"></div>
+        <div class="card-caption"><h3>Women <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span class="num">03</span></div>
+        <p class="card-sub">Single or married</p>
+      </a>
+      <a class="photo-card reveal" href="connect.html#men">
+        <div class="media-frame"><img src="https://images.unsplash.com/photo-1565813086292-604790c8a97b?w=900&q=75&auto=format&fit=crop&h=1260" alt="Two men greeting each other with a warm hug at a church gathering" loading="lazy"></div>
+        <div class="card-caption"><h3>Men <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span class="num">04</span></div>
+        <p class="card-sub">Male or female</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 GET IN TOUCH — GLOBAL BLOCK (shared by Home + About)
+     Section › Grid 12 col: Cell 1–5 (Headline, Text, Button) | Cell 7–12 (Headline ×2 + label/value list as Text) › then Map element (Google Map, greyscale via class .map) -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="label-row"><span class="num">03</span><span class="sep">/</span><span>Get in Touch</span></div>
+    <div class="touch-grid">
+      <div class="touch-text reveal">
+        <h2>Get in Touch</h2>
+        <p class="body-soft measure">We would love to connect with you. Feel free to contact us or join us at one of our service times.</p>
+        <div class="btn-row"><a class="btn btn-ink" href="plan-your-visit.html">Plan Your Visit <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="touch-list reveal">
+        <div class="touch-group">
+          <h3>Service Times</h3>
+          <dl>
+            <div class="touch-row"><dt>Sunday Mornings</dt><dd>8:30 am &amp; 10:00 am</dd></div>
+            <div class="touch-row"><dt>Wednesday Evenings</dt><dd>6:30 pm</dd></div>
+          </dl>
+        </div>
+        <div class="touch-group">
+          <h3>Contact</h3>
+          <dl>
+            <div class="touch-row"><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX  12212</a></dd></div>
+            <div class="touch-row"><dt>Phone | Email</dt><dd><a href="tel:+19081231234">908-123-1234</a> | <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" title="Map showing where Spurgeon Church meets" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER — Footer Builder: Bar with Background Lower Layer image + Ink 93% overlay
+     › Text (logo + tagline) | Navigation (Explore) | Text (address) + Social links | credit line
+     › Wordmark band = GLOBAL BLOCK (Headline, class .wordmark) -->
+<footer class="site-footer">
+  <div class="bg-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1622598453695-4fbaf151aadc?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Spurgeon Church home"><span class="logo-name">Spurgeon</span><span class="logo-sub">CHURCH</span></a>
+        <p>Loving God. Loving People.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="watch-live.html">Watch Live</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--wide">
+        <h2>Visit</h2>
+        <address>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=1221+My+Street,+My+Town,+XX+12212" target="_blank" rel="noopener">1221 My Street, My Town, XX  12212</a><br>
+          <a href="tel:+19081231234">908-123-1234</a><br>
+          <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Spurgeon Church</span>
+      <a href="https://reachrightstudios.com" target="_blank" rel="noopener">church web design by REACHRIGHT</a>
+    </div>
+  </div>
+  <p class="wordmark" aria-hidden="true">Spurgeon</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
