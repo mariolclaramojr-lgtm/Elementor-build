@@ -2,9 +2,21 @@
 
 ## Quick version (chat style)
 
-Copy this, change the bits in [brackets], and paste it into a new session.
+Copy all six paragraphs, change the bits in [brackets], and paste them into a new session. Each paragraph is one step, so you can update one step without touching the rest.
 
-> Hey! I run ReachRight, we build church websites, and I want to give one of our least-popular templates a fresh, premium look. It's [TEMPLATE NAME] at [TEMPLATE URL], for [CHURCH NAME], and our live sites run on WordPress with Themeco Pro/X and the Cornerstone builder, so design it in a way that's easy to rebuild there. Start by going through every page of the template and noting each section and its content, because the rule is same sections, same content, word for word; you can change the layout and make it way more creative, just don't add or drop sections, and tell me if you add any copy. Please build the home page first in HTML and show me desktop and phone screenshots, then wait for my OK before doing the other pages (Plan Your Visit, About, Connect, Watch Live, Messages with a single-message page, Events and Give) in the same style. For the feel, I want it premium and bold but elegant through restraint, warm and welcoming, clearly modern and never churchy: big confident headlines, a full-screen worship video in the hero with a scrolling ticker for service times and announcements, real photos of people in modern churches, lots of whitespace, a clean 12-column grid, thin divider lines, light cream sections alternating with dark photo sections, no circles anywhere, and a simple text-only logo. Use the template's brand colour as the one accent, with cream, sand and near-black around it, Bricolage Grotesque for headings and DM Sans for body text. For inspiration, look at sites like elevationchurch.org, churchome.org, hillsong.com, vous.church and mosaic.org, plus apple.com and kinfolk.com for that premium restraint. When it's done, make sure every button, card and link goes to a real page or section (no dead links), check it on desktop and phone, and send me everything in one zip.
+> **The job.** Hey! I run ReachRight, we build church websites, and I want to give one of our least-popular templates a fresh, premium look. It's [TEMPLATE NAME] at [TEMPLATE URL], for [CHURCH NAME]. Our live sites run on WordPress with Themeco Pro/X and the Cornerstone builder, so design it in a way that's easy to rebuild there.
+>
+> **Step 1: Study the template.** Go through every page of the template and note each section and its content: headings, copy, buttons, forms, images and embeds. The rule is same sections, same content, word for word. You can change the layout and make it way more creative, just don't add or drop sections, and tell me if you add any copy.
+>
+> **Step 2: Design the home page first, in HTML.** I want it premium and bold but elegant through restraint, warm and welcoming, clearly modern and never churchy: big confident headlines, a full-screen worship video in the hero with a scrolling ticker for service times and announcements, real photos of people in modern churches, lots of whitespace, a clean 12-column grid, thin divider lines, light cream sections alternating with dark photo sections, no circles anywhere, and a simple text-only logo. Use the template's brand colour as the one accent, with cream, sand and near-black around it, Bricolage Grotesque for headings and DM Sans for body text. For inspiration, look at elevationchurch.org, churchome.org, hillsong.com, vous.church and mosaic.org, plus apple.com and kinfolk.com for that premium restraint.
+>
+> **Step 3: Show me and wait.** Send me desktop and phone screenshots of the home page and wait for my OK before going further. I'll probably ask for changes, so keep it easy to adjust.
+>
+> **Step 4: Build the other pages.** Once I approve the home page, build Plan Your Visit, About, Connect, Watch Live, Messages (with a single-message page), Events and Give in the same style. Same rule: same sections, same content. Mix up the layouts so pages don't feel repetitive.
+>
+> **Step 5: Connect everything.** Make sure every button, card and link goes to a real page or to the right section (for example the home ministry cards go to the matching part of the Connect page). No dead links. The address opens Google Maps, the phone number calls and the email opens an email. Tell me about any links the church needs to give us, like the online giving page.
+>
+> **Step 6: Check and deliver.** Check every page on desktop and phone, make sure text is readable over photos and nothing scrolls sideways, then send me everything in one zip with screenshots.
 
 ---
 
