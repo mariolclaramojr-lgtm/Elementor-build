@@ -247,7 +247,7 @@ def give():
        ('o-envelope','Give by Mail','<p>Spurgeon Church<br>1234 My Street<br>My Town, XX 12345</p>',None)]
     return [page_hero('Give',P('1698768676413-e49b729dafa6')),
       section('sp-section',[label_row('Generosity'),
-        split(copy_block('Live Generously',GIVE1,[GIVE2],[button('Give Now','#ways-to-give','ink')]),[circle('1762013728402-69cff78f29fd','A congregation seated together during a church service')],flip=True)],bg_color=CREAM),
+        split(copy_block('Live Generously',GIVE1,[GIVE2],[button('Give Now','#ways-to-give','ink')]),[circle('1762013728402-69cff78f29fd','A congregation seated together during a church service')])],bg_color=CREAM),
       section('sp-section',[label_row('Ways to Give'),row([col([headline('Ways to Give','h2','sp-h2','h2',color=INK)])],'100%'),
         row([icon_col(i,t,d,[actions([b])] if b else None) for i,t,d,b in W],'33.33% 33.33% 33.34%','',md='100%',mt='48px')],
         id_='ways-to-give',bg_color=SAND)]
