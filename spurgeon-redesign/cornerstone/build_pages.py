@@ -81,6 +81,10 @@ def about():
     VIS=[('o-book-open','Worship &amp; Study','Through weekly Bible studies, worship gatherings, and small groups, we will learn more about God and grow in our knowledge and love for Him.'),
          ('o-hand-holding-heart','Evangelism &amp; Outreach','By reaching out to and serving those around us, we will share God’s love and His message of hope with the people in our community.'),
          ('o-paper-plane','Multiplication &amp; Sending','By making disciples and supporting fellow believers as they step out to launch new churches and ministries around the world, we will expand our reach to exhibit God’s love to people across the globe.')]
+    # Beliefs: open card grid (all content visible). Body copy is the template's placeholder, kept word for word.
+    BELIEF_BODY='This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.'
+    BELIEFS=[('o-book-bible','The Bible'),('o-crown','The Father'),('o-cross','The Son'),('o-dove','The Holy Spirit'),
+             ('o-infinity','Eternity'),('o-user','Man'),('o-heart','Salvation'),('o-church','The Church')]
     return [
      page_hero('About Us',P('1623533733598-0782b7157763')),
      section('sp-section',[label_row('Our Mission'),
@@ -90,8 +94,9 @@ def about():
      section('sp-section sp-tight-top',[label_row('Our Vision'),
        row([col([icon(i),headline(t,'h3','sp-h3',color=INK),text(f'<p>{d}</p>')],'sp-col') for i,t,d in VIS],'33.33% 33.33% 33.34%','',md='100%')],bg_color=CREAM),
      section('sp-section sp-dark',[label_row('What We Believe'),
-       row([col([headline('Our Beliefs','h2','sp-h2 sp-center',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>','sp-copy sp-center')])],'100%','sp-narrow'),
-       row([col([accordion(['The Bible','The Father','The Son','The Holy Spirit'])]),col([accordion(['Eternity','Man','Salvation','The Church'])])],'50% 50%','sp-mt',md='100%')],
+       row([col([headline('Our Beliefs','h2','sp-h2',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>','sp-copy sp-maxw')])],'100%'),
+       row([col([icon(i,'sp-icon sp-belief-icon'),headline(t,'h3','sp-h3',color=WHITE),text(f'<p>{BELIEF_BODY}</p>','sp-copy sp-belief-copy')],'sp-belief') for i,t in BELIEFS],
+           '25% 25% 25% 25%','sp-mt sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%')],
        bg_image=P('1478147427282-58a87a120781'),overlay=DARK),
      section('sp-section',[label_row('Our Leadership'),row([col([headline('Our Leadership','h2','sp-h2',color=INK)])],'100%'),
        row([col([image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo','sp-circle'),
@@ -129,12 +134,15 @@ GIVE2='As we grow, we know that it will be the grace of God that leads us and th
 def watch_live():
     return [page_hero('Watch Live',P('1630449151135-6db9690cbda4')),
       section('sp-section',[label_row('Live Stream'),
-        row([col([headline('Join us Sundays at 10am','h2','sp-h2 sp-center',color=INK),video(None,None,embed=YT),div([button('Get Connected','/connect/','ink')],'sp-actions sp-center')])],'100%')],bg_color=CREAM),
+        row([col([headline('Join us Sundays at 10am','h2','sp-h2',color=INK),video(None,None,embed=YT),div([button('Get Connected','/connect/','ink')],'sp-actions')])],'100%')],bg_color=CREAM),
       section('sp-section sp-dark',[label_row('Generosity'),
         split(copy_block('Give Online',GIVE1,[GIVE2],[button('Give Now','/give/','cyan')],True),[circle('1529070538774-1843cb3265df','Church members following along with open Bibles')])],
         bg_image=P('1622598453695-4fbaf151aadc'),overlay=DARK),
       section('sp-section sp-sand',[label_row('Prayer'),
-        split([headline('How can we pray for you?','h2','sp-h2',color=INK),form(3)],[circle('1609234656432-603fd648adf8','Two people embracing in prayer at church')],flip=True,layout='60% 40%')],bg_color=C('sp-sand'))]
+        row([col([headline('How can we pray for you?','h2','sp-h2',color=INK),
+                  text('<p>Share your request below. Our team will be praying for you, and everything you share stays confidential.</p>','sp-copy sp-prayer-copy'),
+                  image(P('1609234656432-603fd648adf8'),'Two people embracing in prayer at church','sp-circle sp-ring sp-prayer-photo')],'sp-prayer-intro'),
+             col([form(3)],'sp-form-card')],'40% 60%','sp-prayer',md='100%')],bg_color=C('sp-sand'))]
 
 def messages():
     return [page_hero('Messages',P('1507692049790-de58290a4334')),
