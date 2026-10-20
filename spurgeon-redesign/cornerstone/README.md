@@ -4,7 +4,7 @@ The HTML design in `../` rebuilt on the Spurgeon WordPress site (Themeco Pro 6.9
 
 | File | What it does |
 |---|---|
-| `spurgeon-global.css` | Global CSS (**Theme Options › CSS**, between the `SPURGEON REDESIGN START/END` markers). Only what Cornerstone settings can't reach: Gravity Forms, Sermon Manager Pro and MEC output, plus the hero ticker animation. |
+| `spurgeon-global.css` | Global CSS (**Theme Options › CSS**, between the `SPURGEON REDESIGN START/END` markers). Only what Cornerstone settings can't reach: Gravity Forms, Sermon Manager Pro and MEC output. |
 | `csel.py` | Helpers that build native Cornerstone elements with their look in the elements' own settings: section padding/background, row width, card columns (bg, border, radius, padding), headline/text typography, button colors and hover states, round images, icons, breadcrumbs, map/video frames. Responsive values use Cornerstone breakpoint data. |
 | `square_images.py` | Uploads square copies of photos used in round images (the circle comes from the Image element's border radius). Cached in `square_images.json`. |
 | `build_header_footer.py` | Updates **Header - Main** (#131) and creates **Footer - Main** (#181), both site-wide. |
@@ -28,4 +28,4 @@ All in `spurgeon-global.css`, no plugin files touched:
 
 Pages, the Get in Touch component, header, footer and title headers carry their design in Cornerstone element settings
 (Design, Typography, Border, Background, Flexbox, Position), editable in the builder's Inspector. Classes such as
-`sp-label` or `sp-card` are kept only as labels. Global CSS is limited to plugin output and the ticker.
+`sp-label` or `sp-card` are kept only as labels. Global CSS is limited to plugin output. The hero ticker is a native Slider in Marquee mode.

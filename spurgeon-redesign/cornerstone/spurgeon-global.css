@@ -3,7 +3,7 @@
    Page sections, typography, buttons, cards and images are styled in each
    Cornerstone element's own settings. This file only covers what the
    builder cannot reach: plugin output (Gravity Forms, Sermon Manager Pro,
-   Modern Events Calendar) and the scrolling ticker animation.
+   Modern Events Calendar).
    ===================================================================== */
 :root{
   --sp-cream:#F6F2EA;--sp-sand:#ECE6DA;--sp-ink:#16181B;--sp-ink-soft:#5E6166;--sp-cyan:#3DB6DB;--sp-cyan-ink:#1B7FA0;
@@ -13,19 +13,6 @@
 }
 @media (max-width:600px){:root{--sp-gutter:20px}}
 body{background:var(--sp-cream)}
-
-/* ---------- Ticker (home hero; Raw Content — no native marquee element) ---------- */
-.sp-ticker{position:relative;z-index:2;overflow:hidden;border-top:1px solid rgba(255,255,255,.16);background:rgba(22,24,27,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.sp-ticker-track{display:flex;width:max-content;animation:sp-ticker 45s linear infinite}
-.sp-ticker:hover .sp-ticker-track{animation-play-state:paused}
-.sp-ticker ul{display:flex;list-style:none;margin:0;padding:0}
-.sp-ticker li{display:flex;align-items:center;height:54px;margin:0;white-space:nowrap;font-family:var(--sp-body);font-size:16px;color:rgba(255,255,255,.88)}
-.sp-ticker li a{display:flex;align-items:center;gap:12px;color:inherit}
-.sp-ticker li a:hover,.sp-ticker li a:hover b{color:#fff}
-.sp-ticker li b{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase !important;color:var(--sp-cyan)}
-.sp-ticker li::after{content:"";width:10px;height:10px;margin:0 40px;background:linear-gradient(var(--sp-cyan),var(--sp-cyan)) center/2px 100% no-repeat,linear-gradient(var(--sp-cyan),var(--sp-cyan)) 0 30%/100% 2px no-repeat;opacity:.8}
-@keyframes sp-ticker{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.sp-ticker-track{animation:none}}
 
 /* ---------- Gravity Forms (all forms site-wide; legacy + modern markup) ---------- */
 body .gform_wrapper{margin:0 !important;max-width:none !important;font-family:var(--sp-body)}

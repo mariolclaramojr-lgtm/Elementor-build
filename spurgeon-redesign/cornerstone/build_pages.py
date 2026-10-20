@@ -53,11 +53,32 @@ def icon_col(ic,title,body_html,extra=None):
 TICK=[('Sundays','8:30 am &amp; 10:00 am','/plan-your-visit/'),('Wednesdays','6:30 pm','/plan-your-visit/'),
       ('New here?','Plan your visit, we’d love to meet you','/plan-your-visit/'),('Watch Live','Join the service online every Sunday','/watch-live/'),
       ('Find us','1221 My Street, My Town, XX 12212',MAPS)]
-def tick_group(hidden):
-    ah=' aria-hidden="true"' if hidden else ''; ti=' tabindex="-1"' if hidden else ''
-    return f'<ul{ah}>'+''.join(f'<li><a href="{h}"{ti}{" target=\"_blank\" rel=\"noopener\"" if h.startswith("http") else ""}><b>{a}</b> {b}</a></li>' for a,b,h in TICK)+'</ul>'
-# Scrolling ticker: Raw Content (Cornerstone has no marquee element); its animation is the one piece of page CSS kept.
-TICKER=f'<div class="sp-ticker" role="region" aria-label="Schedule and announcements"><div class="sp-ticker-track">{tick_group(False)}{tick_group(True)}</div></div>'
+
+def ticker():
+    """Scrolling schedule/announcement band: native Slider (Slide Container in Marquee mode), no HTML or CSS.
+    Each item is a linked Slide holding a cyan label + white text; small cross icons sit between items."""
+    def item(lbl,txt,href):
+        sl={'_type':'layout-slide','_bp_base':'4_4','layout_slide_href':href,'layout_slide_blank':href.startswith('http'),
+            'layout_slide_flexbox':True,'layout_slide_flex_direction':'row','layout_slide_flex_wrap':False,'layout_slide_flex_align':'center','layout_slide_flex_justify':'flex-start',
+            '_modules':[headline(lbl,'div','','label',color=CYAN,margin='0px 12px 0px 0px'),
+                        headline(txt,'div','','lead',color='rgba(255,255,255,0.88)',font=BODY,weight='400',font_size='16px',line_height='1.4',
+                                 letter_spacing='0em',margin='0px',text_color_alt=WHITE)]}
+        return sl
+    def sep():
+        return {'_type':'layout-slide','_bp_base':'4_4','layout_slide_flexbox':True,'layout_slide_flex_direction':'row','layout_slide_flex_align':'center',
+                '_modules':[{'_type':'icon','_bp_base':'4_4','icon':'cross','icon_font_size':'12px','icon_width':'1em','icon_height':'1em',
+                             'icon_color':CYAN,'icon_bg_color':'transparent','_modules':[]}]}
+    slides=[]
+    for t in TICK: slides+= [item(*t),sep()]
+    track={'_type':'layout-slide-container','_bp_base':'4_4','layout_slide_container_layout_type':'inline',
+           'layout_slide_container_inline_slide_basis':'auto','layout_slide_container_inline_gap':'40px','layout_slide_container_inline_align':'center',
+           'layout_slide_container_autoplay':'marquee','layout_slide_container_inline_marquee_speed':0.5,'layout_slide_container_inline_marquee_direction':'forward',
+           'layout_slide_container_inline_wrap_around':True,'layout_slide_container_pause_on_hover':True,'layout_slide_container_autoplay_start_in_view':False,
+           'layout_slide_container_content_width':'100%','_modules':slides}
+    band=div([track],'',padding='16px 0px 16px 0px',bg_color='rgba(22,24,27,0.6)',border_width='1px 0px 0px 0px',border_style='solid',
+             border_color=LINE_L,overflow_x='hidden',z_index='2',position='relative')
+    band['effects_backdrop_filter']='blur(10px)'
+    return band
 
 def home():
     MIN=[('Kids','/connect/#kids','spurgeon-min-kids.jpg','Children in a Sunday school class'),
@@ -85,7 +106,7 @@ def home():
         c=col([im,tt],'sp-card',text_align='center'); bp(c,'layout_column_text_align','left','left')
         return c
     return [
-     section('sp-hero',[row([hero_col],'100%'),raw(TICKER)],bg_video=UP+'spurgeon-hero.mp4',overlay='rgba(22,24,27,0.5)',pad='none'),
+     section('sp-hero',[row([hero_col],'100%'),ticker()],bg_video=UP+'spurgeon-hero.mp4',overlay='rgba(22,24,27,0.5)',pad='none'),
      section('sp-section',[label_row('About Us'),
        row([col([headline('Welcome Home','h2','sp-h2','h2',color=INK),
                  lead('<p>New to the community, our church is planting and putting down roots to reach the people in our neighborhood and the surrounding areas for Christ.</p>'),
@@ -136,9 +157,9 @@ def about():
              ('o-user','Man','We believe every person is made in the image of God and deeply loved by Him. Yet all of us have sinned and fallen short, and we need a Savior to restore us.'),
              ('o-heart','Salvation','We believe salvation is a free gift of God’s grace. It is received through faith in Jesus Christ alone and cannot be earned by good works. When we turn from sin and trust in Him, we are forgiven, made new and welcomed into God’s family. Nothing can separate us from His love.'),
              ('o-church','The Church','We believe the church is the family of God. We gather to worship, grow in the Word and care for one another.')]
-    def belief(ic,t,d,last=False):
+    def belief(ic,t,d):
         return card_div([icon(ic,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
-                         text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True,mb='0px' if last else '32px')
+                         text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True)
     def member():
         ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px',mobile_max='160px')
         ph['image_margin']='0px auto 24px auto'; bp(ph,'image_margin','0px 0px 24px 0px','0px 0px 24px 0px')
@@ -155,9 +176,10 @@ def about():
        row([icon_col(i,t,f'<p>{d}</p>') for i,t,d in VIS],'33.33% 33.33% 33.34%','',md='100%')],bg_color=CREAM,pad='tight-top'),
      section('sp-section sp-dark',[label_row('What We Believe',True),
        row([col([headline('Our Beliefs','h2','sp-h2','h2',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>',dark=True,max_width='640px')])],'100%'),
-       # Masonry: 4 columns, each stacking 2 cards, so uneven text never leaves empty space in a box.
+       # Masonry: 4 columns; each holds a 'stack' Div (Flexbox column, 32px gap) of card Divs, so uneven text never
+       # leaves empty space in a box. To add a belief, duplicate a card inside the shortest column's stack: the gap is automatic.
        # Order runs down each column (Bible, Father | Son, Spirit | ...), which keeps phones in the original order.
-       row([col([belief(*BELIEFS[c*2]),belief(*BELIEFS[c*2+1],last=True)]) for c in range(4)],
+       row([col([div([belief(*BELIEFS[c*2]),belief(*BELIEFS[c*2+1])],'',flexbox=True,flex_direction='column',flex_align='stretch',flex_gap='32px')]) for c in range(4)],
            '25% 25% 25% 25%','sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%',mt='48px',gap_row='32px',align='flex-start')],
        bg_image=P('1478147427282-58a87a120781'),overlay=DARK),
      section('sp-section',[label_row('Our Leadership'),row([col([headline('Our Leadership','h2','sp-h2','h2',color=INK)])],'100%'),
@@ -184,7 +206,8 @@ def connect():
       m('kids','Kids',KIDS,[KIDS2],'1588075592446-265fd1e6e76f','Children in a Sunday school class',False),
       m('students','Students',STU,[STU2],'1762158007836-25d13ab34c1c','A youth group gathering at church',True,'1609234656432-603fd648adf8'),
       m('women','Women',WOM,[WOM2],'1520857014576-2c4f4c972b57','Women praying together',False),
-      m('men','Men',MEN,[MEN2],'1785225486940-cdf8b2b9b8f1','Men gathered for fellowship in the church hall',True,'1647476427592-c78c1e363683')]
+      m('men','Men',MEN,[MEN2],'1785225486940-cdf8b2b9b8f1','Men gathered for fellowship in the church hall',True,'1647476427592-c78c1e363683'),
+      GIT]
 
 def get_connected():
     return [page_hero('Contact Us',P('1569292567777-e5d61a759322')),
