@@ -73,11 +73,6 @@ row2={'_type':'bar','_bp_base':'4_4','class':'sp-footer-bar sp-fbar-credit','bar
   '_modules':[container([headline('&copy; Spurgeon Church','div','sp-fcredit','label',color=W50,font_size='13px',letter_spacing='0em',text_transform='none')]),
               container([headline('church web design by REACHRIGHT','div','sp-fcredit','label',color=W50,href='https://reachrightstudios.com',font_size='13px',letter_spacing='0em',text_transform='none',text_color_alt=CYAN)])]}
 row2['_bp_data4_4']={'bar_row_flex_direction':['column','column',None,None,None],'bar_row_flex_align':['flex-start','flex-start',None,None,None]}
-wordmark=headline('Spurgeon','div','sp-wordmark','h1',color=CYAN,align='center',width='100%',font_size='clamp(72px,17.5vw,272px)',font_weight='700',letter_spacing='-0.05em',line_height='0.9',padding='0px 0px 0.14em 0px',margin='0px')
-bp(wordmark,'text_text_align','left','left')
-row3={'_type':'bar','_bp_base':'4_4','class':'sp-footer-bar sp-fbar-mark','bar_height':'auto','bar_bg_color':INK,'bar_padding':'8px 0px 0px 0px','bar_scroll':False,'bar_overflow':'hidden',
-  'bar_content_length':'100%','bar_row_flex_justify':'center','bar_box_shadow_dimensions':'0px 0px 0px 0px',
-  '_modules':[container([wordmark],extra={'container_flex_align':'center','container_width':'100%'})]}
 fsettings={'customCSS':'','customJS':'','assignments':[{'group':True,'condition':'site:entire-site','value':''}],'assignment_priority':0}
-r=call('cs_save_layout',{'id':181,'type':'footer','title':'Footer - Main','regions':{'footer':clean([row1,row2,row3])},'settings':fsettings},timeout=120)
+r=call('cs_save_layout',{'id':181,'type':'footer','title':'Footer - Main','regions':{'footer':clean([row1,row2])},'settings':fsettings},timeout=120)
 print('footer',json.dumps(r)[:300])
