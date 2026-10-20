@@ -519,6 +519,16 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 @media (max-width:1000px){.gi-copy,.gi-map{grid-column:1/-1}.gi-map,.gi-map iframe{min-height:380px}.gi-copy .actions{margin-top:0}}
 @media (max-width:520px){.gi-times{grid-template-columns:1fr}.gi-contact li{grid-template-columns:40px 1fr}.gi-contact .gi-label{display:none}}
 
+/* Get in Touch: 1/3 copy | 2/3 full-colour map */
+.gi-copy{grid-column:1/5}
+.gi-map{grid-column:5/13}
+.gi-map iframe{filter:none}
+.gi-times{grid-template-columns:1fr}
+.gi-contact li{grid-template-columns:40px 1fr}
+.gi-contact .gi-label{display:none}
+@media (max-width:1000px){.gi-copy,.gi-map{grid-column:1/-1}.gi-times{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gi-times{grid-template-columns:1fr}}
+
 /* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
