@@ -215,10 +215,10 @@ def raw(html,cls=''):
 def form(gf_id,cls='sp-form'):
     return {'_type':'form-integration','_bp_base':'4_4','form_integration_type':'gravity-forms','form_integration_gravityforms_id':str(gf_id),'class':cls,'_modules':[]}
 
-def gmap(cls='sp-map'):
+def gmap(cls='sp-map',height='560px',lg=None):
     m={'_type':'map','_bp_base':'4_4','map_type':'embed','map_embed_code':MAP_EMBED,'class':cls,'frame_width':'100%','frame_content_sizing':'fixed-height',
-       'frame_content_height':'560px','frame_border_radius':'14px','frame_overflow':'hidden','_modules':[]}
-    return bp(m,'frame_content_height','380px','380px','380px')
+       'frame_content_height':height,'frame_border_radius':'14px','frame_overflow':'hidden','_modules':[]}
+    return bp(m,'frame_content_height','380px','380px','380px',lg)
 
 def video(src,poster,cls='sp-video',embed=None):
     v=_strip(copy.deepcopy(TPL['video']))

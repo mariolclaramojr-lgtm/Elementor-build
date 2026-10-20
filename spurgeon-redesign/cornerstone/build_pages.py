@@ -33,10 +33,12 @@ def copy_block(title,first,rest,btns,dark=False):
 
 def split(copy_mods,media_mods,flip=False,layout='45% 55%'):
     c=col(copy_mods); m=col(media_mods,'sp-split-media')
-    if flip: bp(m,'layout_column_order','1','1','1')   # stacked: text first, photo after (same as unflipped sections)
+    if not flip: bp(m,'layout_column_order','-1','-1','-1')   # stacked (tablet + phones): photo first, text below
     return row([m,c] if flip else [c,m],(('55% 45%' if layout=='45% 55%' else layout) if flip else layout),'sp-split',md='100%',align='center')
 
-def circle(i,alt,dark=False,url=None): return round_image(url or P(i),alt,dark=dark,mobile_max='320px',stack_md=True)
+def circle(i,alt,dark=False,url=None):
+    im=round_image(url or P(i),alt,dark=dark,stack_md=True)
+    return bp(im,'image_styled_max_width','100%','100%','100%')   # stacked (tablet + phones): fills the column width
 
 def intro_with_form(title,blurb,photo,alt,form_id):
     """Heading + short intro + round photo | form in a white card (Prayer, Let Us Know You're Coming)."""
@@ -101,7 +103,7 @@ def home():
                 round_image(UP+'spurgeon-welcome-greeting.jpg','Church members greeting each other with smiles',max_w='none',center=False),
                 div([small],'sp-welcome-small',position='absolute',left='0px',bottom='0px',width='44%')],
                'sp-welcome-photos',position='relative',padding='0px 0px 12% 12%',max_width='640px',margin='0px 0px 0px auto')
-    bp(photos,'layout_div_margin','24px 0px 0px 0px','24px 0px 0px 0px','24px 0px 0px 0px'); bp(photos,'layout_div_max_width','520px','520px','520px')
+    bp(photos,'layout_div_margin','0px','0px','0px'); bp(photos,'layout_div_max_width','100%','100%','100%')
     def min_card(t,h,f,alt):
         im=round_image(UP+f,alt,max_w='240px',dark=True,href=h,ring_gap='8px')
         tt=headline(t,'h3','sp-card-title','card',color=WHITE,href=h,align='center',text_color_alt=CYAN); bp(tt,'text_text_align','left','left')
@@ -118,7 +120,7 @@ def home():
                  lead('<p>New to the community, our church is planting and putting down roots to reach the people in our neighborhood and the surrounding areas for Christ.</p>'),
                  text('<p>We are a place where the people in our community can be welcomed in, encouraged, and supported as they seek after God’s will for their life. We intend to work locally to bring the Gospel of Jesus to our neighbors, making a lasting impact on our city as we serve and love our people in Jesus’ name. By the grace of God, we look forward to growing as a church and seeing our community transformed by the power of Christ.</p>'),
                  actions([button('About Us','/about/','ink')])]),
-            col([photos])],'42% 58%','sp-split',md='100%',align='center')],id_='welcome',bg_color=CREAM),
+            bp(col([photos]),'layout_column_order','-1','-1','-1')],'42% 58%','sp-split',md='100%',align='center')],id_='welcome',bg_color=CREAM),
      section('sp-section sp-dark',[label_row('Get Connected',True),
        row([col([headline('Our Ministries','h2','sp-h2','h2',color=WHITE)]),
             col([text('<p>Whether you\'re single or married, with children or without, young or old, male or female, we have a place for you! Take a look at all of our ministry opportunities to find the best fit for you and your family.</p>',dark=True),
@@ -168,6 +170,7 @@ def about():
                          text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True)
     def member():
         ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px')
+        bp(ph,'image_styled_max_width','100%','100%','100%')   # tablet + phones: fill the column
         ph['image_margin']='0px auto 24px auto'; bp(ph,'image_margin','0px 0px 24px 0px','0px 0px 24px 0px')
         n=headline('First &amp; Last Name','h3','sp-h3','h3',color=INK,align='center'); r=headline('Position / Title','div','sp-member-role','role',color=CYANINK,align='center')
         for h in (n,r): bp(h,'text_text_align','left','left')
