@@ -81,7 +81,7 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 /* Text-only logo: wordmark + tracked sub-line (Cornerstone Header Builder: Text element, or Image with logo.svg) */
 .logo-text{display:flex;flex-direction:column;gap:4px}
 .logo-text b{font-family:var(--font-head);font-weight:700;font-size:27px;letter-spacing:-.04em}
-.logo-text small{font-size:10.5px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.75;padding-left:2px}
+.logo-text small{font-size:11px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.75;padding-left:2px}
 .header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
 .header.solid .wrap{height:72px}
 .nav{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500}
@@ -493,7 +493,7 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .gi-time{background:var(--cream);border-radius:var(--radius);padding:24px 24px 22px}
 .gi-time strong{display:block;margin-top:14px;white-space:nowrap;font-family:var(--font-head);font-weight:600;font-size:clamp(26px,2.3vw,34px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .gi-time strong i{font-style:normal;font-weight:400;color:var(--cyan-ink);margin:0 .08em}
-.gi-time strong small{font-size:.42em;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-left:.25em}
+.gi-time strong small{font-size:max(.42em,11px);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-left:.25em}
 .gi-contact{list-style:none;border-top:1px solid var(--line);margin-bottom:36px}
 .gi-contact li{display:grid;grid-template-columns:40px 96px 1fr;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;font-weight:500}
 .gi-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(61,182,219,.14);color:var(--cyan-ink)}
@@ -536,6 +536,40 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .compact .page-hero h1{font-size:clamp(46px,7vw,100px)}
 .compact .centered-head{margin-bottom:48px}
 .compact .split{row-gap:40px}
+
+/* ---------- Mobile: everything left-aligned ---------- */
+@media (max-width:760px){
+  .hero--center .hero-main,.compact .hero--center .hero-main{align-items:flex-start;text-align:left}
+  .hero--center .kicker::after{display:none}
+  .hero--center .actions,.live .actions{justify-content:flex-start}
+  .page-hero{justify-content:flex-start;text-align:left}
+  .page-hero .wrap{width:100%}
+  .centered-head{text-align:left;margin-left:0}
+  .compact .card,.compact .card-meta{align-items:flex-start;text-align:left}
+  .compact .card .frame{margin-left:0}
+  .compact .member{text-align:left}
+  .compact .member .frame{margin-left:0}
+  .compact .split-media .frame{margin-left:0}
+  .empty{text-align:left}
+  .empty .icon{margin-left:0}
+  .wordmark{text-align:left;padding-left:var(--gutter)}
+  .home .welcome-photos,.compact .welcome-photos{margin-left:0}
+}
+/* ---------- Mobile polish ---------- */
+@media (max-width:760px){.compact .hero{min-height:0}.compact .hero--center .hero-main{padding-top:88px;padding-bottom:88px}}
+@media (max-width:600px){
+  .actions{gap:10px}
+  .actions .btn{flex:1 1 auto}
+  .gi-copy .actions .btn{flex:1 1 140px}
+  .crumbs{flex-wrap:wrap;gap:8px}
+  .sermon h2{font-size:30px}
+  .toolbar .select{min-width:0}
+  .footer-credit{flex-direction:column;align-items:flex-start;gap:8px}
+}
+@media (max-width:380px){
+  .hero h1,.compact .hero h1{font-size:44px}
+  .btn{padding:0 18px}
+}
 
 /* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
