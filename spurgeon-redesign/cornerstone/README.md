@@ -29,3 +29,9 @@ All in `spurgeon-global.css`, no plugin files touched:
 Pages, the Get in Touch component, header, footer and title headers carry their design in Cornerstone element settings
 (Design, Typography, Border, Background, Flexbox, Position), editable in the builder's Inspector. Classes such as
 `sp-label` or `sp-card` are kept only as labels. Global CSS is limited to plugin output. The hero ticker is a native Slider in Marquee mode.
+
+## Favicon (temporary snippet)
+
+`spurgeon-favicon-512.png` / `spurgeon-touch-180.png` (Media Library) are added by a short script in
+**Theme Options › JS** (`x_custom_scripts`), because the MCP connection cannot set WordPress's Site Icon.
+When Settings › General › Site Icon is set to `spurgeon-favicon-512.png`, delete that script.
