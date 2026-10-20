@@ -56,7 +56,7 @@ TICK=[('Sundays','8:30 am &amp; 10:00 am','/plan-your-visit/'),('Wednesdays','6:
 
 def ticker():
     """Scrolling schedule/announcement band: native Slider (Slide Container in Marquee mode), no HTML or CSS.
-    Each item is a linked Slide holding a cyan label + white text; small cross icons sit between items."""
+    Each item is a linked Slide holding a cyan label + white text; small dot icons sit between items."""
     def item(lbl,txt,href):
         sl={'_type':'layout-slide','_bp_base':'4_4','layout_slide_href':href,'layout_slide_blank':href.startswith('http'),
             'layout_slide_flexbox':True,'layout_slide_flex_direction':'row','layout_slide_flex_wrap':False,'layout_slide_flex_align':'center','layout_slide_flex_justify':'flex-start',
@@ -66,7 +66,7 @@ def ticker():
         return sl
     def sep():
         return {'_type':'layout-slide','_bp_base':'4_4','layout_slide_flexbox':True,'layout_slide_flex_direction':'row','layout_slide_flex_align':'center',
-                '_modules':[{'_type':'icon','_bp_base':'4_4','icon':'cross','icon_font_size':'12px','icon_width':'1em','icon_height':'1em',
+                '_modules':[{'_type':'icon','_bp_base':'4_4','icon':'circle','icon_font_size':'6px','icon_width':'1em','icon_height':'1em',
                              'icon_color':CYAN,'icon_bg_color':'transparent','_modules':[]}]}
     slides=[]
     for _ in range(3):   # the set repeats so the marquee track is always longer than the screen and loops seamlessly
