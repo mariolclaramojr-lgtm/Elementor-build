@@ -19,7 +19,7 @@ left=col([headline('Get in Touch','h2','sp-h2','h2',color=INK),
               border_width='1px 0px 0px 0px',border_style='solid',border_color=LINE),
           actions([button('Plan Your Visit','/plan-your-visit/','ink'),button('Get Directions',MAPS,'line-ink',blank=True)],mt='28px')])
 els=[section('sp-section sp-git',[
-  row([left,col([gmap()],'sp-git-map')],'33.33% 66.67%','sp-git-row',md='100%',align='stretch')],id_='visit',bg_color=WHITE)]
+  row([left,col([gmap()],'sp-git-map')],'33.33% 66.67%','sp-git-row',md='100%',align='stretch')],id_='visit',bg_color=CREAM_LIGHT)]
 
 existing=None
 p=os.environ['MCPDIR']+'/git_component_id'

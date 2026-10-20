@@ -8,6 +8,7 @@ TPL=json.load(open(os.path.join(os.environ['MCPDIR'],'tpl_home.json')))
 HEAD='48656164696e6773'   # Global Font: Headings (Bricolage Grotesque)
 BODY='426f647920436f7079' # Global Font: Body Copy (DM Sans)
 C=lambda i:'global-color:'+i
+CREAM_LIGHT=C('sp-cream-light')   # #FBF9F5, a lighter cream (Get in Touch)
 INK,CREAM,SAND,CYAN,WHITE,SOFT,CYANINK=C('sp-ink'),C('sp-cream'),C('sp-sand'),C('4272616e64205072696d617279'),C('sp-white'),C('sp-ink-soft'),C('sp-cyan-ink')
 LINE,LINE_L,LINE_S='rgba(22,24,27,0.12)','rgba(255,255,255,0.16)','rgba(22,24,27,0.85)'
 W90,W70,W60,W50='rgba(255,255,255,0.9)','rgba(255,255,255,0.7)','rgba(255,255,255,0.6)','rgba(255,255,255,0.5)'
