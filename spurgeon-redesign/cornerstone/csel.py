@@ -193,7 +193,7 @@ def image(url,alt,cls='',w=1600,h=1600,**st):
     if cls: i['class']=cls
     return i
 
-def round_image(url,alt,max_w='460px',ring=True,dark=False,center=True,href=None,ring_gap='10px',mobile_max=None,cls='sp-circle'):
+def round_image(url,alt,max_w='460px',ring=True,dark=False,center=True,href=None,ring_gap='10px',mobile_max=None,cls='sp-circle',stack_md=False):
     """Round photo: square source + 50% radius; the ring is the element's own padding + 1px border."""
     from square_images import sq
     st=dict(styled_width='100%',styled_max_width=max_w,outer_border_radius='50%',inner_border_radius='50%',object_fit='cover',
@@ -201,8 +201,9 @@ def round_image(url,alt,max_w='460px',ring=True,dark=False,center=True,href=None
     if ring: st.update(padding=ring_gap,border_width='1px',border_style='solid',border_color=LINE_L if dark else LINE,bg_color='transparent')
     if href: st.update(link=True,href=href)
     i=image(sq(url),alt,cls,1000,1000,**st)
-    if center: bp(i,'image_margin','0px','0px')
-    if mobile_max: bp(i,'image_styled_max_width',mobile_max,mobile_max)
+    # stacked layouts (tablet + phones): left-aligned like the text; 'stack_md' also applies the size cap on tablets
+    if center: bp(i,'image_margin','0px','0px','0px' if stack_md else None)
+    if mobile_max: bp(i,'image_styled_max_width',mobile_max,mobile_max,mobile_max if stack_md else None)
     return i
 
 def raw(html,cls=''):

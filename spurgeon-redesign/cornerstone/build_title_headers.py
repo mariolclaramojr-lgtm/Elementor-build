@@ -3,6 +3,9 @@ import json,os,sys,copy
 sys.path.insert(0,os.environ['MCPDIR']); from lib import call
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from csel import *
+def gutter(bar):
+    """Phones: same 20px side gutter as the page rows."""
+    return bp(bar,'bar_content_length','calc(100% - 40px)','calc(100% - 40px)')
 MP=json.load(open(os.environ['MCPDIR']+'/media_map.json'))
 main=call('cs_get_layout',{'id':131},timeout=90)
 navbar=copy.deepcopy(main['regions']['top'][0])
@@ -22,7 +25,7 @@ def title_bar(dc):
           'container_min_height':'calc(clamp(300px,42svh,460px) - 128px)'}
     bp(wrap,'container_row_flex_align','flex-start','flex-start'); bp(wrap,'container_text_align','left','left')
     return {'_type':'bar','_bp_base':'4_4','class':'sp-title-bar','bar_height':'auto','bar_padding':'64px 0px 64px 0px','bar_bg_color':INK,
-      'bar_content_length':'calc(100% - 64px)','bar_content_max_length':'1240px','bar_row_flex_justify':'center','bar_box_shadow_dimensions':'0px 0px 0px 0px',
+      'bar_content_length':'calc(100% - 64px)','bar_content_max_length':'1240px','bar_outer_spacing':'0px','bar_row_flex_justify':'center','bar_box_shadow_dimensions':'0px 0px 0px 0px',
       'bar_bg_advanced':True,'bg_lower_type':'image','bg_lower_image':UP+MP['1507692049790-de58290a4334'],'bg_upper_type':'color','bg_upper_color':'rgba(22,24,27,0.72)',
       '_modules':[wrap]}
 SERMON_TAX=['wpfc_sermon_series','wpfc_preacher','wpfc_sermon_topics','wpfc_bible_book','wpfc_service_type']
@@ -33,7 +36,7 @@ ids={}
 p=os.environ['MCPDIR']+'/title_header_ids.json'
 if os.path.exists(p): ids=json.load(open(p))
 for key,title,dc,assign in [('archive','Header - Sermon & Event Archives','{{dc:archive:title}}',archive_assign),('single','Header - Sermon & Event Single','{{dc:post:title}}',single_assign),('messages','Header - Messages Archive','Messages',[a('archive:post-type','wpfc_sermon')])]:
-    args={'type':'header','title':title,'regions':{'top':clean([copy.deepcopy(navbar),title_bar(dc)])},
+    args={'type':'header','title':title,'regions':{'top':clean([gutter(copy.deepcopy(navbar)),gutter(title_bar(dc))])},
           'settings':{'customCSS':'','customJS':'','assignments':assign,'assignment_priority':(2 if key=='messages' else 1),'multi_region':False}}
     if key in ids: args['id']=ids[key]
     r=call('cs_save_layout',args,timeout=120); ids[key]=r['id']; print(key,r['id'],json.dumps(r['settings'])[:200])

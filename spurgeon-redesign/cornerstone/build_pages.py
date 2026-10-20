@@ -33,9 +33,10 @@ def copy_block(title,first,rest,btns,dark=False):
 
 def split(copy_mods,media_mods,flip=False,layout='45% 55%'):
     c=col(copy_mods); m=col(media_mods,'sp-split-media')
+    if flip: bp(m,'layout_column_order','1','1','1')   # stacked: text first, photo after (same as unflipped sections)
     return row([m,c] if flip else [c,m],(('55% 45%' if layout=='45% 55%' else layout) if flip else layout),'sp-split',md='100%',align='center')
 
-def circle(i,alt,dark=False,url=None): return round_image(url or P(i),alt,dark=dark,mobile_max='320px')
+def circle(i,alt,dark=False,url=None): return round_image(url or P(i),alt,dark=dark,mobile_max='320px',stack_md=True)
 
 def intro_with_form(title,blurb,photo,alt,form_id):
     """Heading + short intro + round photo | form in a white card (Prayer, Let Us Know You're Coming)."""
@@ -102,9 +103,13 @@ def home():
                'sp-welcome-photos',position='relative',padding='0px 0px 12% 12%',max_width='640px',margin='0px 0px 0px auto')
     bp(photos,'layout_div_margin','24px 0px 0px 0px','24px 0px 0px 0px','24px 0px 0px 0px'); bp(photos,'layout_div_max_width','520px','520px','520px')
     def min_card(t,h,f,alt):
-        im=round_image(UP+f,alt,max_w='240px',dark=True,href=h,ring_gap='8px',mobile_max='150px')
+        im=round_image(UP+f,alt,max_w='240px',dark=True,href=h,ring_gap='8px')
         tt=headline(t,'h3','sp-card-title','card',color=WHITE,href=h,align='center',text_color_alt=CYAN); bp(tt,'text_text_align','left','left')
+        im.update({'image_border_color_alt':CYAN})   # ring turns cyan on hover
         c=col([im,tt],'sp-card',text_align='center'); bp(c,'layout_column_text_align','left','left')
+        # hover: card lifts (Effects › Alt)
+        c.update({'effects_alt':True,'effects_transform_alt':'translate(0px, -6px)','effects_duration':'400ms',
+                  'effects_timing_function':'cubic-bezier(0.400, 0.000, 0.200, 1.000)'})
         return c
     return [
      section('sp-hero',[row([hero_col],'100%'),ticker()],bg_video=UP+'spurgeon-hero.mp4',overlay='rgba(22,24,27,0.5)',pad='none'),
@@ -162,7 +167,7 @@ def about():
         return card_div([icon(ic,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
                          text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True)
     def member():
-        ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px',mobile_max='160px')
+        ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px')
         ph['image_margin']='0px auto 24px auto'; bp(ph,'image_margin','0px 0px 24px 0px','0px 0px 24px 0px')
         n=headline('First &amp; Last Name','h3','sp-h3','h3',color=INK,align='center'); r=headline('Position / Title','div','sp-member-role','role',color=CYANINK,align='center')
         for h in (n,r): bp(h,'text_text_align','left','left')
@@ -185,7 +190,7 @@ def about():
            '25% 25% 25% 25%','sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%',mt='48px',gap_row='32px',align='flex-start')],
        bg_image=P('1478147427282-58a87a120781'),overlay=DARK),
      section('sp-section',[label_row('Our Leadership'),row([col([headline('Our Leadership','h2','sp-h2','h2',color=INK)])],'100%'),
-       row([member() for _ in range(6)],'33.33% 33.33% 33.34%','',md='50% 50%',sm='50% 50%',xs='100%',mt='48px')],bg_color=CREAM),
+       row([member() for _ in range(6)],'33.33% 33.33% 33.34%','',md='50% 50%',sm='50% 50%',xs='50% 50%',mt='48px')],bg_color=CREAM),
      GIT]
 
 KIDS='We want church to be a place where your entire family is encouraged to draw closer to Christ—your kids included!'
