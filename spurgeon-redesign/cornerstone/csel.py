@@ -245,7 +245,23 @@ def social(network,href,icon_name):
     return {'_type':'social','_bp_base':'4_4','anchor_href':href,'anchor_blank':True,'anchor_graphic_icon':icon_name,'anchor_graphic_icon_alt':icon_name,
             'anchor_width':'44px','anchor_height':'44px','anchor_bg_color':'transparent','anchor_bg_color_alt':CYAN,'anchor_border_width':'1px','anchor_border_style':'solid',
             'anchor_border_color':LINE_L,'anchor_border_color_alt':CYAN,'anchor_border_radius':'8px','anchor_box_shadow_dimensions':NO_SHADOW,
-            'anchor_graphic_icon_color':'#ffffff','anchor_graphic_icon_color_alt':INK,'anchor_graphic_icon_font_size':'16px','anchor_margin':'0px 8px 0px 0px','class':'sp-social','_modules':[]}
+            'anchor_graphic_icon_color':'#ffffff','anchor_graphic_icon_color_alt':INK,'anchor_graphic_icon_font_size':'16px','anchor_margin':'0px 8px 8px 0px','class':'sp-social','_modules':[]}
+
+# Theme Options › Social fields (Cornerstone), in the theme's own order, with their brand icons
+THEME_SOCIAL=[('facebook','facebook-f'),('twitter','x-twitter'),('tiktok','tiktok'),('bluesky','bluesky'),('linkedin','linkedin-in'),
+              ('xing','xing'),('foursquare','foursquare'),('youtube','youtube'),('vimeo','vimeo-v'),('instagram','instagram'),
+              ('pinterest','pinterest-p'),('dribbble','dribbble'),('flickr','flickr'),('github','github'),('behance','behance'),
+              ('tumblr','tumblr'),('whatsapp','whatsapp'),('soundcloud','soundcloud'),('rss','square-rss')]
+def theme_socials():
+    """One Social element per Theme Options field: the link is {{dc:theme:x_social_*}} and the element's
+    Show Condition hides it while that field is empty, so adding a URL in Theme Options makes the icon appear."""
+    out=[]
+    for key,ic in THEME_SOCIAL:
+        dc='{{dc:theme:x_social_%s}}'%key
+        el=social(key,dc,ic)
+        el['show_condition']=[{'group':True,'condition':'expression:string','operand':dc,'operator':'is-not','value':''}]
+        out.append(el)
+    return out
 
 # ---------- shared content as native elements ----------
 def info_item(lbl,value,dark=False,href=None,big=False):

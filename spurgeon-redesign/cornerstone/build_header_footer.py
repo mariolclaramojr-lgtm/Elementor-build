@@ -71,7 +71,7 @@ row1={'_type':'bar','_bp_base':'4_4','bar_outer_spacing':'0px','class':'sp-foote
   '_modules':[fcol([logo_f,headline('Loving God. Loving People.','p','sp-tagline','h3',color=W90,font_size='24px',font_weight='500',line_height='1.25',margin='0px')]),
               fcol([flabel('Explore'),fnav]),
               fcol([flabel('Visit')]+FINFO),
-              fcol([flabel('Follow'),container([social('facebook','https://www.facebook.com/','facebook-f'),social('x','https://x.com/','x-twitter')],extra={'container_flex_direction':'row'})])]}
+              fcol([flabel('Follow'),container(theme_socials(),extra={'container_row_flexbox':True,'container_row_flex_direction':'row','container_row_flex_wrap':True,'container_row_flex_align':'center','container_row_flex_justify':'flex-start'})])]}
 row2={'_type':'bar','_bp_base':'4_4','bar_outer_spacing':'0px','class':'sp-footer-bar sp-fbar-credit','bar_height':'auto','bar_bg_color':INK,'bar_padding':'24px 0px',
   'bar_content_length':'calc(100% - 64px)','bar_content_max_length':'1240px','bar_border_width':'1px 0px 0px 0px','bar_border_style':'solid','bar_border_color':'rgba(255,255,255,0.16)',
   'bar_box_shadow_dimensions':'0px 0px 0px 0px',
