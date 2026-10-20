@@ -127,15 +127,15 @@ def about():
     VIS=[('o-book-open','Worship &amp; Study','Through weekly Bible studies, worship gatherings, and small groups, we will learn more about God and grow in our knowledge and love for Him.'),
          ('o-hand-holding-heart','Evangelism &amp; Outreach','By reaching out to and serving those around us, we will share God’s love and His message of hope with the people in our community.'),
          ('o-paper-plane','Multiplication &amp; Sending','By making disciples and supporting fellow believers as they step out to launch new churches and ministries around the world, we will expand our reach to exhibit God’s love to people across the globe.')]
-    # Beliefs: open card grid, all content visible. Statements of similar length so the cards stay even.
-    BELIEFS=[('o-book-bible','The Bible','We believe the Bible is the inspired, trustworthy Word of God and our final authority for faith and life. It shows us who God is, the good news of Jesus and how to live.'),
-             ('o-crown','The Father','We believe in one God, eternally existing as Father, Son and Holy Spirit. The Father is the loving Creator of all things, faithful to His promises and near to all who call on Him.'),
+    # Beliefs: open card grid, all content visible. Statements vary in length; the masonry layout absorbs it.
+    BELIEFS=[('o-book-bible','The Bible','We believe the Bible is the inspired and trustworthy Word of God. It is our final authority for faith and life. Through its pages God shows us who He is, tells the story of His rescue through Jesus, and teaches us how to love Him and love our neighbors. We read it together, study it in small groups and build our lives on it.'),
+             ('o-crown','The Father','We believe in one God, the loving Father and Creator of all things.'),
              ('o-cross','The Son','We believe Jesus Christ is fully God and fully man. He lived a sinless life, died on the cross for our sins, rose bodily from the grave and is coming again in glory.'),
-             ('o-dove','The Holy Spirit','We believe the Holy Spirit lives in every believer. He comforts, guides and empowers us, produces His fruit in our lives and gives gifts to build up and strengthen the church.'),
-             ('o-infinity','Eternity','We believe every person was created to live forever. Those who trust in Christ will enjoy eternal life with God, and one day He will make all things new and wipe away every tear.'),
+             ('o-dove','The Holy Spirit','We believe the Holy Spirit lives in every believer from the moment they trust in Jesus. He comforts us in hard seasons, guides us into truth and gives us power to live for God. He produces His fruit in our lives, such as love, joy and peace, and gives each believer gifts to serve and build up the church.'),
+             ('o-infinity','Eternity','We believe every person was created to live forever, and one day God will make all things new.'),
              ('o-user','Man','We believe every person is made in the image of God and deeply loved by Him. Yet all of us have sinned and fallen short, and we need a Savior to restore us.'),
-             ('o-heart','Salvation','We believe salvation is a free gift of God’s grace, received through faith in Jesus Christ alone. It cannot be earned by good works, only received with a humble and grateful heart.'),
-             ('o-church','The Church','We believe the church is the family of God, the body of Christ on earth. We gather to worship, grow in the Word, care for one another and share the gospel with our world.')]
+             ('o-heart','Salvation','We believe salvation is a free gift of God’s grace. It is received through faith in Jesus Christ alone and cannot be earned by good works. When we turn from sin and trust in Him, we are forgiven, made new and welcomed into God’s family. Nothing can separate us from His love.'),
+             ('o-church','The Church','We believe the church is the family of God. We gather to worship, grow in the Word and care for one another.')]
     def belief(ic,t,d,last=False):
         return card_div([icon(ic,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
                          text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True,mb='0px' if last else '32px')
