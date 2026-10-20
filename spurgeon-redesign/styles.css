@@ -198,11 +198,10 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 /* ============ 5. FOOTER ============ */
 .footer{--bg:url(https://images.unsplash.com/photo-1541190349433-a490ea73206a?w=2000&q=70&auto=format&fit=crop);--ov-top:.9;--ov-bottom:.97;color:var(--white);padding-top:96px;overflow:hidden}
 .footer-top{row-gap:48px;padding-bottom:80px}
-.footer-brand{grid-column:1/6}
+.footer-brand{grid-column:span 3}
 .footer-brand .logo{margin-bottom:24px}
 .footer-brand p{font-family:var(--font-head);font-size:var(--t-h3);font-weight:500;letter-spacing:-.015em;color:rgba(255,255,255,.9)}
 .footer-col{grid-column:span 3}
-.footer-col:first-of-type{grid-column:7/10}
 .footer h4{font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px}
 .footer-nav{display:flex;flex-direction:column;gap:10px;font-size:15px}
 .footer-nav a{width:fit-content;color:rgba(255,255,255,.85);transition:color .2s}
@@ -213,7 +212,8 @@ a.frame:hover img,.card:hover .frame img{transform:scale(1.04)}
 .social svg{width:16px;height:16px}
 .footer-credit{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--line-light);font-size:13px;color:rgba(255,255,255,.5)}
 .wordmark{font-family:var(--font-head);font-weight:700;font-size:clamp(72px,17.5vw,272px);letter-spacing:-.05em;line-height:.9;color:var(--cyan);white-space:nowrap;text-align:center;padding:24px 0 .14em;user-select:none}
-@media (max-width:900px){.footer-brand{grid-column:1/-1}.footer-col,.footer-col:first-of-type{grid-column:span 6}}
+@media (max-width:900px){.footer-brand,.footer-col{grid-column:span 6}}
+@media (max-width:480px){.footer-brand,.footer-col{grid-column:1/-1}}
 
 @media (max-width:600px){:root{--gutter:20px}.label{margin-bottom:40px}}
 
@@ -474,6 +474,14 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .home .welcome-photos .frame:first-child{overflow:visible;isolation:isolate}
 .home .welcome-photos .frame:first-child img{border-radius:50%}
 .home .welcome-photos .frame:first-child::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--line-strong);opacity:.25;pointer-events:none}
+
+/* Get in Touch on white */
+#visit{background:var(--white)}
+/* Footer: 4 even columns — brand | Explore | Visit | Follow */
+.footer-info{list-style:none;display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.85)}
+.footer-info span{display:block;font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:2px}
+.footer-info a{transition:color .2s}
+.footer-info a:hover{color:var(--cyan)}
 
 /* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
