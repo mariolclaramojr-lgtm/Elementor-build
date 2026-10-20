@@ -453,8 +453,27 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .home .card .frame{aspect-ratio:1/1;border-radius:50%;width:100%;max-width:240px;margin:0 auto 20px;outline:1px solid var(--line-light);outline-offset:8px}
 .home .card-meta{flex-direction:column;align-items:center;gap:6px;border-top:0;padding-top:4px}
 .home .card-meta span{order:-1}
-@media (max-width:1000px){.home .welcome-photos{max-width:520px;margin:40px auto 0}}
+@media (max-width:1000px){.home .welcome-photos{width:100%;max-width:520px;margin:40px auto 0}}
 @media (max-width:480px){.home .card .frame{max-width:150px;outline-offset:5px}}
+
+/* ---------- Solid header (no longer transparent over the hero) ---------- */
+.header{position:sticky;top:0;color:var(--ink);background:rgba(246,242,234,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.header .wrap,.header.solid .wrap{height:76px}
+.header .nav .btn:hover{background:var(--ink);color:var(--white)}
+.hero{min-height:calc(100svh - 76px)}
+.home .hero{min-height:calc(88svh - 76px)}
+.hero--center .hero-main,.home .hero--center .hero-main{padding-top:64px}
+.page-hero{min-height:clamp(340px,50svh,540px);padding:64px 0}
+@media (max-width:1060px){.header .wrap,.header.solid .wrap{height:72px}}
+
+/* ---------- Perfect circles: the photo always fills the circle ---------- */
+.home .welcome-photos .frame,.home .card .frame{position:relative;height:auto}
+.home .welcome-photos .frame img,.home .card .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.home .welcome-photos .frame:last-child{position:absolute;border:0;box-shadow:0 0 0 8px var(--cream);box-sizing:border-box}
+/* thin ring so the circle edge always reads, even where the photo is pale */
+.home .welcome-photos .frame:first-child{overflow:visible;isolation:isolate}
+.home .welcome-photos .frame:first-child img{border-radius:50%}
+.home .welcome-photos .frame:first-child::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--line-strong);opacity:.25;pointer-events:none}
 
 /* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
