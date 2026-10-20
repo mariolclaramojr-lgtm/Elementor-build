@@ -239,8 +239,10 @@ body .mec-wrap .mec-event-tile-view .mec-event-content{position:absolute !import
 body .mec-wrap .mec-event-tile-view .mec-event-title{margin:0 !important;font-size:22px !important;line-height:1.15 !important}
 body .mec-wrap .mec-event-tile-view .mec-event-title a{color:#fff !important;text-decoration:none !important}
 body .mec-wrap .mec-event-tile-view .mec-tile-into-content-link{position:absolute;inset:0;z-index:2}
+/* events archive (/upcoming-events/): the page header already shows the title, so hide MEC's own h1 */
+body.post-type-archive-mec-events #main-content>h1{display:none}
 /* single event (/upcoming-events/<slug>/) */
-.single-mec-events #main-content.x-container,.single-mec-events .x-container.offset{width:calc(100% - 2*var(--sp-gutter)) !important;max-width:var(--sp-wrap) !important;margin:0 auto !important;padding:clamp(48px,6vw,88px) 0 var(--sp-pad) !important}
+.single-mec-events #main-content.x-container,.single-mec-events .x-container.offset,.post-type-archive-mec-events #main-content.x-container,.tax-mec_category #main-content.x-container{width:calc(100% - 2*var(--sp-gutter)) !important;max-width:var(--sp-wrap) !important;margin:0 auto !important;padding:clamp(48px,6vw,88px) 0 var(--sp-pad) !important}
 body .mec-single-event{display:grid !important;grid-template-columns:minmax(0,1fr) 380px;gap:48px;align-items:start;margin:0 !important}
 body .mec-single-event::before,body .mec-single-event::after{display:none !important}
 body .mec-single-event>[class*=col-]{width:auto !important;float:none !important;padding:0 !important;margin:0 !important}
