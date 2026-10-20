@@ -131,11 +131,13 @@ def home():
      GIT]
 
 def plan_your_visit():
-    # FAQ answers are the template's placeholder copy, kept word for word; shown open (no accordion)
-    FAQ_BODY='This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.'
-    QS=['What should I wear?','What do you have for Kids/Students?','What style of worship do you have?','Do you have small groups?']
-    def faq_item(q):
-        d=div([headline(q,'h3','sp-h3','h3',color=WHITE),text(f'<p>{FAQ_BODY}</p>',dark=True,size='16px')],'sp-faq-item',
+    # FAQ: template questions with real answers, shown open (no accordion)
+    QS=[('What should I wear?','Come as you are. You’ll see everything from jeans and t-shirts to Sunday best. What matters most to us is that you feel comfortable and at home.'),
+        ('What do you have for Kids/Students?','Kids from nursery through 5th grade have safe, fun classes during both Sunday services, led by trained and screened volunteers. Students meet on Wednesday evenings for worship, teaching and small groups.'),
+        ('What style of worship do you have?','Our services are relaxed and modern, with a live band, songs old and new, and practical Bible teaching. A typical Sunday lasts about 75 minutes.'),
+        ('Do you have small groups?','Yes. Small groups meet in homes around town throughout the week to share a meal, study the Bible and pray together. Ask us on Sunday and we’ll help you find one that fits.')]
+    def faq_item(q,ans):
+        d=div([headline(q,'h3','sp-h3','h3',color=WHITE),text(f'<p>{ans}</p>',dark=True,size='16px')],'sp-faq-item',
               width='calc(50% - 24px)',padding='28px 0px 32px 0px',border_width='1px 0px 0px 0px',border_style='solid',border_color=LINE_L)
         return bp(d,'layout_div_width','100%','100%')
     return [
@@ -147,7 +149,7 @@ def plan_your_visit():
              [circle('1577975039920-8fbb74e58527','Friends sharing coffee around a table with open Bibles')])],bg_color=CREAM),
      section('sp-section sp-dark',[label_row('Questions',True),
        row([col([headline('FAQs','h2','sp-h2','h2',color=WHITE),text('<p>Everything you might want to know before your first Sunday.</p>',dark=True)]),
-            col([div([faq_item(q) for q in QS],'sp-faq',flexbox=True,flex_direction='row',flex_wrap=True,flex_gap='0px 48px',flex_align='flex-start')])],
+            col([div([faq_item(q,ans) for q,ans in QS],'sp-faq',flexbox=True,flex_direction='row',flex_wrap=True,flex_gap='0px 48px',flex_align='flex-start')])],
            '35% 65%','',md='100%')],bg_image=P('1647476427592-c78c1e363683'),overlay=DARK),
      section('sp-section',[label_row('Plan Ahead'),
        intro_with_form('Let Us Know You’re Coming','Tell us when you plan to visit and we’ll be ready to welcome you, help get your kids settled and show you around.',
