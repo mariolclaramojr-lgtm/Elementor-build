@@ -249,7 +249,8 @@ def give():
       section('sp-section',[label_row('Generosity'),
         split(copy_block('Live Generously',GIVE1,[GIVE2],[button('Give Now','#ways-to-give','ink')]),[circle('1762013728402-69cff78f29fd','A congregation seated together during a church service')])],bg_color=CREAM),
       section('sp-section',[label_row('Ways to Give'),row([col([headline('Ways to Give','h2','sp-h2','h2',color=INK)])],'100%'),
-        row([icon_col(i,t,d,[actions([b])] if b else None) for i,t,d,b in W],'33.33% 33.33% 33.34%','',md='100%',mt='48px')],
+        row([card([icon(i),headline(t,'h3','sp-h3','h3',color=INK),text(d)]+([actions([b])] if b else []),pad='36px 32px 36px 32px') for i,t,d,b in W],
+            '33.33% 33.33% 33.34%','',md='100%',mt='48px',gap_row='24px',align='stretch')],
         id_='ways-to-give',bg_color=SAND)]
 
 PAGES={'home':(8,home),'plan-your-visit':(79,plan_your_visit),'about':(11,about),'connect':(12,connect),'get-connected':(113,get_connected),
