@@ -32,6 +32,17 @@ nav_inline={'_type':'nav-inline','_bp_base':'4_4','menu':'menu:25','class':'sp-h
   'anchor_primary_particle_transform_origin':'0% 100%','anchor_primary_particle_width':'100%','_modules':[]}
 cta=button('Plan Your Visit','/plan-your-visit/','cyan',arrow=False,height='44px',pad='0px 18px')
 cta['anchor_margin']='0px 0px 0px 40px'
+
+# Logo and Plan Your Visit button are Components, shared by the main header and the
+# sermons & events header (which copies the main nav bar): edit once, both update.
+def component(title,el,idfile):
+    path=os.path.join(os.environ['MCPDIR'],idfile)
+    args={'title':title,'elements':clean([el])}
+    if os.path.exists(path): args['id']=int(open(path).read())
+    r=call('cs_save_component',args,timeout=120); open(path,'w').write(str(r['id']))
+    return {'_type':'global-block','_bp_base':'4_4','global_block_id':str(r['id']),'_modules':[]}
+logo_h=component('Logo',logo_h,'logo_component_id')
+cta=component('Plan Your Visit Button',cta,'cta_component_id')
 navd.update({'anchor_primary_font_family':BODY,'anchor_primary_font_size':'17px','anchor_primary_font_weight':'600','anchor_primary_letter_spacing':'0em',
   'anchor_primary_text_transform':'none','anchor_primary_text_color':INK,'anchor_primary_text_color_alt':CYANINK,'anchor_primary_particle':False,
   'dropdown_bg_color':CREAM,'dropdown_width':'calc(100vw - 40px)','toggle_anchor_bg_color':'transparent','toggle_anchor_box_shadow_dimensions':'!0em 0em 0em 0em',

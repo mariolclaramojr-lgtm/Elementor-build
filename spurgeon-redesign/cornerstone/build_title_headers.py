@@ -16,10 +16,20 @@ def strip_ids(n):
     for k in ('_id','_m'): n.pop(k,None)
     strip_ids(n.get('_modules',[]))
 strip_ids(navbar)
-def title_bar(dc):
-    """Photo title band, same height and type as the page hero: bar padding + container min-height (no CSS)."""
-    h=headline(dc,'h1','sp-page-title','page',color=WHITE,align='center'); bp(h,'text_text_align','left','left')
-    wrap={'_type':'container','_bp_base':'4_4','class':'sp-title-wrap','_modules':[crumbs(),h],
+def title_h(text,show):
+    h=headline(text,'h1','sp-page-title','page',color=WHITE,align='center'); bp(h,'text_text_align','left','left')
+    h['show_condition']=show   # native element Condition: only one title renders per page
+    return h
+
+def title_bar():
+    """Photo title band, same height and type as the page hero: bar padding + container min-height (no CSS).
+    One header for every sermon/event archive and single page; the title is picked by element Conditions."""
+    titles=[title_h('{{dc:post:title}}',[a('single:singular-all')]),
+            # post-type archives (/messages/, /upcoming-events/) have no archive title, so they fall back to a fixed name
+            title_h('Messages',[a('archive:post-type','wpfc_sermon'),{'condition':'expression:string','operand':'{{dc:archive:title}}','operator':'is','value':''}]),
+            title_h('Events',[a('archive:post-type','mec-events'),{'condition':'expression:string','operand':'{{dc:archive:title}}','operator':'is','value':''}]),
+            title_h('{{dc:archive:title}}',[a('archive:all'),{'condition':'expression:string','operand':'{{dc:archive:title}}','operator':'is-not','value':''}])]
+    wrap={'_type':'container','_bp_base':'4_4','class':'sp-title-wrap','_modules':[crumbs()]+titles,
           'container_row_flexbox':True,'container_col_flexbox':True,'container_row_flex_direction':'column','container_row_flex_justify':'center',
           'container_row_flex_align':'center','container_text_align':'center','container_flex':'1 1 100%','container_width':'100%',
           'container_min_height':'calc(clamp(300px,42svh,460px) - 128px)'}
@@ -32,14 +42,16 @@ SERMON_TAX=['wpfc_sermon_series','wpfc_preacher','wpfc_sermon_topics','wpfc_bibl
 def a(cond,val=''): return {'group':True,'condition':cond,'value':val}
 archive_assign=[a('archive:post-type','mec-events')]+[a(f'archive:post-type-with-term|wpfc_sermon|{t}') for t in SERMON_TAX]+[a('archive:post-type-with-term|mec-events|mec_category')]
 single_assign=[a('single:post-type','wpfc_sermon'),a('single:post-type','mec-events')]
+# one header for all sermon + event archives and singles (replaces the three earlier ones)
 ids={}
 p=os.environ['MCPDIR']+'/title_header_ids.json'
 if os.path.exists(p): ids=json.load(open(p))
-for key,title,dc,assign in [('archive','Header - Sermon & Event Archives','{{dc:archive:title}}',archive_assign),('single','Header - Sermon & Event Single','{{dc:post:title}}',single_assign),('messages','Header - Messages Archive','Messages',[a('archive:post-type','wpfc_sermon')])]:
-    args={'type':'header','title':title,'regions':{'top':clean([gutter(copy.deepcopy(navbar)),gutter(title_bar(dc))])},
-          'settings':{'customCSS':'','customJS':'','assignments':assign,'assignment_priority':(2 if key=='messages' else 1),'multi_region':False}}
-    if key in ids: args['id']=ids[key]
-    r=call('cs_save_layout',args,timeout=120); ids[key]=r['id']; print(key,r['id'],json.dumps(r['settings'])[:200])
+assign=[a('archive:post-type','wpfc_sermon')]+archive_assign+single_assign
+args={'type':'header','title':'Header - Sermons & Events','regions':{'top':clean([gutter(copy.deepcopy(navbar)),gutter(title_bar())])},
+      'settings':{'customCSS':'','customJS':'','assignments':assign,'assignment_priority':1,'multi_region':False}}
+if ids.get('sermons_events'): args['id']=ids['sermons_events']
+r=call('cs_save_layout',args,timeout=120); print('sermons & events header',r['id'],json.dumps(r['settings'])[:160])
+ids={'sermons_events':r['id']}
 json.dump(ids,open(p,'w'))
 # main header: make sure it loses to these (lowest priority wins)
 m=call('cs_get_layout',{'id':131},timeout=90)
