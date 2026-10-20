@@ -2,19 +2,15 @@
 
 ## Basic version
 
-Copy it, fill in the [brackets], and paste it into a new session. One short paragraph per step.
+Copy it, fill in the [brackets], and paste it into a new session.
 
-> I want to redesign our church website template [TEMPLATE NAME] at [TEMPLATE URL]. Keep the same sections and the same content, just give it a fresh, modern look.
+> Redesign our church template [TEMPLATE NAME] ([TEMPLATE URL]): same sections, same content, fresh modern look.
 >
-> First, look at every page of the template and list the sections on each one.
->
-> Then design the home page in HTML. Use your website design skills (and any design skills or tools you have) to make it look like a professional designer made it: premium, bold and warm, with big headlines, real photos of people at church, and a worship video in the hero. Show me screenshots and wait for my OK.
->
-> After I approve, build the other pages in the same style.
->
-> Then make sure every button and link goes to the right page or section.
->
-> Last, check it on desktop and phone and send me everything in one zip.
+> 1. List the sections on every page of the template.
+> 2. Design the home page in HTML first, using your website design skills: premium, bold and warm, big headlines, real photos of people at church in rounded-corner image frames, and a worship video hero. Send screenshots and wait for my OK.
+> 3. Build the other pages in the same style.
+> 4. Link every button to the right page or section.
+> 5. Check desktop and phone, then send everything in one zip.
 
 ---
 
