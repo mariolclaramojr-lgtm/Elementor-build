@@ -106,9 +106,10 @@ def home():
     bp(photos,'layout_div_margin','0px','0px','0px'); bp(photos,'layout_div_max_width','100%','100%','100%')
     def min_card(t,h,f,alt):
         im=round_image(UP+f,alt,max_w='240px',dark=True,href=h,ring_gap='8px')
-        tt=headline(t,'h3','sp-card-title','card',color=WHITE,href=h,align='center',text_color_alt=CYAN); bp(tt,'text_text_align','left','left')
+        tt=headline(t,'h3','sp-card-title','card',color=WHITE,href=h,align='center',text_color_alt=CYAN)
         im.update({'image_border_color_alt':CYAN})   # ring turns cyan on hover
-        c=col([im,tt],'sp-card',text_align='center'); bp(c,'layout_column_text_align','left','left')
+        im['_bp_data4_4'].pop('image_margin',None)    # centred photo at every size (no left-align override)
+        c=col([im,tt],'sp-card',text_align='center')
         # hover: card lifts (Effects › Alt)
         c.update({'effects_alt':True,'effects_transform_alt':'translate(0px, -6px)','effects_duration':'400ms',
                   'effects_timing_function':'cubic-bezier(0.400, 0.000, 0.200, 1.000)'})
