@@ -62,6 +62,8 @@ def copy_block(title,first,rest,btns,dark=False):
     return mods
 
 def plan_your_visit():
+    # FAQ answers are the template's placeholder copy, kept word for word; shown open (no accordion)
+    FAQ_BODY='This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.'
     return [
      page_hero('Plan Your Visit',P('1695938746747-ec185ea81325')),
      section('sp-section',[label_row('Welcome'),
@@ -71,11 +73,14 @@ def plan_your_visit():
              [circle('1577975039920-8fbb74e58527','Friends sharing coffee around a table with open Bibles')])],bg_color=CREAM),
      section('sp-section sp-dark',[label_row('Questions'),
        row([col([headline('FAQs','h2','sp-h2',color=WHITE),text('<p>Everything you might want to know before your first Sunday.</p>')]),
-            col([accordion(['What should I wear?','What do you have for Kids/Students?','What style of worship do you have?','Do you have small groups?'])])],
+            col([div([div([headline(q,'h3','sp-h3',color=WHITE),text(f'<p>{FAQ_BODY}</p>','sp-copy sp-faq-copy')],'sp-faq-item')
+                       for q in ['What should I wear?','What do you have for Kids/Students?','What style of worship do you have?','Do you have small groups?']],'sp-faq')])],
            '35% 65%','',md='100%')],bg_image=P('1647476427592-c78c1e363683'),overlay=DARK),
      section('sp-section',[label_row('Plan Ahead'),
-       split([headline('Let Us Know You’re Coming','h2','sp-h2',color=INK),form(2)],
-             [circle('1565813086292-604790c8a97b','Two church members greeting each other with a hug')],layout='60% 40%')],id_='coming',bg_color=CREAM)]
+       row([col([headline('Let Us Know You’re Coming','h2','sp-h2',color=INK),
+                 text('<p>Tell us when you plan to visit and we’ll be ready to welcome you, help get your kids settled and show you around.</p>','sp-copy sp-prayer-copy'),
+                 image(P('1565813086292-604790c8a97b'),'Two church members greeting each other with a hug','sp-circle sp-ring sp-prayer-photo')],'sp-prayer-intro'),
+            col([form(2)],'sp-form-card')],'40% 60%','sp-prayer',md='100%')],id_='coming',bg_color=CREAM)]
 
 def about():
     VIS=[('o-book-open','Worship &amp; Study','Through weekly Bible studies, worship gatherings, and small groups, we will learn more about God and grow in our knowledge and love for Him.'),
