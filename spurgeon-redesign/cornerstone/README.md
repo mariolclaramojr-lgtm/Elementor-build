@@ -4,8 +4,9 @@ The HTML design in `../` rebuilt on the Spurgeon WordPress site (Themeco Pro 6.9
 
 | File | What it does |
 |---|---|
-| `spurgeon-global.css` | All custom CSS. Lives in **Theme Options › Global CSS** between the `SPURGEON REDESIGN START/END` markers (existing sermon rules above it are kept). |
-| `csel.py` | Helpers that build native Cornerstone elements (section, row, column, headline, text, button, image, accordion, map, video, form-integration, breadcrumbs, social). |
+| `spurgeon-global.css` | Global CSS (**Theme Options › CSS**, between the `SPURGEON REDESIGN START/END` markers). Only what Cornerstone settings can't reach: Gravity Forms, Sermon Manager Pro and MEC output, plus the hero ticker animation. |
+| `csel.py` | Helpers that build native Cornerstone elements with their look in the elements' own settings: section padding/background, row width, card columns (bg, border, radius, padding), headline/text typography, button colors and hover states, round images, icons, breadcrumbs, map/video frames. Responsive values use Cornerstone breakpoint data. |
+| `square_images.py` | Uploads square copies of photos used in round images (the circle comes from the Image element's border radius). Cached in `square_images.json`. |
 | `build_header_footer.py` | Updates **Header - Main** (#131) and creates **Footer - Main** (#181), both site-wide. |
 | `build_git.py` | **Get in Touch** Cornerstone Component (#182), placed on Home and About as a global-block element. |
 | `build_pages.py` | Rebuilds Home, Plan Your Visit, About, Connect, Get Connected, Watch Live, Messages, Events and Give on their existing page IDs (slugs unchanged). |
@@ -22,3 +23,9 @@ All in `spurgeon-global.css`, no plugin files touched:
 - **Sermon Manager Pro**: filter row (Filter label + 4 hairline selects), 3/2/1-column cards (rounded 16:10 image, date + series tag, title, speaker, 3-line excerpt, book/topic/service chips; AddToAny hidden on cards), single message (meta chips, lead paragraph, share row; title lives in the page header).
 - **Modern Events Calendar**: minimal toolbar (search, month/year, Monthly/List/Tile toggle), list cards with date block and View Detail, monthly grid with cyan event dots and a day panel, tile cards with photo overlay, single event (photo, meta card, export buttons, dark countdown, share icons).
 - Archive/single title bars match the page hero height (378px at 1440 and 390).
+
+## Styling approach
+
+Pages, the Get in Touch component, header, footer and title headers carry their design in Cornerstone element settings
+(Design, Typography, Border, Background, Flexbox, Position), editable in the builder's Inspector. Classes such as
+`sp-label` or `sp-card` are kept only as labels. Global CSS is limited to plugin output and the ticker.
