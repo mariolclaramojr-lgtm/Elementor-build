@@ -19,6 +19,21 @@ MAPS='https://www.google.com/maps/search/?api=1&query=1221+My+Street,+My+Town,+X
 MAP_EMBED='<iframe title="Map to Spurgeon Church" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.654663635445!2d-88.06987513195857!3d44.50155797910129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa51d9541b0f%3A0x45828001c843dcdd!2sLambeau%20Field!5e0!3m2!1sen!2sus!4v1671504339317!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>'
 NO_SHADOW='0px 0px 0px 0px'
 
+KEEP_CLASSES={'sp-form-card'}   # the only widget class global CSS still uses (cream fields in the form card)
+def clean(node):
+    """Drop widget classes that no CSS uses: styling lives in the element settings."""
+    if isinstance(node,list):
+        for n in node: clean(n)
+        return node
+    if isinstance(node,dict):
+        if 'class' in node:
+            keep=' '.join(c for c in str(node['class']).split() if c in KEEP_CLASSES)
+            if keep: node['class']=keep
+            else: node.pop('class')
+        for v in node.values():
+            if isinstance(v,(list,dict)): clean(v)
+    return node
+
 def _strip(d): return {k:v for k,v in d.items() if not k.startswith('effects_') and k not in ('_order','_id','_region')}
 def bp(el,key,xs=None,sm=None,md=None,lg=None):
     """Set responsive overrides for one setting."""

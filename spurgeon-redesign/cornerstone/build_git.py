@@ -24,7 +24,7 @@ els=[section('sp-section sp-git',[row([col([label('Visit')])],'100%'),
 existing=None
 p=os.environ['MCPDIR']+'/git_component_id'
 if os.path.exists(p): existing=int(open(p).read())
-args={'title':'Get in Touch','elements':els}
+args={'title':'Get in Touch','elements':clean(els)}
 if existing: args['id']=existing
 if __name__=='__main__':
     r=call('cs_save_component',args,timeout=120)

@@ -39,7 +39,7 @@ bar={'_type':'bar','_bp_base':'4_4','class':'sp-hbar','bar_height':'76px','bar_b
   '_modules':[container([logo_h]),
               container([nav_inline,cta],hide=' md sm xs',extra={'container_flex_direction':'row','container_flex_align':'center'}),
               container([navd],hide=' lg xl')]}
-r=call('cs_save_layout',{'id':131,'type':'header','title':'Header - Main','regions':{'top':[bar]},'settings':H['settings']},timeout=120)
+r=call('cs_save_layout',{'id':131,'type':'header','title':'Header - Main','regions':{'top':[clean(bar)]},'settings':H['settings']},timeout=120)
 print('header',json.dumps(r)[:300])
 
 # ---------------- FOOTER ----------------
@@ -79,5 +79,5 @@ row3={'_type':'bar','_bp_base':'4_4','class':'sp-footer-bar sp-fbar-mark','bar_h
   'bar_content_length':'100%','bar_row_flex_justify':'center','bar_box_shadow_dimensions':'0px 0px 0px 0px',
   '_modules':[container([wordmark],extra={'container_flex_align':'center','container_width':'100%'})]}
 fsettings={'customCSS':'','customJS':'','assignments':[{'group':True,'condition':'site:entire-site','value':''}],'assignment_priority':0}
-r=call('cs_save_layout',{'id':181,'type':'footer','title':'Footer - Main','regions':{'footer':[row1,row2,row3]},'settings':fsettings},timeout=120)
+r=call('cs_save_layout',{'id':181,'type':'footer','title':'Footer - Main','regions':{'footer':clean([row1,row2,row3])},'settings':fsettings},timeout=120)
 print('footer',json.dumps(r)[:300])

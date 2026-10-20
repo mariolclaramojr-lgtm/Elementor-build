@@ -33,7 +33,7 @@ ids={}
 p=os.environ['MCPDIR']+'/title_header_ids.json'
 if os.path.exists(p): ids=json.load(open(p))
 for key,title,dc,assign in [('archive','Header - Sermon & Event Archives','{{dc:archive:title}}',archive_assign),('single','Header - Sermon & Event Single','{{dc:post:title}}',single_assign),('messages','Header - Messages Archive','Messages',[a('archive:post-type','wpfc_sermon')])]:
-    args={'type':'header','title':title,'regions':{'top':[copy.deepcopy(navbar),title_bar(dc)]},
+    args={'type':'header','title':title,'regions':{'top':clean([copy.deepcopy(navbar),title_bar(dc)])},
           'settings':{'customCSS':'','customJS':'','assignments':assign,'assignment_priority':(2 if key=='messages' else 1),'multi_region':False}}
     if key in ids: args['id']=ids[key]
     r=call('cs_save_layout',args,timeout=120); ids[key]=r['id']; print(key,r['id'],json.dumps(r['settings'])[:200])

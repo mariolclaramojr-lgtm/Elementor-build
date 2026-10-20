@@ -219,6 +219,6 @@ PAGES={'home':(8,home),'plan-your-visit':(79,plan_your_visit),'about':(11,about)
 if __name__=='__main__':
     for name in (sys.argv[1:] if sys.argv[1:]!=['all'] else list(PAGES)):
         pid,fn=PAGES[name]
-        r=call('cs_save_element_tree',{'id':pid,'tree':fn()},timeout=180)
+        r=call('cs_save_element_tree',{'id':pid,'tree':clean(fn())},timeout=180)
         print(name,pid,json.dumps(r)[:120])
     call('cs_purge_cache',{},timeout=60)

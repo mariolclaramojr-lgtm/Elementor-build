@@ -49,7 +49,6 @@ body .gform_wrapper input[type=checkbox],body .gform_wrapper input[type=radio]{w
 body .gform_wrapper .gform_footer,body .gform_wrapper .gform_page_footer{margin:24px 0 0 !important;padding:0 !important}
 body .gform_wrapper .gform_footer input[type=submit],body .gform_wrapper .gform_button,body .gform_wrapper input.gform_button{height:52px;padding:0 28px !important;border:0 !important;border-radius:8px !important;background:var(--sp-ink) !important;color:#fff !important;font-family:var(--sp-body) !important;font-size:15px !important;font-weight:600 !important;letter-spacing:0 !important;text-transform:none !important;line-height:52px !important;cursor:pointer;box-shadow:none !important;transition:background .25s}
 body .gform_wrapper .gform_footer input[type=submit]:hover,body .gform_wrapper .gform_button:hover{background:var(--sp-cyan-ink) !important}
-body .sp-dark .gform_wrapper .gform_button{background:var(--sp-cyan) !important;color:var(--sp-ink) !important}
 body .gform_wrapper .gfield_error input,body .gform_wrapper .gfield_error textarea,body .gform_wrapper .gfield_error select{border-color:#C2410C !important}
 body .gform_wrapper li.gfield.gfield_error{background:transparent !important;border:0 !important}
 body .gform_wrapper .validation_message,body .gform_wrapper .gfield_validation_message{background:transparent !important;border:0 !important;padding:6px 0 0 !important;color:#C2410C !important;font-family:var(--sp-body) !important;font-size:14px !important}
