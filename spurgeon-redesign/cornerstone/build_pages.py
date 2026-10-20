@@ -134,7 +134,7 @@ GIVE2='As we grow, we know that it will be the grace of God that leads us and th
 def watch_live():
     return [page_hero('Watch Live',P('1630449151135-6db9690cbda4')),
       section('sp-section',[label_row('Live Stream'),
-        row([col([headline('Join us Sundays at 10am','h2','sp-h2',color=INK),video(None,None,embed=YT),div([button('Get Connected','/connect/','ink')],'sp-actions')])],'100%')],bg_color=CREAM),
+        row([col([headline('Join us Sundays at 10am','h2','sp-h2',color=INK),video(None,None,embed=YT)])],'100%')],bg_color=CREAM),
       section('sp-section sp-dark',[label_row('Generosity'),
         split(copy_block('Give Online',GIVE1,[GIVE2],[button('Give Now','/give/','cyan')],True),[circle('1529070538774-1843cb3265df','Church members following along with open Bibles')])],
         bg_image=P('1622598453695-4fbaf151aadc'),overlay=DARK),
