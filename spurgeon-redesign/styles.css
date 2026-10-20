@@ -416,64 +416,63 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .field input:user-invalid,.field textarea:user-invalid,.field select:user-invalid{border-color:#C2410C}
 
 /* =====================================================================
-   HOME — compact rhythm + round images (scoped to body.home for review;
-   move to :root / the shared rules once approved for the whole site)
+   HOME — compact rhythm + round images (applied site-wide via body.compact)
    ===================================================================== */
-.home{--pad:clamp(64px,7.5vw,112px);--t-display:clamp(48px,7.6vw,120px);--t-h2:clamp(34px,4.2vw,58px)}
-.home .label{margin-bottom:40px}
-.home .hero{min-height:88svh}
-.home .hero--center h1{margin-bottom:32px}
-.home .hero--center .hero-main{padding-top:104px;padding-bottom:clamp(48px,6vw,80px)}
-.home .ticker-group li{height:54px}
-.home .welcome-copy h2,.home .min-head h2,.home .touch-intro h2{margin-bottom:20px}
-.home .welcome-copy p{margin-bottom:14px}
-.home .welcome-copy .btn{margin-top:12px}
-.home .min-head{margin-bottom:48px}
-.home .touch{margin-bottom:clamp(48px,5vw,72px)}
-.home .details>div{padding:14px 0}
-.home .map-fluid{height:clamp(320px,32vw,440px)}
-.home .footer{padding-top:72px}
-.home .footer-top{padding-bottom:56px}
+.compact{--pad:clamp(64px,7.5vw,112px);--t-display:clamp(48px,7.6vw,120px);--t-h2:clamp(34px,4.2vw,58px)}
+.compact .label{margin-bottom:40px}
+.compact .hero{min-height:88svh}
+.compact .hero--center h1{margin-bottom:32px}
+.compact .hero--center .hero-main{padding-top:104px;padding-bottom:clamp(48px,6vw,80px)}
+.compact .ticker-group li{height:54px}
+.compact .welcome-copy h2,.compact .min-head h2,.compact .touch-intro h2{margin-bottom:20px}
+.compact .welcome-copy p{margin-bottom:14px}
+.compact .welcome-copy .btn{margin-top:12px}
+.compact .min-head{margin-bottom:48px}
+.compact .touch{margin-bottom:clamp(48px,5vw,72px)}
+.compact .details>div{padding:14px 0}
+.compact .map-fluid{height:clamp(320px,32vw,440px)}
+.compact .footer{padding-top:72px}
+.compact .footer-top{padding-bottom:56px}
 
 /* Round images (Cornerstone: Image element › Border Radius 50%) */
 .round{border-radius:50%;aspect-ratio:1/1;overflow:hidden}
 .round img{width:100%;height:100%;object-fit:cover}
 
 /* Welcome Home: one large circle with a smaller overlapping circle */
-.home .welcome-photos{position:relative;display:block;padding:0 0 12% 12%}
-.home .welcome-photos .frame{aspect-ratio:1/1;border-radius:50%}
-.home .welcome-photos .frame:first-child{width:100%}
-.home .welcome-photos .frame:last-child{position:absolute;left:0;bottom:0;width:44%;border:8px solid var(--cream);box-sizing:content-box}
-.home .welcome-photos::after{content:"";position:absolute;top:4%;right:2%;width:22%;aspect-ratio:1;border-radius:50%;border:1px solid var(--cyan);z-index:-1;transform:translate(18%,-18%)}
+.compact .welcome-photos{position:relative;display:block;padding:0 0 12% 12%}
+.compact .welcome-photos .frame{aspect-ratio:1/1;border-radius:50%}
+.compact .welcome-photos .frame:first-child{width:100%}
+.compact .welcome-photos .frame:last-child{position:absolute;left:0;bottom:0;width:44%;border:8px solid var(--cream);box-sizing:content-box}
+.compact .welcome-photos::after{content:"";position:absolute;top:4%;right:2%;width:22%;aspect-ratio:1;border-radius:50%;border:1px solid var(--cyan);z-index:-1;transform:translate(18%,-18%)}
 
 /* Ministry cards: circular photos, centred captions, no stagger */
-.home .cards{row-gap:40px}
-.home .card{align-items:center;text-align:center}
-.home .card:nth-child(even){margin-top:0}
-.home .card .frame{aspect-ratio:1/1;border-radius:50%;width:100%;max-width:240px;margin:0 auto 20px;outline:1px solid var(--line-light);outline-offset:8px}
-.home .card-meta{flex-direction:column;align-items:center;gap:6px;border-top:0;padding-top:4px}
-.home .card-meta span{order:-1}
-@media (max-width:1000px){.home .welcome-photos{width:100%;max-width:520px;margin:40px auto 0}}
-@media (max-width:480px){.home .card .frame{max-width:150px;outline-offset:5px}}
+.compact .cards{row-gap:40px}
+.compact .card{align-items:center;text-align:center}
+.compact .card:nth-child(even){margin-top:0}
+.compact .card .frame{aspect-ratio:1/1;border-radius:50%;width:100%;max-width:240px;margin:0 auto 20px;outline:1px solid var(--line-light);outline-offset:8px}
+.compact .card-meta{flex-direction:column;align-items:center;gap:6px;border-top:0;padding-top:4px}
+.compact .card-meta span{order:-1}
+@media (max-width:1000px){.compact .welcome-photos{width:100%;max-width:520px;margin:40px auto 0}}
+@media (max-width:480px){.compact .card .frame{max-width:150px;outline-offset:5px}}
 
 /* ---------- Solid header (no longer transparent over the hero) ---------- */
 .header{position:sticky;top:0;color:var(--ink);background:rgba(246,242,234,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
 .header .wrap,.header.solid .wrap{height:76px}
 .header .nav .btn:hover{background:var(--ink);color:var(--white)}
 .hero{min-height:calc(100svh - 76px)}
-.home .hero{min-height:calc(88svh - 76px)}
-.hero--center .hero-main,.home .hero--center .hero-main{padding-top:64px}
+.compact .hero{min-height:calc(88svh - 76px)}
+.hero--center .hero-main,.compact .hero--center .hero-main{padding-top:64px}
 .page-hero{min-height:clamp(340px,50svh,540px);padding:64px 0}
 @media (max-width:1060px){.header .wrap,.header.solid .wrap{height:72px}}
 
 /* ---------- Perfect circles: the photo always fills the circle ---------- */
-.home .welcome-photos .frame,.home .card .frame{position:relative;height:auto}
-.home .welcome-photos .frame img,.home .card .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
-.home .welcome-photos .frame:last-child{position:absolute;border:0;box-shadow:0 0 0 8px var(--cream);box-sizing:border-box}
+.compact .welcome-photos .frame,.compact .card .frame{position:relative;height:auto}
+.compact .welcome-photos .frame img,.compact .card .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.compact .welcome-photos .frame:last-child{position:absolute;border:0;box-shadow:0 0 0 8px var(--cream);box-sizing:border-box}
 /* thin ring so the circle edge always reads, even where the photo is pale */
-.home .welcome-photos .frame:first-child{overflow:visible;isolation:isolate}
-.home .welcome-photos .frame:first-child img{border-radius:50%}
-.home .welcome-photos .frame:first-child::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--line-strong);opacity:.25;pointer-events:none}
+.compact .welcome-photos .frame:first-child{overflow:visible;isolation:isolate}
+.compact .welcome-photos .frame:first-child img{border-radius:50%}
+.compact .welcome-photos .frame:first-child::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--line-strong);opacity:.25;pointer-events:none}
 
 /* Get in Touch on white */
 #visit{background:var(--white)}
@@ -516,6 +515,27 @@ select.select,.field select{appearance:none;-webkit-appearance:none;background-i
 .gi-contact .gi-label{display:none}
 @media (max-width:1000px){.gi-copy,.gi-map{grid-column:1/-1}.gi-times{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.gi-times{grid-template-columns:1fr}}
+
+/* ---------- Round images on inner pages (Cornerstone: Image › Border Radius 50%) ---------- */
+.compact .split-media .frame,.compact .member .frame{position:relative;aspect-ratio:1/1;height:auto;min-height:0;border-radius:50%;overflow:hidden;outline:1px solid var(--line);outline-offset:10px}
+.compact .split-media .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.compact .split-media .frame{width:100%;max-width:460px;margin:0 auto}
+.compact .on-dark .split-media .frame,.compact .bg-photo .split-media .frame{outline-color:var(--line-light)}
+.compact .split--form .form-media .frame{height:auto;min-height:0;aspect-ratio:1/1;max-width:340px}
+.compact .split--form{align-items:center}
+.compact .mission-copy{grid-column:1/7}
+.compact .mission-copy .statement{margin-bottom:28px}
+/* Leadership: round portraits, centred names */
+.compact .member{text-align:center}
+.compact .member .frame{max-width:240px;margin:0 auto 24px;outline-offset:8px}
+.compact .team{row-gap:40px}
+@media (max-width:1000px){.compact .split-media .frame{max-width:380px}.compact .mission-copy{grid-column:1/-1}}
+@media (max-width:600px){.compact .split-media .frame{max-width:300px;outline-offset:6px}.compact .member .frame{max-width:160px}}
+/* Compact inner-page rhythm */
+.compact .page-hero{min-height:clamp(300px,42svh,460px)}
+.compact .page-hero h1{font-size:clamp(46px,7vw,100px)}
+.compact .centered-head{margin-bottom:48px}
+.compact .split{row-gap:40px}
 
 /* Reveal on scroll (Cornerstone: Effects › Scroll › fade up on enter) */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
