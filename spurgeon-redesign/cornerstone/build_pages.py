@@ -18,7 +18,7 @@ def page_hero(title,photo):
     h=headline(title,'h1','sp-page-title','page',color=WHITE,align='center'); bp(h,'text_text_align','left','left')
     return section('sp-page-hero',[row([centered_col([crumbs(),h],HERO_H)],'100%')],bg_image=photo,overlay='rgba(22,24,27,0.72)',pad='none') | {'section_padding':'64px 0px'}
 
-def label_row(t,dark=False): return row([col([label(t,dark)])],'100%')
+def label_row(t,dark=False): return None   # section label rows removed site-wide; section() skips None
 
 def lead(html,dark=False):
     return text(html,'sp-lead',color=WHITE if dark else INK,font_family=HEAD,font_weight='500',font_size='clamp(20px,1.7vw,24px)',
@@ -69,10 +69,11 @@ def ticker():
                 '_modules':[{'_type':'icon','_bp_base':'4_4','icon':'cross','icon_font_size':'12px','icon_width':'1em','icon_height':'1em',
                              'icon_color':CYAN,'icon_bg_color':'transparent','_modules':[]}]}
     slides=[]
-    for t in TICK: slides+= [item(*t),sep()]
+    for _ in range(3):   # the set repeats so the marquee track is always longer than the screen and loops seamlessly
+        for t in TICK: slides+= [item(*t),sep()]
     track={'_type':'layout-slide-container','_bp_base':'4_4','layout_slide_container_layout_type':'inline',
            'layout_slide_container_inline_slide_basis':'auto','layout_slide_container_inline_gap':'40px','layout_slide_container_inline_align':'center',
-           'layout_slide_container_autoplay':'marquee','layout_slide_container_inline_marquee_speed':0.5,'layout_slide_container_inline_marquee_direction':'forward',
+           'layout_slide_container_autoplay':'marquee','layout_slide_container_inline_marquee_speed':0.05,'layout_slide_container_inline_marquee_direction':'forward',
            'layout_slide_container_inline_wrap_around':True,'layout_slide_container_pause_on_hover':True,'layout_slide_container_autoplay_start_in_view':False,
            'layout_slide_container_content_width':'100%','_modules':slides}
     band=div([track],'',padding='16px 0px 16px 0px',bg_color='rgba(22,24,27,0.6)',border_width='1px 0px 0px 0px',border_style='solid',
@@ -173,7 +174,8 @@ def about():
               text('<p>It’s our hope that people who visit our church or interact with our people walk away feeling encouraged, refreshed, and drawn closer to God. We want every man, woman, and child in our community to have the chance to experience and respond to the Gospel in action through our church.</p>')],
              [circle('1717278087114-c9a3efc29e1e','A worship gathering in a modern church')],layout='55% 45%')],bg_color=CREAM),
      section('sp-section',[label_row('Our Vision'),
-       row([icon_col(i,t,f'<p>{d}</p>') for i,t,d in VIS],'33.33% 33.33% 33.34%','',md='100%')],bg_color=CREAM,pad='tight-top'),
+       row([col([headline('Our Vision','h2','sp-h2','h2',color=INK)])],'100%'),
+       row([icon_col(i,t,f'<p>{d}</p>') for i,t,d in VIS],'33.33% 33.33% 33.34%','',md='100%',mt='28px')],bg_color=CREAM,pad='tight-top'),
      section('sp-section sp-dark',[label_row('What We Believe',True),
        row([col([headline('Our Beliefs','h2','sp-h2','h2',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>',dark=True,max_width='640px')])],'100%'),
        # Masonry: 4 columns; each holds a 'stack' Div (Flexbox column, 32px gap) of card Divs, so uneven text never

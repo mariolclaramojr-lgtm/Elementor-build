@@ -43,7 +43,7 @@ def bp(el,key,xs=None,sm=None,md=None,lg=None):
 def section(cls,mods,id_=None,bg_image=None,bg_video=None,bg_color=None,overlay=None,pad='normal'):
     s=_strip(copy.deepcopy(TPL['section']))
     for k in ('bg_lower_image','bg_lower_type','section_bg_advanced','undefined','section_bg_color'): s.pop(k,None)
-    s.update({'section_padding':{'normal':f'{PAD} 0px','tight-top':f'0px 0px {PAD} 0px','none':'0px'}[pad],'section_margin':'0px','class':cls,'_modules':mods})
+    s.update({'section_padding':{'normal':f'{PAD} 0px','tight-top':f'0px 0px {PAD} 0px','none':'0px'}[pad],'section_margin':'0px','class':cls,'_modules':[m for m in mods if m]})
     if bg_color: s['section_bg_color']=bg_color
     if id_: s['id']=id_
     if bg_image: s.update({'section_bg_advanced':True,'bg_lower_type':'image','bg_lower_image':bg_image,'bg_lower_image_size':'cover','bg_lower_image_position':'center'})
