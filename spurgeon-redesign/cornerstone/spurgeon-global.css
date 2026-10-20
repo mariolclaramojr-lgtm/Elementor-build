@@ -58,7 +58,7 @@ body .sp-dark .sp-h2 .x-text-content-text-primary,body .sp-dark .sp-h3 .x-text-c
 
 /* ---------- Buttons (Button element) ---------- */
 body .sp-btn{display:inline-flex !important;align-items:center !important;justify-content:center;height:52px;padding:0 24px !important;margin:0 !important;border:1px solid transparent !important;border-radius:8px !important;box-shadow:none !important;transition:background .25s,color .25s,border-color .25s}
-body .sp-btn .x-anchor-content{align-items:center !important;flex-direction:row-reverse;gap:12px;padding:0 !important}
+body .sp-btn .x-anchor-content{overflow:visible !important;align-items:center !important;flex-direction:row-reverse;gap:12px;padding:0 !important}
 body .sp-btn .x-anchor-text{margin:0 !important}
 body .sp-btn .x-anchor-text-primary{font-family:var(--sp-body) !important;font-size:15px !important;font-weight:600 !important;letter-spacing:0 !important;text-transform:none !important;line-height:1 !important;color:inherit !important}
 body .sp-btn .x-graphic{margin:0 !important}
