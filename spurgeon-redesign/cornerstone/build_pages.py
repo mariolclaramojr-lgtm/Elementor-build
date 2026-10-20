@@ -127,10 +127,15 @@ def about():
     VIS=[('o-book-open','Worship &amp; Study','Through weekly Bible studies, worship gatherings, and small groups, we will learn more about God and grow in our knowledge and love for Him.'),
          ('o-hand-holding-heart','Evangelism &amp; Outreach','By reaching out to and serving those around us, we will share God’s love and His message of hope with the people in our community.'),
          ('o-paper-plane','Multiplication &amp; Sending','By making disciples and supporting fellow believers as they step out to launch new churches and ministries around the world, we will expand our reach to exhibit God’s love to people across the globe.')]
-    # Beliefs: open card grid (all content visible). Body copy is the template's placeholder, kept word for word.
-    BELIEF_BODY='This is the accordion body content. It is typically best to keep this area short and to the point so it isn’t too overwhelming.'
-    BELIEFS=[('o-book-bible','The Bible'),('o-crown','The Father'),('o-cross','The Son'),('o-dove','The Holy Spirit'),
-             ('o-infinity','Eternity'),('o-user','Man'),('o-heart','Salvation'),('o-church','The Church')]
+    # Beliefs: open card grid, all content visible. Statements of similar length so the cards stay even.
+    BELIEFS=[('o-book-bible','The Bible','We believe the Bible is the inspired, trustworthy Word of God and our final authority for faith and life. It shows us who God is, the good news of Jesus and how to live.'),
+             ('o-crown','The Father','We believe in one God, eternally existing as Father, Son and Holy Spirit. The Father is the loving Creator of all things, faithful to His promises and near to all who call on Him.'),
+             ('o-cross','The Son','We believe Jesus Christ is fully God and fully man. He lived a sinless life, died on the cross for our sins, rose bodily from the grave and is coming again in glory.'),
+             ('o-dove','The Holy Spirit','We believe the Holy Spirit lives in every believer. He comforts, guides and empowers us, produces His fruit in our lives and gives gifts to build up and strengthen the church.'),
+             ('o-infinity','Eternity','We believe every person was created to live forever. Those who trust in Christ will enjoy eternal life with God, and one day He will make all things new and wipe away every tear.'),
+             ('o-user','Man','We believe every person is made in the image of God and deeply loved by Him. Yet all of us have sinned and fallen short, and we need a Savior to restore us.'),
+             ('o-heart','Salvation','We believe salvation is a free gift of God’s grace, received through faith in Jesus Christ alone. It cannot be earned by good works, only received with a humble and grateful heart.'),
+             ('o-church','The Church','We believe the church is the family of God, the body of Christ on earth. We gather to worship, grow in the Word, care for one another and share the gospel with our world.')]
     def member():
         ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px',mobile_max='160px')
         ph['image_margin']='0px auto 24px auto'; bp(ph,'image_margin','0px 0px 24px 0px','0px 0px 24px 0px')
@@ -148,7 +153,7 @@ def about():
      section('sp-section sp-dark',[label_row('What We Believe',True),
        row([col([headline('Our Beliefs','h2','sp-h2','h2',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>',dark=True,max_width='640px')])],'100%'),
        row([card([icon(i,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
-                  text(f'<p>{BELIEF_BODY}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True,cls='sp-belief') for i,t in BELIEFS],
+                  text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)',text_align='justify')],dark=True,cls='sp-belief') for i,t,d in BELIEFS],
            '25% 25% 25% 25%','sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%',mt='48px',gap_row='32px')],
        bg_image=P('1478147427282-58a87a120781'),overlay=DARK),
      section('sp-section',[label_row('Our Leadership'),row([col([headline('Our Leadership','h2','sp-h2','h2',color=INK)])],'100%'),

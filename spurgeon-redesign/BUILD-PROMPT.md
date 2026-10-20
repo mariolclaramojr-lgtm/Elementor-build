@@ -82,6 +82,9 @@ BUILD FOR CORNERSTONE
 - Section background layers for the video/photo + overlay. Pro Header & Footer Builders. Global Colors/Fonts.
 - Get in Touch as a Global Block. Sermons and events through the Looper. Fade-ins via Effects › Scroll.
 - Note in each page's HTML which Cornerstone element each part becomes.
+- Style with each widget's own settings (Design, Typography, Border, Background, Flexbox, breakpoints). No classes on
+  widgets and no custom CSS for anything a setting can do. Global CSS only for plugin output (forms, sermons, events)
+  and effects with no native element. Remove any class or CSS that is no longer used before handing over.
 
 LINKS & DELIVERY
 - Every button, card and link goes to a real page or section (e.g. ministry cards → connect.html#kids).
