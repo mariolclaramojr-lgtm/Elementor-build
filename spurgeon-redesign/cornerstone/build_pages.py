@@ -136,6 +136,9 @@ def about():
              ('o-user','Man','We believe every person is made in the image of God and deeply loved by Him. Yet all of us have sinned and fallen short, and we need a Savior to restore us.'),
              ('o-heart','Salvation','We believe salvation is a free gift of God’s grace, received through faith in Jesus Christ alone. It cannot be earned by good works, only received with a humble and grateful heart.'),
              ('o-church','The Church','We believe the church is the family of God, the body of Christ on earth. We gather to worship, grow in the Word, care for one another and share the gospel with our world.')]
+    def belief(ic,t,d,last=False):
+        return card_div([icon(ic,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
+                         text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)')],dark=True,mb='0px' if last else '32px')
     def member():
         ph=round_image('https://rrnewspurgeon.wpenginepowered.com/wp-content/uploads/2018/05/400x400-white.png','Leader photo',max_w='240px',ring_gap='8px',mobile_max='160px')
         ph['image_margin']='0px auto 24px auto'; bp(ph,'image_margin','0px 0px 24px 0px','0px 0px 24px 0px')
@@ -152,9 +155,10 @@ def about():
        row([icon_col(i,t,f'<p>{d}</p>') for i,t,d in VIS],'33.33% 33.33% 33.34%','',md='100%')],bg_color=CREAM,pad='tight-top'),
      section('sp-section sp-dark',[label_row('What We Believe',True),
        row([col([headline('Our Beliefs','h2','sp-h2','h2',color=WHITE),text('<p>This is how we view God, Jesus, the Bible, man, and many significant aspects of our faith. Firmly rooted in Scripture, our beliefs guide our decisions as a church.</p>',dark=True,max_width='640px')])],'100%'),
-       row([card([icon(i,dark=True,mb='28px'),headline(t,'h3','sp-h3','h3',color=WHITE,margin='0px 0px 10px 0px'),
-                  text(f'<p>{d}</p>',size='15.5px',lh='1.65',color='rgba(255,255,255,0.68)',text_align='justify')],dark=True,cls='sp-belief') for i,t,d in BELIEFS],
-           '25% 25% 25% 25%','sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%',mt='48px',gap_row='32px')],
+       # Masonry: 4 columns, each stacking 2 cards, so uneven text never leaves empty space in a box.
+       # Order runs down each column (Bible, Father | Son, Spirit | ...), which keeps phones in the original order.
+       row([col([belief(*BELIEFS[c*2]),belief(*BELIEFS[c*2+1],last=True)]) for c in range(4)],
+           '25% 25% 25% 25%','sp-beliefs',md='50% 50%',sm='50% 50%',xs='100%',mt='48px',gap_row='32px',align='flex-start')],
        bg_image=P('1478147427282-58a87a120781'),overlay=DARK),
      section('sp-section',[label_row('Our Leadership'),row([col([headline('Our Leadership','h2','sp-h2','h2',color=INK)])],'100%'),
        row([member() for _ in range(6)],'33.33% 33.33% 33.34%','',md='50% 50%',sm='50% 50%',xs='100%',mt='48px')],bg_color=CREAM),

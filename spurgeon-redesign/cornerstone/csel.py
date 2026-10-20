@@ -79,6 +79,12 @@ def card(mods,dark=False,cls='',pad='32px 28px 30px 28px'):
                border_width='1px',border_style='solid',border_color=LINE_L if dark else LINE,border_color_alt='rgba(61,182,219,0.5)' if dark else LINE,
                border_radius='14px',padding=pad)
 
+def card_div(mods,dark=False,cls='',pad='32px 28px 30px 28px',mb='0px'):
+    """Div styled as a card (same look as card()); stack several in one column for a masonry layout."""
+    return div(mods,cls,bg_color='rgba(255,255,255,0.04)' if dark else '#ffffff',bg_color_alt='rgba(255,255,255,0.07)' if dark else '#ffffff',
+               border_width='1px',border_style='solid',border_color=LINE_L if dark else LINE,border_color_alt='rgba(61,182,219,0.5)' if dark else LINE,
+               border_radius='14px',padding=pad,margin=f'0px 0px {mb} 0px')
+
 def div(mods,cls='',**st):
     d={'_type':'layout-div','_bp_base':'4_4','layout_div_flexbox':False,'layout_div_padding':'0px','layout_div_margin':'0px','_modules':mods}
     for k,v in st.items(): d['layout_div_'+k]=v
