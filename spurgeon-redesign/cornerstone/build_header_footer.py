@@ -42,7 +42,9 @@ bar={'_type':'bar','_bp_base':'4_4','class':'sp-hbar','bar_height':'76px','bar_b
   '_modules':[container([logo_h]),
               container([nav_inline,cta],hide=' md sm xs',extra={'container_flex_direction':'row','container_flex_align':'center'}),
               container([navd],hide=' lg xl')]}
-r=call('cs_save_layout',{'id':131,'type':'header','title':'Header - Main','regions':{'top':[clean(gutter(bar))]},'settings':H['settings']},timeout=120)
+# priority 10: the sermon/event title headers (priority 1-2) must win on their pages (lowest number wins)
+hs=dict(H['settings']); hs['assignment_priority']=10
+r=call('cs_save_layout',{'id':131,'type':'header','title':'Header - Main','regions':{'top':[clean(gutter(bar))]},'settings':hs},timeout=120)
 print('header',json.dumps(r)[:300])
 
 # ---------------- FOOTER ----------------
