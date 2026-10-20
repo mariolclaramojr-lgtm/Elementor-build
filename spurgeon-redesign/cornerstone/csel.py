@@ -40,6 +40,24 @@ def bp(el,key,xs=None,sm=None,md=None,lg=None):
     el.setdefault('_bp_data4_4',{})[key]=[xs,sm,md,lg,None]; return el
 
 # ---------- layout ----------
+def accent_line():
+    """Short cyan rule under section headings (native Line element)."""
+    return {'_type':'line','_bp_base':'4_4','line_direction':'horizontal','line_width':'48px','line_size':'3px','line_color':CYAN,
+            'line_style':'solid','line_border_radius':'2px','line_margin':'4px 0px 24px 0px','_modules':[]}
+
+def _accent(node):
+    """Insert an accent line after every section heading (H2 / statement) in the tree."""
+    if isinstance(node,dict):
+        mods=node.get('_modules')
+        if isinstance(mods,list):
+            out=[]
+            for m in mods:
+                _accent(m); out.append(m)
+                if isinstance(m,dict) and m.get('_type')=='headline' and set(str(m.get('class','')).split())&{'sp-h2','sp-statement'}:
+                    out.append(accent_line())
+            node['_modules']=out
+    return node
+
 def section(cls,mods,id_=None,bg_image=None,bg_video=None,bg_color=None,overlay=None,pad='normal'):
     s=_strip(copy.deepcopy(TPL['section']))
     for k in ('bg_lower_image','bg_lower_type','section_bg_advanced','undefined','section_bg_color'): s.pop(k,None)
@@ -49,7 +67,7 @@ def section(cls,mods,id_=None,bg_image=None,bg_video=None,bg_color=None,overlay=
     if bg_image: s.update({'section_bg_advanced':True,'bg_lower_type':'image','bg_lower_image':bg_image,'bg_lower_image_size':'cover','bg_lower_image_position':'center'})
     if bg_video: s.update({'section_bg_advanced':True,'bg_lower_type':'video','bg_lower_video':bg_video,'bg_lower_video_poster':UP+'spurgeon-hero-poster.jpg','bg_lower_video_loop':True,'bg_lower_video_object_fit':'cover'})
     if overlay: s.update({'section_bg_advanced':True,'bg_upper_type':'color','bg_upper_color':overlay,'section_bg_color':INK})
-    return s
+    return _accent(s)
 
 def row(cols,layout,cls='',md=None,sm='100%',xs='100%',align=None,mt=None,gap_row='40px'):
     """Content row: 1240px wide with a 32px gutter (20px on phones)."""
