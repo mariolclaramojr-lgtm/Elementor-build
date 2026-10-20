@@ -173,11 +173,15 @@ def button(label,href,kind,blank=False,arrow=True,height='52px',pad='0px 24px'):
     b.update({'anchor_text_primary_content':label,'anchor_href':href,'class':'sp-btn sp-btn--'+kind,
               'anchor_margin':'0px','anchor_padding':pad,'anchor_height':height,'anchor_flex_direction':'row-reverse','anchor_flex_align':'center','anchor_flex_justify':'center',
               'anchor_bg_color':bg,'anchor_bg_color_alt':bga,'anchor_border_width':'1px','anchor_border_style':'solid','anchor_border_color':bc,'anchor_border_color_alt':bca,
-              'anchor_border_radius':'8px','anchor_box_shadow_dimensions':NO_SHADOW,'anchor_text_margin':'0px',
+              'anchor_border_radius':'8px','anchor_text_margin':'0px',
               'anchor_primary_font_family':BODY,'anchor_primary_font_size':'15px','anchor_primary_font_weight':'600','anchor_primary_line_height':'1',
               'anchor_primary_letter_spacing':'0em','anchor_primary_text_transform':'none','anchor_primary_text_color':tc,'anchor_primary_text_color_alt':tca,
               'anchor_graphic':arrow,'anchor_graphic_icon':'arrow-right','anchor_graphic_icon_alt':'arrow-right','anchor_graphic_icon_font_size':'14px',
-              'anchor_graphic_icon_color':tc,'anchor_graphic_icon_color_alt':tca,'anchor_graphic_margin':'0px 0px 0px 12px','_modules':[]})
+              'anchor_graphic_icon_color':tc,'anchor_graphic_icon_color_alt':tca,'anchor_graphic_margin':'0px 0px 0px 12px',
+              # hover: lift (Effects › Alt), soft shadow (Box Shadow alt colour) and arrow scale (Graphic › Interaction)
+              'anchor_box_shadow_dimensions':'0px 12px 24px -12px','anchor_box_shadow_color':'transparent','anchor_box_shadow_color_alt':'rgba(22,24,27,0.35)',
+              'anchor_graphic_interaction':'x-anchor-scale-up','effects_alt':True,'effects_transform_alt':'translate(0px, -3px)',
+              'effects_duration':'300ms','effects_timing_function':'cubic-bezier(0.400, 0.000, 0.200, 1.000)','_modules':[]})
     if blank: b['anchor_blank']=True
     return b
 
