@@ -8,9 +8,9 @@ These rules come from the Spurgeon rebuild. Use them for every new site.
 ## 1. Process
 
 1. **Audit the template.** List every page and its sections, headings, copy, buttons, forms and media.
-2. **Design the home page first, in HTML.** Send desktop and phone screenshots. Wait for approval.
-3. **Design the other pages** in the same style once the home page is approved.
-4. **Build in WordPress** with Cornerstone, using the HTML as the reference.
+2. **Set up globals:** Global Colors, Global Fonts, the header, the footer and the shared Components.
+3. **Build the home page in Cornerstone first.** Send desktop and phone screenshots. Wait for approval.
+4. **Build the other pages** in the same style once the home page is approved.
 5. **Connect every link and button.**
 6. **Check responsiveness** at every Cornerstone breakpoint.
 7. **Run a full QA pass** (section 12) before calling it done.
