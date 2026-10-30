@@ -1,0 +1,164 @@
+/* ===== BETHEL REBRAND START ===== */
+/* =====================================================================
+   BETHEL CHURCH — global CSS (Theme Options › CSS)
+   Olive Grove palette: Forest #344027 · Forest Deep #283220 · Moss #6B8452
+   Sage #B5C99A · Sage Mist #E6ECDB · Fieldstone #5E6652 · Cream #F5F2E9
+   Type: Lora (headings) · Raleway (body, labels, buttons)
+   Colours and fonts live in Global Colors / Global Fonts; this file only
+   covers what Cornerstone has no element control for.
+   ===================================================================== */
+
+body { background-color: #F5F2E9; }
+::selection { background: #B5C99A; color: #283220; }
+:focus-visible { outline: 2px solid #6B8452; outline-offset: 3px; }
+
+/* Headings: the last word of every H1/H2 gets the accent, added automatically by the global JS.
+   Moss on light backgrounds (large type only, per the brand), Sage on Forest and photos. */
+.bc-accent, .x-text-headline em { color: #6B8452; font-style: normal; }
+.bc-accent.is-on-dark { color: #B5C99A; }
+
+/* Links typed inside Text elements */
+.x-text a:not(.x-anchor) { color: inherit; text-decoration: underline; text-decoration-color: rgba(107,132,82,.55); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+.x-text a:not(.x-anchor):hover { color: #6B8452; text-decoration-color: currentColor; }
+
+/* Text-link buttons ("Learn more"): small arrow that slides on hover */
+.x-anchor.bc-link .x-anchor-text-primary::after { content: "→"; display: inline-block; margin-left: .5em; transition: transform .25s ease; }
+.x-anchor.bc-link:hover .x-anchor-text-primary::after { transform: translateX(4px); }
+
+/* Buttons: soft lift */
+.x-anchor-button { transition: background-color .25s, color .25s, border-color .25s, transform .25s !important; }
+.x-anchor-button:not(.bc-link):hover { transform: translateY(-1px); }
+
+/* Cards: hover lift (class set by the build, editors never type it) */
+.bc-lift { transition: transform .35s ease, box-shadow .35s ease; }
+.bc-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(40,50,32,.12); }
+
+/* Photo cards (home "There's a place for you here"): slow zoom on hover */
+.bc-photo-card > .x-bg .x-bg-layer-upper-color,
+.bc-series > .x-bg .x-bg-layer-upper-color { background-image: linear-gradient(to top, rgba(40,50,32,.94) 0%, rgba(40,50,32,.55) 45%, rgba(40,50,32,0) 78%); }
+.bc-photo-card .x-bg-layer-lower-image { transition: transform .8s cubic-bezier(.25,.46,.45,.94); }
+.bc-photo-card:hover .x-bg-layer-lower-image { transform: scale(1.06); }
+.bc-series .x-bg-layer-lower-image { transition: transform 1.2s ease; }
+.bc-series:hover .x-bg-layer-lower-image { transform: scale(1.04); }
+
+/* Home hero: frosted service-times card */
+.bc-glass { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+
+/* Header: shadow once the sticky bar is attached */
+.bc-nav.x-bar-fixed { box-shadow: 0 8px 30px rgba(40,50,32,.10) !important; }
+.x-off-canvas .x-off-canvas-content { background-color: #344027; }
+
+/* Counters sit on a baseline */
+.x-counter { text-align: left; }
+
+/* ---------- Gravity Forms — GLOBAL: every form, current and future ----------
+   The global JS marks each form .bc-gf-light or .bc-gf-dark from its background. */
+.gform_wrapper.gform-theme--orbital {
+  --gf-font-family-base: "Raleway", sans-serif !important;
+  --gf-ctrl-font-family: "Raleway", sans-serif !important;
+  --gf-ctrl-label-font-family-primary: "Raleway", sans-serif !important;
+  --gf-ctrl-label-font-family-secondary: "Raleway", sans-serif !important;
+  --gf-ctrl-btn-font-family: "Raleway", sans-serif !important;
+  --gf-form-gap-x: 18px; --gf-form-gap-y: 22px;
+  --gf-ctrl-size: 52px; --gf-ctrl-font-size: 16px;
+  --gf-radius: 10px !important;
+  --gf-ctrl-label-font-size-primary: 12px; --gf-ctrl-label-font-weight-primary: 600;
+  --gf-ctrl-label-letter-spacing-primary: .16em;
+  --gf-ctrl-btn-radius: 999px; --gf-ctrl-btn-font-size: 14px; --gf-ctrl-btn-font-weight: 700;
+  --gf-ctrl-btn-letter-spacing: .1em; --gf-ctrl-btn-padding-x: 30px; --gf-ctrl-btn-size: 54px;
+  --gf-color-primary: #344027 !important; --gf-color-primary-rgb: 52, 64, 39 !important;
+  --gf-color-primary-contrast: #F5F2E9 !important; --gf-color-primary-contrast-rgb: 245, 242, 233 !important;
+  --gf-color-primary-darker: #283220 !important; --gf-color-primary-lighter: #6B8452 !important;
+  margin: 0;
+}
+.gform_wrapper.gform-theme--orbital.bc-gf-light {
+  --gf-color-secondary: #FFFFFF !important; --gf-color-secondary-rgb: 255, 255, 255 !important;
+  --gf-color-secondary-contrast: #344027 !important; --gf-color-secondary-contrast-rgb: 52, 64, 39 !important;
+  --gf-color-secondary-darker: #F5F2E9 !important; --gf-color-secondary-lighter: #FFFFFF !important;
+  --gf-color-out-ctrl-light: rgba(52, 64, 39, .14) !important; --gf-color-out-ctrl-light-rgb: 52, 64, 39 !important;
+  --gf-color-out-ctrl-light-darker: rgba(52, 64, 39, .24) !important; --gf-color-out-ctrl-light-lighter: #FBFAF6 !important;
+  --gf-color-out-ctrl-dark: #5E6652 !important; --gf-color-out-ctrl-dark-rgb: 94, 102, 82 !important;
+  --gf-color-out-ctrl-dark-darker: #344027 !important; --gf-color-out-ctrl-dark-lighter: #8A9179 !important;
+  --gf-color-in-ctrl: #FFFFFF !important; --gf-color-in-ctrl-rgb: 255, 255, 255 !important;
+  --gf-color-in-ctrl-contrast: #344027 !important; --gf-color-in-ctrl-contrast-rgb: 52, 64, 39 !important;
+  --gf-color-in-ctrl-darker: #F5F2E9 !important; --gf-color-in-ctrl-lighter: #FFFFFF !important;
+  --gf-color-in-ctrl-primary: #344027 !important; --gf-color-in-ctrl-primary-rgb: 52, 64, 39 !important;
+  --gf-color-in-ctrl-primary-contrast: #F5F2E9 !important; --gf-color-in-ctrl-primary-contrast-rgb: 245, 242, 233 !important;
+  --gf-color-in-ctrl-primary-darker: #283220 !important; --gf-color-in-ctrl-primary-lighter: #6B8452 !important;
+  --gf-color-in-ctrl-light: rgba(52, 64, 39, .14) !important; --gf-color-in-ctrl-light-rgb: 52, 64, 39 !important;
+  --gf-color-in-ctrl-light-darker: rgba(52, 64, 39, .24) !important; --gf-color-in-ctrl-light-lighter: #FBFAF6 !important;
+  --gf-color-in-ctrl-dark: #8A9179 !important; --gf-color-in-ctrl-dark-rgb: 138, 145, 121 !important;
+  --gf-color-in-ctrl-dark-darker: #344027 !important; --gf-color-in-ctrl-dark-lighter: #5E6652 !important;
+  --gf-ctrl-label-color-req: #6B8452;
+  --gf-ctrl-border-color: rgba(52, 64, 39, .18) !important;
+}
+.gform_wrapper.gform-theme--orbital.bc-gf-dark {
+  --gf-color-primary: #B5C99A !important; --gf-color-primary-rgb: 181, 201, 154 !important;
+  --gf-color-primary-contrast: #344027 !important; --gf-color-primary-contrast-rgb: 52, 64, 39 !important;
+  --gf-color-primary-darker: #F5F2E9 !important; --gf-color-primary-lighter: #CFDDBA !important;
+  --gf-color-secondary: #3D4A2F !important; --gf-color-secondary-rgb: 61, 74, 47 !important;
+  --gf-color-secondary-contrast: #F5F2E9 !important; --gf-color-secondary-contrast-rgb: 245, 242, 233 !important;
+  --gf-color-secondary-darker: #283220 !important; --gf-color-secondary-lighter: #46553A !important;
+  --gf-color-out-ctrl-light: rgba(181, 201, 154, .14) !important; --gf-color-out-ctrl-light-rgb: 181, 201, 154 !important;
+  --gf-color-out-ctrl-light-darker: rgba(181, 201, 154, .3) !important; --gf-color-out-ctrl-light-lighter: #283220 !important;
+  --gf-color-out-ctrl-dark: rgba(245, 242, 233, .7) !important; --gf-color-out-ctrl-dark-rgb: 245, 242, 233 !important;
+  --gf-color-out-ctrl-dark-darker: #F5F2E9 !important; --gf-color-out-ctrl-dark-lighter: rgba(245, 242, 233, .55) !important;
+  --gf-color-in-ctrl: rgba(245, 242, 233, .06) !important; --gf-color-in-ctrl-rgb: 245, 242, 233 !important;
+  --gf-color-in-ctrl-contrast: #F5F2E9 !important; --gf-color-in-ctrl-contrast-rgb: 245, 242, 233 !important;
+  --gf-color-in-ctrl-darker: #283220 !important; --gf-color-in-ctrl-lighter: #46553A !important;
+  --gf-color-in-ctrl-primary: #B5C99A !important; --gf-color-in-ctrl-primary-rgb: 181, 201, 154 !important;
+  --gf-color-in-ctrl-primary-contrast: #344027 !important; --gf-color-in-ctrl-primary-contrast-rgb: 52, 64, 39 !important;
+  --gf-color-in-ctrl-primary-darker: #F5F2E9 !important; --gf-color-in-ctrl-primary-lighter: #CFDDBA !important;
+  --gf-color-in-ctrl-light: rgba(181, 201, 154, .2) !important; --gf-color-in-ctrl-light-rgb: 181, 201, 154 !important;
+  --gf-color-in-ctrl-light-darker: rgba(181, 201, 154, .35) !important; --gf-color-in-ctrl-light-lighter: #283220 !important;
+  --gf-color-in-ctrl-dark: rgba(245, 242, 233, .55) !important; --gf-color-in-ctrl-dark-rgb: 245, 242, 233 !important;
+  --gf-color-in-ctrl-dark-darker: #F5F2E9 !important; --gf-color-in-ctrl-dark-lighter: rgba(245, 242, 233, .7) !important;
+  --gf-ctrl-label-color-req: #B5C99A;
+  --gf-ctrl-border-color: rgba(181, 201, 154, .3) !important;
+}
+body .gform_wrapper.gform-theme--orbital .gfield_label { font: 600 12px/1.4 "Raleway", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #5E6652; }
+body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gfield_label { color: #B5C99A; }
+body .gform_wrapper.gform-theme--orbital .gform_required_legend { display: none; }
+body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 54px !important; padding: 0 32px !important; font: 700 14px/1 "Raleway", sans-serif !important; letter-spacing: .1em !important; text-transform: uppercase !important; box-shadow: none !important; transition: background-color .25s, color .25s; }
+body .gform_wrapper.gform-theme--orbital.bc-gf-light .gform_footer .gform_button:hover { background-color: #283220 !important; }
+body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_footer .gform_button { background-color: #B5C99A !important; color: #344027 !important; }
+body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_footer .gform_button:hover { background-color: #F5F2E9 !important; }
+.gform_wrapper.gform-theme--orbital textarea { min-height: 120px; height: 120px; resize: vertical; }
+.gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: rgba(52,64,39,.4); }
+.gform_wrapper.gform-theme--orbital.bc-gf-dark input::placeholder, .gform_wrapper.gform-theme--orbital.bc-gf-dark textarea::placeholder { color: rgba(245,242,233,.45); }
+.gform_wrapper.gform-theme--orbital.bc-gf-dark input, .gform_wrapper.gform-theme--orbital.bc-gf-dark textarea { color-scheme: dark; }
+.gform_wrapper.gform-theme--orbital .gform_footer { margin-top: 8px; padding: 0; }
+.gform_confirmation_message { font: 600 17px/1.6 "Raleway", sans-serif; color: #344027; }
+.bc-gf-dark .gform_confirmation_message, .bc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #B5C99A; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors { background: rgba(107,132,82,.08); border-color: rgba(107,132,82,.4); box-shadow: none; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: #344027; }
+.gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.bc-gf-dark .validation_message { color: #F5F2E9; }
+
+/* ---------- Sermon Manager Pro (Watch page + sermon archives/singles) ---------- */
+.smpro-archive, .smpro-archive *, [class*="smpro-"] { font-family: "Raleway", sans-serif; }
+[class*="smpro-"] h1, [class*="smpro-"] h2, [class*="smpro-"] h3, [class*="smpro-"] h4,
+.smpro-title, .smpro-title__text, .smpro-item__title, .smpro-item__title a { font-family: "Lora", serif !important; font-weight: 500 !important; color: #344027 !important; letter-spacing: -.01em; }
+[class*="smpro-"] a { color: #344027; }
+[class*="smpro-"] a:hover { color: #6B8452; }
+[class*="smpro-"] button, [class*="smpro-"] .button, [class*="smpro-"] input[type="submit"] { background: #344027 !important; color: #F5F2E9 !important; border: 0 !important; border-radius: 999px !important; font: 700 13px/1 "Raleway", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; }
+[class*="smpro-"] select, [class*="smpro-"] input[type="text"], [class*="smpro-"] input[type="search"] { border: 1px solid rgba(52,64,39,.18) !important; border-radius: 10px !important; background: #fff !important; color: #344027 !important; font: 500 15px "Raleway", sans-serif !important; }
+.smpro-title { margin-top: -25px; line-height: 1.8rem; padding-top: 5px; padding-bottom: 5px; }
+.smpro-title__text { font-size: 1.6rem; }
+.single-wpfc_sermon .content_wrapper, .tax-wpfc_preacher .content_wrapper, .post-type-archive-wpfc_sermon .content_wrapper { width: min(1200px, 88%); margin: 0 auto; position: relative; }
+#wpfc_sermon_sorting { justify-content: center; }
+.wpfc-sermon-single-image { text-align: center; }
+[class*="wpfc"] h2.entry_title, [class*="wpfc"] .post_info { display: none; }
+.wpfc-sermon-single .entry-header { display: none; }
+
+/* ---------- Modern Events Calendar (Events page) ---------- */
+.mec-wrap, .mec-wrap * { font-family: "Raleway", sans-serif; }
+.mec-wrap h1, .mec-wrap h2, .mec-wrap h3, .mec-wrap h4, .mec-wrap .mec-event-title, .mec-wrap .mec-event-title a,
+.mec-wrap .mec-month-divider span, .mec-wrap .mec-calendar-header h2, .mec-wrap .mec-skin-monthly-view-month-navigator-container h2 { font-family: "Lora", serif !important; font-weight: 500 !important; color: #344027 !important; text-transform: none !important; letter-spacing: -.01em !important; }
+.mec-wrap .mec-color, .mec-wrap .mec-color-hover:hover, .mec-wrap .mec-color-before *:before, .mec-wrap a:hover { color: #6B8452 !important; }
+.mec-wrap .mec-bg-color, .mec-wrap .mec-bg-color-hover:hover, .mec-wrap .mec-calendar-day.mec-selected-day, .mec-wrap .mec-has-event:after { background-color: #344027 !important; }
+.mec-wrap .mec-border-color, .mec-wrap .mec-border-color-hover:hover { border-color: #6B8452 !important; }
+.mec-wrap .mec-calendar { border-color: rgba(52,64,39,.14) !important; border-radius: 16px; overflow: hidden; }
+.mec-wrap .mec-calendar dt, .mec-wrap .mec-calendar dl dt { border-color: rgba(52,64,39,.1) !important; }
+.mec-wrap .mec-calendar .mec-calendar-day.mec-has-event a { color: #344027; font-weight: 700; }
+.mec-wrap .mec-load-more-button, .mec-wrap .mec-booking-button, .mec-wrap button { border-radius: 999px !important; }
+/* ===== BETHEL REBRAND END ===== */
