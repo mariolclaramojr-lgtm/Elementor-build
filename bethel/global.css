@@ -1,58 +1,22 @@
 /* ===== BETHEL REBRAND START ===== */
 /* =====================================================================
    BETHEL CHURCH — global CSS (Theme Options › CSS)
-   Olive Grove palette: Forest #344027 · Forest Deep #283220 · Moss #6B8452
-   Sage #B5C99A · Sage Mist #E6ECDB · Fieldstone #5E6652 · Cream #F5F2E9
-   Type: Lora (headings) · Raleway (body, labels, buttons)
-   Colours and fonts live in Global Colors / Global Fonts; this file only
-   covers what Cornerstone has no element control for.
+   Everything else is set in Cornerstone (Global Colors, Global Fonts, element settings).
+   This file only covers what Cornerstone has no control for: the heading accent added
+   by the global JS, and plugin output (Gravity Forms, Sermon Manager Pro, MEC).
+   Olive Grove: Forest #344027 · Forest Deep #283220 · Moss #6B8452 · Sage #B5C99A
+   Fieldstone #5E6652 · Cream #F5F2E9 · Lora (headings) · Raleway (body)
    ===================================================================== */
 
-body { background-color: #F5F2E9; }
-::selection { background: #B5C99A; color: #283220; }
-:focus-visible { outline: 2px solid #6B8452; outline-offset: 3px; }
-
-/* Headings: the last word of every H1/H2 gets the accent, added automatically by the global JS.
-   Moss on light backgrounds (large type only, per the brand), Sage on Forest and photos. */
-.bc-accent, .x-text-headline em { color: #6B8452; font-style: normal; }
-.bc-accent.is-on-dark { color: #B5C99A; }
-
-/* Links typed inside Text elements */
-.x-text a:not(.x-anchor) { color: inherit; text-decoration: underline; text-decoration-color: rgba(107,132,82,.55); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
-.x-text a:not(.x-anchor):hover { color: #6B8452; text-decoration-color: currentColor; }
-
-/* Text-link buttons ("Learn more"): small arrow that slides on hover */
-.x-anchor.bc-link .x-anchor-text-primary::after { content: "→"; display: inline-block; margin-left: .5em; transition: transform .25s ease; }
-.x-anchor.bc-link:hover .x-anchor-text-primary::after { transform: translateX(4px); }
-
-/* Buttons: soft lift */
-.x-anchor-button { transition: background-color .25s, color .25s, border-color .25s, transform .25s !important; }
-.x-anchor-button:not(.bc-link):hover { transform: translateY(-1px); }
-
-/* Cards: hover lift (class set by the build, editors never type it) */
-.bc-lift { transition: transform .35s ease, box-shadow .35s ease; }
-.bc-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(40,50,32,.12); }
-
-/* Photo cards (home "There's a place for you here"): slow zoom on hover */
-.bc-photo-card > .x-bg .x-bg-layer-upper-color,
-.bc-series > .x-bg .x-bg-layer-upper-color { background-image: linear-gradient(to top, rgba(40,50,32,.94) 0%, rgba(40,50,32,.55) 45%, rgba(40,50,32,0) 78%); }
-.bc-photo-card .x-bg-layer-lower-image { transition: transform .8s cubic-bezier(.25,.46,.45,.94); }
-.bc-photo-card:hover .x-bg-layer-lower-image { transform: scale(1.06); }
-.bc-series .x-bg-layer-lower-image { transition: transform 1.2s ease; }
-.bc-series:hover .x-bg-layer-lower-image { transform: scale(1.04); }
-
-/* Home hero: frosted service-times card */
-.bc-glass { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
-
-/* Header: shadow once the sticky bar is attached */
-.bc-nav.x-bar-fixed { box-shadow: 0 8px 30px rgba(40,50,32,.10) !important; }
-.x-off-canvas .x-off-canvas-content { background-color: #344027; }
-
-/* Counters sit on a baseline */
-.x-counter { text-align: left; }
+/* Headings: the last word of every H1/H2 gets the accent, added automatically by the global JS
+   (editors just type the heading). Moss on light backgrounds, Sage on Forest and photos. */
+.lc-last-word, .x-text-headline em { color: #6B8452; font-style: normal; }
+.lc-last-word.is-on-dark { color: #B5C99A; }
 
 /* ---------- Gravity Forms — GLOBAL: every form, current and future ----------
-   The global JS marks each form .bc-gf-light or .bc-gf-dark from its background. */
+   Same rules as the Lewis site: Orbital theme, every form styled here (no shortcode styles=,
+   no per-element CSS), inserted with the Form Integration element. The global JS marks each
+   form .lc-gf-light or .lc-gf-dark from the background it sits on. */
 .gform_wrapper.gform-theme--orbital {
   --gf-font-family-base: "Raleway", sans-serif !important;
   --gf-ctrl-font-family: "Raleway", sans-serif !important;
@@ -71,7 +35,7 @@ body { background-color: #F5F2E9; }
   --gf-color-primary-darker: #283220 !important; --gf-color-primary-lighter: #6B8452 !important;
   margin: 0;
 }
-.gform_wrapper.gform-theme--orbital.bc-gf-light {
+.gform_wrapper.gform-theme--orbital.lc-gf-light {
   --gf-color-secondary: #FFFFFF !important; --gf-color-secondary-rgb: 255, 255, 255 !important;
   --gf-color-secondary-contrast: #344027 !important; --gf-color-secondary-contrast-rgb: 52, 64, 39 !important;
   --gf-color-secondary-darker: #F5F2E9 !important; --gf-color-secondary-lighter: #FFFFFF !important;
@@ -92,7 +56,7 @@ body { background-color: #F5F2E9; }
   --gf-ctrl-label-color-req: #6B8452;
   --gf-ctrl-border-color: rgba(52, 64, 39, .18) !important;
 }
-.gform_wrapper.gform-theme--orbital.bc-gf-dark {
+.gform_wrapper.gform-theme--orbital.lc-gf-dark {
   --gf-color-primary: #B5C99A !important; --gf-color-primary-rgb: 181, 201, 154 !important;
   --gf-color-primary-contrast: #344027 !important; --gf-color-primary-contrast-rgb: 52, 64, 39 !important;
   --gf-color-primary-darker: #F5F2E9 !important; --gf-color-primary-lighter: #CFDDBA !important;
@@ -117,48 +81,86 @@ body { background-color: #F5F2E9; }
   --gf-ctrl-border-color: rgba(181, 201, 154, .3) !important;
 }
 body .gform_wrapper.gform-theme--orbital .gfield_label { font: 600 12px/1.4 "Raleway", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #5E6652; }
-body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gfield_label { color: #B5C99A; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gfield_label { color: #B5C99A; }
 body .gform_wrapper.gform-theme--orbital .gform_required_legend { display: none; }
 body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 54px !important; padding: 0 32px !important; font: 700 14px/1 "Raleway", sans-serif !important; letter-spacing: .1em !important; text-transform: uppercase !important; box-shadow: none !important; transition: background-color .25s, color .25s; }
-body .gform_wrapper.gform-theme--orbital.bc-gf-light .gform_footer .gform_button:hover { background-color: #283220 !important; }
-body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_footer .gform_button { background-color: #B5C99A !important; color: #344027 !important; }
-body .gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_footer .gform_button:hover { background-color: #F5F2E9 !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-light .gform_footer .gform_button:hover { background-color: #283220 !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button { background-color: #B5C99A !important; color: #344027 !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:hover { background-color: #F5F2E9 !important; }
 .gform_wrapper.gform-theme--orbital textarea { min-height: 120px; height: 120px; resize: vertical; }
 .gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: rgba(52,64,39,.4); }
-.gform_wrapper.gform-theme--orbital.bc-gf-dark input::placeholder, .gform_wrapper.gform-theme--orbital.bc-gf-dark textarea::placeholder { color: rgba(245,242,233,.45); }
-.gform_wrapper.gform-theme--orbital.bc-gf-dark input, .gform_wrapper.gform-theme--orbital.bc-gf-dark textarea { color-scheme: dark; }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark input::placeholder, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea::placeholder { color: rgba(245,242,233,.45); }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark input, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea { color-scheme: dark; }
 .gform_wrapper.gform-theme--orbital .gform_footer { margin-top: 8px; padding: 0; }
 .gform_confirmation_message { font: 600 17px/1.6 "Raleway", sans-serif; color: #344027; }
-.bc-gf-dark .gform_confirmation_message, .bc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #B5C99A; }
+.lc-gf-dark .gform_confirmation_message, .lc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #B5C99A; }
 .gform_wrapper.gform-theme--orbital .gform_validation_errors { background: rgba(107,132,82,.08); border-color: rgba(107,132,82,.4); box-shadow: none; }
 .gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: #344027; }
-.gform_wrapper.gform-theme--orbital.bc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.bc-gf-dark .validation_message { color: #F5F2E9; }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.lc-gf-dark .validation_message { color: #F5F2E9; }
 
-/* ---------- Sermon Manager Pro (Watch page + sermon archives/singles) ---------- */
-.smpro-archive, .smpro-archive *, [class*="smpro-"] { font-family: "Raleway", sans-serif; }
-[class*="smpro-"] h1, [class*="smpro-"] h2, [class*="smpro-"] h3, [class*="smpro-"] h4,
-.smpro-title, .smpro-title__text, .smpro-item__title, .smpro-item__title a { font-family: "Lora", serif !important; font-weight: 500 !important; color: #344027 !important; letter-spacing: -.01em; }
-[class*="smpro-"] a { color: #344027; }
-[class*="smpro-"] a:hover { color: #6B8452; }
-[class*="smpro-"] button, [class*="smpro-"] .button, [class*="smpro-"] input[type="submit"] { background: #344027 !important; color: #F5F2E9 !important; border: 0 !important; border-radius: 999px !important; font: 700 13px/1 "Raleway", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; }
-[class*="smpro-"] select, [class*="smpro-"] input[type="text"], [class*="smpro-"] input[type="search"] { border: 1px solid rgba(52,64,39,.18) !important; border-radius: 10px !important; background: #fff !important; color: #344027 !important; font: 500 15px "Raleway", sans-serif !important; }
-.smpro-title { margin-top: -25px; line-height: 1.8rem; padding-top: 5px; padding-bottom: 5px; }
-.smpro-title__text { font-size: 1.6rem; }
+/* ---------- Sermon Manager Pro — [smpro_archive] on Watch + sermon archives ----------
+   Same card as the site's event cards: white, 18px corners, Lora title, Moss label, pill buttons. */
+.smpro-items, .smpro-items * { font-family: "Raleway", sans-serif; }
+.smpro-items-container { gap: 24px; }
+.smpro-items .wpfc-sermon { margin-bottom: 0 !important; }
+.smpro-items .smpro-item { height: 100%; background: #FFFFFF; border: 1px solid rgba(52,64,39,.14); border-radius: 18px; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease; }
+.smpro-items .smpro-item:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(40,50,32,.12); }
+.smpro-items .smpro-image__background { border-radius: 0; }
+.smpro-items .smpro-item__main { padding: 26px 28px 28px !important; }
+.smpro-items .smpro-meta-item_type_date .smpro-meta-item__text { white-space: nowrap; font: 600 12px/1.4 "Raleway", sans-serif; letter-spacing: .18em; text-transform: uppercase; color: #6B8452; }
+.smpro-items .smpro-title { margin: 10px 0 8px !important; padding: 0; line-height: 1.25; }
+.smpro-items .smpro-title__text, .smpro-title__text { font: 600 1.5rem/1.25 "Lora", serif !important; color: #344027 !important; text-decoration: none; }
+.smpro-items .smpro-title__text:hover { color: #6B8452 !important; }
+.smpro-items .smpro-description { font-size: 16px; line-height: 1.65; color: #5E6652; padding-top: 0 !important; margin-bottom: 14px; }
+.smpro-items .smpro-meta-item { font-size: 14px; color: #5E6652; }
+.smpro-items .smpro-meta-item a { color: #344027; text-decoration: underline; text-decoration-color: rgba(107,132,82,.5); text-underline-offset: 3px; }
+.smpro-items .smpro-meta-item__prefix { font-weight: 600; color: #344027; }
+.smpro-items .smpro-item__footer { margin-top: 18px; }
+.smpro-items .smpro-item__topline, .smpro-items .smpro-meta-item_type_date { width: auto !important; max-width: none !important; }
+.smpro-items .smpro-item__footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.smpro-items .smpro-item__meta .smpro-meta-item__text { display: inline-block; padding: 6px 14px; border-radius: 999px; background: #E6ECDB; color: #344027; font: 600 11px/1.3 "Raleway", sans-serif; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.smpro-items .a2a_kit .a2a_svg { border-radius: 999px !important; background-color: #344027 !important; }
+/* Filters (Preacher / Series / Topic / Book) */
+.smpro-items .sm-filtering { margin-bottom: 36px; }
+#wpfc_sermon_sorting { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+#wpfc_sermon_sorting > div { flex: 0 0 auto !important; width: 200px; max-width: none !important; margin: 0 !important; overflow: visible !important; }
+#wpfc_sermon_sorting form { width: 100%; }
+#wpfc_sermon_sorting select { height: 48px; width: 100% !important; max-width: none !important; min-width: 0; padding: 0 40px 0 18px; border: 1px solid rgba(52,64,39,.18) !important; border-radius: 999px !important; background-color: #FFFFFF; color: #344027; font: 600 13px "Raleway", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+#wpfc_sermon_sorting select:focus { border-color: #6B8452 !important; outline: none; }
+.sm-pagination a, .sm-pagination span { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(52,64,39,.18); color: #344027; font: 700 13px "Raleway", sans-serif; text-decoration: none; }
+.sm-pagination .current, .sm-pagination a:hover { background: #344027; border-color: #344027; color: #F5F2E9; }
+/* Single sermon + archive templates */
 .single-wpfc_sermon .content_wrapper, .tax-wpfc_preacher .content_wrapper, .post-type-archive-wpfc_sermon .content_wrapper { width: min(1200px, 88%); margin: 0 auto; position: relative; }
-#wpfc_sermon_sorting { justify-content: center; }
 .wpfc-sermon-single-image { text-align: center; }
-[class*="wpfc"] h2.entry_title, [class*="wpfc"] .post_info { display: none; }
-.wpfc-sermon-single .entry-header { display: none; }
+[class*="wpfc"] h2.entry_title, [class*="wpfc"] .post_info, .wpfc-sermon-single .entry-header { display: none; }
+@media (max-width: 767px) { #wpfc_sermon_sorting > div { width: 100% !important; } }
 
-/* ---------- Modern Events Calendar (Events page) ---------- */
+/* ---------- Modern Events Calendar — [MEC id="446"] (Grid skin, Classic style) on Events ----------
+   Same card as the site's event cards. */
 .mec-wrap, .mec-wrap * { font-family: "Raleway", sans-serif; }
-.mec-wrap h1, .mec-wrap h2, .mec-wrap h3, .mec-wrap h4, .mec-wrap .mec-event-title, .mec-wrap .mec-event-title a,
-.mec-wrap .mec-month-divider span, .mec-wrap .mec-calendar-header h2, .mec-wrap .mec-skin-monthly-view-month-navigator-container h2 { font-family: "Lora", serif !important; font-weight: 500 !important; color: #344027 !important; text-transform: none !important; letter-spacing: -.01em !important; }
-.mec-wrap .mec-color, .mec-wrap .mec-color-hover:hover, .mec-wrap .mec-color-before *:before, .mec-wrap a:hover { color: #6B8452 !important; }
-.mec-wrap .mec-bg-color, .mec-wrap .mec-bg-color-hover:hover, .mec-wrap .mec-calendar-day.mec-selected-day, .mec-wrap .mec-has-event:after { background-color: #344027 !important; }
-.mec-wrap .mec-border-color, .mec-wrap .mec-border-color-hover:hover { border-color: #6B8452 !important; }
-.mec-wrap .mec-calendar { border-color: rgba(52,64,39,.14) !important; border-radius: 16px; overflow: hidden; }
-.mec-wrap .mec-calendar dt, .mec-wrap .mec-calendar dl dt { border-color: rgba(52,64,39,.1) !important; }
-.mec-wrap .mec-calendar .mec-calendar-day.mec-has-event a { color: #344027; font-weight: 700; }
-.mec-wrap .mec-load-more-button, .mec-wrap .mec-booking-button, .mec-wrap button { border-radius: 999px !important; }
+.mec-wrap .mec-event-grid-classic .mec-event-article { background: #FFFFFF; border: 1px solid rgba(52,64,39,.14) !important; border-radius: 18px; overflow: hidden; padding: 0; margin-bottom: 24px; box-shadow: none; transition: transform .35s ease, box-shadow .35s ease; }
+.mec-wrap .mec-event-grid-classic .mec-event-article:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(40,50,32,.12); }
+.mec-wrap .mec-event-grid-classic .mec-event-image img { display: block; width: 100%; height: 230px; object-fit: cover; }
+.mec-wrap .mec-event-grid-classic .mec-event-content { padding: 26px 28px 8px; text-align: left; background: #FFFFFF; }
+.mec-wrap .mec-event-grid-classic .mec-event-date { display: inline-block; margin: 0 0 12px; padding: 6px 14px; border-radius: 999px; background: #E6ECDB !important; color: #344027 !important; font: 600 11px/1.3 "Raleway", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.mec-wrap .mec-event-grid-classic .mec-event-title { margin: 0 0 8px; font: 600 1.5rem/1.25 "Lora", serif !important; text-transform: none !important; letter-spacing: -.01em; }
+.mec-wrap .mec-event-grid-classic .mec-event-title a { color: #344027 !important; }
+.mec-wrap .mec-event-grid-classic .mec-event-title a:hover { color: #6B8452 !important; }
+.mec-wrap .mec-event-grid-classic .mec-grid-event-location { font-size: 15px; line-height: 1.6; color: #5E6652; margin: 0; }
+.mec-wrap .mec-event-grid-classic .mec-event-footer { position: static; height: auto; padding: 16px 28px 28px; border-top: 0; background: #FFFFFF; text-align: left; }
+.mec-wrap .mec-event-grid-classic .mec-event-footer .mec-booking-button { position: static; display: inline-flex; align-items: center; height: auto; padding: 11px 22px; border: 1.5px solid #344027; border-radius: 999px; background: transparent; color: #344027; font: 700 12px/1 "Raleway", sans-serif; letter-spacing: .1em; text-transform: uppercase; transition: background-color .25s, color .25s; }
+.mec-wrap .mec-event-grid-classic .mec-event-footer .mec-booking-button:hover { background: #344027; color: #F5F2E9; }
+.mec-wrap .mec-event-sharing-wrap { display: none; }
+.mec-wrap .mec-load-more-button { border: 1.5px solid #344027; border-radius: 999px; background: transparent; color: #344027; font: 700 13px/1 "Raleway", sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 16px 30px; }
+.mec-wrap .mec-load-more-button:hover { background: #344027; color: #F5F2E9; }
+/* Empty state ("No event found!") */
+.mec-skin-grid-events-container:not(:has(article)) { padding: 48px 32px; border-radius: 18px; background: #E6ECDB; text-align: center; font: 500 1.35rem/1.4 "Lora", serif; color: #344027; }
+/* Search form */
+.mec-wrap .mec-search-form { padding: 0; margin-bottom: 32px; background: transparent; box-shadow: none; border: 0; }
+.mec-wrap .mec-search-form select, .mec-wrap .mec-search-form input[type="search"], .mec-wrap .mec-search-form input[type="text"] { height: 48px; border: 1px solid rgba(52,64,39,.18); border-radius: 999px; background: #FFFFFF; color: #344027; font: 600 13px "Raleway", sans-serif; box-shadow: none; }
+.mec-wrap .mec-search-form .mec-dropdown-wrap i, .mec-wrap .mec-search-form .mec-text-input-search i { display: none; }
+/* MEC colour settings fallback (brand) */
+.mec-wrap .mec-color, .mec-wrap .mec-color-hover:hover, .mec-wrap .mec-color-before *:before { color: #6B8452; }
+.mec-wrap .mec-bg-color, .mec-wrap .mec-bg-color-hover:hover { background-color: #344027; }
+.mec-wrap .mec-border-color, .mec-wrap .mec-border-color-hover:hover { border-color: #6B8452; }
 /* ===== BETHEL REBRAND END ===== */

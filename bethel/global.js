@@ -1,13 +1,14 @@
 /* ===== BETHEL REBRAND START ===== */
-/* Bethel Church — global helpers (Theme Options › JS). Editors type plain text; this does the formatting.
-   1. H1/H2: the last word gets the accent colour (span.bc-accent); headings of more than five
-      words get the last two words. One-word headings stay plain. A heading that already
-      contains <em> is left as typed. Moss on light backgrounds, Sage on Forest/photos.
-   2. Gravity Forms: each form is marked bc-gf-light / bc-gf-dark from the background it sits on,
-      so a new form picks up the right styling automatically. */
+/* Bethel Church — global helpers (same script as the Lewis site) (Theme Options › JS). Editors type plain text; this does the formatting.
+   1. H1/H2: the last word gets the accent colour (span.lc-last-word); headings of more than five
+      words get the last two words. One-word headings stay plain.
+      A heading that already contains <em> is left as typed.
+   2. Gravity Forms: each form is marked light or dark (lc-gf-light / lc-gf-dark) from the
+      background it sits on, so a new form picks up the right styling automatically.
+   3. Headings: the accent is Sage when the heading's own text is light (dark background), Moss otherwise. */
 (function () {
-  // not: forms, top bar + menu bar, off-canvas menu, search/blog result titles, plugin listing titles
-  var SKIP = '.gform_wrapper, .bc-topbar, .bc-nav, .x-off-canvas, article .entry-title, .smpro-item, .smpro-archive, .wpfc-sermon, .mec-wrap, [data-bc-no-accent]';
+  // not: forms, popups, header + footer, search/blog result titles, sermon/event listing titles from plugins
+  var SKIP = '.gform_wrapper, .tooltipster-box, .x-masthead, .x-colophon, .x-off-canvas, article .entry-title, .smpro-item, .smpro-archive, .wpfc-sermon, .mec-wrap, [data-lc-no-accent]';
 
   function lum(rgb) {
     var p = (rgb || '').match(/[\d.]+/g);
@@ -17,7 +18,7 @@
   }
 
   function accentHeading(h) {
-    if (h.querySelector('.bc-accent, em') || h.closest(SKIP)) return;
+    if (h.querySelector('.lc-last-word, em') || h.closest(SKIP)) return;
     var words = h.textContent.trim().split(/\s+/).length;
     if (words < 2) return; // one-word headings stay plain
     var walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT, null), node, last = null;
@@ -27,7 +28,7 @@
     var m = (words > 5 && last.nodeValue.match(/^([\s\S]*?)(\S+\s+\S+)(\s*)$/)) || last.nodeValue.match(/^([\s\S]*?)(\S+)(\s*)$/);
     if (!m) return;
     var span = document.createElement('span');
-    span.className = 'bc-accent';
+    span.className = 'lc-last-word';
     span.textContent = m[2];
     var l = lum(getComputedStyle(h).color);
     if (l !== null && l > 0.6) span.classList.add('is-on-dark');
@@ -56,13 +57,13 @@
   }
 
   function markForm(w) {
-    if (w.classList.contains('bc-gf-dark') || w.classList.contains('bc-gf-light')) return;
-    w.classList.add(onDark(w) ? 'bc-gf-dark' : 'bc-gf-light');
+    if (w.classList.contains('lc-gf-dark') || w.classList.contains('lc-gf-light')) return;
+    w.classList.add(onDark(w) ? 'lc-gf-dark' : 'lc-gf-light');
   }
 
   function run(root) {
     (root || document).querySelectorAll('h1, h2').forEach(accentHeading);
-    (root || document).querySelectorAll('.gform_wrapper, .gform_confirmation_wrapper').forEach(markForm);
+    (root || document).querySelectorAll('.gform_wrapper').forEach(markForm);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { run(); });

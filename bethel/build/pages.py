@@ -101,7 +101,7 @@ def home():
             info_item("Where", "4261 Bethel Overlook<br>Ellicott City, MD", dark=True),
         ], layout_div_flexbox=True, layout_div_flex_direction="column", layout_div_flex_gap="20px"),
         buttons(button("Get Directions", DIRECTIONS, "link-dark", blank=True), margin="28px 0px 0px 0px"),
-    ], bg=a(FOREST_DEEP, .55), pad="36px 34px 36px 34px", border=False, cls="bc-glass",
+    ], bg=a(FOREST_DEEP, .55), pad="36px 34px 36px 34px", border=False, effects_backdrop_filter="blur(10px)",
         layout_div_border_width="1px", layout_div_border_style="solid",
         layout_div_border_color=a(SAGE, .35), layout_div_max_width="380px")
 
@@ -144,7 +144,7 @@ def home():
             heading(title, "h3", margin="0px 0px 12px 0px"),
             text(body, size="16px", margin="0px 0px 22px 0px"),
             button(link, href, "link"),
-        ], cls="bc-card bc-lift", layout_div_height="100%")]))
+        ], lift=True, layout_div_height="100%")]))
 
     events = []
     for img, when, title, body in [
@@ -162,7 +162,7 @@ def home():
                 heading(title, "h3", margin="0px 0px 10px 0px"),
                 text(body, size="16px"),
             ], layout_div_padding="26px 28px 30px 28px"),
-        ], pad="0px 0px 0px 0px", cls="bc-card bc-lift", layout_div_overflow_x="hidden",
+        ], pad="0px 0px 0px 0px", lift=True, layout_div_overflow_x="hidden",
             layout_div_overflow_y="hidden", layout_div_height="100%")]))
 
     connect_cards = [
@@ -190,7 +190,7 @@ def home():
     return [
         section("1. Hero (video)", [hero_row], bg=FOREST, video=VIDEO, poster="323:full", image="485:full",
                 overlay=a(FOREST_DEEP, .78), pad="150px 0px 150px 0px", pad_md="110px 0px 96px 0px",
-                pad_xs="88px 0px 72px 0px", cls="bc-home-hero"),
+                pad_xs="88px 0px 72px 0px"),
         section("2. Ticker + Announcement", [row("Content", [
             col("Ticker", [marquee], layout_column_overflow="hidden"),
             col("Announcement", [flex("Announcement", [
@@ -232,7 +232,8 @@ def home():
             label_text("— Bethel Church", dark=True, margin="8px 0px 0px 0px"),
         ], layout_column_flexbox=True, layout_column_flex_direction="column", layout_column_flex_align="center",
             layout_column_max_width="880px", layout_column_text_align="center")],
-            layout="100%", layout_row_flex_justify="center")], bg=FOREST_DEEP, pad="112px 0px 112px 0px"),
+            layout="100%", layout_row_flex_justify="center")], bg=FOREST_DEEP, image="476:full",
+            overlay=a(FOREST_DEEP, .86), pad="128px 0px 128px 0px"),
         section("7. Watch & Listen", [row("Content", [
             col("Text", [
                 section_head("Sermons", "Watch and listen",
@@ -240,7 +241,7 @@ def home():
                 card("Now Preaching", [
                     label_text("Now preaching"),
                     heading("Revelation: The Alpha and the Omega", "h3", margin="0px 0px 0px 0px"),
-                ], bg=MIST, border=False, pad="24px 28px 24px 28px", radius="14px", cls=None,
+                ], bg=MIST, border=False, pad="24px 28px 24px 28px", radius="14px",
                     layout_div_margin="28px 0px 0px 0px"),
                 buttons(button("Watch Live", "/watch/"), button("Previous Sermons", "/watch/", "outline")),
             ]),
@@ -255,11 +256,11 @@ def home():
                     layout_div_border_style="solid", layout_div_border_color=SAGE),
             ], layout_column_bg_advanced=True, bg_lower_type="image", bg_lower_image="459:full",
                 bg_upper_type="color",
-                bg_upper_color=a(FOREST_DEEP, .15),
+                bg_upper_color=a(FOREST_DEEP, .45),
                 layout_column_flexbox=True, layout_column_flex_direction="column",
                 layout_column_flex_justify="space-between", layout_column_flex_align="flex-start",
                 layout_column_min_height="560px", layout_column_padding="32px 36px 40px 36px",
-                layout_column_border_radius="20px", layout_column_overflow="hidden", **{"class": "bc-series"}),
+                layout_column_border_radius="20px", layout_column_overflow="hidden"),
         ])], bg=WHITE, anchor="watch"),
         section("8. Upcoming Events", [
             row("Heading", [
@@ -279,7 +280,7 @@ def home():
             col("Form", [card("Form Box", [
                 el("form-integration", "Form (Gravity Forms)", form_integration_type="gravity-forms",
                    form_integration_gravityforms_id="1", form_integration_width="100%"),
-            ], bg=a(CREAM, .06), border=False, pad="36px 36px 36px 36px", cls=None,
+            ], bg=a(CREAM, .06), border=False, pad="36px 36px 36px 36px",
                 layout_div_border_width="1px", layout_div_border_style="solid", layout_div_border_color=a(SAGE, .3))]),
         ], layout="45% 55%")], bg=FOREST, anchor="give"),
         find_us_section(10),
@@ -301,7 +302,7 @@ def about():
     ]:
         beliefs.append(col(f"Card – {title}", [card("Card", [
             icon(ic), heading(title, "h3", margin="0px 0px 12px 0px"), text(body, size="16px"),
-        ], cls="bc-card bc-lift", layout_div_height="100%")]))
+        ], lift=True, layout_div_height="100%")]))
 
     team = []
     for img, name, role in [("499:full", "Ken Cavey", "Senior Pastor"), ("498:full", "Del Morgan", "Worship Pastor"),
@@ -430,10 +431,10 @@ def new_here():
                     layout_div_border_style="solid", layout_div_border_color=SAGE),
             ], layout_column_bg_advanced=True, bg_lower_type="image", bg_lower_image="460:full",
                 bg_upper_type="color",
-                bg_upper_color=a(FOREST_DEEP, .15),
+                bg_upper_color=a(FOREST_DEEP, .45),
                 layout_column_flexbox=True, layout_column_flex_direction="column", layout_column_flex_justify="flex-end",
                 layout_column_min_height="520px", layout_column_padding="36px 36px 40px 36px",
-                layout_column_border_radius="20px", layout_column_overflow="hidden", **{"class": "bc-series"}),
+                layout_column_border_radius="20px", layout_column_overflow="hidden"),
         ])], bg=CREAM, anchor="families"),
         find_us_section(4),
     ]
@@ -512,7 +513,7 @@ def give():
         kids = [icon(ic), heading(title, "h3", margin="0px 0px 12px 0px"), text(body, size="16px")]
         if btn:
             kids.append(buttons(button(*btn, small=True), margin="22px 0px 0px 0px"))
-        ways.append(col(f"Card – {title}", [card("Card", kids, cls="bc-card bc-lift", layout_div_height="100%")]))
+        ways.append(col(f"Card – {title}", [card("Card", kids, lift=True, layout_div_height="100%")]))
     return [
         page_hero("484:full", "Give", "Give with purpose",
                   "Giving is worship. Through your generosity, lives are changed and the mission of Bethel Church continues "
@@ -547,7 +548,7 @@ def events():
                   "there's always something happening for every season of life.",
                   "Join us"),
         section("2. Calendar (MEC shortcode)", [row("Content", [col("Calendar", [
-            raw('[MEC id="446"]', "Calendar (MEC shortcode)")])], layout="100%")], bg=WHITE, cls="bc-plugin"),
+            raw('[MEC id="446"]', "Calendar (MEC shortcode)")])], layout="100%")], bg=WHITE),
     ]
 
 
@@ -558,7 +559,7 @@ def watch():
                   "Stay connected and grow in faith throughout the week.",
                   "Watch anytime"),
         section("2. Sermon Archive (shortcode)", [row("Content", [col("Archive", [
-            raw('[smpro_archive per_page="15"]', "Sermon List (shortcode)")])], layout="100%")], bg=WHITE, cls="bc-plugin"),
+            raw('[smpro_archive per_page="15"]', "Sermon List (shortcode)")])], layout="100%")], bg=WHITE),
     ]
 
 

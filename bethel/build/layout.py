@@ -23,7 +23,7 @@ def header(original):
     top, desk, mob = [_strip(b) for b in original]
 
     # --- Top bar ------------------------------------------------------------
-    top.update(bar_bg_color=FOREST_DEEP, bar_height="40px", bar_outer_spacing="40px", **{"class": "bc-topbar"})
+    top.update(bar_bg_color=FOREST_DEEP, bar_height="40px", bar_outer_spacing="40px")
     left, right = top["_modules"]
     for h in left["_modules"] + right["_modules"][1:2]:
         h.update(text_font_family=RALEWAY, text_font_size="11px", text_font_weight="600",
@@ -44,7 +44,7 @@ def header(original):
     desk.pop("bar_position_top", None)
     desk.update(bar_bg_color=WHITE, bar_height="84px", bar_outer_spacing="40px", bar_sticky=True,
                 bar_box_shadow_dimensions="0px 1px 0px 0px", bar_box_shadow_color=LINE,
-                **{"class": "bc-nav"})
+                )
     logo_c, nav_c, cta_c = desk["_modules"]
     logo_c["_modules"][0].update(image_src=LOGO_ON_LIGHT, image_alt="Bethel Church home",
                                  image_styled_width="172px", image_margin="0px 0px 0px 0px")
@@ -54,17 +54,16 @@ def header(original):
                  text_font_weight="600", text_letter_spacing="0.12em", text_text_color=FOREST,
                  text_text_color_alt=MOSS)
     cta = button("Plan Your Visit", "/new-here/", small=True, label="Button – Plan Your Visit")
-    cta.update(_region="top", **{"class": "bc-nav-cta"})
+    cta.update(_region="top")
     cta_c["_modules"] = [cta]
 
     # --- Mobile bar + off-canvas menu ------------------------------------------
     mob.update(bar_bg_color=WHITE, bar_height="72px", bar_sticky=True,
-               bar_box_shadow_dimensions="0px 1px 0px 0px", bar_box_shadow_color=LINE,
-               **{"class": "bc-nav"})
+               bar_box_shadow_dimensions="0px 1px 0px 0px", bar_box_shadow_color=LINE)
     mob["_modules"][0]["_modules"][0].update(image_src=LOGO_ON_LIGHT, image_alt="Bethel Church home",
                                              image_styled_max_width="150px", image_styled_width="150px")
     oc = mob["_modules"][1]["_modules"][0]
-    oc.update(toggle_color=FOREST, toggle_color_alt=MOSS, off_canvas_close_color=a(CREAM, .7),
+    oc.update(off_canvas_content_bg_color=FOREST, toggle_color=FOREST, toggle_color_alt=MOSS, off_canvas_close_color=a(CREAM, .7),
               off_canvas_close_color_alt=CREAM)
     head, links = oc["_modules"]
     head.update(layout_div_bg_color=FOREST_DEEP)

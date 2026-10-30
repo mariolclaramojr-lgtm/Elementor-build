@@ -58,9 +58,8 @@ def el(_type, label=None, children=None, **props):
 # ---- Layout ---------------------------------------------------------------------
 def section(label, rows, bg=CREAM, pad="120px 0px 120px 0px", pad_md="88px 0px 88px 0px",
             pad_xs="64px 0px 64px 0px", image=None, video=None, poster=None, overlay=None,
-            anchor=None, cls=None, **extra):
-    s = el("section", label, rows, section_bg_color=bg, section_padding=pad, id=anchor,
-           **{"class": cls} if cls else {}, **extra)
+            anchor=None, **extra):
+    s = el("section", label, rows, section_bg_color=bg, section_padding=pad, id=anchor, **extra)
     if image or video:
         s.update(section_bg_advanced=True, bg_lower_type="video" if video else "image",
                  bg_lower_image=image, bg_lower_video=video, bg_lower_video_poster=poster,
@@ -175,7 +174,13 @@ def button(text_, href, style="primary", label=None, small=False, blank=False):
                   anchor_primary_font_weight="700", anchor_primary_font_size="13px",
                   anchor_primary_letter_spacing="0.12em", anchor_primary_text_transform="uppercase",
                   anchor_primary_text_color=c, anchor_primary_text_color_alt=MOSS if c == FOREST else CREAM,
-                  anchor_box_shadow_dimensions="0em 0em 0em 0em", **{"class": "bc-link"})
+                  anchor_box_shadow_dimensions="0em 0em 0em 0em",
+                  anchor_flexbox=True, anchor_flex_direction="row-reverse", anchor_flex_align="center",
+                  anchor_graphic=True, anchor_graphic_type="icon", anchor_graphic_icon="arrow-right",
+                  anchor_graphic_icon_alt="arrow-right", anchor_graphic_icon_font_size="0.85em",
+                  anchor_graphic_icon_width="1em", anchor_graphic_icon_height="1em",
+                  anchor_graphic_icon_color=c, anchor_graphic_icon_color_alt=MOSS if c == FOREST else CREAM,
+                  anchor_graphic_margin="0px 0px 0px 8px")
     bg, fg, br, bg2, fg2, br2 = BTN_STYLES[style]
     return el("button", label or f"Button – {text_}", anchor_text_primary_content=text_,
               anchor_href=href, anchor_blank=blank or None,
@@ -207,9 +212,13 @@ def image(src, alt, height="520px", height_md="380px", radius="20px", label="Ima
 
 
 def card(label, children, bg=WHITE, pad="36px 32px 36px 32px", radius="18px", border=True,
-         cls="bc-card", **extra):
+         lift=False, **extra):
     d = div(label, children, layout_div_bg_color=bg, layout_div_padding=pad,
-            layout_div_border_radius=radius, **{"class": cls} if cls else {}, **extra)
+            layout_div_border_radius=radius, **extra)
+    if lift:  # hover: rise 6px + soft shadow (Effects › Interaction)
+        d.update(layout_div_box_shadow_dimensions="0px 24px 60px 0px", layout_div_box_shadow_color="transparent",
+                 layout_div_box_shadow_color_alt=a(FOREST_DEEP, .12), effects_alt=True,
+                 effects_transform_alt="translate(0px, -6px)", effects_duration="350ms")
     if border:
         d.update(layout_div_border_width="1px", layout_div_border_style="solid",
                  layout_div_border_color=LINE)
@@ -245,7 +254,8 @@ def counter(end, label, suffix=None, dark=False):
               counter_before_after_font_family=RALEWAY, counter_before_after_font_weight="600",
               counter_before_after_font_size="12px", counter_before_after_letter_spacing="0.16em",
               counter_before_after_text_transform="uppercase",
-              counter_before_after_text_color=SAGE if dark else MOSS)
+              counter_before_after_text_color=SAGE if dark else MOSS,
+              counter_number_text_align="left", counter_before_after_text_align="left")
 
 
 def raw(content, label):
@@ -265,7 +275,7 @@ def page_hero(img, crumb_label, title, intro, eyebrow_text):
             ]),
         ], layout="100%"),
     ], bg=FOREST, image=img, overlay=a(FOREST_DEEP, .8), pad="150px 0px 130px 0px",
-        pad_md="120px 0px 96px 0px", pad_xs="96px 0px 72px 0px", cls="bc-page-hero")
+        pad_md="120px 0px 96px 0px", pad_xs="96px 0px 72px 0px")
 
 
 def section_head(eyebrow_text, title, intro=None, dark=False, max_width="720px", label="Heading Group"):
@@ -294,11 +304,11 @@ def photo_card(img, tag, title, body, link_text, href):
         text(body, dark=True, size="15px", line="1.6", margin="0px 0px 18px 0px"),
         button(link_text, href, "link-dark"),
     ], layout_column_bg_advanced=True, bg_lower_type="image", bg_lower_image=img,
-        bg_upper_type="color", bg_upper_color=a(FOREST_DEEP, .15),  # + bottom gradient in global CSS
+        bg_upper_type="color", bg_upper_color=a(FOREST_DEEP, .55),
         layout_column_flexbox=True, layout_column_flex_direction="column",
         layout_column_flex_justify="flex-end", layout_column_min_height="460px",
         layout_column_padding="32px 28px 32px 28px", layout_column_border_radius="18px",
-        layout_column_overflow="hidden", **{"class": "bc-photo-card"})
+        layout_column_overflow="hidden")
     bp(c, "layout_column_min_height", md="380px")
     return c
 
