@@ -324,10 +324,7 @@ def about():
                      "we've grown into a multigenerational church family rooted in Scripture and committed to making disciples who make disciples. "
                      "What started as a small gathering of believers has become a thriving community of faith, welcoming people from Ellicott City, "
                      "Dunloggin, Autumn Hill, Wheatfield Way and beyond. We believe every person deserves a place to belong, and we'd love for that place to be Bethel."),
-                flex("Counters", [counter("1961", "Founded"), counter("12", "Ministries", "+"), counter("3", "Weekly gatherings")],
-                     gap="48px", margin="40px 0px 0px 0px", align="flex-start",
-                     layout_div_padding="32px 0px 0px 0px", layout_div_border_width="1px 0px 0px 0px",
-                     layout_div_border_style="solid", layout_div_border_color=LINE),
+                counters(counter("1961", "Founded"), counter("12", "Ministries", "+"), counter("3", "Weekly gatherings"), margin="40px 0px 0px 0px"),
             ]),
             image_with_quote("477:full", "Bethel Church family", "65", "Years strong",
                              "We want Bethel to feel less like an event you attend and more like a family you belong to.",
@@ -397,10 +394,7 @@ def new_here():
                     section_head("Welcome", "Welcome to our community"),
                     text("<p>We're so glad you're here. Whether you're visiting for the first time, exploring our programs, or looking for a place to belong, you are welcome here.</p>"
                          "<p>Our heart is to create a safe, encouraging and faith-filled environment where individuals and families can grow together, build meaningful connections and experience genuine community.</p>"),
-                    flex("Counters", [counter("1961", "Founded"), counter("12", "Ministries", "+"), counter("3", "Weekly gatherings")],
-                         gap="48px", margin="32px 0px 0px 0px", align="flex-start",
-                         layout_div_padding="28px 0px 0px 0px", layout_div_border_width="1px 0px 0px 0px",
-                         layout_div_border_style="solid", layout_div_border_color=LINE),
+                    counters(counter("1961", "Founded"), counter("12", "Ministries", "+"), counter("3", "Weekly gatherings"), margin="32px 0px 0px 0px"),
                 ]),
                 col("Video", [el("video", "Welcome Video", video_type="player", mejs_type="video",
                                  mejs_source_files=VIDEO, mejs_poster="323:full", mejs_preload="metadata",
@@ -554,7 +548,7 @@ def events():
 
 def watch():
     return [
-        page_hero("492:full", "Watch", "Watch messages",
+        page_hero("479:full", "Watch", "Watch messages",
                   "Watch sermons, worship services and encouraging messages from Bethel Church anytime, anywhere. "
                   "Stay connected and grow in faith throughout the week.",
                   "Watch anytime"),

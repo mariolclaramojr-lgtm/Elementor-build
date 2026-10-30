@@ -132,3 +132,26 @@ def footer(original):
     s = section("Footer", [main, bottom], bg=FOREST_DEEP, pad="88px 0px 36px 0px", pad_md="72px 0px 32px 0px",
                 pad_xs="56px 0px 28px 0px")
     return [s]
+
+
+def archives_header(original):
+    """Main header + a photo banner with the archive / search title (H1).
+    Assigned to every archive (sermon series, topics, books, preachers, post-type archives) and search."""
+    bars = header(original)
+    banner = el("bar", "Banner – Archive Title", [
+        el("container", "Title", [
+            breadcrumbs(),
+            el("headline", "Heading – Archive Title",
+               text_content='{{dc:archive:title fallback="dc:query:search_query"}}', text_tag="h1",
+               text_font_family=LORA, text_font_weight="500", text_font_size="clamp(2.4rem, 4.6vw, 3.5rem)",
+               text_line_height="1.1", text_letter_spacing="-0.01em", text_text_color=CREAM),
+        ], container_flex="1 0 auto", container_row_flex_direction="column",
+            container_row_flex_align="flex-start", container_row_flex_justify="center",
+            container_col_flex_direction="column", container_col_flex_align="flex-start"),
+    ], bar_bg_color=FOREST, bar_bg_advanced=True, bg_lower_type="image", bg_lower_image="476:full",
+        bg_upper_type="color", bg_upper_color=a(FOREST_DEEP, .82), bar_height="auto",
+        bar_padding="96px 0px 84px 0px", bar_outer_spacing="40px", bar_content_length="100%",
+        bar_content_max_length="1200px", bar_row_flex_align="center")
+    bp(banner, "bar_padding", md="64px 0px 56px 0px")
+    bp(banner, "bar_outer_spacing", md="24px")
+    return bars + [banner]

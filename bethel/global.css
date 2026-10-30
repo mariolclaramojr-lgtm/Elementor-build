@@ -102,6 +102,8 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
    Same card as the site's event cards: white, 18px corners, Lora title, Moss label, pill buttons. */
 .smpro-items, .smpro-items * { font-family: "Raleway", sans-serif; }
 .smpro-items-container { gap: 24px; }
+@media (max-width: 979px) { .x-col .smpro-items .smpro-items-container, .x-col .smpro-items { --smpro-layout-columns: 2 !important; } }
+@media (max-width: 600px) { .x-col .smpro-items .smpro-items-container, .x-col .smpro-items { --smpro-layout-columns: 1 !important; } }
 .smpro-items .wpfc-sermon { margin-bottom: 0 !important; }
 .smpro-items .smpro-item { height: 100%; background: #FFFFFF; border: 1px solid rgba(52,64,39,.14); border-radius: 18px; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease; }
 .smpro-items .smpro-item:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(40,50,32,.12); }
@@ -160,6 +162,9 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
 .mec-wrap .mec-event-sharing-wrap { display: none; }
 .mec-wrap .mec-load-more-button { border: 1.5px solid #344027; border-radius: 999px; background: transparent; color: #344027; font: 700 13px/1 "Raleway", sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 16px 30px; }
 .mec-wrap .mec-load-more-button:hover { background: #344027; color: #F5F2E9; }
+/* Single event countdown */
+.mec-wrap .countdown-w .label-w { font-size: 12px !important; letter-spacing: .14em; text-transform: uppercase; color: #5E6652; }
+.mec-wrap .countdown-w .block-w li span { font-family: "Lora", serif !important; color: #344027; }
 /* Empty state ("No event found!") */
 .mec-skin-grid-events-container:not(:has(article)) { padding: 48px 32px; border-radius: 18px; background: #E6ECDB; text-align: center; font: 500 1.35rem/1.4 "Lora", serif; color: #344027; }
 /* Search form */

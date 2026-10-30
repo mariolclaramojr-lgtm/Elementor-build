@@ -9,7 +9,7 @@ in native Cornerstone elements. Same section count per page as before.
 | `global.js` | Heading accent (last word / last two words), form light/dark | Theme Options › JS (`x_custom_scripts`) |
 | `build/kit.py` | Element kit: every colour is a Global Color, every font a Global Font | — |
 | `build/pages.py` | Page trees (Home, About, New Here, Ministries, Connect, Give, Events, Watch) + components | Pages 15, 463, 468, 467, 462, 466, 441, 333; components 508, 509 |
-| `build/layout.py` | Header (13) and footer (458) | Pro › Headers / Footers |
+| `build/layout.py` | Main header (13, fallback priority 10), Archives header with title banner (539: all archives + search), footer (458) | Pro › Headers / Footers |
 
 ## Global settings
 - **Global Colors:** Forest `#344027`, Forest Deep `#283220`, Moss `#6B8452`, Sage `#B5C99A`,

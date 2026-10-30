@@ -78,6 +78,8 @@ def row(label, cols, layout="50% 50%", gap="72px", gap_row="48px", align="center
     if xs_layout and xs_layout != md_layout:
         bp(r, "layout_row_layout", xs=xs_layout)  # phones: one card per row
     bp(r, "layout_row_gap_row", md=md_gap)
+    if md_layout == "100%":
+        bp(r, "layout_row_gap_column", md="20px")  # single column: keep the gutter inside the screen
     return r
 
 
@@ -169,7 +171,7 @@ def button(text_, href, style="primary", label=None, small=False, blank=False):
         c = SAGE if style == "link-dark" else FOREST
         return el("button", label or f"Link – {text_}", anchor_text_primary_content=text_,
                   anchor_href=href, anchor_blank=blank or None, anchor_bg_color="transparent",
-                  anchor_bg_color_alt="transparent", anchor_padding="4px 0px 4px 0px",
+                  anchor_bg_color_alt="transparent", anchor_padding="10px 0px 10px 0px",
                   anchor_border_radius="0px", anchor_primary_font_family=RALEWAY,
                   anchor_primary_font_weight="700", anchor_primary_font_size="13px",
                   anchor_primary_letter_spacing="0.12em", anchor_primary_text_transform="uppercase",
@@ -241,6 +243,15 @@ def breadcrumbs():
               breadcrumbs_delimiter_ltr_icon="slash-forward", breadcrumbs_delimiter_spacing="8px",
               breadcrumbs_delimiter_color=a(CREAM, .4), breadcrumbs_links_margin="!0px 0px 0px 0px",
               breadcrumbs_margin="0em 0em 28px 0em")
+
+
+def counters(*items, margin="40px 0px 0px 0px"):
+    """Row of counters with a hairline above; tighter gap on phones so three fit on one line."""
+    d = flex("Counters", list(items), gap="48px", margin=margin, align="flex-start", wrap=False,
+             layout_div_padding="32px 0px 0px 0px", layout_div_border_width="1px 0px 0px 0px",
+             layout_div_border_style="solid", layout_div_border_color=LINE)
+    bp(d, "layout_div_flex_gap", xs="24px")
+    return d
 
 
 def counter(end, label, suffix=None, dark=False):
