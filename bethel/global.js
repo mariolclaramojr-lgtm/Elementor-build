@@ -74,4 +74,14 @@
   new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 120); })
     .observe(document.documentElement, { childList: true, subtree: true });
 })();
+/* Favicon: Bethel mark 02 (brand guide: "Mark 02 holds up down to 16 px").
+   Prefer Appearance › Customize › Site Identity › Site Icon; this only adds it when WordPress has none. */
+(function () {
+  if (document.querySelector('link[rel~="icon"]')) return;
+  var src = '/wp-content/uploads/2026/10/mark-02-color-a.png';
+  [['icon', 'image/png'], ['apple-touch-icon', '']].forEach(function (r) {
+    var l = document.createElement('link'); l.rel = r[0]; if (r[1]) l.type = r[1]; l.href = src;
+    document.head.appendChild(l);
+  });
+})();
 /* ===== BETHEL REBRAND END ===== */
