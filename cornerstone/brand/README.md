@@ -77,5 +77,16 @@ Uploaded at 2000px wide to the Media Library and swapped in on every page and he
 | `pcc-bible-morning-scaled.jpg` (354) | Bible and coffee | https://www.pexels.com/photo/7987075/ |
 | `pcc-family-walk.jpg` (355) | Family walking together | https://www.pexels.com/photo/5290403/ |
 
+Client-supplied (uploaded to the Media Library):
+| File (Media id) | Used on |
+|---|---|
+| `15954387_1280_720_24fps.mp4` (356) | Home hero background video (poster `pcc-hero-poster.jpg`, 363) |
+| `pexels-caleboquendo-12745511-scaled.jpg` (359) | "We'd love to meet you" background — Home, About |
+| `pexels-caleboquendo-34501065-scaled.jpg` (358) | Watch Live › prayer request background |
+| `pexels-photo-19130852-scaled.avif` (357) | Watch Live header, Home "Watch Live" card |
+
+`pcc-hero.webm` (365) is a WebM copy of the hero video. The section background video only takes one
+source, so the hero uses the MP4; the WebM is there if it's ever needed.
+
 Kept from the previous build: Give › "Why we give" mountains background, Plan Your Visit › coffee
-photo, the hidden Ways-to-Give card images, the home hero video and the staff headshot placeholders.
+photo, the hidden Ways-to-Give card images and the staff headshot placeholders.
