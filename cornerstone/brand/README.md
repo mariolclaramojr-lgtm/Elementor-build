@@ -38,3 +38,9 @@ Solid Slate buttons on a dark section/photo turn Gold with navy text automatical
 - `pcc-mark-white.png` (313) — header/footer logo (headline graphic)
 - `pcc-mark-black.png` (314)
 - `pcc-logo-white.png` (315), `pcc-logo-black.png` (316) — full stacked logo
+- `pcc-favicon-512.png` (324) — favicon: white P mark on Slate. Sizes 32/180/192/270 uploaded as
+  ids 325–328; the WordPress Site Icon attachment (295) points at them.
+
+## Contact links
+Addresses link to the Google Maps place (new tab), phone numbers to `tel:8048814673`, email to
+`mailto:`. Links inherit the text colour; hover is Gold on dark sections, Slate on light.
