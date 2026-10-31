@@ -64,19 +64,19 @@ display:none ;
 
 /* Headings: the last word of every H1/H2 is the Lewis red, added automatically by the global JS
    (editors just type the heading). Brighter red when the heading sits on a dark background. */
-.lc-last-word, .x-text-headline em { font-style: italic; color: #A51C30; }
-.lc-last-word.is-on-dark, .lc-on-dark em { color: #E85D6C; }
+.lc-last-word, .x-text-headline em { font-style: italic; color: #6E6E6E; }
+.lc-last-word.is-on-dark, .lc-on-dark em { color: #C8C8C8; }
 
 /* ---------- Gravity Forms — GLOBAL: every form, current and future ----------
    No wrapper class or shortcode styles needed. The global JS marks each form
    .lc-gf-light (on light backgrounds) or .lc-gf-dark (on dark/photo sections).
    Vars use !important so they win over the per-form defaults Gravity Forms prints. */
 .gform_wrapper.gform-theme--orbital {
-  --gf-font-family-base: "Inter", sans-serif !important;
-  --gf-ctrl-font-family: "Inter", sans-serif !important;
-  --gf-ctrl-label-font-family-primary: "Inter", sans-serif !important;
-  --gf-ctrl-label-font-family-secondary: "Inter", sans-serif !important;
-  --gf-ctrl-btn-font-family: "Inter", sans-serif !important;
+  --gf-font-family-base: "Plus Jakarta Sans", sans-serif !important;
+  --gf-ctrl-font-family: "Plus Jakarta Sans", sans-serif !important;
+  --gf-ctrl-label-font-family-primary: "Plus Jakarta Sans", sans-serif !important;
+  --gf-ctrl-label-font-family-secondary: "Plus Jakarta Sans", sans-serif !important;
+  --gf-ctrl-btn-font-family: "Plus Jakarta Sans", sans-serif !important;
   --gf-form-gap-x: 20px; --gf-form-gap-y: 24px;
   --gf-ctrl-size: 50px; --gf-ctrl-font-size: 16px;
   --gf-radius: 4px !important;
@@ -84,83 +84,88 @@ display:none ;
   --gf-ctrl-label-letter-spacing-primary: .2em;
   --gf-ctrl-btn-radius: 999px; --gf-ctrl-btn-font-size: 13px; --gf-ctrl-btn-font-weight: 600;
   --gf-ctrl-btn-letter-spacing: .12em; --gf-ctrl-btn-padding-x: 30px; --gf-ctrl-btn-size: 52px;
-  --gf-color-primary: #A51C30 !important; --gf-color-primary-rgb: 165, 28, 48 !important;
+  --gf-color-primary: #111111 !important; --gf-color-primary-rgb: 17, 17, 17 !important;
   --gf-color-primary-contrast: #FFFFFF !important; --gf-color-primary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-primary-darker: #7F1424 !important; --gf-color-primary-lighter: #D74E62 !important;
+  --gf-color-primary-darker: #3A3A3A !important; --gf-color-primary-lighter: #555555 !important;
   margin: 0;
 }
 /* light backgrounds (default for new pages) */
 .gform_wrapper.gform-theme--orbital.lc-gf-light {
   --gf-color-secondary: #FFFFFF !important; --gf-color-secondary-rgb: 255, 255, 255 !important;
-  --gf-color-secondary-contrast: #1F1B17 !important; --gf-color-secondary-contrast-rgb: 31, 27, 23 !important;
-  --gf-color-secondary-darker: #F4EFE7 !important; --gf-color-secondary-lighter: #FFFFFF !important;
-  --gf-color-out-ctrl-light: rgba(23, 19, 15, .12) !important; --gf-color-out-ctrl-light-rgb: 23, 19, 15 !important;
-  --gf-color-out-ctrl-light-darker: rgba(23, 19, 15, .22) !important; --gf-color-out-ctrl-light-lighter: #FBF8F4 !important;
-  --gf-color-out-ctrl-dark: #57504A !important; --gf-color-out-ctrl-dark-rgb: 87, 80, 74 !important;
-  --gf-color-out-ctrl-dark-darker: #1F1B17 !important; --gf-color-out-ctrl-dark-lighter: #8E8781 !important;
+  --gf-color-secondary-contrast: #141414 !important; --gf-color-secondary-contrast-rgb: 20, 20, 20 !important;
+  --gf-color-secondary-darker: #F0F0F0 !important; --gf-color-secondary-lighter: #FFFFFF !important;
+  --gf-color-out-ctrl-light: rgba(0, 0, 0, .12) !important; --gf-color-out-ctrl-light-rgb: 0, 0, 0 !important;
+  --gf-color-out-ctrl-light-darker: rgba(0, 0, 0, .22) !important; --gf-color-out-ctrl-light-lighter: #FAFAFA !important;
+  --gf-color-out-ctrl-dark: #555555 !important; --gf-color-out-ctrl-dark-rgb: 85, 85, 85 !important;
+  --gf-color-out-ctrl-dark-darker: #141414 !important; --gf-color-out-ctrl-dark-lighter: #8A8A8A !important;
   --gf-color-in-ctrl: #FFFFFF !important; --gf-color-in-ctrl-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-contrast: #1F1B17 !important; --gf-color-in-ctrl-contrast-rgb: 31, 27, 23 !important;
-  --gf-color-in-ctrl-darker: #F4EFE7 !important; --gf-color-in-ctrl-lighter: #FFFFFF !important;
-  --gf-color-in-ctrl-primary: #A51C30 !important; --gf-color-in-ctrl-primary-rgb: 165, 28, 48 !important;
+  --gf-color-in-ctrl-contrast: #141414 !important; --gf-color-in-ctrl-contrast-rgb: 20, 20, 20 !important;
+  --gf-color-in-ctrl-darker: #F0F0F0 !important; --gf-color-in-ctrl-lighter: #FFFFFF !important;
+  --gf-color-in-ctrl-primary: #111111 !important; --gf-color-in-ctrl-primary-rgb: 17, 17, 17 !important;
   --gf-color-in-ctrl-primary-contrast: #FFFFFF !important; --gf-color-in-ctrl-primary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-primary-darker: #7F1424 !important; --gf-color-in-ctrl-primary-lighter: #D74E62 !important;
-  --gf-color-in-ctrl-light: rgba(23, 19, 15, .12) !important; --gf-color-in-ctrl-light-rgb: 23, 19, 15 !important;
-  --gf-color-in-ctrl-light-darker: rgba(23, 19, 15, .22) !important; --gf-color-in-ctrl-light-lighter: #FBF8F4 !important;
-  --gf-color-in-ctrl-dark: #8E8781 !important; --gf-color-in-ctrl-dark-rgb: 142, 135, 129 !important;
-  --gf-color-in-ctrl-dark-darker: #1F1B17 !important; --gf-color-in-ctrl-dark-lighter: #57504A !important;
-  --gf-ctrl-label-color-req: #A51C30;
-  --gf-ctrl-border-color: rgba(23, 19, 15, .16) !important;
+  --gf-color-in-ctrl-primary-darker: #3A3A3A !important; --gf-color-in-ctrl-primary-lighter: #555555 !important;
+  --gf-color-in-ctrl-light: rgba(0, 0, 0, .12) !important; --gf-color-in-ctrl-light-rgb: 0, 0, 0 !important;
+  --gf-color-in-ctrl-light-darker: rgba(0, 0, 0, .22) !important; --gf-color-in-ctrl-light-lighter: #FAFAFA !important;
+  --gf-color-in-ctrl-dark: #8A8A8A !important; --gf-color-in-ctrl-dark-rgb: 138, 138, 138 !important;
+  --gf-color-in-ctrl-dark-darker: #141414 !important; --gf-color-in-ctrl-dark-lighter: #555555 !important;
+  --gf-ctrl-label-color-req: #111111;
+  --gf-ctrl-border-color: rgba(0, 0, 0, .16) !important;
 }
 /* dark and photo sections */
 .gform_wrapper.gform-theme--orbital.lc-gf-dark {
-  --gf-color-secondary: #2E2925 !important; --gf-color-secondary-rgb: 46, 41, 37 !important;
+  --gf-color-secondary: #2E2E2E !important; --gf-color-secondary-rgb: 46, 46, 46 !important;
   --gf-color-secondary-contrast: #FFFFFF !important; --gf-color-secondary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-secondary-darker: #241F1B !important; --gf-color-secondary-lighter: #38332F !important;
-  --gf-color-out-ctrl-light: rgba(169, 163, 158, .1) !important; --gf-color-out-ctrl-light-rgb: 169, 163, 158 !important;
-  --gf-color-out-ctrl-light-darker: rgba(74, 67, 62, .35) !important; --gf-color-out-ctrl-light-lighter: #241F1B !important;
-  --gf-color-out-ctrl-dark: #8E8781 !important; --gf-color-out-ctrl-dark-rgb: 142, 135, 129 !important;
+  --gf-color-secondary-darker: #1A1A1A !important; --gf-color-secondary-lighter: #3A3A3A !important;
+  --gf-color-out-ctrl-light: rgba(160, 160, 160, .1) !important; --gf-color-out-ctrl-light-rgb: 160, 160, 160 !important;
+  --gf-color-out-ctrl-light-darker: rgba(68, 68, 68, .35) !important; --gf-color-out-ctrl-light-lighter: #1A1A1A !important;
+  --gf-color-out-ctrl-dark: #8A8A8A !important; --gf-color-out-ctrl-dark-rgb: 138, 138, 138 !important;
   --gf-color-out-ctrl-dark-darker: #FFFFFF !important; --gf-color-out-ctrl-dark-lighter: rgba(255, 255, 255, .65) !important;
-  --gf-color-in-ctrl: #2E2925 !important; --gf-color-in-ctrl-rgb: 46, 41, 37 !important;
+  --gf-color-in-ctrl: #2E2E2E !important; --gf-color-in-ctrl-rgb: 46, 46, 46 !important;
   --gf-color-in-ctrl-contrast: #FFFFFF !important; --gf-color-in-ctrl-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-darker: #241F1B !important; --gf-color-in-ctrl-lighter: #38332F !important;
-  --gf-color-in-ctrl-primary: #E85D6C !important; --gf-color-in-ctrl-primary-rgb: 232, 93, 108 !important;
-  --gf-color-in-ctrl-primary-contrast: #FFFFFF !important; --gf-color-in-ctrl-primary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-primary-darker: #B62B3A !important; --gf-color-in-ctrl-primary-lighter: #FF8F9E !important;
-  --gf-color-in-ctrl-light: rgba(169, 163, 158, .1) !important; --gf-color-in-ctrl-light-rgb: 169, 163, 158 !important;
-  --gf-color-in-ctrl-light-darker: rgba(74, 67, 62, .35) !important; --gf-color-in-ctrl-light-lighter: #241F1B !important;
-  --gf-color-in-ctrl-dark: #8E8781 !important; --gf-color-in-ctrl-dark-rgb: 142, 135, 129 !important;
+  --gf-color-in-ctrl-darker: #1A1A1A !important; --gf-color-in-ctrl-lighter: #3A3A3A !important;
+  --gf-color-in-ctrl-primary: #FFFFFF !important; --gf-color-in-ctrl-primary-rgb: 255, 255, 255 !important;
+  --gf-color-in-ctrl-primary-contrast: #111111 !important; --gf-color-in-ctrl-primary-contrast-rgb: 17, 17, 17 !important;
+  --gf-color-in-ctrl-primary-darker: #E6E6E6 !important; --gf-color-in-ctrl-primary-lighter: #FFFFFF !important;
+  --gf-color-primary: #FFFFFF !important; --gf-color-primary-rgb: 255, 255, 255 !important;
+  --gf-color-primary-contrast: #111111 !important; --gf-color-primary-contrast-rgb: 17, 17, 17 !important;
+  --gf-color-primary-darker: #E6E6E6 !important; --gf-color-primary-lighter: #FFFFFF !important;
+  --gf-color-in-ctrl-light: rgba(160, 160, 160, .1) !important; --gf-color-in-ctrl-light-rgb: 160, 160, 160 !important;
+  --gf-color-in-ctrl-light-darker: rgba(68, 68, 68, .35) !important; --gf-color-in-ctrl-light-lighter: #1A1A1A !important;
+  --gf-color-in-ctrl-dark: #8A8A8A !important; --gf-color-in-ctrl-dark-rgb: 138, 138, 138 !important;
   --gf-color-in-ctrl-dark-darker: #FFFFFF !important; --gf-color-in-ctrl-dark-lighter: rgba(255, 255, 255, .65) !important;
-  --gf-ctrl-label-color-req: #E85D6C;
+  --gf-ctrl-label-color-req: #C8C8C8;
 }
-body .gform_wrapper.gform-theme--orbital .gfield_label { font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #57504A; }
+body .gform_wrapper.gform-theme--orbital .gfield_label { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #555555; }
 body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gfield_label { color: rgba(255,255,255,.6); }
 body .gform_wrapper.gform-theme--orbital .gform_required_legend { display: none; }
-body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 52px !important; padding: 0 30px !important; font: 600 13px/1 "Inter", sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; box-shadow: none !important; transition: background-color .25s; }
-body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { background-color: #7F1424 !important; }
+body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 52px !important; padding: 0 30px !important; font: 600 13px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; box-shadow: none !important; transition: background-color .25s; }
+body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { background-color: #3A3A3A !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button { background-color: #FFFFFF !important; color: #111111 !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:hover { background-color: #E6E6E6 !important; }
 .gform_wrapper.gform-theme--orbital .gfield--type-checkbox .gfield_label,
 .gform_wrapper.gform-theme--orbital legend.gfield_label { margin-bottom: 12px; }
-.gform_wrapper.gform-theme--orbital .gchoice label { font: 400 15px/1.4 "Inter", sans-serif; letter-spacing: 0; text-transform: none; color: #1F1B17; }
+.gform_wrapper.gform-theme--orbital .gchoice label { font: 400 15px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: 0; text-transform: none; color: #141414; }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark .gchoice label { color: rgba(255,255,255,.82); }
 .gform_wrapper.gform-theme--orbital .gfield_checkbox { gap: 12px 24px; }
 @media (min-width: 640px) { .gform_wrapper.gform-theme--orbital .gfield_checkbox { display: grid; grid-template-columns: 1fr 1fr; } }
 .gform_wrapper.gform-theme--orbital textarea { min-height: 120px; height: 120px; resize: vertical; }
-.gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: rgba(31,27,23,.4); }
+.gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: rgba(0, 0, 0,.4); }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark input::placeholder, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea::placeholder { color: rgba(255,255,255,.35); }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark input, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea { color-scheme: dark; }
 .gform_wrapper.gform-theme--orbital .gform_footer { margin-top: 8px; padding: 0; }
 .gform_wrapper.gform-theme--orbital .ginput_container_date, .gform_wrapper.gform-theme--orbital .ginput_container_date input { width: 100% !important; max-width: none !important; }
-.gform_confirmation_message { font: 600 17px/1.6 "Inter", sans-serif; color: #A51C30; }
-.lc-gf-dark .gform_confirmation_message, .lc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #E85D6C; }
-.gform_wrapper.gform-theme--orbital .gform_validation_errors { background: rgba(165,28,48,.06); border-color: rgba(165,28,48,.35); box-shadow: none; }
-.gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: #A51C30; }
-.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors { background: rgba(232,93,108,.1); border-color: rgba(232,93,108,.4); }
-.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.lc-gf-dark .validation_message { color: #E85D6C; }
+.gform_confirmation_message { font: 600 17px/1.6 "Plus Jakarta Sans", sans-serif; color: #111111; }
+.lc-gf-dark .gform_confirmation_message, .lc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #C8C8C8; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors { background: rgba(0, 0, 0,.06); border-color: rgba(0, 0, 0,.35); box-shadow: none; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: #111111; }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors { background: rgba(255, 255, 255,.1); border-color: rgba(255, 255, 255,.4); }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.lc-gf-dark .validation_message { color: #C8C8C8; }
 
 /* ---------- Shared: filter controls (Sermon Manager + MEC) ---------- */
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] {
   -webkit-appearance: none; appearance: none; width: 100% !important; height: 50px !important; margin: 0 !important;
-  font: 400 15px/1.2 "Inter", sans-serif !important; color: #1F1B17 !important; background-color: #fff !important;
-  border: 1px solid rgba(23,19,15,.12) !important; border-radius: 4px !important; box-shadow: none !important;
+  font: 400 15px/1.2 "Plus Jakarta Sans", sans-serif !important; color: #141414 !important; background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0,.12) !important; border-radius: 4px !important; box-shadow: none !important;
   padding: 0 44px 0 16px !important; transition: border-color .2s; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A51C30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
@@ -169,7 +174,7 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2357504A' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:hover, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:focus, .lc-mec .mec-search-form select:hover, .lc-mec .mec-search-form select:focus,
-.lc-mec .mec-search-form input[type=search]:focus { outline: none; border-color: #A51C30 !important; }
+.lc-mec .mec-search-form input[type=search]:focus { outline: none; border-color: #111111 !important; }
 
 /* ---------- Sermon Manager Pro  [smpro_archive] + sermon archive templates ---------- */
 .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset { margin-top: 0; margin-bottom: 0; padding: clamp(56px, 7vw, 96px) 0; }
@@ -181,36 +186,36 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) article.wpfc-sermon { margin: 0 !important; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { display: grid !important; grid-template-columns: 340px 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: 20px !important;
   background: #fff; border: 0; border-radius: 4px; box-shadow: none; transition: box-shadow .35s, transform .35s; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px rgba(31,27,23,.1); transform: translateY(-2px); }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px rgba(0, 0, 0,.1); transform: translateY(-2px); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image { position: relative; padding: 0 !important; margin: 0 !important; aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link { position: absolute; inset: 0; display: block; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__background { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__background { transform: scale(1.05); }
 /* play button on the thumbnail */
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: #A51C30; box-shadow: 0 0 0 8px rgba(165,28,48,.22); transition: transform .25s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: #111111; box-shadow: 0 0 0 8px rgba(0, 0, 0,.22); transition: transform .25s; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::after { content: ""; position: absolute; left: 34px; bottom: 31px; z-index: 2; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__link::before { transform: scale(1.08); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 28px; padding: 0 !important; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > * { flex: 0 0 100%; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline { order: 1; display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 6px 18px; margin: 0 0 10px;
-  font: 700 12px/1.4 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  font: 700 12px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item { margin: 0; padding: 0; border: 0; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::before, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::after { display: none; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: #A51C30; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: #57504A; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: #111111; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: #555555; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item .smpro-title { order: 2; margin: 0 0 10px !important; padding: 0; line-height: 1.15 !important; letter-spacing: -.02em !important; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Fraunces", Georgia, serif; color: #1F1B17; transition: color .2s; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: #A51C30; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: #57504A; font-size: 16px; line-height: 1.7; max-width: 44em; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Plus Jakarta Sans", sans-serif; color: #141414; transition: color .2s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: #111111; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: #555555; font-size: 16px; line-height: 1.7; max-width: 44em; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata { order: 4; flex: 0 0 auto; margin: 0; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > .smpro-meta-item_type_bible-passage { order: 5; flex: 0 0 auto; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0; padding: 0; font: 400 14px/1.6 "Inter", sans-serif; font-style: normal; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: #57504A; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #1F1B17; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0; padding: 0; font: 400 14px/1.6 "Plus Jakarta Sans", sans-serif; font-style: normal; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: #555555; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #141414; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__footer { display: none; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-pagination, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .navigation, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .pagination { margin-top: 40px; text-align: center; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid rgba(23,19,15,.12); border-radius: 999px; background: #fff; color: #1F1B17; font: 600 14px/1 "Inter", sans-serif; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: #A51C30; border-color: #A51C30; color: #fff; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid rgba(0, 0, 0,.12); border-radius: 999px; background: #fff; color: #141414; font: 600 14px/1 "Plus Jakarta Sans", sans-serif; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: #111111; border-color: #111111; color: #fff; }
 @media (max-width: 860px) {
   :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { grid-template-columns: 1fr 1fr; }
   :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { grid-template-columns: 1fr; gap: 20px; }
@@ -218,7 +223,7 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
 @media (max-width: 480px) { :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font-size: 25px; } }
 
 /* ---------- Modern Events Calendar — monthly [MEC id="250"] ---------- */
-.lc-mec .mec-wrap { position: relative; margin: 0; font-family: "Inter", sans-serif; color: #1F1B17; }
+.lc-mec .mec-wrap { position: relative; margin: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #141414; }
 .lc-mec .mec-wrap * { box-sizing: border-box; }
 /* filters: top-right on desktop, beside the month title */
 .lc-mec-month .mec-search-form.mec-totalcal-box { position: absolute; top: 0; right: 0; z-index: 2; display: flex !important; gap: 12px; width: auto !important;
@@ -232,44 +237,44 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
 .lc-mec .mec-calendar .mec-skin-monthly-view-month-navigator-container { margin: 0; padding: 0; border: 0; }
 .lc-mec .mec-calendar .mec-month-navigator { position: static !important; display: flex; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { order: 1; position: static !important; width: auto !important; margin: 0 14px 0 0 !important; padding: 0 !important; }
-.lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Fraunces", Georgia, serif !important; letter-spacing: -.02em !important; color: #1F1B17 !important; text-transform: none !important; }
+.lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em !important; color: #141414 !important; text-transform: none !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month { order: 2; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-next-month { order: 3; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month,
 .lc-mec .mec-calendar .mec-month-navigator .mec-next-month { position: static !important; inset: auto !important; transform: none !important; float: none !important; width: 44px !important; height: 44px !important;
   margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; line-height: 1 !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid rgba(23,19,15,.12); border-radius: 50%;
-  background: #fff; color: #1F1B17 !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid rgba(0, 0, 0,.12); border-radius: 50%;
+  background: #fff; color: #141414 !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { position: relative; }
 /* the link also holds the (hidden) month name, so pin the icon to the exact centre of the circle */
 .lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link i { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%); margin: 0 !important; padding: 0 !important; font-size: 14px !important; line-height: 1 !important; color: inherit !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: #A51C30; background: #A51C30; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: #111111; background: #111111; color: #fff !important; }
 /* grid */
-.lc-mec .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid rgba(23,19,15,.12); border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(31,27,23,.06); }
+.lc-mec .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid rgba(0, 0, 0,.12); border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(0, 0, 0,.06); }
 .lc-mec .mec-calendar .mec-month-container dl { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt { display: block !important; float: none !important; width: auto !important; height: auto !important; min-height: 116px; margin: 0 !important; padding: 10px 10px 12px !important;
-  background: #fff !important; border: 0 !important; border-right: 1px solid rgba(23,19,15,.1) !important; border-bottom: 1px solid rgba(23,19,15,.1) !important;
-  font: 600 14px/1.4 "Inter", sans-serif !important; color: #1F1B17 !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
+  background: #fff !important; border: 0 !important; border-right: 1px solid rgba(0, 0, 0,.1) !important; border-bottom: 1px solid rgba(0, 0, 0,.1) !important;
+  font: 600 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: #141414 !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
 .lc-mec .mec-calendar .mec-month-container dl > dt:nth-child(7n) { border-right: 0 !important; }
 .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row:last-child > dt { border-bottom: 0 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt > div:first-child { font: inherit !important; color: inherit !important; }
-.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Inter", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #57504A !important; background: #FBF8F4 !important; border-right: 0 !important; }
-.lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(31,27,23,.28) !important; background: #FBF8F4 !important; }
-.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #FDFBF8 !important; }
-.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #555555 !important; background: #FAFAFA !important; border-right: 0 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(0, 0, 0,.28) !important; background: #FAFAFA !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #FFFFFF !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #111111 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
 .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
-.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: #1F1B17 !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: #141414 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt .mec-past-event { opacity: 1 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt a { display: block; text-decoration: none; }
-.lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #A51C30; border-radius: 0 2px 2px 0; background: rgba(165,28,48,.07);
-  font: 500 13px/1.35 "Inter", sans-serif !important; color: #1F1B17 !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
-.lc-mec .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #A51C30; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #111111; border-radius: 0 2px 2px 0; background: rgba(0, 0, 0,.07);
+  font: 500 13px/1.35 "Plus Jakarta Sans", sans-serif !important; color: #141414 !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
+.lc-mec .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #111111; color: #fff !important; }
 /* hover card (MEC tooltip, rendered at the end of <body>) */
-.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px rgba(31,27,23,.18) !important; }
-.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Fraunces", Georgia, serif; color: #1F1B17; margin: 0 0 6px; }
-.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #A51C30; margin: 0 0 10px; }
+.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px rgba(0, 0, 0,.18) !important; }
+.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Plus Jakarta Sans", sans-serif; color: #141414; margin: 0 0 6px; }
+.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #111111; margin: 0 0 10px; }
 .tooltipster-box .mec-tooltip-event-time i { display: none; }
-.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Inter", sans-serif; color: #57504A; }
+.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Plus Jakarta Sans", sans-serif; color: #555555; }
 .tooltipster-box .mec-tooltip-event-featured img { border-radius: 2px; }
 @media (max-width: 860px) {
   .lc-mec-month .mec-search-form.mec-totalcal-box { position: static; flex-wrap: wrap; margin: 0 0 24px !important; }
@@ -282,48 +287,56 @@ body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { bac
   .lc-mec .mec-calendar .mec-calendar-header h2 { font-size: 28px !important; }
   .lc-mec .mec-calendar .mec-month-container dl > dt { min-height: 58px; padding: 6px !important; font-size: 13px !important; text-align: center !important; }
   .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; }
-  .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #A51C30; font-size: 0 !important; }
-  .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #A51C30 96%, transparent 100%) no-repeat, #fff !important; }
+  .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #111111; font-size: 0 !important; }
+  .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #111111 96%, transparent 100%) no-repeat, #fff !important; }
 }
 
 /* ---------- Modern Events Calendar — coming up (list, minimal) [MEC id="252"] ---------- */
 .lc-mec-list .mec-wrap .mec-event-list-minimal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 28px; margin: 0; }
-.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid rgba(23,19,15,.12) !important; background: none !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid rgba(0, 0, 0,.12) !important; background: none !important; text-align: left !important; }
 .lc-mec-list .mec-event-list-minimal .col-md-9 { display: grid !important; grid-template-columns: 76px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; align-items: center; align-content: center;
   width: 100% !important; padding: 0 !important; float: none !important; text-align: left !important; }
 .lc-mec-list .mec-event-list-minimal .btn-wrapper { display: none !important; }
 .lc-mec-list .mec-event-list-minimal .mec-event-date { grid-row: 1 / span 3; display: flex !important; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 2px;
   aspect-ratio: 1; width: 76px !important; height: auto !important; margin: 0 !important; padding: 0 !important; float: none !important; border-radius: 4px;
-  background: #1F1B17 !important; color: #E85D6C !important; font: 700 11px/1 "Inter", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
-.lc-mec-list .mec-event-list-minimal .mec-event-date span { display: block; margin: 0 !important; font: 500 28px/1 "Fraunces", Georgia, serif !important; letter-spacing: 0; color: #fff !important; }
-.lc-mec-list .mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Inter", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #A51C30; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title { grid-column: 2; margin: 2px 0 !important; padding: 0 !important; font: 500 21px/1.2 "Fraunces", Georgia, serif !important; letter-spacing: -.01em; text-transform: none !important; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: #1F1B17 !important; transition: color .2s; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: #A51C30 !important; }
+  background: #141414 !important; color: #C8C8C8 !important; font: 700 11px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
+.lc-mec-list .mec-event-list-minimal .mec-event-date span { display: block; margin: 0 !important; font: 500 28px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: 0; color: #fff !important; }
+.lc-mec-list .mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #111111; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title { grid-column: 2; margin: 2px 0 !important; padding: 0 !important; font: 500 21px/1.2 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.01em; text-transform: none !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: #141414 !important; transition: color .2s; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: #111111 !important; }
 .lc-mec-list .mec-event-list-minimal .event-color { display: none !important; }
-.lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Inter", sans-serif !important; color: #57504A !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: #555555 !important; text-align: left !important; }
 @media (max-width: 1024px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr; } }
 
 /* ---------- MEC single event: breathing room under the menu-only header ---------- */
 .single-mec-events #main-content { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }
-.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Fraunces", Georgia, serif !important; letter-spacing: -.02em; color: #1F1B17; margin: 28px 0 14px; }
-.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Inter", sans-serif; color: #57504A; }
+.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em; color: #141414; margin: 28px 0 14px; }
+.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Plus Jakarta Sans", sans-serif; color: #555555; }
 .single-mec-events .mec-events-event-image img { border-radius: 4px; }
 .single-mec-events .mec-event-meta, .single-mec-events .mec-event-export-module, .single-mec-events .mec-events-meta-group-countdown,
 .single-mec-events .mec-event-social, .single-mec-events .mec-qrcode-details, .single-mec-events .mec-single-event .mec-frontbox { background: #fff !important; border: 0 !important; border-radius: 4px !important; box-shadow: none !important; }
-.single-mec-events .mec-event-meta h3, .single-mec-events .mec-single-event .mec-event-meta dt, .single-mec-events .mec-event-social h3 { font: 700 11px/1.4 "Inter", sans-serif !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: #1F1B17 !important; }
-.single-mec-events .mec-event-meta dd, .single-mec-events .mec-event-meta abbr, .single-mec-events .mec-event-meta .mec-events-abbr { font: 400 15px/1.5 "Inter", sans-serif !important; color: #57504A !important; }
-.single-mec-events .mec-event-meta i, .single-mec-events .mec-event-meta i:before { color: #A51C30 !important; }
-.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a { border: 1px solid rgba(23,19,15,.12) !important; border-radius: 999px !important; color: #1F1B17 !important; font: 600 12px/1 "Inter", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px !important; transition: background .25s, color .25s; }
-.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a:hover { background: #A51C30 !important; border-color: #A51C30 !important; color: #fff !important; }
-.single-mec-events .mec-countdown-details .countdown-w span, .single-mec-events .mec-end-counts h3 { font-family: "Fraunces", Georgia, serif !important; color: #A51C30 !important; }
-.single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Inter", sans-serif !important; color: #57504A !important; letter-spacing: .16em; }
-.single-mec-events .mec-event-social h3:before { border-color: #A51C30 !important; }
+.single-mec-events .mec-event-meta h3, .single-mec-events .mec-single-event .mec-event-meta dt, .single-mec-events .mec-event-social h3 { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: #141414 !important; }
+.single-mec-events .mec-event-meta dd, .single-mec-events .mec-event-meta abbr, .single-mec-events .mec-event-meta .mec-events-abbr { font: 400 15px/1.5 "Plus Jakarta Sans", sans-serif !important; color: #555555 !important; }
+.single-mec-events .mec-event-meta i, .single-mec-events .mec-event-meta i:before { color: #111111 !important; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a { border: 1px solid rgba(0, 0, 0,.12) !important; border-radius: 999px !important; color: #141414 !important; font: 600 12px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px !important; transition: background .25s, color .25s; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a:hover { background: #111111 !important; border-color: #111111 !important; color: #fff !important; }
+.single-mec-events .mec-countdown-details .countdown-w span, .single-mec-events .mec-end-counts h3 { font-family: "Plus Jakarta Sans", sans-serif !important; color: #111111 !important; }
+.single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Plus Jakarta Sans", sans-serif !important; color: #555555 !important; letter-spacing: .16em; }
+.single-mec-events .mec-event-social h3:before { border-color: #111111 !important; }
 
 /* Archives header banner title: search pages read  Results for "term";  the all-sermons archive
    (WordPress gives it no title) reads "Messages". Every other archive shows its own name. */
 .search .lc-archive-title .x-text-content-text-primary::before { content: "Results for \201C"; }
 .search .lc-archive-title .x-text-content-text-primary::after { content: "\201D"; }
 .lc-archive-title .x-text-content-text-primary:empty::before { content: "Messages"; }
+
+/* ---------- Black & white brand: buttons on dark ----------
+   Solid buttons are black (Black (Accent)). On dark photos/sections the global JS adds
+   .lc-btn-invert and they turn white. The header CTA is always white (header sits on dark). */
+.lc-btn-invert, .lc-nav-cta { background-color: #fff !important; }
+.lc-btn-invert .x-anchor-text-primary, .lc-btn-invert .x-anchor-text-secondary, .lc-btn-invert .x-graphic-icon,
+.lc-nav-cta .x-anchor-text-primary { color: #111 !important; }
+.lc-btn-invert:hover, .lc-nav-cta:hover { background-color: #E6E6E6 !important; }
 /* ===== LEWIS REDESIGN END ===== */

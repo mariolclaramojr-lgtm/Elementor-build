@@ -5,7 +5,9 @@
       A heading that already contains <em> is left as typed.
    2. Gravity Forms: each form is marked light or dark (lc-gf-light / lc-gf-dark) from the
       background it sits on, so a new form picks up the right styling automatically.
-   3. Headings: the accent is the brighter red when the heading's own text is light (dark background). */
+   3. Headings: the accent is the lighter tone when the heading's own text is light (dark background).
+   4. Buttons: a solid black button that sits on a dark background/photo is flipped to white
+      (lc-btn-invert) so it stays visible. Editors just use the normal black button. */
 (function () {
   // not: forms, popups, top bar + menu bar, search/blog result titles, sermon/event listing titles from plugins
   var SKIP = '.gform_wrapper, .tooltipster-box, .lc-topbar, .lc-nav, .x-off-canvas, article .entry-title, .smpro-item, .wpfc-sermon, .mec-event-list-minimal, [data-lc-no-accent]';
@@ -61,9 +63,17 @@
     w.classList.add(onDark(w) ? 'lc-gf-dark' : 'lc-gf-light');
   }
 
+  function markButton(a) {
+    if (a.classList.contains('lc-btn-invert') || a.dataset.lcBtn || a.closest('.lc-nav, .x-off-canvas')) return;
+    a.dataset.lcBtn = '1';
+    var l = lum(getComputedStyle(a).backgroundColor);
+    if (l !== null && l < 0.15 && onDark(a)) a.classList.add('lc-btn-invert');
+  }
+
   function run(root) {
     (root || document).querySelectorAll('h1, h2').forEach(accentHeading);
     (root || document).querySelectorAll('.gform_wrapper').forEach(markForm);
+    (root || document).querySelectorAll('.x-anchor-button').forEach(markButton);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { run(); });
