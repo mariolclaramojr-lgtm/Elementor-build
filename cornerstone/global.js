@@ -6,7 +6,7 @@
    2. Gravity Forms: each form is marked light or dark (lc-gf-light / lc-gf-dark) from the
       background it sits on, so a new form picks up the right styling automatically.
    3. Headings: the accent is the lighter tone when the heading's own text is light (dark background).
-   4. Buttons: a solid Slate Blue button that sits on a dark background/photo is flipped to Gold
+   4. Buttons: a solid Navy button that sits on a dark background/photo is flipped to Gold
       (lc-btn-invert) so it stays visible. Editors just use the normal button. */
 (function () {
   // not: forms, popups, top bar + menu bar, search/blog result titles, sermon/event listing titles from plugins

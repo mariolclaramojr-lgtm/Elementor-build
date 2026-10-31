@@ -64,8 +64,8 @@ display:none ;
 
 /* Headings: the last word of every H1/H2 is the Lewis red, added automatically by the global JS
    (editors just type the heading). Brighter red when the heading sits on a dark background. */
-.lc-last-word, .x-text-headline em { font-style: italic; color: #32485B; }
-.lc-last-word.is-on-dark, .lc-on-dark em { color: #ECCF8C; }
+.lc-last-word, .x-text-headline em { font-style: italic; color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
+.lc-last-word.is-on-dark, .lc-on-dark em { color: %%post color%%global-color:4272616e64205072696d617279%%/post%%; }
 
 /* ---------- Gravity Forms — GLOBAL: every form, current and future ----------
    No wrapper class or shortcode styles needed. The global JS marks each form
@@ -84,88 +84,88 @@ display:none ;
   --gf-ctrl-label-letter-spacing-primary: .2em;
   --gf-ctrl-btn-radius: 999px; --gf-ctrl-btn-font-size: 13px; --gf-ctrl-btn-font-weight: 600;
   --gf-ctrl-btn-letter-spacing: .12em; --gf-ctrl-btn-padding-x: 30px; --gf-ctrl-btn-size: 52px;
-  --gf-color-primary: #32485B !important; --gf-color-primary-rgb: 50, 72, 91 !important;
+  --gf-color-primary: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; --gf-color-primary-rgb: 22, 33, 68 !important;
   --gf-color-primary-contrast: #FFFFFF !important; --gf-color-primary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-primary-darker: #243645 !important; --gf-color-primary-lighter: #4F5B66 !important;
+  --gf-color-primary-darker: %%post color%%global-color:4c696e6b%%/post%% !important; --gf-color-primary-lighter: %%post color%%global-color:496e6b20536f6674%%/post%% !important;
   margin: 0;
 }
 /* light backgrounds (default for new pages) */
 .gform_wrapper.gform-theme--orbital.lc-gf-light {
   --gf-color-secondary: #FFFFFF !important; --gf-color-secondary-rgb: 255, 255, 255 !important;
-  --gf-color-secondary-contrast: #1B2733 !important; --gf-color-secondary-contrast-rgb: 27, 39, 51 !important;
-  --gf-color-secondary-darker: #F3EEE2 !important; --gf-color-secondary-lighter: #FFFFFF !important;
-  --gf-color-out-ctrl-light: rgba(27, 39, 51, .12) !important; --gf-color-out-ctrl-light-rgb: 0, 0, 0 !important;
-  --gf-color-out-ctrl-light-darker: rgba(27, 39, 51, .22) !important; --gf-color-out-ctrl-light-lighter: #FBF9F4 !important;
-  --gf-color-out-ctrl-dark: #4F5B66 !important; --gf-color-out-ctrl-dark-rgb: 79, 91, 102 !important;
-  --gf-color-out-ctrl-dark-darker: #1B2733 !important; --gf-color-out-ctrl-dark-lighter: #8A939C !important;
+  --gf-color-secondary-contrast: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; --gf-color-secondary-contrast-rgb: 15, 23, 48 !important;
+  --gf-color-secondary-darker: %%post color%%global-color:4c696e656e%%/post%% !important; --gf-color-secondary-lighter: #FFFFFF !important;
+  --gf-color-out-ctrl-light: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%% !important; --gf-color-out-ctrl-light-rgb: 0, 0, 0 !important;
+  --gf-color-out-ctrl-light-darker: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.22%%/post%% !important; --gf-color-out-ctrl-light-lighter: %%post color%%global-color:49766f7279%%/post%% !important;
+  --gf-color-out-ctrl-dark: %%post color%%global-color:496e6b20536f6674%%/post%% !important; --gf-color-out-ctrl-dark-rgb: 74, 84, 112 !important;
+  --gf-color-out-ctrl-dark-darker: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; --gf-color-out-ctrl-dark-lighter: #8A90A6 !important;
   --gf-color-in-ctrl: #FFFFFF !important; --gf-color-in-ctrl-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-contrast: #1B2733 !important; --gf-color-in-ctrl-contrast-rgb: 27, 39, 51 !important;
-  --gf-color-in-ctrl-darker: #F3EEE2 !important; --gf-color-in-ctrl-lighter: #FFFFFF !important;
-  --gf-color-in-ctrl-primary: #32485B !important; --gf-color-in-ctrl-primary-rgb: 50, 72, 91 !important;
+  --gf-color-in-ctrl-contrast: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; --gf-color-in-ctrl-contrast-rgb: 15, 23, 48 !important;
+  --gf-color-in-ctrl-darker: %%post color%%global-color:4c696e656e%%/post%% !important; --gf-color-in-ctrl-lighter: #FFFFFF !important;
+  --gf-color-in-ctrl-primary: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; --gf-color-in-ctrl-primary-rgb: 22, 33, 68 !important;
   --gf-color-in-ctrl-primary-contrast: #FFFFFF !important; --gf-color-in-ctrl-primary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-primary-darker: #243645 !important; --gf-color-in-ctrl-primary-lighter: #4F5B66 !important;
-  --gf-color-in-ctrl-light: rgba(27, 39, 51, .12) !important; --gf-color-in-ctrl-light-rgb: 0, 0, 0 !important;
-  --gf-color-in-ctrl-light-darker: rgba(27, 39, 51, .22) !important; --gf-color-in-ctrl-light-lighter: #FBF9F4 !important;
-  --gf-color-in-ctrl-dark: #8A939C !important; --gf-color-in-ctrl-dark-rgb: 138, 147, 156 !important;
-  --gf-color-in-ctrl-dark-darker: #1B2733 !important; --gf-color-in-ctrl-dark-lighter: #4F5B66 !important;
-  --gf-ctrl-label-color-req: #32485B;
-  --gf-ctrl-border-color: rgba(27, 39, 51, .16) !important;
+  --gf-color-in-ctrl-primary-darker: %%post color%%global-color:4c696e6b%%/post%% !important; --gf-color-in-ctrl-primary-lighter: %%post color%%global-color:496e6b20536f6674%%/post%% !important;
+  --gf-color-in-ctrl-light: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%% !important; --gf-color-in-ctrl-light-rgb: 0, 0, 0 !important;
+  --gf-color-in-ctrl-light-darker: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.22%%/post%% !important; --gf-color-in-ctrl-light-lighter: %%post color%%global-color:49766f7279%%/post%% !important;
+  --gf-color-in-ctrl-dark: #8A90A6 !important; --gf-color-in-ctrl-dark-rgb: 138, 144, 166 !important;
+  --gf-color-in-ctrl-dark-darker: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; --gf-color-in-ctrl-dark-lighter: %%post color%%global-color:496e6b20536f6674%%/post%% !important;
+  --gf-ctrl-label-color-req: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%;
+  --gf-ctrl-border-color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.16%%/post%% !important;
 }
 /* dark and photo sections */
 .gform_wrapper.gform-theme--orbital.lc-gf-dark {
-  --gf-color-secondary: #2A3A49 !important; --gf-color-secondary-rgb: 42, 58, 73 !important;
+  --gf-color-secondary: #1E2A55 !important; --gf-color-secondary-rgb: 30, 42, 85 !important;
   --gf-color-secondary-contrast: #FFFFFF !important; --gf-color-secondary-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-secondary-darker: #18232E !important; --gf-color-secondary-lighter: #243645 !important;
-  --gf-color-out-ctrl-light: rgba(160, 160, 160, .1) !important; --gf-color-out-ctrl-light-rgb: 160, 160, 160 !important;
-  --gf-color-out-ctrl-light-darker: rgba(68, 68, 68, .35) !important; --gf-color-out-ctrl-light-lighter: #18232E !important;
-  --gf-color-out-ctrl-dark: #8A939C !important; --gf-color-out-ctrl-dark-rgb: 138, 147, 156 !important;
+  --gf-color-secondary-darker: #0B1226 !important; --gf-color-secondary-lighter: %%post color%%global-color:4c696e6b%%/post%% !important;
+  --gf-color-out-ctrl-light: rgba(255, 255, 255, .06) !important; --gf-color-out-ctrl-light-rgb: 160, 160, 160 !important;
+  --gf-color-out-ctrl-light-darker: rgba(255, 255, 255, .18) !important; --gf-color-out-ctrl-light-lighter: #0B1226 !important;
+  --gf-color-out-ctrl-dark: #8A90A6 !important; --gf-color-out-ctrl-dark-rgb: 138, 144, 166 !important;
   --gf-color-out-ctrl-dark-darker: #FFFFFF !important; --gf-color-out-ctrl-dark-lighter: rgba(255, 255, 255, .65) !important;
-  --gf-color-in-ctrl: #2A3A49 !important; --gf-color-in-ctrl-rgb: 42, 58, 73 !important;
+  --gf-color-in-ctrl: #1E2A55 !important; --gf-color-in-ctrl-rgb: 30, 42, 85 !important;
   --gf-color-in-ctrl-contrast: #FFFFFF !important; --gf-color-in-ctrl-contrast-rgb: 255, 255, 255 !important;
-  --gf-color-in-ctrl-darker: #18232E !important; --gf-color-in-ctrl-lighter: #243645 !important;
-  --gf-color-in-ctrl-primary: #ECCF8C !important; --gf-color-in-ctrl-primary-rgb: 236, 207, 140 !important;
-  --gf-color-in-ctrl-primary-contrast: #32485B !important; --gf-color-in-ctrl-primary-contrast-rgb: 50, 72, 91 !important;
+  --gf-color-in-ctrl-darker: #0B1226 !important; --gf-color-in-ctrl-lighter: %%post color%%global-color:4c696e6b%%/post%% !important;
+  --gf-color-in-ctrl-primary: %%post color%%global-color:4272616e64205072696d617279%%/post%% !important; --gf-color-in-ctrl-primary-rgb: 236, 207, 140 !important;
+  --gf-color-in-ctrl-primary-contrast: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; --gf-color-in-ctrl-primary-contrast-rgb: 22, 33, 68 !important;
   --gf-color-in-ctrl-primary-darker: #D9B96E !important; --gf-color-in-ctrl-primary-lighter: #F4DFAE !important;
-  --gf-color-primary: #ECCF8C !important; --gf-color-primary-rgb: 236, 207, 140 !important;
-  --gf-color-primary-contrast: #32485B !important; --gf-color-primary-contrast-rgb: 50, 72, 91 !important;
+  --gf-color-primary: %%post color%%global-color:4272616e64205072696d617279%%/post%% !important; --gf-color-primary-rgb: 236, 207, 140 !important;
+  --gf-color-primary-contrast: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; --gf-color-primary-contrast-rgb: 22, 33, 68 !important;
   --gf-color-primary-darker: #D9B96E !important; --gf-color-primary-lighter: #F4DFAE !important;
-  --gf-color-in-ctrl-light: rgba(160, 160, 160, .1) !important; --gf-color-in-ctrl-light-rgb: 160, 160, 160 !important;
-  --gf-color-in-ctrl-light-darker: rgba(68, 68, 68, .35) !important; --gf-color-in-ctrl-light-lighter: #18232E !important;
-  --gf-color-in-ctrl-dark: #8A939C !important; --gf-color-in-ctrl-dark-rgb: 138, 147, 156 !important;
+  --gf-color-in-ctrl-light: rgba(255, 255, 255, .06) !important; --gf-color-in-ctrl-light-rgb: 160, 160, 160 !important;
+  --gf-color-in-ctrl-light-darker: rgba(255, 255, 255, .18) !important; --gf-color-in-ctrl-light-lighter: #0B1226 !important;
+  --gf-color-in-ctrl-dark: #8A90A6 !important; --gf-color-in-ctrl-dark-rgb: 138, 144, 166 !important;
   --gf-color-in-ctrl-dark-darker: #FFFFFF !important; --gf-color-in-ctrl-dark-lighter: rgba(255, 255, 255, .65) !important;
-  --gf-ctrl-label-color-req: #ECCF8C;
+  --gf-ctrl-label-color-req: %%post color%%global-color:4272616e64205072696d617279%%/post%%;
 }
-body .gform_wrapper.gform-theme--orbital .gfield_label { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #4F5B66; }
+body .gform_wrapper.gform-theme--orbital .gfield_label { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: %%post color%%global-color:496e6b20536f6674%%/post%%; }
 body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gfield_label { color: rgba(255,255,255,.6); }
 body .gform_wrapper.gform-theme--orbital .gform_required_legend { display: none; }
 body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button { height: 52px !important; padding: 0 30px !important; font: 600 13px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; box-shadow: none !important; transition: background-color .25s; }
-body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { background-color: #243645 !important; }
-body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button { background-color: #ECCF8C !important; color: #1B2733 !important; }
+body .gform_wrapper.gform-theme--orbital .gform_footer .gform_button:hover { background-color: %%post color%%global-color:4c696e6b%%/post%% !important; }
+body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button { background-color: %%post color%%global-color:4272616e64205072696d617279%%/post%% !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; }
 body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:hover { background-color: #F4DFAE !important; }
 .gform_wrapper.gform-theme--orbital .gfield--type-checkbox .gfield_label,
 .gform_wrapper.gform-theme--orbital legend.gfield_label { margin-bottom: 12px; }
-.gform_wrapper.gform-theme--orbital .gchoice label { font: 400 15px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: 0; text-transform: none; color: #1B2733; }
+.gform_wrapper.gform-theme--orbital .gchoice label { font: 400 15px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: 0; text-transform: none; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark .gchoice label { color: rgba(255,255,255,.82); }
 .gform_wrapper.gform-theme--orbital .gfield_checkbox { gap: 12px 24px; }
 @media (min-width: 640px) { .gform_wrapper.gform-theme--orbital .gfield_checkbox { display: grid; grid-template-columns: 1fr 1fr; } }
 .gform_wrapper.gform-theme--orbital textarea { min-height: 120px; height: 120px; resize: vertical; }
-.gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: rgba(27, 39, 51,.4); }
+.gform_wrapper.gform-theme--orbital input::placeholder, .gform_wrapper.gform-theme--orbital textarea::placeholder { color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.4%%/post%%; }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark input::placeholder, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea::placeholder { color: rgba(255,255,255,.35); }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark input, .gform_wrapper.gform-theme--orbital.lc-gf-dark textarea { color-scheme: dark; }
 .gform_wrapper.gform-theme--orbital .gform_footer { margin-top: 8px; padding: 0; }
 .gform_wrapper.gform-theme--orbital .ginput_container_date, .gform_wrapper.gform-theme--orbital .ginput_container_date input { width: 100% !important; max-width: none !important; }
-.gform_confirmation_message { font: 600 17px/1.6 "Plus Jakarta Sans", sans-serif; color: #32485B; }
-.lc-gf-dark .gform_confirmation_message, .lc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: #ECCF8C; }
-.gform_wrapper.gform-theme--orbital .gform_validation_errors { background: rgba(27, 39, 51,.06); border-color: rgba(27, 39, 51,.35); box-shadow: none; }
-.gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: #32485B; }
+.gform_confirmation_message { font: 600 17px/1.6 "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
+.lc-gf-dark .gform_confirmation_message, .lc-gf-dark.gform_confirmation_wrapper .gform_confirmation_message { color: %%post color%%global-color:4272616e64205072696d617279%%/post%%; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors { background: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.06%%/post%%; border-color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.35%%/post%%; box-shadow: none; }
+.gform_wrapper.gform-theme--orbital .gform_validation_errors *, .gform_wrapper.gform-theme--orbital .validation_message { color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
 .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors { background: rgba(255, 255, 255,.1); border-color: rgba(255, 255, 255,.4); }
-.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.lc-gf-dark .validation_message { color: #ECCF8C; }
+.gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_validation_errors *, .gform_wrapper.gform-theme--orbital.lc-gf-dark .validation_message { color: %%post color%%global-color:4272616e64205072696d617279%%/post%%; }
 
 /* ---------- Shared: filter controls (Sermon Manager + MEC) ---------- */
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select, .lc-mec .mec-search-form input[type=search] {
   -webkit-appearance: none; appearance: none; width: 100% !important; height: 50px !important; margin: 0 !important;
-  font: 400 15px/1.2 "Plus Jakarta Sans", sans-serif !important; color: #1B2733 !important; background-color: #fff !important;
-  border: 1px solid rgba(27, 39, 51,.12) !important; border-radius: 4px !important; box-shadow: none !important;
+  font: 400 15px/1.2 "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; background-color: #fff !important;
+  border: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%% !important; border-radius: 4px !important; box-shadow: none !important;
   padding: 0 44px 0 16px !important; transition: border-color .2s; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .lc-mec .mec-search-form select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A51C30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
@@ -174,7 +174,7 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2357504A' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:hover, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:focus, .lc-mec .mec-search-form select:hover, .lc-mec .mec-search-form select:focus,
-.lc-mec .mec-search-form input[type=search]:focus { outline: none; border-color: #32485B !important; }
+.lc-mec .mec-search-form input[type=search]:focus { outline: none; border-color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; }
 
 /* ---------- Sermon Manager Pro  [smpro_archive] + sermon archive templates ---------- */
 .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset { margin-top: 0; margin-bottom: 0; padding: clamp(56px, 7vw, 96px) 0; }
@@ -186,13 +186,13 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) article.wpfc-sermon { margin: 0 !important; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { display: grid !important; grid-template-columns: 340px 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: 20px !important;
   background: #fff; border: 0; border-radius: 4px; box-shadow: none; transition: box-shadow .35s, transform .35s; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px rgba(27, 39, 51,.1); transform: translateY(-2px); }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.1%%/post%%; transform: translateY(-2px); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image { position: relative; padding: 0 !important; margin: 0 !important; aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link { position: absolute; inset: 0; display: block; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__background { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__background { transform: scale(1.05); }
 /* play button on the thumbnail */
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: #32485B; box-shadow: 0 0 0 8px rgba(27, 39, 51,.22); transition: transform .25s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; box-shadow: 0 0 0 8px %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.22%%/post%%; transition: transform .25s; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::after { content: ""; position: absolute; left: 34px; bottom: 31px; z-index: 2; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__link::before { transform: scale(1.08); }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 28px; padding: 0 !important; }
@@ -201,21 +201,21 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
   font: 700 12px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item { margin: 0; padding: 0; border: 0; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::before, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::after { display: none; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: #32485B; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: #4F5B66; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: %%post color%%global-color:496e6b20536f6674%%/post%%; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item .smpro-title { order: 2; margin: 0 0 10px !important; padding: 0; line-height: 1.15 !important; letter-spacing: -.02em !important; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Plus Jakarta Sans", sans-serif; color: #1B2733; transition: color .2s; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: #32485B; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: #4F5B66; font-size: 16px; line-height: 1.7; max-width: 44em; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; transition: color .2s; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: %%post color%%global-color:496e6b20536f6674%%/post%%; font-size: 16px; line-height: 1.7; max-width: 44em; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata { order: 4; flex: 0 0 auto; margin: 0; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > .smpro-meta-item_type_bible-passage { order: 5; flex: 0 0 auto; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0; padding: 0; font: 400 14px/1.6 "Plus Jakarta Sans", sans-serif; font-style: normal; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: #4F5B66; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #1B2733; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: %%post color%%global-color:496e6b20536f6674%%/post%%; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__footer { display: none; }
 :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-pagination, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .navigation, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .pagination { margin-top: 40px; text-align: center; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid rgba(27, 39, 51,.12); border-radius: 999px; background: #fff; color: #1B2733; font: 600 14px/1 "Plus Jakarta Sans", sans-serif; }
-:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: #32485B; border-color: #32485B; color: #fff; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%%; border-radius: 999px; background: #fff; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; font: 600 14px/1 "Plus Jakarta Sans", sans-serif; }
+:is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; border-color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; color: #fff; }
 @media (max-width: 860px) {
   :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { grid-template-columns: 1fr 1fr; }
   :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { grid-template-columns: 1fr; gap: 20px; }
@@ -223,7 +223,7 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
 @media (max-width: 480px) { :is(.lc-sermons, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font-size: 25px; } }
 
 /* ---------- Modern Events Calendar — monthly [MEC id="250"] ---------- */
-.lc-mec .mec-wrap { position: relative; margin: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #1B2733; }
+.lc-mec .mec-wrap { position: relative; margin: 0; font-family: "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; }
 .lc-mec .mec-wrap * { box-sizing: border-box; }
 /* filters: top-right on desktop, beside the month title */
 .lc-mec-month .mec-search-form.mec-totalcal-box { position: absolute; top: 0; right: 0; z-index: 2; display: flex !important; gap: 12px; width: auto !important;
@@ -237,44 +237,44 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
 .lc-mec .mec-calendar .mec-skin-monthly-view-month-navigator-container { margin: 0; padding: 0; border: 0; }
 .lc-mec .mec-calendar .mec-month-navigator { position: static !important; display: flex; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-calendar-header { order: 1; position: static !important; width: auto !important; margin: 0 14px 0 0 !important; padding: 0 !important; }
-.lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em !important; color: #1B2733 !important; text-transform: none !important; }
+.lc-mec .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; text-transform: none !important; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month { order: 2; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-next-month { order: 3; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-previous-month,
 .lc-mec .mec-calendar .mec-month-navigator .mec-next-month { position: static !important; inset: auto !important; transform: none !important; float: none !important; width: 44px !important; height: 44px !important;
   margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; line-height: 1 !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid rgba(27, 39, 51,.12); border-radius: 50%;
-  background: #fff; color: #1B2733 !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%%; border-radius: 50%;
+  background: #fff; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
 .lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link { position: relative; }
 /* the link also holds the (hidden) month name, so pin the icon to the exact centre of the circle */
 .lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link i { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%); margin: 0 !important; padding: 0 !important; font-size: 14px !important; line-height: 1 !important; color: inherit !important; }
-.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: #32485B; background: #32485B; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; color: #fff !important; }
 /* grid */
-.lc-mec .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid rgba(27, 39, 51,.12); border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(27, 39, 51,.06); }
+.lc-mec .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%%; border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.06%%/post%%; }
 .lc-mec .mec-calendar .mec-month-container dl { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt { display: block !important; float: none !important; width: auto !important; height: auto !important; min-height: 116px; margin: 0 !important; padding: 10px 10px 12px !important;
-  background: #fff !important; border: 0 !important; border-right: 1px solid rgba(27, 39, 51,.1) !important; border-bottom: 1px solid rgba(27, 39, 51,.1) !important;
-  font: 600 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: #1B2733 !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
+  background: #fff !important; border: 0 !important; border-right: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.1%%/post%% !important; border-bottom: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.1%%/post%% !important;
+  font: 600 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
 .lc-mec .mec-calendar .mec-month-container dl > dt:nth-child(7n) { border-right: 0 !important; }
 .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row:last-child > dt { border-bottom: 0 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt > div:first-child { font: inherit !important; color: inherit !important; }
-.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #4F5B66 !important; background: #FBF9F4 !important; border-right: 0 !important; }
-.lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(27, 39, 51,.28) !important; background: #FBF9F4 !important; }
+.lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: %%post color%%global-color:496e6b20536f6674%%/post%% !important; background: %%post color%%global-color:49766f7279%%/post%% !important; border-right: 0 !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.28%%/post%% !important; background: %%post color%%global-color:49766f7279%%/post%% !important; }
 .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #FFFFFF !important; }
-.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #32485B 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
 .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
-.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: #1B2733 !important; }
+.lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt .mec-past-event { opacity: 1 !important; }
 .lc-mec .mec-calendar .mec-month-container dl > dt a { display: block; text-decoration: none; }
-.lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #32485B; border-radius: 0 2px 2px 0; background: rgba(27, 39, 51,.07);
-  font: 500 13px/1.35 "Plus Jakarta Sans", sans-serif !important; color: #1B2733 !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
-.lc-mec .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #32485B; color: #fff !important; }
+.lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; border-radius: 0 2px 2px 0; background: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.07%%/post%%;
+  font: 500 13px/1.35 "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
+.lc-mec .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; color: #fff !important; }
 /* hover card (MEC tooltip, rendered at the end of <body>) */
-.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px rgba(27, 39, 51,.18) !important; }
-.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Plus Jakarta Sans", sans-serif; color: #1B2733; margin: 0 0 6px; }
-.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #32485B; margin: 0 0 10px; }
+.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.18%%/post%% !important; }
+.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; margin: 0 0 6px; }
+.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; margin: 0 0 10px; }
 .tooltipster-box .mec-tooltip-event-time i { display: none; }
-.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Plus Jakarta Sans", sans-serif; color: #4F5B66; }
+.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:496e6b20536f6674%%/post%%; }
 .tooltipster-box .mec-tooltip-event-featured img { border-radius: 2px; }
 @media (max-width: 860px) {
   .lc-mec-month .mec-search-form.mec-totalcal-box { position: static; flex-wrap: wrap; margin: 0 0 24px !important; }
@@ -287,44 +287,44 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
   .lc-mec .mec-calendar .mec-calendar-header h2 { font-size: 28px !important; }
   .lc-mec .mec-calendar .mec-month-container dl > dt { min-height: 58px; padding: 6px !important; font-size: 13px !important; text-align: center !important; }
   .lc-mec .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; }
-  .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #32485B; font-size: 0 !important; }
-  .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #32485B 96%, transparent 100%) no-repeat, #fff !important; }
+  .lc-mec .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; font-size: 0 !important; }
+  .lc-mec .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% 96%, transparent 100%) no-repeat, #fff !important; }
 }
 
 /* ---------- Modern Events Calendar — coming up (list, minimal) [MEC id="252"] ---------- */
 .lc-mec-list .mec-wrap .mec-event-list-minimal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 28px; margin: 0; }
-.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid rgba(27, 39, 51,.12) !important; background: none !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%% !important; background: none !important; text-align: left !important; }
 .lc-mec-list .mec-event-list-minimal .col-md-9 { display: grid !important; grid-template-columns: 76px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; align-items: center; align-content: center;
   width: 100% !important; padding: 0 !important; float: none !important; text-align: left !important; }
 .lc-mec-list .mec-event-list-minimal .btn-wrapper { display: none !important; }
 .lc-mec-list .mec-event-list-minimal .mec-event-date { grid-row: 1 / span 3; display: flex !important; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 2px;
   aspect-ratio: 1; width: 76px !important; height: auto !important; margin: 0 !important; padding: 0 !important; float: none !important; border-radius: 4px;
-  background: #1B2733 !important; color: #ECCF8C !important; font: 700 11px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
+  background: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; color: %%post color%%global-color:4272616e64205072696d617279%%/post%% !important; font: 700 11px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
 .lc-mec-list .mec-event-list-minimal .mec-event-date span { display: block; margin: 0 !important; font: 500 28px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: 0; color: #fff !important; }
-.lc-mec-list .mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #32485B; }
+.lc-mec-list .mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%%; }
 .lc-mec-list .mec-event-list-minimal .mec-event-title { grid-column: 2; margin: 2px 0 !important; padding: 0 !important; font: 500 21px/1.2 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.01em; text-transform: none !important; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: #1B2733 !important; transition: color .2s; }
-.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: #32485B !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a { color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; transition: color .2s; }
+.lc-mec-list .mec-event-list-minimal .mec-event-title a:hover { color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; }
 .lc-mec-list .mec-event-list-minimal .event-color { display: none !important; }
-.lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: #4F5B66 !important; text-align: left !important; }
+.lc-mec-list .mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:496e6b20536f6674%%/post%% !important; text-align: left !important; }
 @media (max-width: 1024px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .lc-mec-list .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr; } }
 
 /* ---------- MEC single event: breathing room under the menu-only header ---------- */
 .single-mec-events #main-content { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }
-.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em; color: #1B2733; margin: 28px 0 14px; }
-.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Plus Jakarta Sans", sans-serif; color: #4F5B66; }
+.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Plus Jakarta Sans", sans-serif !important; letter-spacing: -.02em; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%%; margin: 28px 0 14px; }
+.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Plus Jakarta Sans", sans-serif; color: %%post color%%global-color:496e6b20536f6674%%/post%%; }
 .single-mec-events .mec-events-event-image img { border-radius: 4px; }
 .single-mec-events .mec-event-meta, .single-mec-events .mec-event-export-module, .single-mec-events .mec-events-meta-group-countdown,
 .single-mec-events .mec-event-social, .single-mec-events .mec-qrcode-details, .single-mec-events .mec-single-event .mec-frontbox { background: #fff !important; border: 0 !important; border-radius: 4px !important; box-shadow: none !important; }
-.single-mec-events .mec-event-meta h3, .single-mec-events .mec-single-event .mec-event-meta dt, .single-mec-events .mec-event-social h3 { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: #1B2733 !important; }
-.single-mec-events .mec-event-meta dd, .single-mec-events .mec-event-meta abbr, .single-mec-events .mec-event-meta .mec-events-abbr { font: 400 15px/1.5 "Plus Jakarta Sans", sans-serif !important; color: #4F5B66 !important; }
-.single-mec-events .mec-event-meta i, .single-mec-events .mec-event-meta i:before { color: #32485B !important; }
-.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a { border: 1px solid rgba(27, 39, 51,.12) !important; border-radius: 999px !important; color: #1B2733 !important; font: 600 12px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px !important; transition: background .25s, color .25s; }
-.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a:hover { background: #32485B !important; border-color: #32485B !important; color: #fff !important; }
-.single-mec-events .mec-countdown-details .countdown-w span, .single-mec-events .mec-end-counts h3 { font-family: "Plus Jakarta Sans", sans-serif !important; color: #32485B !important; }
-.single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Plus Jakarta Sans", sans-serif !important; color: #4F5B66 !important; letter-spacing: .16em; }
-.single-mec-events .mec-event-social h3:before { border-color: #32485B !important; }
+.single-mec-events .mec-event-meta h3, .single-mec-events .mec-single-event .mec-event-meta dt, .single-mec-events .mec-event-social h3 { font: 700 11px/1.4 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .2em !important; text-transform: uppercase !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; }
+.single-mec-events .mec-event-meta dd, .single-mec-events .mec-event-meta abbr, .single-mec-events .mec-event-meta .mec-events-abbr { font: 400 15px/1.5 "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:496e6b20536f6674%%/post%% !important; }
+.single-mec-events .mec-event-meta i, .single-mec-events .mec-event-meta i:before { color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a { border: 1px solid %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee:0.12%%/post%% !important; border-radius: 999px !important; color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; font: 600 12px/1 "Plus Jakarta Sans", sans-serif !important; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px !important; transition: background .25s, color .25s; }
+.single-mec-events .mec-event-export-module .mec-event-exporting .mec-export-details a:hover { background: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; border-color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; color: #fff !important; }
+.single-mec-events .mec-countdown-details .countdown-w span, .single-mec-events .mec-end-counts h3 { font-family: "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; }
+.single-mec-events .mec-countdown-details .countdown-w .label-w { font-family: "Plus Jakarta Sans", sans-serif !important; color: %%post color%%global-color:496e6b20536f6674%%/post%% !important; letter-spacing: .16em; }
+.single-mec-events .mec-event-social h3:before { border-color: %%post color%%global-color:4272616e64205365636f6e64617279%%/post%% !important; }
 
 /* Archives header banner title: search pages read  Results for "term";  the all-sermons archive
    (WordPress gives it no title) reads "Messages". Every other archive shows its own name. */
@@ -332,11 +332,13 @@ body .gform_wrapper.gform-theme--orbital.lc-gf-dark .gform_footer .gform_button:
 .search .lc-archive-title .x-text-content-text-primary::after { content: "\201D"; }
 .lc-archive-title .x-text-content-text-primary:empty::before { content: "Messages"; }
 
+/* Colours: brand colours below are written as %%post color%%global-color:<id>%%/post%% tokens, so
+   they follow Cornerstone › Global Colors. Only white and a few derived tints are literal. */
 /* ---------- Brand: buttons on dark ----------
-   Solid buttons are Slate Blue. On dark photos/sections the global JS adds .lc-btn-invert and
+   Solid buttons are Navy. On dark photos/sections the global JS adds .lc-btn-invert and
    they turn Gold with navy text. The header CTA is always Gold (the header sits on dark). */
-.lc-btn-invert, .lc-nav-cta { background-color: #ECCF8C !important; }
+.lc-btn-invert, .lc-nav-cta { background-color: %%post color%%global-color:4272616e64205072696d617279%%/post%% !important; }
 .lc-btn-invert .x-anchor-text-primary, .lc-btn-invert .x-anchor-text-secondary, .lc-btn-invert .x-graphic-icon,
-.lc-nav-cta .x-anchor-text-primary { color: #1B2733 !important; }
+.lc-nav-cta .x-anchor-text-primary { color: %%post color%%global-color:32b99313-937c-45b5-a6e4-6f57cce68eee%%/post%% !important; }
 .lc-btn-invert:hover, .lc-nav-cta:hover { background-color: #F4DFAE !important; }
 /* ===== LEWIS REDESIGN END ===== */
