@@ -49,3 +49,33 @@ Solid Navy buttons on a dark section/photo turn Gold with navy text automaticall
 ## Contact links
 Addresses link to the Google Maps place (new tab), phone numbers to `tel:8048814673`, email to
 `mailto:`. Links inherit the text colour; hover is Gold on dark sections, Navy on light.
+
+## Photos
+Stock photos from Pexels (free for commercial use, no attribution required — Pexels License).
+Uploaded at 2000px wide to the Media Library and swapped in on every page and header.
+
+| File (Media id) | Subject | Source |
+|---|---|---|
+| `pcc-worship-pews.jpg` (336) | People reading the Bible in church pews | https://www.pexels.com/photo/5874952/ |
+| `pcc-open-bible.jpg` (337) | Open Bible | https://www.pexels.com/photo/2294878/ |
+| `pcc-community-sunset.jpg` (338) | Friends enjoying time together outdoors | https://www.pexels.com/photo/708392/ |
+| `pcc-worship-lights.jpg` (339) | Raised hand during worship | https://www.pexels.com/photo/2774551/ |
+| `pcc-friends-group.jpg` (340) | Group of friends laughing together | https://www.pexels.com/photo/9287491/ |
+| `pcc-bible-coffee.jpg` (341) | Open Bible with coffee | https://www.pexels.com/photo/22711047/ |
+| `pcc-give-phone.jpg` (342) | Giving online on a phone | https://www.pexels.com/photo/892757/ |
+| `pcc-praying-together.jpg` (343) | People praying together | https://www.pexels.com/photo/8674871/ |
+| `pcc-sanctuary-scaled.jpg` (344) | Church sanctuary with cross | https://www.pexels.com/photo/34553833/ |
+| `pcc-reading-in-church-scaled.jpg` (345) | People reading the Bible in church | https://www.pexels.com/photo/8675096/ |
+| `pcc-worship-hands.jpg` (346) | Congregation worshipping | https://www.pexels.com/photo/21782633/ |
+| `pcc-small-group.jpg` (347) | Small group praying in a living room | https://www.pexels.com/photo/6860385/ |
+| `pcc-kids.jpg` (348) | Kids smiling together | https://www.pexels.com/photo/8087930/ |
+| `pcc-women.jpg` (349) | Women talking over coffee | https://www.pexels.com/photo/6457519/ |
+| `pcc-men.jpg` (350) | Men talking over coffee | https://www.pexels.com/photo/8344906/ |
+| `pcc-serving.jpg` (351) | Volunteers serving food | https://www.pexels.com/photo/6995244/ |
+| `pcc-serving-meals.jpg` (352) | Preparing meals to serve | https://www.pexels.com/photo/6995247/ |
+| `pcc-friends-smiling.jpg` (353) | Friends smiling together | https://www.pexels.com/photo/3756513/ |
+| `pcc-bible-morning-scaled.jpg` (354) | Bible and coffee | https://www.pexels.com/photo/7987075/ |
+| `pcc-family-walk.jpg` (355) | Family walking together | https://www.pexels.com/photo/5290403/ |
+
+Kept from the previous build: Give › "Why we give" mountains background, Plan Your Visit › coffee
+photo, the hidden Ways-to-Give card images, the home hero video and the staff headshot placeholders.
