@@ -97,3 +97,18 @@ Church ID **7964230** (from the old proclaimchristchurch.com/give page). Any but
 `https://tithe.ly/widget/v3/give.js` and marks the link `tithely-give-btn`). On phones Tithely opens
 its own giving page instead, and if the script can't load the link still goes to that page.
 Used on: Give › "Why we give" and Ways to Give › Online "Give Now"; Watch Live › "Give Now".
+
+## Hero backgrounds (all modern church)
+| Page / header | Background |
+|---|---|
+| Home | Client video `15954387_1280_720_24fps.mp4` |
+| Plan Your Visit | Client photo 372 (modern sanctuary) |
+| About | `pcc-sanctuary` (modern church with illuminated cross) |
+| Connect | Client photo 362 (congregation worshipping) |
+| Get Connected | Client photo 373 (worship, stage lights) |
+| Watch Live | Client photo 357 |
+| Messages + Sermon header | Client photo 361 |
+| Events + Event header | `pcc-modern-church` (Pexels 13787783) |
+| Give | Client photo 368 (offering); barley moved to "Why we give" |
+| Thank You | `pcc-modern-auditorium` (Pexels 17722682) |
+| Default banner + Archives header | `pcc-modern-cross` (Pexels 19405788) |
