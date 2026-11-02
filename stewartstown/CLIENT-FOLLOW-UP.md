@@ -13,15 +13,31 @@ Site: https://rrstewartstown.wpenginepowered.com (Pro 6.7.9 / Cornerstone 7.7.9,
 | Tagline | "Love God, Love People, Make Disciples" was already in the homepage hero. |
 | Social links | Facebook, Instagram and YouTube were already set correctly in Theme Options. |
 
-## Waiting on the client
+## Found on their old site (stewbaptist.org) and the intake form
 
-1. **Office hours.** "8am–3pm M-T": is that Monday–Thursday or Monday–Tuesday? Is Sunday 9–11:30am office hours or just when the building is open?
-2. **Confirm details already on the site:** 18631 Five Forks Road, Stewartstown, PA 17363 · 717-993-6382 · Office@Stewbaptist.org · Sunday small groups 9:00am · Sunday service 10:00am · Wednesday 6:00pm (AWANA 3yo–6th, Students 7–12, Adult Study).
-3. **Leadership:** names, roles, short bios and headshots for the pastors, lay elders and deacons.
-4. **Subsplash links:** Give, Watch Live, Messages, app download.
-5. **Photos** (shot list below).
-6. **Video** (outline below).
-7. **Ideas:** two or three church websites they like, and what they like about each.
+The full page text is saved in `content/`.
+
+- **Service time:** Sunday worship is **10:15am**. The old site, its calendar and the intake form all agree, so the new site is now updated (Home, About, Watch Live). It previously said 10:00am.
+- **Leadership** (`content/our-team.txt`):
+  - Tim Parker, Head Pastor (since 2016). Full bio.
+  - Chandler Robinson, Associate Pastor (since 2019). Full bio.
+  - Carolyn Clark, Administrative Assistant (since 2024).
+  - Deacons: Mark Evans (Chairman), Mike Besecker, Matt Foley, Matthew Yingling, Clay Lepore, Mark Browning. No bios yet.
+  - No lay elders listed.
+- **History** (`content/our-story.txt`): started as a Bible study in Robert and Dollie Hill's home; first service January 2, 1983 (25 people); constituted June 3, 1983; first pastor Rev. Glenn Ridall; land bought in 1986.
+- **Ministry text:** Children, Students, Men, Women, Missions, Volunteer and Give pages.
+- **Giving:** Subsplash now. They're **moving to ChMeetings within about 10 months**, so put the giving link in one place so it's easy to change.
+- **Intake contact:** Scott Harvey, f_amc@stewbaptist.org, 443-904-3549.
+- **Pages requested:** Home, About, Ministries/Connect, Sermons, Events, Give, Visit, plus **Prayer Requests** and **Leadership** (with photos). Socials wanted: Facebook, Instagram, YouTube and **email**.
+
+## Still waiting on the client
+
+1. **Office hours:** does "8am–3pm M-T" mean Monday–Thursday? Is Sunday 9–11:30am office hours?
+2. **Leadership update:** is the team list above current? Are there lay elders? Deacon bios and headshots.
+3. **Subsplash links** for Watch Live, Messages and the app. Give is already linked.
+4. **Photos** (shot list below).
+5. **Video** (outline below).
+6. **Ideas:** two or three church websites they like.
 
 ## Photo shot list
 
@@ -55,9 +71,9 @@ Shoot on a normal Sunday and a Wednesday night. Use landscape for banners. Get s
 >
 > A few things we still need from you:
 > 1. **Office hours:** does "M-T" mean Monday–Thursday? And is Sunday 9–11:30 office hours, or just when the building is open?
-> 2. **Please confirm** the address, phone, email and service times on the site are still correct.
-> 3. **Leadership:** names, roles and a short bio for the pastors, elders and deacons.
-> 4. **Subsplash links** for giving, watching live, messages and the app.
+> 2. **Leadership:** we've copied your team from the current site (Pastor Tim, Pastor Chandler, Carolyn and the six deacons). Is that current? Do you have lay elders? We'd also like short deacon bios and headshots.
+> 3. We've set Sunday worship to 10:15am. Let us know if that's wrong.
+> 4. **Subsplash links** for watching live, messages and the app. Giving is already linked, and we'll keep it easy to switch when you move to ChMeetings.
 > 5. **Photos:** we've attached a shot list to make this easier. A volunteer with a good phone on a normal Sunday and a Wednesday night will cover most of it.
 > 6. **Video:** we've attached a simple outline for a 60–90 second pastors' welcome and a short sermon clip.
 > 7. **Ideas:** send us two or three church websites you like and what you like about them.
