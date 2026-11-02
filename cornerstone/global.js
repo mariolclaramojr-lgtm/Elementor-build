@@ -7,7 +7,10 @@
       background it sits on, so a new form picks up the right styling automatically.
    3. Headings: the accent is the lighter tone when the heading's own text is light (dark background).
    4. Buttons: a solid Navy button that sits on a dark background/photo is flipped to Gold
-      (lc-btn-invert) so it stays visible. Editors just use the normal button. */
+      (lc-btn-invert) so it stays visible. Editors just use the normal button.
+   5. Tithely: any button/link to https://tithe.ly/give?c=<church id> opens Tithely's giving pop-up
+      (Proclaim Christ Church = 7964230). If the Tithely script can't load, the link still opens
+      the Tithely giving page. */
 (function () {
   // not: forms, popups, top bar + menu bar, search/blog result titles, sermon/event listing titles from plugins
   var SKIP = '.gform_wrapper, .tooltipster-box, .lc-topbar, .lc-nav, .x-off-canvas, article .entry-title, .smpro-item, .wpfc-sermon, .mec-event-list-minimal, [data-lc-no-accent]';
@@ -70,10 +73,33 @@
     if (l !== null && l < 0.35 && onDark(a)) a.classList.add('lc-btn-invert');
   }
 
+  var tithelyLoading = false;
+  function tithely(root) {
+    var links = (root || document).querySelectorAll('a[href*="tithe.ly/give?c="]:not(.tithely-give-btn)');
+    if (!links.length) return;
+    links.forEach(function (a) {
+      var m = a.getAttribute('href').match(/[?&]c=(\d+)/);
+      if (!m) return;
+      a.classList.add('tithely-give-btn');
+      a.setAttribute('data-church-id', m[1]);
+      a.removeAttribute('target');
+      // the widget sets a.onclick when it loads; only then stop the normal link
+      a.addEventListener('click', function (e) { if (a.onclick) e.preventDefault(); });
+    });
+    if (window.create_tithely_widget) { window.create_tithely_widget(); return; }
+    if (tithelyLoading) return;
+    tithelyLoading = true;
+    var sc = document.createElement('script');
+    sc.src = 'https://tithe.ly/widget/v3/give.js?3';
+    sc.onload = function () { if (window.create_tithely_widget) window.create_tithely_widget(); };
+    document.body.appendChild(sc);
+  }
+
   function run(root) {
     (root || document).querySelectorAll('h1, h2').forEach(accentHeading);
     (root || document).querySelectorAll('.gform_wrapper').forEach(markForm);
     (root || document).querySelectorAll('.x-anchor-button').forEach(markButton);
+    tithely(root);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { run(); });

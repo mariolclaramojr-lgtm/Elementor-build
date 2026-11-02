@@ -90,3 +90,10 @@ source, so the hero uses the MP4; the WebM is there if it's ever needed.
 
 Kept from the previous build: Give › "Why we give" mountains background, Plan Your Visit › coffee
 photo, the hidden Ways-to-Give card images and the staff headshot placeholders.
+
+## Giving (Tithely)
+Church ID **7964230** (from the old proclaimchristchurch.com/give page). Any button linking to
+`https://tithe.ly/give?c=7964230` opens Tithely's giving pop-up (global JS loads
+`https://tithe.ly/widget/v3/give.js` and marks the link `tithely-give-btn`). On phones Tithely opens
+its own giving page instead, and if the script can't load the link still goes to that page.
+Used on: Give › "Why we give" and Ways to Give › Online "Give Now"; Watch Live › "Give Now".
