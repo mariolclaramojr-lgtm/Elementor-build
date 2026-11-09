@@ -340,6 +340,6 @@ def fix(e):
     if e.get('_type') == 'map': e['map_embed_code'] = json.loads(embed)
     for k in [k for k, v in e.items() if v is None]: del e[k]
     for c in e.get('_modules', []): fix(c)
-for s in tree: fix(s)
+for s in tree + [visit]: fix(s)   # visit = the Get In Touch component's section
 json.dump(tree, open('home-tree-new.json', 'w'), indent=1)
 print('ok', len(json.dumps(tree)))
