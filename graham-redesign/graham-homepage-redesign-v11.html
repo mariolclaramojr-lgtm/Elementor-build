@@ -7,7 +7,7 @@
   <title>Graham Church | A Church for the City</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
        Graham Church — v11 · Premium palette
@@ -32,9 +32,9 @@
       --muted:    #5b687c;
       --line:     rgba(36,52,77,.14);
       --line-light: rgba(255,255,255,.14);
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --display: 'Manrope', system-ui, sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Figtree', system-ui, sans-serif;
+      --display: 'Instrument Sans', system-ui, sans-serif;
       --ease: cubic-bezier(.2,.7,.2,1);
       --shadow-lg: 0 30px 70px -20px rgba(15,24,40,.35);
       --shadow-md: 0 18px 40px -18px rgba(15,24,40,.28);
@@ -51,8 +51,8 @@
     .eyebrow { display: inline-flex; align-items: center; gap: 14px; color: var(--gold-deep); font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
     .eyebrow::before { content: ''; width: 32px; height: 1px; background: currentColor; }
     .on-dark .eyebrow, .eyebrow.light { color: var(--gold); }
-    .heading { margin: 22px 0 0; font-family: var(--display); font-size: clamp(38px, 5vw, 64px); font-weight: 500; letter-spacing: -.055em; line-height: 1.04; }
-    .heading em, h1 em, .quote em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spacing: -.02em; }
+    .heading { margin: 22px 0 0; font-family: var(--display); font-size: clamp(38px, 5vw, 64px); font-weight: 500; letter-spacing: -.04em; line-height: 1.04; }
+    .heading em, h1 em, .quote em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
     .heading em { color: var(--gold-deep); }
     .on-dark .heading { color: #fff; }
     .on-dark .heading em { color: var(--gold-soft); }
@@ -87,20 +87,14 @@
     .nav-wrap { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 30px; transition: min-height .4s var(--ease); }
     .scrolled .nav-wrap { min-height: 74px; }
     .brand { display: flex; align-items: center; gap: 13px; color: #fff; }
-    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold-soft); font-family: var(--serif); font-size: 26px; font-weight: 500; position: relative; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold-soft); font-family: var(--serif); font-size: 26px; font-weight: 400; position: relative; }
     .brand-mark::after { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(198,173,122,.35); }
     .brand-name { font-family: var(--display); font-size: 18px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; }
     .brand-name small { display: block; margin-top: 3px; font-family: var(--sans); font-size: 8.5px; font-weight: 600; letter-spacing: .32em; color: var(--gold); }
-    .desktop-nav { display: flex; align-items: center; gap: 34px; }
-    .desktop-nav a:not(.button) { position: relative; color: rgba(255,255,255,.82); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 8px 0; transition: color .25s; }
-    .desktop-nav a:not(.button)::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform .35s var(--ease); }
-    .desktop-nav a:not(.button):hover { color: #fff; }
-    .desktop-nav a:not(.button):hover::after { transform: scaleX(1); }
-    .desktop-nav .button { min-height: 46px; padding: 0 20px; font-size: 11px; }
-    .menu-area { position: relative; display: none; }
+    .menu-area { position: relative; }
     .menu-toggle { display: inline-flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 16px; border: 1px solid rgba(198,173,122,.7); background: rgba(15,24,40,.3); color: #fff; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; cursor: pointer; }
     .menu-icon { font-size: 19px; line-height: 1; font-weight: 400; color: var(--gold); }
-    #main-nav { display: none; position: absolute; top: calc(100% + 16px); right: 0; width: min(340px, calc(100vw - 36px)); padding: 14px 26px 26px; background: var(--navy-900); border: 1px solid rgba(198,173,122,.25); box-shadow: var(--shadow-lg); flex-direction: column; }
+    #main-nav { display: none; z-index: 60; position: absolute; top: calc(100% + 16px); right: 0; width: min(340px, calc(100vw - 36px)); padding: 14px 26px 26px; background: var(--navy-900); border: 1px solid rgba(198,173,122,.25); box-shadow: var(--shadow-lg); flex-direction: column; }
     #main-nav.open { display: flex; animation: menuIn .28s var(--ease) both; }
     @keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
     #main-nav a:not(.button) { color: rgba(255,255,255,.85); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 16px 0; border-bottom: 1px solid var(--line-light); display: flex; justify-content: space-between; }
@@ -108,34 +102,28 @@
     #main-nav .button { margin-top: 20px; }
 
     /* ---------- Hero ---------- */
-    .hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: var(--navy-900); color: #fff; }
+    .hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: center; overflow: hidden; background: var(--navy-900); color: #fff; }
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; transform: scale(1.04); }
     .hero::before { content: ''; position: absolute; z-index: 1; inset: 0; background:
       linear-gradient(90deg, rgba(15,24,40,.92) 0%, rgba(21,33,58,.7) 45%, rgba(21,33,58,.25) 100%),
       linear-gradient(0deg, rgba(15,24,40,.95) 0%, rgba(15,24,40,0) 42%),
       radial-gradient(ellipse at 85% 20%, rgba(198,173,122,.18), transparent 55%); }
     .hero::after { content: ''; position: absolute; z-index: 1; inset: 0; opacity: .08; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-    .hero-content { position: relative; z-index: 2; padding: 170px 0 70px; }
-    .hero h1 { max-width: 860px; margin: 28px 0 26px; font-family: var(--display); font-size: clamp(56px, 8.6vw, 116px); font-weight: 500; letter-spacing: -.07em; line-height: .95; }
-    .hero h1 em { display: inline-block; color: var(--gold-soft); font-weight: 500; letter-spacing: -.035em; padding-right: .06em; }
-    .hero-copy { max-width: 470px; margin: 0 0 38px; color: rgba(255,255,255,.8); font-size: 16.5px; line-height: 1.8; }
+    .hero-content { position: relative; z-index: 2; padding: 170px 0 130px; }
+    .hero h1 { max-width: 860px; margin: 28px 0 26px; font-family: var(--display); font-size: clamp(56px, 8.6vw, 116px); font-weight: 500; letter-spacing: -.05em; line-height: .95; }
+    .hero h1 em { display: inline-block; color: var(--gold-soft); font-weight: 400; letter-spacing: -.02em; padding-right: .06em; }
+    .hero-copy { max-width: 470px; margin: 0 0 34px; color: rgba(255,255,255,.8); font-size: 16.5px; line-height: 1.8; }
+    .hero-details { display: flex; flex-wrap: wrap; gap: 18px 0; margin: 0 0 38px; max-width: 860px; }
+    .hero-detail { padding: 2px 32px; border-left: 1px solid rgba(198,173,122,.4); }
+    .hero-detail:first-child { padding-left: 0; border-left: 0; }
+    .hero-detail small { display: block; margin-bottom: 7px; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    .hero-detail strong, .hero-detail a { color: #fff; font-size: 15px; font-weight: 500; line-height: 1.45; }
+    .hero-detail a { border-bottom: 1px solid rgba(198,173,122,.45); transition: color .25s, border-color .25s; }
+    .hero-detail a:hover { color: var(--gold-soft); border-color: var(--gold); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
     .hero-side { position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 18px; color: rgba(255,255,255,.55); font-size: 10px; letter-spacing: .3em; text-transform: uppercase; writing-mode: vertical-rl; }
     .hero-side::after { content: ''; width: 1px; height: 80px; background: linear-gradient(var(--gold), transparent); }
 
-    .hero-bar { position: relative; z-index: 2; border-top: 1px solid rgba(198,173,122,.28); background: linear-gradient(180deg, rgba(15,24,40,.35), rgba(15,24,40,.75)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-    .hero-bar-inner { display: grid; grid-template-columns: repeat(3, 1fr) auto; align-items: stretch; }
-    .hero-detail { padding: 28px 30px 28px 0; display: flex; gap: 18px; align-items: flex-start; }
-    .hero-detail + .hero-detail { padding-left: 30px; border-left: 1px solid var(--line-light); }
-    .hero-detail .ico { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(198,173,122,.5); border-radius: 50%; color: var(--gold); }
-    .hero-detail .ico svg { width: 17px; height: 17px; }
-    .hero-detail small { display: block; margin-bottom: 6px; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
-    .hero-detail strong, .hero-detail a { color: #fff; font-size: 15px; font-weight: 500; line-height: 1.45; }
-    .hero-detail a:hover { color: var(--gold-soft); }
-    .hero-bar-cta { display: flex; align-items: center; gap: 14px; padding-left: 30px; border-left: 1px solid var(--line-light); color: rgba(255,255,255,.7); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
-    .scroll-dot { width: 26px; height: 42px; border: 1px solid rgba(255,255,255,.45); border-radius: 14px; position: relative; }
-    .scroll-dot::after { content: ''; position: absolute; left: 50%; top: 8px; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 2px; background: var(--gold); animation: scroll 1.8s var(--ease) infinite; }
-    @keyframes scroll { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
 
     /* ---------- Welcome ---------- */
     .welcome { position: relative; padding: 150px 0 130px; background: var(--ivory); overflow: hidden; }
@@ -243,7 +231,10 @@
     .visit-item.contact a { color: #fff; border-bottom: 1px solid rgba(198,173,122,.5); transition: color .25s; }
     .visit-item.contact a:hover { color: var(--gold-soft); }
     .map-panel { position: relative; margin-top: 22px; height: 340px; overflow: hidden; background: #e2e4e7; border: 1px solid var(--line); }
-    .map-panel iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) sepia(.18) contrast(.95) brightness(1.02); }
+    .map-panel iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.08) brightness(1.04); }
+    .map-tint { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(135deg, rgba(198,173,122,.55), rgba(82,103,131,.5)); mix-blend-mode: multiply; }
+    .map-tint::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 90px rgba(15,24,40,.35); }
+    .map-caption { z-index: 2; }
     .map-caption { position: absolute; left: 24px; bottom: 24px; display: flex; align-items: center; gap: 20px; padding: 18px 22px; background: var(--navy-900); color: #fff; box-shadow: var(--shadow-md); }
     .map-caption small { display: block; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 4px; }
     .map-caption strong { font-family: var(--display); font-size: 15px; font-weight: 600; }
@@ -254,7 +245,7 @@
     .cta-strip { background: var(--gold); color: var(--navy-950); }
     .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 46px 0; }
     .cta-inner h2 { margin: 0; font-family: var(--display); font-size: clamp(26px, 3vw, 38px); font-weight: 500; letter-spacing: -.045em; line-height: 1.15; }
-    .cta-inner h2 em { font-family: var(--serif); font-style: italic; font-weight: 600; }
+    .cta-inner h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; }
     .cta-strip .button.navy:hover { color: var(--navy-950); }
     .cta-strip .button.navy::before { background: #fff; }
     .cta-strip .button.navy:hover { border-color: #fff; }
@@ -285,11 +276,7 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1080px) {
-      .desktop-nav { display: none; }
-      .menu-area { display: block; }
       .hero-side { display: none; }
-      .hero-bar-inner { grid-template-columns: repeat(3, 1fr); }
-      .hero-bar-cta { display: none; }
       .footer-main { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 900px) {
@@ -302,10 +289,6 @@
       .visit-grid { grid-template-columns: 1fr 1fr; }
       .visit-item.contact { grid-column: 1 / -1; }
       .verse { background-attachment: scroll; }
-      .hero-bar-inner { grid-template-columns: 1fr; }
-      .hero-detail, .hero-detail + .hero-detail { padding: 18px 0; border-left: 0; }
-      .hero-detail + .hero-detail { border-top: 1px solid var(--line-light); }
-      .hero-content { padding-bottom: 40px; }
       .cta-inner { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 600px) {
@@ -317,8 +300,9 @@
       .hero h1 { font-size: clamp(52px, 15vw, 76px); }
       .hero-copy { font-size: 15px; }
       .hero-actions .button { flex: 1 1 100%; }
-      .hero-detail { padding: 14px 0 !important; }
-      .hero-detail .ico { width: 34px; height: 34px; }
+      .hero-details { flex-direction: column; gap: 0; margin-bottom: 30px; }
+      .hero-detail, .hero-detail:first-child { padding: 14px 0; border-left: 0; border-top: 1px solid rgba(198,173,122,.25); }
+      .hero-detail:first-child { border-top: 0; padding-top: 0; }
       .welcome, .connect, .sermons, .visit { padding: 90px 0; }
       .welcome::before { display: none; }
       .welcome-media::before { top: -14px; left: -14px; }
@@ -350,13 +334,9 @@
       <a class="brand" href="#home" aria-label="Graham Church home">
         <span class="brand-mark">G</span><span class="brand-name">Graham<small>Church</small></span>
       </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#welcome">About</a><a href="#connect">Connect</a><a href="#sermons">Sermons</a><a href="#visit">Events</a><a href="#visit">Give</a>
-        <a class="button" href="#visit">Plan Your Visit <span class="arrow">↗</span></a>
-      </nav>
       <div class="menu-area">
         <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav" onclick="toggleMenu()"><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true">☰</span></button>
-        <nav id="main-nav" aria-label="Mobile navigation">
+        <nav id="main-nav" aria-label="Main navigation">
           <a href="#home">Home</a><a href="#welcome">About</a><a href="#connect">Connect</a><a href="#sermons">Sermons</a><a href="#visit">Events</a><a href="#visit">Give</a>
           <a class="button" href="#visit">Plan Your Visit <span class="arrow">↗</span></a>
         </nav>
@@ -376,28 +356,16 @@
         <span class="eyebrow light rise">A community centered on Christ</span>
         <h1 class="rise d1">A Church<br><em>For the City.</em></h1>
         <p class="hero-copy rise d2">A place to belong, grow in faith, and discover the hope of Jesus. There's a place for you here.</p>
-        <div class="hero-actions rise d3">
+        <div class="hero-details rise d3" aria-label="Church service times and address">
+          <div class="hero-detail"><small>Sunday Service</small><strong>Sunday Morning · 10 AM</strong></div>
+          <div class="hero-detail"><small>Midweek Gathering</small><strong>Wednesday · 6 PM</strong></div>
+          <div class="hero-detail"><small>Visit Us</small><a href="#visit">1000 West Highway, City, ST 55555 ↗</a></div>
+        </div>
+        <div class="hero-actions rise d4">
           <a class="button" href="#visit">Plan Your Visit <span class="arrow">↗</span></a>
           <a class="button ghost" href="#welcome">Get to Know Us <span class="arrow">→</span></a>
         </div>
         <div class="hero-side">Est. in faith · Here for the city</div>
-      </div>
-      <div class="hero-bar rise d4" aria-label="Church service times and address">
-        <div class="container hero-bar-inner">
-          <div class="hero-detail">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <div><small>Sunday Service</small><strong>Sunday Morning · 10 AM</strong></div>
-          </div>
-          <div class="hero-detail">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
-            <div><small>Midweek Gathering</small><strong>Wednesday · 6 PM</strong></div>
-          </div>
-          <div class="hero-detail">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
-            <div><small>Visit Us</small><a href="#visit">1000 West Highway, City, ST 55555 ↗</a></div>
-          </div>
-          <a class="hero-bar-cta" href="#welcome" aria-label="Scroll to welcome"><span class="scroll-dot"></span>Scroll</a>
-        </div>
       </div>
     </section>
 
@@ -512,6 +480,7 @@
         </div>
         <div class="map-panel reveal">
           <iframe title="Map showing church location" src="https://www.google.com/maps?q=1000%20West%20Highway%2C%20City%2C%20ST%2055555&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <span class="map-tint" aria-hidden="true"></span>
           <div class="map-caption">
             <div><small>Find us</small><strong>1000 West Highway</strong></div>
             <a href="https://www.google.com/maps?q=1000%20West%20Highway%2C%20City%2C%20ST%2055555" target="_blank" rel="noopener" aria-label="Open in Google Maps">↗</a>
@@ -557,6 +526,8 @@
     }
     function toggleMenu() { setMenu(!document.getElementById('main-nav').classList.contains('open')); }
     document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('click', e => { if (!e.target.closest('.menu-area')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
     const header = document.getElementById('siteHeader');
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
