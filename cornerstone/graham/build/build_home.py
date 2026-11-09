@@ -157,8 +157,6 @@ welcome = section('2. Welcome', [
   row('Content', [
     col('Image', [
       div('Image Frame', [
-        headline('01 / A place to begin', tag='span', size='0.65rem', color='#ffffff', font=F_BODY, weight='700',
-                 ls='0.22em', lh='1.2', text_text_transform='uppercase'),
       ], justify='flex-start', layout_div_width='100%', layout_div_min_height='36rem',
          layout_div_padding='1.6rem 1.6rem 1.6rem 1.6rem',
          layout_div_box_shadow_dimensions='0em 1.9em 4.4em -1.25em', layout_div_box_shadow_color='rgba(15,24,40,0.35)',
