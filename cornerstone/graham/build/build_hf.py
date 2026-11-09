@@ -123,7 +123,12 @@ footer_main = div('Footer Columns', [
 footer_bottom = div('Footer Bottom', [
   text('<p>© 2026 Graham Church. All rights reserved.</p>', color='rgba(255,255,255,0.45)', size='0.7rem', maxw='none',
        text_letter_spacing='0.08em'),
-  text('<p>Rooted in Christ · Here for the City</p>', color=GOLD, font=F_ACC, size='0.9rem', maxw='none', text_font_style='italic'),
+  div('Credit', [
+    text('<p>church web design by</p>', color='rgba(255,255,255,0.45)', size='0.7rem', maxw='none', text_letter_spacing='0.08em'),
+    {**text_link('REACHRIGHT', 'https://reachrightstudios.com', color=GOLD, hover='#ffffff', line='transparent'),
+     'anchor_border_width': '0px', 'anchor_padding': '0em', 'anchor_primary_font_size': '0.7rem', 'anchor_primary_letter_spacing': '0.14em',
+     'anchor_blank': True},
+  ], direction='row', gap='0.4rem', align='center'),
 ], direction='row', justify='space-between', align='center', gap='1rem', wrap=True, layout_div_width='100%',
    layout_div_padding='1.6rem 0px 2rem 0px', layout_div_border_width='1px 0px 0px 0px', layout_div_border_style='solid',
    layout_div_border_color='rgba(198,173,122,0.2)')

@@ -147,7 +147,8 @@ def about():
         label_head(h['text_content'], h.get('text_subheadline_content', ''), pcolor='#ffffff', psize='1.2rem', tag='h3',
                    text_font_family=F_DISP, text_font_weight='600', text_margin='1.25rem 0px 0px 0px'),
     ], **hover_lift) for n, (img_src, h) in enumerate(team)]
-    sec3 = section('3. Our Team', [heading_row('Our Team', dark=True), cards_row(team_cols)], **dark_bg('451:full'))
+    team_row = cards_row(team_cols); team_row['_bp_data3_4']['layout_row_layout'] = ['100%', '100%', '33.33% 33.33% 33.33%', None, None]
+    sec3 = section('3. Our Team', [heading_row('Our Team', dark=True), team_row], **dark_bg('451:full'))
     return [banner('About Us', image='450:full'), sec2, sec3, relabel(GET_IN_TOUCH, '4. Get In Touch (component)')]
 
 def connect_page():
@@ -315,7 +316,7 @@ def thank_you():
 
 def events():
     t = P(235); return [banner('Events', image='441:full'), raw_section('2. Calendar (MEC shortcode)', find_all(t[1], 'classic:raw-content')[0],
-            'Join us', 'Upcoming events', 'Find out what is happening at Graham and plan to join us. Tap a day to see its events.')]
+            'Join us', 'Upcoming events', 'Find out what is happening at Graham and plan to join us. Tap an event to see the details.')]
 
 def sermons():
     t = P(267); return [banner('Sermons', image='460:full'), raw_section('2. Sermon List (shortcode)', find_all(t[1], 'classic:raw-content')[0],

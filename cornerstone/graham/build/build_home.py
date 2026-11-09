@@ -30,6 +30,11 @@ def row(title, cols, layout='100%', gap='0px', align='stretch', stack=True, **kw
     if stack and layout != '100%':
         d.update(bp(layout_row_layout=['100%', '100%', '100%', None, None]))
     d.update(kw)
+    if layout != '100%':
+        bpd = d.setdefault('_bp_data3_4', {})
+        g = list(bpd.get('layout_row_gap_column', [None] * 5))
+        g[0] = '0px'; g[1] = '0px'
+        bpd['layout_row_gap_column'] = g
     return el('layout-row', title, cols, **d)
 
 def col(title, mods, **kw):

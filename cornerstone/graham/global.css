@@ -264,7 +264,7 @@
 }
 
 /* ---- Events: calendar + navy day panel side by side ---- */
-.mec-wrap .mec-calendar .mec-calendar-topsec { display: grid !important; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
+.mec-wrap .mec-calendar .mec-calendar-topsec:has(.mec-calendar-events-side) { display: grid !important; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
 .mec-wrap .mec-calendar .mec-calendar-table { border-radius: 0; box-shadow: 0 30px 60px -36px rgba(15,24,40,.35); }
 .mec-wrap .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { background: #15213a !important; color: rgba(255,255,255,.75) !important; }
 .mec-wrap .mec-calendar .mec-month-container dl > dt { min-height: 104px; }
@@ -412,4 +412,28 @@ body.single-wpfc_sermon, body.single-mec-events { background: #fbf8f2; }
 .gform_wrapper.gform_legacy_markup_wrapper .gchoice input:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(198,173,122,.3); }
 .gform_wrapper.gform_legacy_markup_wrapper .gchoice label { margin: 0 !important; padding: 0 !important; max-width: none !important; cursor: pointer;
   font: 400 15px/1.45 "Figtree", sans-serif !important; letter-spacing: 0 !important; text-transform: none !important; color: #172236 !important; }
+/* 10. MEC monthly "simple" style: weekday row, event chips in the day cells. */
+.mec-wrap .mec-calendar .mec-calendar-table-head { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)); background: #15213a; }
+.mec-wrap .mec-calendar .mec-calendar-table-head .mec-calendar-day-head { float: none !important; width: auto !important; height: auto !important; margin: 0 !important;
+  padding: 15px 10px !important; background: none !important; border: 0 !important; text-align: left !important;
+  font: 700 11px/1.4 "Figtree", sans-serif !important; letter-spacing: .18em !important; color: rgba(255,255,255,.78) !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt { min-height: 118px; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt .ended-relative { margin-top: 8px; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 0 0 4px !important; padding: 6px 8px !important;
+  border-left: 2px solid #c6ad7a; background: #fff !important; box-shadow: 0 6px 14px -10px rgba(15,24,40,.4);
+  font: 600 12.5px/1.35 "Figtree", sans-serif !important; color: #172236 !important; white-space: normal !important; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt a, .mec-wrap .mec-calendar .mec-month-container dl > dt a:hover { text-decoration: none !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #24344d !important; color: #fff !important; text-decoration: none !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt.mec-has-event, .mec-wrap .mec-calendar .mec-month-container dl > dt:has(.mec-event-title) { background: #fbf6ea !important; box-shadow: inset 0 -3px 0 #c6ad7a; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt > div:first-child { font: 600 14px/1.4 "Figtree", sans-serif !important; }
+/* today */
+.mec-wrap .mec-calendar .mec-month-container dl > dt.mec-calendar-day-today > div:first-child,
+.mec-wrap .mec-calendar .mec-month-container dl > dt.mec-today > div:first-child { display: inline-grid; place-items: center; width: 28px; height: 28px; margin: -4px 0 0 -4px; border-radius: 50%; background: #c6ad7a; color: #0f1828 !important; }
+@media (max-width: 640px) {
+  .mec-wrap .mec-calendar .mec-calendar-table-head .mec-calendar-day-head { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; text-align: center !important; }
+  .mec-wrap .mec-calendar .mec-month-container dl > dt { min-height: 58px; text-align: center !important; }
+  .mec-wrap .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 7px; height: 7px; margin: 4px auto 0 !important; padding: 0 !important;
+    border: 0; border-radius: 50%; background: #c6ad7a !important; box-shadow: none; font-size: 0 !important; -webkit-line-clamp: unset; }
+}
 /* ===== GRAHAM REDESIGN END ===== */
