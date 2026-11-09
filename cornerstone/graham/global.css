@@ -423,4 +423,7 @@ body.single-wpfc_sermon, body.single-mec-events { background: #fbf8f2; }
   .mec-wrap .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 7px; height: 7px; margin: 4px auto 0 !important; padding: 0 !important;
     border: 0; border-radius: 50%; background: #c6ad7a !important; box-shadow: none; font-size: 0 !important; -webkit-line-clamp: unset; }
 }
+/* 11. Accordions — no browser focus box on click; gold ring for keyboard users. */
+.x-acc-header:focus { outline: none !important; box-shadow: none !important; }
+.x-acc-header:focus-visible { outline: 2px solid #c6ad7a !important; outline-offset: 3px; }
 /* ===== GRAHAM REDESIGN END ===== */

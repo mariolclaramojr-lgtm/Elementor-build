@@ -157,17 +157,49 @@ BELIEFS = [
   ('The Church', 'We believe the Church is the body of Christ, a family of believers called to worship together, grow in faith and share the good news with the world.'),
 ]
 
+def editorial_accordion(items):
+    return el('accordion', None, [el('accordion-item', None, [], accordion_item_header_content=h, accordion_item_content=f'<p>{c}</p>') for h, c in items],
+        accordion_margin='0em', accordion_padding='0em', accordion_border_width='1px 0px 0px 0px', accordion_border_style='solid',
+        accordion_border_color='rgba(36,52,77,0.18)', accordion_border_radius='0px',
+        accordion_item_spacing='0px', accordion_item_overflow='hidden', accordion_item_bg_color='transparent', accordion_item_padding='0em',
+        accordion_item_border_width='0px 0px 1px 0px', accordion_item_border_style='solid', accordion_item_border_color='rgba(36,52,77,0.18)',
+        accordion_item_border_radius='0px', accordion_item_box_shadow_dimensions='0em 0em 0em 0em',
+        accordion_header_bg_color='transparent', accordion_header_bg_color_alt='transparent', accordion_header_padding='1.55em 0.25em 1.55em 0em',
+        accordion_header_margin='0em', accordion_header_border_width='0px', accordion_header_border_style='none', accordion_header_border_radius='0px',
+        accordion_header_font_family=F_DISP, accordion_header_font_weight='500', accordion_header_font_size='clamp(1.2rem, 1.8vw, 1.5rem)',
+        accordion_header_letter_spacing='-0.03em', accordion_header_line_height='1.2', accordion_header_text_color=INK, accordion_header_text_color_alt=GOLDD,
+        accordion_header_indicator=True, accordion_header_indicator_type='icon', accordion_header_indicator_icon='plus',
+        accordion_header_indicator_font_size='1.05rem', accordion_header_indicator_width='1.2em', accordion_header_indicator_height='1.2em',
+        accordion_header_indicator_rotation_start='0deg', accordion_header_indicator_rotation_end='135deg',
+        accordion_header_indicator_color=GOLDD, accordion_header_indicator_color_alt=INK, accordion_header_content_spacing='1.5em',
+        accordion_header_content_reverse=True,
+        accordion_content_bg_color='transparent', accordion_content_margin='0em', accordion_content_padding='0em 3.5em 1.75em 0em',
+        accordion_content_border_width='0px', accordion_content_border_style='none',
+        accordion_content_font_family=F_BODY, accordion_content_font_weight='400', accordion_content_font_size='1rem',
+        accordion_content_line_height='1.8', accordion_content_text_color=MUTED,
+        **bp(accordion_content_padding=['0em 0.5em 1.5em 0em', None, None, None, None]))
+
 def beliefs_section(title_lbl):
     pill = headline('•  Our Beliefs', tag='span', size='0.65rem', color=GOLDD, font=F_BODY, weight='700', ls='0.2em', lh='1',
-                    text_text_transform='uppercase', text_padding='0.75em 1.25em 0.75em 1.25em', text_bg_color='rgba(198,173,122,0.14)',
+                    text_text_transform='uppercase', text_padding='0.75em 1.25em 0.75em 1.25em', text_bg_color='rgba(255,255,255,0.55)',
                     text_border_width='1px', text_border_style='solid', text_border_color='rgba(163,133,78,0.4)', text_border_radius='100em')
-    head = row('Heading', [col('Heading Group', [pill, headline('What We Believe', margin='1.4rem 0px 0px 0px', text_text_align='center'),
-                                                el('line', None, [], line_width='48px', line_size='1px', line_color=GOLD, line_margin='1.4rem 0px 0px 0px')],
-                               layout_column_flex_align='center')], layout_row_margin='0px auto 3.25rem auto')
-    accs = row('Accordions', [col('Column', [light_accordion(BELIEFS[:4])], layout_column_flex_align='stretch'),
-                              col('Column', [light_accordion(BELIEFS[4:])], layout_column_flex_align='stretch')],
-               layout='50% 50%', gap='1.4rem', **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None]}})
-    return section(title_lbl, [head, accs], section_bg_color=SAND)
+    quote = div('Scripture Card', [
+        headline('“', tag='span', size='4rem', color=GOLD, font=F_ACC, weight='400', ls='0em', lh='0.6'),
+        headline('Contend for the faith that was once for all delivered to the saints.', tag='p', size='1.45rem', color='#ffffff',
+                 font=F_ACC, weight='400', ls='0em', lh='1.3', text_font_style='italic', text_margin='0.9rem 0px 1.1rem 0px'),
+        headline('Jude 1:3', tag='span', size='0.65rem', color=GOLD, font=F_BODY, weight='700', ls='0.22em', lh='1', text_text_transform='uppercase'),
+    ], layout_div_width='100%', layout_div_bg_color=DEEP, layout_div_padding='2.1rem 2.1rem 1.9rem 2.1rem',
+       layout_div_border_width='2px 0px 0px 0px', layout_div_border_style='solid', layout_div_border_color=GOLD,
+       layout_div_margin='2.5rem 0px 0px 0px', layout_div_max_width='26rem',
+       layout_div_box_shadow_dimensions='0em 1.9em 4.4em -1.6em', layout_div_box_shadow_color='rgba(15,24,40,0.45)')
+    intro = col('Intro', [pill, headline('What We Believe', margin='1.5rem 0px 0px 0px'), gold_rule(),
+                          text('<p>Our beliefs are rooted in Scripture and centered on Jesus. These core convictions shape how we worship, serve and love our city.</p>',
+                               color=INK, size='1.05rem', lh='1.75', maxw='26rem'),
+                          quote])
+    lst = col('Beliefs', [editorial_accordion(BELIEFS)], layout_column_flex_align='stretch')
+    return section(title_lbl, [row('Content', [intro, lst], layout='38% 62%', gap='6rem', align='flex-start',
+                                   **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None], 'layout_row_gap_column': [None, None, '3rem', '4rem', None]}})],
+                   section_bg_color=SAND)
 
 def relabel(sec, title): s = copy.deepcopy(sec); s['title'] = title; return s
 
