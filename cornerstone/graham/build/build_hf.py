@@ -1,4 +1,4 @@
-import json, sys
+import json, sys, copy
 sys.path.insert(0,'.')
 exec(open('build_home.py').read().split('# ---------------- 1. HERO')[0])   # reuse helpers + tokens
 PAGES = [int(x) for x in sys.argv[1:]] or [412]
@@ -20,6 +20,9 @@ brand = div('Logo', [
            text_subheadline_font_size='0.55rem', text_subheadline_letter_spacing='0.32em',
            text_subheadline_text_transform='uppercase', text_subheadline_text_color=GOLD),
 ], direction='row', gap='13px', align='center', layout_div_tag='a', layout_div_href='/')
+
+COMP = json.load(open('components.json'))
+logo_gb = lambda: {'_type': 'global-block', '_bp_base': BP, 'title': 'Logo (component)', 'global_block_id': str(COMP['logo'])}
 
 menu = {
   '_type': 'layout-dropdown', '_bp_base': BP, '_label': 'Menu',
@@ -66,8 +69,13 @@ header_bar = r({'_type': 'bar', '_bp_base': BP, 'class': 'gc-header', 'bar_posit
   'bar_sticky_shrink': '0.82', 'bar_sticky_slide_enabled': True, 'bar_row_flex_justify': 'space-between', 'bar_row_flex_align': 'center',
   '_bp_data3_4': {'bar_height': ['76px', '76px', None, None, None]},
   '_modules': [{'_type': 'container', '_bp_base': BP, 'container_flex': '1 0 auto', 'container_row_flex_justify': 'space-between',
-                'container_row_flex_align': 'center', '_modules': [brand, menu]}]}, 'top')
+                'container_row_flex_align': 'center', '_modules': [logo_gb(), menu]}]}, 'top')
 
+solid_bar = copy.deepcopy(header_bar)
+solid_bar.update({'class': 'gc-header gc-header-solid', 'bar_position_top': 'relative', 'bar_bg_color': DARK,
+                  'bar_box_shadow_dimensions': '0px 10px 30px -18px', 'bar_box_shadow_color': 'rgba(0,0,0,0.5)'})
+header_solid = {'type': 'header', 'title': 'Graham Header – Solid (posts, events, archives)', 'regions': {'top': [solid_bar]},
+                'settings': {'assignments': [{'group': True, 'condition': 'site:entire-site', 'value': ''}], 'assignment_priority': 20}}
 header = {'type': 'header', 'title': 'Graham Header', 'regions': {'top': [header_bar]},
           'settings': {'assignments': ASSIGN,
                        'assignment_priority': 1}}
@@ -90,7 +98,7 @@ def links(title, items):
     ] + kids, gap='0.7rem', layout_div_flex='1 1 10rem')
 
 footer_main = div('Footer Columns', [
-  div('Column – Brand', [brand,
+  div('Column – Brand', [logo_gb(),
      text('<p>A church for the city. Sharing the message of Christ and living out His love in our community.</p>',
           color='rgba(255,255,255,0.58)', size='0.82rem', lh='1.85', maxw='19rem', text_margin='1.4rem 0px 0px 0px')],
      layout_div_flex='1.5 1 16rem'),
@@ -122,5 +130,7 @@ def clean(e):
     elif isinstance(e, list):
         for x in e: clean(x)
 clean(header); clean(footer)
-json.dump({'header': header, 'footer': footer}, open('hf.json', 'w'), indent=1)
+footer['settings']['assignments'] = [{'group': True, 'condition': 'site:entire-site', 'value': ''}]
+clean(header_solid)
+json.dump({'header': header, 'footer': footer, 'header_solid': header_solid}, open('hf.json', 'w'), indent=1)
 print('ok')

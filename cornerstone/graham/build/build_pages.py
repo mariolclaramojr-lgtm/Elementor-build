@@ -15,7 +15,7 @@ def strip_p(s): return re.sub(r'^\s*<p>(.*?)</p>\s*$', r'\1', s.strip(), flags=r
 LIGHT_TEXT = 'rgba(255,255,255,0.75)'
 def gold_rule(): return el('line', None, [], line_width='48px', line_size='1px', line_color=GOLD, line_margin='1.4rem 0px 1.6rem 0px')
 
-def banner(title, eyebrow_txt='Graham Church', sub=None, image='373:full', overlay='rgba(15, 24, 40, 0.8)', body=None):
+def banner(title, eyebrow_txt='Graham Church', sub=None, image='373:full', overlay='rgba(15, 24, 40, 0.7)', body=None):
     kids = [eyebrow(eyebrow_txt, GOLD),
             headline(title, tag='h1', size='clamp(3rem, 6.5vw, 5.5rem)', color='#ffffff', ls='-0.05em', lh='0.98', margin='1.5rem 0px 0px 0px')]
     if sub: kids.append(text(f'<p>{sub}</p>', color='rgba(255,255,255,0.8)', size='1.1rem', lh='1.7', text_margin='1.25rem 0px 0px 0px'))
@@ -55,7 +55,7 @@ def split(title_lbl, media, kids, dark=False, reverse=False, bg=None, image_bg=N
     if image_bg:
         kw.update(section_bg_advanced=True, bg_border_radius='inherit', bg_lower_type='image', bg_lower_image=image_bg,
                   bg_lower_image_size='cover', bg_lower_image_position='center', bg_lower_image_repeat='no-repeat',
-                  bg_upper_type='color', bg_upper_color='rgba(15, 24, 40, 0.94)')
+                  bg_upper_type='color', bg_upper_color='rgba(15, 24, 40, 0.86)')
     r = row('Content', cols, layout=lay, gap='5.5rem', align='center',
             **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None], 'layout_row_gap_column': [None, None, '3rem', '4rem', None],
                                'layout_row_reverse': [reverse, reverse, reverse, None, None] if reverse else [None]*5}})
@@ -86,7 +86,7 @@ def cards_row(cards, n=3):
     return row('Cards', cards, layout=' '.join([f'{100/n:.4g}%'] * n), gap='1.4rem',
                **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%' if n > 2 else None, None, None]}})
 
-def dark_bg(image='373:full', overlay='rgba(15, 24, 40, 0.94)'):
+def dark_bg(image='373:full', overlay='rgba(15, 24, 40, 0.86)'):
     return dict(section_bg_advanced=True, bg_border_radius='inherit', bg_lower_type='image', bg_lower_image=image,
                 bg_lower_image_size='cover', bg_lower_image_position='center', bg_lower_image_repeat='no-repeat',
                 bg_upper_type='color', bg_upper_color=overlay, section_bg_color=DARK)
@@ -116,8 +116,15 @@ def form_box(title, form_el, intro_html=None, dark=False):
     kids.append(div('Form Box', [orig(form_el)], layout_div_width='100%'))
     return kids
 
-def raw_section(title_lbl, raw_el):
-    return section(title_lbl, [row('Content', [col('Plugin Output', [orig(raw_el)], layout_column_flex_align='stretch')])], section_bg_color=PAPER)
+def raw_section(title_lbl, raw_el, eyebrow_txt=None, title=None, intro=None):
+    rows = []
+    if title:
+        cols = [col('Heading Group', [eyebrow(eyebrow_txt), headline(title, margin='1.4rem 0px 0px 0px')])]
+        if intro: cols.append(col('Intro', [text(f'<p>{intro}</p>', size='0.95rem', maxw='25rem')], layout_column_flex_justify='flex-end'))
+        rows.append(row('Heading', cols, layout='60% 40%' if intro else '100%', gap='3rem', align='flex-end',
+                        layout_row_margin='0px auto 3rem auto'))
+    rows.append(row('Content', [col('Plugin Output', [orig(raw_el)], layout_column_flex_align='stretch')]))
+    return section(title_lbl, rows, section_bg_color=PAPER)
 
 def relabel(sec, title): s = copy.deepcopy(sec); s['title'] = title; return s
 
@@ -140,34 +147,65 @@ def about():
         label_head(h['text_content'], h.get('text_subheadline_content', ''), pcolor='#ffffff', psize='1.2rem', tag='h3',
                    text_font_family=F_DISP, text_font_weight='600', text_margin='1.25rem 0px 0px 0px'),
     ], **hover_lift) for n, (img_src, h) in enumerate(team)]
-    sec3 = section('3. Our Team', [heading_row('Our Team', dark=True), cards_row(team_cols)], **dark_bg())
-    return [banner('About Us'), sec2, sec3, relabel(GET_IN_TOUCH, '4. Get In Touch (map)')]
+    sec3 = section('3. Our Team', [heading_row('Our Team', dark=True), cards_row(team_cols)], **dark_bg('451:full'))
+    return [banner('About Us', image='450:full'), sec2, sec3, relabel(GET_IN_TOUCH, '4. Get In Touch (component)')]
 
 def connect_page():
-    t = P(12); out = [banner('Connect')]
+    t = P(12); out = [banner('Connect', image='446:full')]
     for n, s in enumerate(t[1:], start=2):
         img_src = find_all(s, 'image')[0]['image_src']; h = find_all(s, 'headline')[0]['text_content']
         body = find_all(s, 'text')[0]['text_content']; b = find_all(s, 'button')[0]
         dark = n % 2 == 1
         out.append(split(f'{n}. {h}', media_frame(img_src),
                          text_block(h, body, [(b['anchor_text_primary_content'], b['anchor_href'])], dark=dark),
-                         dark=dark, reverse=dark, image_bg='373:full' if dark else None))
+                         dark=dark, reverse=dark, image_bg={3: '456:full', 5: '443:full'}.get(n) if dark else None))
     return out
+
+def gold_frame(inner, title='Video Frame'):
+    return div(title, [div('Player', [inner], layout_div_width='100%', layout_div_bg_color=DARK,
+                           layout_div_box_shadow_dimensions='0em 2.5em 5em -1.9em', layout_div_box_shadow_color='rgba(15,24,40,0.5)')],
+               layout_div_width='100%', layout_div_padding='14px', layout_div_border_width='1px', layout_div_border_style='solid',
+               layout_div_border_color='rgba(198,173,122,0.55)', layout_div_bg_color='rgba(255,255,255,0.4)',
+               **bp(layout_div_padding=['8px', None, None, None, None]))
+
+def checklist(items):
+    return div('Checklist', [div(f'Item – {i[:24]}', [
+        el('icon', None, [], icon='check', icon_font_size='0.8rem', icon_width='1.9rem', icon_height='1.9rem',
+           icon_color=DARK, icon_bg_color=GOLD, icon_border_radius='50%'),
+        text(f'<p>{i}</p>', color=INK, size='0.98rem', lh='1.5', maxw='none', layout_div_flex=None)],
+        direction='row', gap='0.9rem', align='center', layout_div_width='100%', layout_div_padding='0.85rem 0px 0.85rem 0px',
+        layout_div_border_width='0px 0px 1px 0px', layout_div_border_style='solid', layout_div_border_color='rgba(36,52,77,0.12)')
+        for i in items], layout_div_width='100%', layout_div_margin='1.25rem 0px 0px 0px',
+        layout_div_border_width='1px 0px 0px 0px', layout_div_border_style='solid', layout_div_border_color='rgba(36,52,77,0.12)')
 
 def plan_visit():
     t = P(272)
     vid = find_all(t[1], 'video')[0]; h = find_all(t[1], 'headline')[0]['text_content']; body = find_all(t[1], 'text')[0]['text_content']
     b = find_all(t[1], 'button')[0]
+    intro = re.search(r'<p>(.*?)</p>', body, re.S).group(1)
+    items = [re.sub(r'\s+', ' ', x).strip() for x in re.findall(r'<li>(.*?)</li>', body, re.S)]
     faqs = [i['accordion_item_header_content'] for i in find_all(t[2], 'accordion-item')]
     form = find_all(t[3], 'classic:gravity-forms')[0]
-    sec2 = split('2. Thinking About Visiting', boxed(orig(vid)), text_block(h, body, [(b['anchor_text_primary_content'], b['anchor_href'])]))
+    kids = [headline(h, color=INK), gold_rule(), text(f'<p>{intro}</p>', maxw='34rem'), checklist(items),
+            div('Buttons', [button(b['anchor_text_primary_content'] + '  ↗', b['anchor_href'], 'navy')], layout_div_margin='2rem 0px 0px 0px')]
+    sec2 = split('2. Thinking About Visiting', gold_frame(orig(vid)), kids)
     sec3 = section('3. FAQs', [heading_row('Faqs', dark=True),
                                row('Accordion', [col('Accordion', [faq_accordion(faqs[:2])], layout_column_flex_align='stretch'),
                                                  col('Accordion', [faq_accordion(faqs[2:])], layout_column_flex_align='stretch')],
-                                   layout='50% 50%', gap='3rem')], **dark_bg())
-    sec4 = section('4. Let Us Know (form)', [row('Content', [col('Form', form_box("Let us know you're coming", form))],
-                                                 layout_row_max_width='46rem')], section_bg_color=SAND)
-    return [banner('Plan Your Visit'), sec2, sec3, sec4, relabel(GET_IN_TOUCH, '5. Get In Touch (map)')]
+                                   layout='50% 50%', gap='3rem')], **dark_bg('452:full'))
+    form_title = find_all(t[3], 'headline')[0]['text_content']
+    sec4 = section('4. Let Us Know (form)', [row('Content', [
+        col('Heading Group', [eyebrow('Plan ahead'), headline(form_title, margin='1.4rem 0px 0px 0px'), gold_rule(),
+                              text("<p>Tell us when you're planning to visit and we'll be ready to welcome you.</p>", maxw='24rem')]),
+        col('Form', [div('Form Box', [orig(form)], layout_div_width='100%', layout_div_bg_color='#ffffff',
+                         layout_div_padding='2.5rem 2.5rem 2.5rem 2.5rem', layout_div_border_width='2px 0px 0px 0px',
+                         layout_div_border_style='solid', layout_div_border_color=GOLD,
+                         layout_div_box_shadow_dimensions='0em 1.9em 4em -1.9em', layout_div_box_shadow_color='rgba(15,24,40,0.3)',
+                         **bp(layout_div_padding=['1.6rem 1.4rem 1.8rem 1.4rem', None, None, None, None]))], layout_column_flex_align='stretch'),
+    ], layout='40% 60%', gap='4.5rem', align='flex-start',
+       **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None], 'layout_row_gap_column': [None, None, '2.5rem', None, None]}})],
+       section_bg_color=SAND)
+    return [banner('Plan Your Visit', image='462:full'), sec2, sec3, sec4, relabel(GET_IN_TOUCH, '5. Get In Touch (component)')]
 
 def give():
     t = P(14); s1, s2 = t[1], t[2]
@@ -182,38 +220,65 @@ def give():
         btn = find_all(c, 'button')
         cards.append(icon_card(c['_modules'][0]['icon'], find_all(c, 'headline')[0]['text_content'], find_all(c, 'text')[0]['text_content'],
                                (btn[0]['anchor_text_primary_content'], btn[0].get('anchor_href') or '#') if btn else None, dark_section=True))
-    sec3 = section('3. Ways to Give', [heading_row('Ways to Give', dark=True), cards_row(cards)], **dark_bg())
-    return [banner('Giving'), sec2, sec3]
+    sec3 = section('3. Ways to Give', [heading_row('Ways to Give', dark=True), cards_row(cards)], **dark_bg('467:full'))
+    return [banner('Giving', image='445:full'), sec2, sec3]
 
 def watch_live():
     t = P(307)
-    h = find_all(t[1], 'headline')[0]['text_content']; vid = find_all(t[1], 'video')[0]; b = find_all(t[1], 'button')[0]
+    h = find_all(t[1], 'headline')[0]['text_content']; b = find_all(t[1], 'button')[0]
+    M2 = json.load(open('graham-media.json'))
+    vid = orig(find_all(P(272)[1], 'video')[0])          # the site's own video player element
+    vid.update(mejs_source_files=M2['wlvideo']['url'], mejs_poster=M2['wlposter']['url'], frame_bg_color=DARK)
+    player = div('Video Frame', [div('Player', [vid], layout_div_width='100%', layout_div_bg_color=DARK,
+                                     layout_div_box_shadow_dimensions='0em 2.5em 5em -1.9em', layout_div_box_shadow_color='rgba(15,24,40,0.5)')],
+                 layout_div_width='100%', layout_div_padding='14px', layout_div_border_width='1px', layout_div_border_style='solid',
+                 layout_div_border_color='rgba(198,173,122,0.55)', layout_div_bg_color='rgba(255,255,255,0.4)',
+                 **bp(layout_div_padding=['8px', None, None, None, None]))
+    live = headline('Live Sundays · 10 AM', tag='span', size='0.62rem', color=GOLDD, font=F_BODY, weight='700', ls='0.2em', lh='1',
+                    text_text_transform='uppercase', text_padding='0.7em 1em 0.7em 1em', text_border_width='1px',
+                    text_border_style='solid', text_border_color='rgba(163,133,78,0.45)')
+    strip_item = lambda t_, s_, link=None, first=False: div(t_, [label_head(s_, t_, pcolor=INK, scolor=GOLDD, psize='1rem', link=link)],
+        layout_div_flex='1 1 12rem', layout_div_padding='0px' if first else '0px 0px 0px 1.75rem',
+        layout_div_border_width='0px' if first else '0px 0px 0px 1px', layout_div_border_style='solid', layout_div_border_color='rgba(36,52,77,0.14)',
+        **bp(layout_div_padding=['0px', None, None, None, None], layout_div_border_width=['0px', None, None, None, None]))
     sec2 = section('2. Watch Live (video)', [
-        heading_row(h),
-        row('Video', [col('Video', [boxed(orig(vid))], layout_column_flex_align='stretch')]),
-        row('Button', [col('Buttons', [button(b['anchor_text_primary_content'], b['anchor_href'], 'navy')], layout_column_flex_align='center')],
-            layout_row_margin='2.5rem auto 0px auto'),
+        row('Heading', [
+            col('Heading Group', [live, headline(h, margin='1.5rem 0px 0px 0px'), gold_rule()]),
+            col('Buttons', [div('Buttons', [button(b['anchor_text_primary_content'] + '  →', b['anchor_href'], 'navy')])],
+                layout_column_flex_justify='flex-end', layout_column_flex_align='flex-end',
+                **bp(layout_column_flex_align=['flex-start', 'flex-start', 'flex-start', None, None])),
+        ], layout='65% 35%', gap='3rem', align='flex-end', layout_row_margin='0px auto 2.25rem auto'),
+        row('Video', [col('Video', [player], layout_column_flex_align='stretch')]),
+        row('Service Times', [col('Strip', [div('Service Times', [
+            strip_item('Sunday Service', 'Sunday Morning · 10 AM', first=True),
+            strip_item('Midweek Gathering', 'Wednesday · 6 PM'),
+            strip_item('Missed a Sunday?', 'Previous Sermons  ↗', link='/sermon-manager/'),
+        ], direction='row', gap='1.25rem', wrap=True, layout_div_width='100%', layout_div_padding='1.75rem 0px 0px 0px',
+           **bp(layout_div_flex_direction=['column', None, None, None, None]))], layout_column_flex_align='stretch')],
+            layout_row_margin='1.5rem auto 0px auto'),
     ], section_bg_color=IVORY)
     g = t[2]; gh = find_all(g, 'headline')[0]['text_content']; gt = find_all(g, 'text')[0]['text_content']; gb = find_all(g, 'button')[0]
     sec3 = split('3. Give', media_frame(find_all(g, 'image')[0]['image_src']),
-                 text_block(gh, gt, [(gb['anchor_text_primary_content'], gb['anchor_href'])], dark=True), dark=True, reverse=True, image_bg='373:full')
-    p = t[3]
-    sec4 = split('4. Prayer (form)', media_frame(find_all(p, 'image')[0]['image_src']),
-                 form_box(find_all(p, 'headline')[0]['text_content'], find_all(p, 'classic:gravity-forms')[0]), bg=PAPER)
-    return [banner('Watch Live'), sec2, sec3, sec4]
+                 text_block(gh, gt, [(gb['anchor_text_primary_content'], gb['anchor_href'])], dark=True), dark=True, reverse=True, image_bg='465:full')
+    p_ = t[3]
+    sec4 = split('4. Prayer (form)', media_frame(find_all(p_, 'image')[0]['image_src']),
+                 form_box(find_all(p_, 'headline')[0]['text_content'], find_all(p_, 'classic:gravity-forms')[0]), bg=PAPER)
+    return [banner('Watch Live', image='453:full'), sec2, sec3, sec4]
 
 def get_connected():
     t = P(345); s = t[1]
     sec2 = split('2. Connect Card (form)', media_frame(find_all(s, 'image')[0]['image_src']),
                  form_box(find_all(s, 'headline')[0]['text_content'].strip(), find_all(s, 'classic:gravity-forms')[0],
                           intro_html='<p>' + re.sub(r'</?span>', '', find_all(s, 'text')[0]['text_content']) + '</p>'))
-    return [banner('Get Connected'), sec2]
+    return [banner('Get Connected', image='442:full'), sec2]
 
 def events():
-    t = P(235); return [banner('Events'), raw_section('2. Calendar (MEC shortcode)', find_all(t[1], 'classic:raw-content')[0])]
+    t = P(235); return [banner('Events', image='441:full'), raw_section('2. Calendar (MEC shortcode)', find_all(t[1], 'classic:raw-content')[0],
+            'Join us', 'Upcoming events', 'Find out what is happening at Graham and plan to join us. Tap a day to see its events.')]
 
 def sermons():
-    t = P(267); return [banner('Sermons'), raw_section('2. Sermon List (shortcode)', find_all(t[1], 'classic:raw-content')[0])]
+    t = P(267); return [banner('Sermons', image='460:full'), raw_section('2. Sermon List (shortcode)', find_all(t[1], 'classic:raw-content')[0],
+            'Listen and grow', 'Recent messages', 'Missed a Sunday, or want to hear a message before you visit? Catch up on recent messages here.')]
 
 def christmas():
     t = P(288)
@@ -245,7 +310,7 @@ def prayer():
     t = P(58)
     h1 = find_all(t[0], 'custom-headline')[0]['content']; body = find_all(t[0], 'text')[0]['content']
     body_html = ''.join(f'<p>{p.strip()}</p>' for p in body.split('\n\n') if p.strip())
-    sec1 = banner(h1, body=body_html); sec1['title'] = '1. Prayer Changes Everything'
+    sec1 = banner(h1, body=body_html, image='459:full'); sec1['title'] = '1. Prayer Changes Everything'
     s2 = t[1]; hh = find_all(s2, 'custom-headline'); items = find_all(s2, 'feature-list-item'); gf = find_all(s2, 'gravity-forms')[0]
     qa = [div(f'Item – {i["title"]}', [
             el('icon', None, [], icon=i.get('graphic_icon', 'circle'), icon_font_size='1rem', icon_width='2.75rem', icon_height='2.75rem',

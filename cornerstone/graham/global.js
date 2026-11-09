@@ -2,9 +2,10 @@
 /* Graham — global helpers (Theme Options › JS). Editors type plain text; this does the formatting.
    Heading accent for H1/H2 inside Graham sections (.gc-section):
      1 word      -> nothing
-     2 words     -> last word
-     3+ words    -> the second half (rounded up), e.g. "A Church | For the City."
-   The accent goes on its own line in italic gold (see global CSS). A heading that already
+     2 words     -> last word, same line          e.g. "Our Mission"
+     3 words     -> last two words, same line     e.g. "Plan Your Visit"
+     4+ words    -> the second half (rounded up) on its own line, e.g. "A Church / For the City."
+   The accent is italic gold (see global CSS). A heading that already
    contains <em> is left as typed. Add data-gc-no-accent to opt an element out. */
 (function () {
   var SKIP = '.x-masthead, .x-colophon, .gform_wrapper, .mec-wrap, .smpro-items, .wpfc-sermon, .tooltipster-box, [data-gc-no-accent]';
@@ -28,6 +29,7 @@
     span.textContent = words.slice(-n).join(' ');
     var l = lum(getComputedStyle(h).color);
     if (l !== null && l > 0.6) span.classList.add('is-on-dark');
+    if (words.length <= 3) span.classList.add('is-inline');
     target.textContent = words.slice(0, words.length - n).join(' ') + ' ';
     target.appendChild(span);
   }
@@ -55,5 +57,13 @@
   new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 120); })
     .observe(document.documentElement, { childList: true, subtree: true, characterData: true,
                                          attributes: true, attributeFilter: ['contenteditable'] });
+})();
+/* Site icon: until a Site Icon is set in Appearance › Customize › Site Identity, use the Graham mark. */
+(function () {
+  if (document.querySelector('link[rel~="icon"]')) return;
+  var src = '/wp-content/uploads/2026/11/graham-favicon-512.png';
+  [['icon', 'image/png'], ['apple-touch-icon', '']].forEach(function (r) {
+    var l = document.createElement('link'); l.rel = r[0]; if (r[1]) l.type = r[1]; l.href = src; document.head.appendChild(l);
+  });
 })();
 /* ===== GRAHAM REDESIGN END ===== */

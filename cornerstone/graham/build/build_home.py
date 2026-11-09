@@ -215,7 +215,7 @@ def card(label, title, body, link_label, href, image, pos='center'):
     ], layout_column_flex_justify='flex-end', layout_column_min_height='31rem',
        layout_column_padding='2.5rem 2.5rem 2.4rem 2.5rem',
        layout_column_box_shadow_dimensions='0em 2.5em 5em -1.9em', layout_column_box_shadow_color='rgba(0,0,0,0.6)',
-       **bgimg('layout_column', image, 'rgba(15, 24, 40, 0.58)'), **hover_lift,
+       **bgimg('layout_column', image, 'rgba(15, 24, 40, 0.58)'),
        **bp(layout_column_min_height=['25rem', None, None, None, None], layout_column_padding=['1.75rem 1.6rem 1.75rem 1.6rem', None, None, None, None]))
     c['bg_lower_image_position'] = pos
     return c
@@ -232,7 +232,7 @@ connect = section('3. Connect', [
          'Learn More  →', '/connect/', img('communion'), '30% center'),
     card('Grow in faith', 'Life in Community', 'Our ministry programs center on gathering around the Word of God and living lives modeled after Christ.',
          'Explore Ministries  →', '/get-connected/', img('fellowship')),
-  ], layout='50% 50%', gap='1.75rem', **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', None, None, None]}}),
+  ], layout='50% 50%', gap='1.75rem', **{'class': 'gc-expand'}, **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', None, None, None]}}),
   row('Closing Line', [col('Text', [
     text("<p>It's our desire to create environments where other people in the same stages and phases of life can develop authentic relationships with one another while being encouraged to grab hold of how God's truth intersects with and impacts their lives.</p>",
          color='rgba(255,255,255,0.86)', font=F_ACC, size='clamp(1.25rem, 2.1vw, 1.65rem)', lh='1.5', maxw='54rem',
@@ -240,9 +240,9 @@ connect = section('3. Connect', [
   ], layout_column_padding='2.5rem 0px 0px 0px', layout_column_border_width='1px 0px 0px 0px',
      layout_column_border_style='solid', layout_column_border_color='rgba(255,255,255,0.14)')],
      layout_row_margin='3.5rem auto 0px auto'),
-], section_bg_advanced=True, bg_border_radius='inherit', bg_lower_type='image', bg_lower_image=img('connectbg'),
+], section_bg_advanced=True, bg_border_radius='inherit', bg_lower_type='image', bg_lower_image='450:full',
    bg_lower_image_size='cover', bg_lower_image_position='center', bg_lower_image_repeat='no-repeat',
-   bg_upper_type='color', bg_upper_color='rgba(15, 24, 40, 0.95)', section_bg_color=DARK)
+   bg_upper_type='color', bg_upper_color='rgba(15, 24, 40, 0.86)', section_bg_color=DARK)
 
 # ---------------- 4. SERMONS ----------------
 sermons = section('4. Sermons', [
@@ -293,7 +293,7 @@ def vcard(title, sub, big, icon, num):
 
 visit = section('5. Get In Touch (map)', [
   row('Heading', [
-    col('Heading Group', [eyebrow('Your next step'), headline("We'd love to meet you.", margin='1.4rem 0px 0px 0px')]),
+    col('Heading Group', [eyebrow('Get in touch'), headline("We'd love to meet you.", margin='1.4rem 0px 0px 0px')]),
     col('Intro', [text("<p>Whether it's your first Sunday or you're finding your way back, we'd be glad to welcome you.</p>",
                        size='0.95rem', maxw='23rem')], layout_column_flex_justify='flex-end'),
   ], layout='60% 40%', gap='3rem', align='flex-end', layout_row_margin='0px auto 3.5rem auto'),
@@ -316,7 +316,9 @@ visit = section('5. Get In Touch (map)', [
   ])], layout_row_margin='1.4rem auto 0px auto'),
 ], section_bg_color=PAPER, id='visit')
 
-tree = [hero, welcome, connect, sermons, visit]
+COMP = json.load(open('components.json'))
+GB = lambda key, title: {'_type': 'global-block', '_bp_base': BP, 'title': title, 'global_block_id': str(COMP[key])}
+tree = [hero, welcome, connect, sermons, GB('gettouch', '5. Get In Touch (component)')]
 # keep the client's own map embed from the live Home page
 orig = json.load(open('graham-backup/home-tree.json'))['tree']
 embed = re.search(r'"map_embed_code": (".*?(?<!\\)")', json.dumps(orig)).group(1)
