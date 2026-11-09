@@ -126,6 +126,49 @@ def raw_section(title_lbl, raw_el, eyebrow_txt=None, title=None, intro=None):
     rows.append(row('Content', [col('Plugin Output', [orig(raw_el)], layout_column_flex_align='stretch')]))
     return section(title_lbl, rows, section_bg_color=PAPER)
 
+def light_accordion(items):
+    return el('accordion', None, [el('accordion-item', None, [], accordion_item_header_content=h, accordion_item_content=f'<p>{c}</p>') for h, c in items],
+        accordion_margin='0em', accordion_padding='0em', accordion_border_width='0px', accordion_border_style='none', accordion_border_radius='0px',
+        accordion_item_spacing='14px', accordion_item_overflow='hidden', accordion_item_bg_color='#ffffff', accordion_item_padding='0em',
+        accordion_item_border_width='1px', accordion_item_border_style='solid', accordion_item_border_color='rgba(36,52,77,0.12)',
+        accordion_item_border_radius='0px', accordion_item_box_shadow_dimensions='0em 0.9em 2em -1.4em', accordion_item_box_shadow_color='rgba(15,24,40,0.28)',
+        accordion_header_bg_color='#ffffff', accordion_header_bg_color_alt='#ffffff', accordion_header_padding='1.35em 1.5em 1.35em 1.5em',
+        accordion_header_margin='0em', accordion_header_border_width='0px', accordion_header_border_style='none', accordion_header_border_radius='0px',
+        accordion_header_font_family=F_DISP, accordion_header_font_weight='600', accordion_header_font_size='1.08rem', accordion_header_letter_spacing='-0.01em',
+        accordion_header_line_height='1.3', accordion_header_text_color=INK, accordion_header_text_color_alt=GOLDD,
+        accordion_header_indicator=True, accordion_header_indicator_type='icon', accordion_header_indicator_icon='plus',
+        accordion_header_indicator_font_size='1rem', accordion_header_indicator_width='1.2em', accordion_header_indicator_height='1.2em',
+        accordion_header_indicator_rotation_start='0deg', accordion_header_indicator_rotation_end='45deg',
+        accordion_header_indicator_color=GOLD, accordion_header_indicator_color_alt=GOLDD, accordion_header_content_spacing='1em',
+        accordion_header_content_reverse=True,
+        accordion_content_bg_color='#ffffff', accordion_content_margin='0em', accordion_content_padding='1.1em 1.5em 1.4em 1.5em',
+        accordion_content_border_width='1px 0px 0px 0px', accordion_content_border_style='solid', accordion_content_border_color='rgba(36,52,77,0.1)',
+        accordion_content_font_family=F_BODY, accordion_content_font_weight='400', accordion_content_font_size='0.95rem',
+        accordion_content_line_height='1.75', accordion_content_text_color=MUTED)
+
+BELIEFS = [
+  ('The Bible', "We believe the Bible is God's inspired and trustworthy Word. It is the final authority for what we believe and how we live. (2 Timothy 3:16-17)"),
+  ('The Father', 'We believe in one God who exists eternally in three persons: Father, Son and Holy Spirit. God the Father is the holy and loving Creator of all things.'),
+  ('The Son', 'We believe Jesus Christ is fully God and fully man. He lived a sinless life, died on the cross for our sins, rose bodily from the dead and will return in glory.'),
+  ('The Holy Spirit', 'We believe the Holy Spirit lives in every believer, guiding us into truth and giving us power to live for Christ and serve others.'),
+  ('Eternity', 'We believe every person will exist forever, either with God through faith in Jesus Christ or separated from Him.'),
+  ('Man', 'We believe every person is created in the image of God and deeply loved by Him. All have sinned and need the grace that only God can give.'),
+  ('Salvation', "We believe salvation is God's free gift, received by grace through faith in Jesus Christ alone and not by our own works. (Ephesians 2:8-9)"),
+  ('The Church', 'We believe the Church is the body of Christ, a family of believers called to worship together, grow in faith and share the good news with the world.'),
+]
+
+def beliefs_section(title_lbl):
+    pill = headline('•  Our Beliefs', tag='span', size='0.65rem', color=GOLDD, font=F_BODY, weight='700', ls='0.2em', lh='1',
+                    text_text_transform='uppercase', text_padding='0.75em 1.25em 0.75em 1.25em', text_bg_color='rgba(198,173,122,0.14)',
+                    text_border_width='1px', text_border_style='solid', text_border_color='rgba(163,133,78,0.4)', text_border_radius='100em')
+    head = row('Heading', [col('Heading Group', [pill, headline('What We Believe', margin='1.4rem 0px 0px 0px', text_text_align='center'),
+                                                el('line', None, [], line_width='48px', line_size='1px', line_color=GOLD, line_margin='1.4rem 0px 0px 0px')],
+                               layout_column_flex_align='center')], layout_row_margin='0px auto 3.25rem auto')
+    accs = row('Accordions', [col('Column', [light_accordion(BELIEFS[:4])], layout_column_flex_align='stretch'),
+                              col('Column', [light_accordion(BELIEFS[4:])], layout_column_flex_align='stretch')],
+               layout='50% 50%', gap='1.4rem', **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None]}})
+    return section(title_lbl, [head, accs], section_bg_color=SAND)
+
 def relabel(sec, title): s = copy.deepcopy(sec); s['title'] = title; return s
 
 # ===================================== PAGES =====================================
@@ -136,12 +179,10 @@ def about():
             for c in s1['_modules'][1]['_modules']]
     team = [(find_all(c, 'image')[0]['image_src'], find_all(c, 'headline')[0]) for c in s2['_modules'][1]['_modules']]
     sec2 = section('2. Mission & Values', [
-        row('Mission', [col('Heading Group', [headline('Our Mission'), gold_rule()]),
-                        col('Text', [div('Photo', [media_frame('461:full', minh='19rem')], layout_div_width='100%',
-                                         **bp(layout_div_width=['100%', None, None, None, None])),
-                                     text(mission, color=INK, size='1.15rem', lh='1.75', maxw='40rem', text_margin='1.75rem 0px 0px 0px')],
-                            layout_column_flex_align='stretch')],
-            layout='40% 60%', gap='4rem', align='flex-start', layout_row_margin='0px auto 4.5rem auto'),
+        row('Mission', [col('Text', [headline('Our Mission'), gold_rule(),
+                                     text(mission, color=INK, size='1.15rem', lh='1.75', maxw='32rem')]),
+                        col('Photo', [media_frame('461:full', minh='19rem')], layout_column_flex_align='stretch')],
+            layout='42% 58%', gap='4.5rem', align='center', layout_row_margin='0px auto 4.5rem auto'),
         row('Values Heading', [col('Heading Group', [headline('Our Values'), gold_rule()])], layout_row_margin='0px auto 1rem auto'),
         cards_row([icon_card(i, h, x) for i, h, x in vals]),
     ], section_bg_color=IVORY)
@@ -152,7 +193,8 @@ def about():
     ], **hover_lift) for n, (img_src, h) in enumerate(team)]
     team_row = cards_row(team_cols); team_row['_bp_data3_4']['layout_row_layout'] = ['100%', '100%', '33.33% 33.33% 33.33%', None, None]
     sec3 = section('3. Our Team', [heading_row('Our Team', dark=True), team_row], **dark_bg('451:full'))
-    return [banner('About Us', image='450:full'), sec2, sec3, relabel(GET_IN_TOUCH, '4. Get In Touch (component)')]
+    sec3['title'] = '4. Our Team'
+    return [banner('About Us', image='450:full'), sec2, beliefs_section('3. What We Believe'), sec3, relabel(GET_IN_TOUCH, '5. Get In Touch (component)')]
 
 def connect_page():
     t = P(12); out = [banner('Connect', image='446:full')]
