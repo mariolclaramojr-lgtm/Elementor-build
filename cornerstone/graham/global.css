@@ -21,16 +21,16 @@
 
 /* 2. Map — brand tint over the live Google Map (the Map element has no colour filter). */
 .gc-map { position: relative; overflow: hidden; }
-.gc-map iframe { filter: grayscale(1) contrast(1.08) brightness(1.04); }
+.gc-map iframe { filter: grayscale(.85) contrast(1.02) brightness(1.08); }
 .gc-map::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(198,173,122,.55), rgba(82,103,131,.5));
+  background: linear-gradient(135deg, rgba(198,173,122,.22), rgba(82,103,131,.16));
   mix-blend-mode: multiply;
-  box-shadow: inset 0 0 90px rgba(15,24,40,.35);
+  box-shadow: inset 0 0 50px rgba(15,24,40,.10);
 }
 /* 3. Header — solid navy once the sticky bar is fixed (the bar has no "sticky colour" setting). */
 .gc-header.x-bar-fixed {
