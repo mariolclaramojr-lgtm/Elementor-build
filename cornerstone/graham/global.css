@@ -1,0 +1,32 @@
+/* ===== GRAHAM REDESIGN START ===== */
+/* Graham — global styles (Theme Options › CSS). Only what Cornerstone has no control for.
+   Everything else (colours, fonts, spacing, buttons, backgrounds) is set on the elements. */
+
+/* 1. Heading accent — the second line of H1/H2 headings in Graham sections.
+      Added automatically by the global JS (span.gc-accent); editors type plain text. */
+.gc-section h1 .gc-accent,
+.gc-section h2 .gc-accent {
+  display: block;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #a3854e;            /* Graham Gold Deep */
+}
+.gc-section h1 .gc-accent.is-on-dark,
+.gc-section h2 .gc-accent.is-on-dark { color: #e6d6b2; }   /* Graham Gold Soft */
+
+/* 2. Map — brand tint over the live Google Map (the Map element has no colour filter). */
+.gc-map { position: relative; overflow: hidden; }
+.gc-map iframe { filter: grayscale(1) contrast(1.08) brightness(1.04); }
+.gc-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(198,173,122,.55), rgba(82,103,131,.5));
+  mix-blend-mode: multiply;
+  box-shadow: inset 0 0 90px rgba(15,24,40,.35);
+}
+/* ===== GRAHAM REDESIGN END ===== */
