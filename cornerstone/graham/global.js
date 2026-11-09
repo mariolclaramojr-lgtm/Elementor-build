@@ -7,7 +7,7 @@
    The accent goes on its own line in italic gold (see global CSS). A heading that already
    contains <em> is left as typed. Add data-gc-no-accent to opt an element out. */
 (function () {
-  var SKIP = '.x-masthead, .x-colophon, .gform_wrapper, [data-gc-no-accent]';
+  var SKIP = '.x-masthead, .x-colophon, .gform_wrapper, .mec-wrap, .smpro-items, .wpfc-sermon, .tooltipster-box, [data-gc-no-accent]';
 
   function lum(rgb) {
     var p = (rgb || '').match(/[\d.]+/g);

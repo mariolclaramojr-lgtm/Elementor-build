@@ -36,4 +36,186 @@
   backdrop-filter: blur(14px) saturate(140%);
   box-shadow: 0 14px 40px -20px rgba(0,0,0,.5) !important;
 }
+/* 4. Plugin output — Sermon Manager Pro [smpro_archive] and Modern Events Calendar [MEC id="225"].
+      The pages use the plugins' own shortcodes; this only restyles what they print. */
+/* ---- Shared: filter controls (Sermon Manager + MEC) ---------- */
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .mec-wrap .mec-search-form select, .mec-wrap .mec-search-form input[type=search] {
+  -webkit-appearance: none; appearance: none; width: 100% !important; height: 50px !important; margin: 0 !important;
+  font: 400 15px/1.2 "Figtree", sans-serif !important; color: #172236 !important; background-color: #fff !important;
+  border: 1px solid rgba(36,52,77,.14) !important; border-radius: 4px !important; box-shadow: none !important;
+  padding: 0 44px 0 16px !important; transition: border-color .2s; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select, .mec-wrap .mec-search-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3854e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; cursor: pointer; }
+.mec-wrap .mec-search-form input[type=search] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b687c' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 16px !important; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:hover, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) select:focus, .mec-wrap .mec-search-form select:hover, .mec-wrap .mec-search-form select:focus,
+.mec-wrap .mec-search-form input[type=search]:focus { outline: none; border-color: #24344d !important; }
+
+/* ---- Sermon Manager Pro  [smpro_archive] + sermon archive templates ---------- */
+.post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset { margin-top: 0; margin-bottom: 0; padding: clamp(56px, 7vw, 96px) 0; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .sm-filtering { margin: 0 0 40px; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0; padding: 0; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting > div { display: block !important; width: auto !important; max-width: none !important; margin: 0 !important; float: none !important; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting form { margin: 0; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-items-container { display: grid !important; grid-template-columns: 1fr !important; gap: 22px; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) article.wpfc-sermon { margin: 0 !important; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { display: grid !important; grid-template-columns: 340px 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; padding: 20px !important;
+  background: #fff; border: 1px solid rgba(36,52,77,.12); border-radius: 0; box-shadow: none; transition: box-shadow .35s, transform .35s; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover { box-shadow: 0 18px 50px rgba(15,24,40,.1); transform: translateY(-2px); }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image { position: relative; padding: 0 !important; margin: 0 !important; aspect-ratio: 16 / 10; border-radius: 2px; overflow: hidden; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link { position: absolute; inset: 0; display: block; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__background { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__background { transform: scale(1.05); }
+/* play button on the thumbnail */
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::before { content: ""; position: absolute; left: 14px; bottom: 14px; z-index: 1; width: 48px; height: 48px; border-radius: 50%; background: #c6ad7a; box-shadow: 0 0 0 8px rgba(198,173,122,.35); transition: transform .25s; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-image__link::after { content: ""; position: absolute; left: 34px; bottom: 31px; z-index: 2; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #0f1828; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item:hover .smpro-image__link::before { transform: scale(1.08); }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 28px; padding: 0 !important; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > * { flex: 0 0 100%; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline { order: 1; display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 6px 18px; margin: 0 0 10px;
+  font: 700 12px/1.4 "Figtree", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item { margin: 0; padding: 0; border: 0; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::before, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline .smpro-meta-item::after { display: none; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__topline a { color: #a3854e; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_date .smpro-meta-item__text { color: #5b687c; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item .smpro-title { order: 2; margin: 0 0 10px !important; padding: 0; line-height: 1.15 !important; letter-spacing: -.02em !important; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font: 500 30px/1.15 "Instrument Sans", sans-serif; letter-spacing: -.03em; color: #172236; transition: color .2s; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text:hover { color: #a3854e; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-description { order: 3; padding: 0 !important; margin: 0 0 14px; color: #5b687c; font-size: 16px; line-height: 1.7; max-width: 44em; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata { order: 4; flex: 0 0 auto; margin: 0; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__main > .smpro-meta-item_type_bible-passage { order: 5; flex: 0 0 auto; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage { display: inline-flex; gap: 6px; margin: 0; padding: 0; font: 400 14px/1.6 "Figtree", sans-serif; font-style: normal; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item__prefix { color: #5b687c; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__metadata .smpro-meta-item__text, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-meta-item_type_bible-passage .smpro-meta-item__text { font-weight: 600; color: #172236; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item__footer { display: none; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-pagination, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .navigation, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .pagination { margin-top: 40px; text-align: center; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers { display: inline-grid; place-items: center; min-width: 44px; height: 44px; margin: 0 3px; padding: 0 12px; border: 1px solid rgba(36,52,77,.14); border-radius: 999px; background: #fff; color: #172236; font: 600 14px/1 "Figtree", sans-serif; }
+:is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .page-numbers.current, :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) a.page-numbers:hover { background: #24344d; border-color: #24344d; color: #fff; }
+@media (max-width: 860px) {
+  :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) #wpfc_sermon_sorting { grid-template-columns: 1fr 1fr; }
+  :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-item { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 480px) { :is(.smpro-items, .post-type-archive-wpfc_sermon .x-container.offset, [class*="tax-wpfc_"] .x-container.offset) .smpro-title__text { font-size: 25px; } }
+
+/* ---- Modern Events Calendar — monthly [MEC id="250"] ---------- */
+.mec-wrap { position: relative; margin: 0; font-family: "Figtree", sans-serif; color: #172236; }
+.mec-wrap * { box-sizing: border-box; }
+/* filters: top-right on desktop, beside the month title */
+.mec-wrap:has(.mec-month-navigator) > .mec-search-form.mec-totalcal-box { position: absolute; top: 0; right: 0; z-index: 2; display: flex !important; gap: 12px; width: auto !important;
+  margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+.mec-wrap .mec-search-form .mec-dropdown-wrap, .mec-wrap .mec-search-form .mec-text-input-search { display: block !important; width: 220px !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; float: none !important; }
+.mec-wrap .mec-search-form .mec-dropdown-search { display: block !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+.mec-wrap .mec-search-form i { display: none !important; }
+.mec-wrap .mec-calendar { width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; overflow: visible !important; }
+.mec-wrap .mec-calendar .mec-calendar-side { display: block !important; width: 100% !important; min-width: 0 !important; padding: 0 !important; box-shadow: none !important; border: 0 !important; }
+/* month navigator: Title  (<) (>) */
+.mec-wrap .mec-calendar .mec-skin-monthly-view-month-navigator-container { margin: 0; padding: 0; border: 0; }
+.mec-wrap .mec-calendar .mec-month-navigator { position: static !important; display: flex; align-items: center; gap: 10px; min-height: 50px; margin: 0 0 28px !important; padding: 0 !important; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-calendar-header { order: 1; position: static !important; width: auto !important; margin: 0 14px 0 0 !important; padding: 0 !important; }
+.mec-wrap .mec-calendar .mec-calendar-header h2 { margin: 0 !important; padding: 0 !important; font: 500 clamp(32px, 4vw, 46px)/1.05 "Instrument Sans", sans-serif !important; letter-spacing: -.02em !important; color: #172236 !important; text-transform: none !important; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-previous-month { order: 2; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-next-month { order: 3; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-previous-month,
+.mec-wrap .mec-calendar .mec-month-navigator .mec-next-month { position: static !important; inset: auto !important; transform: none !important; float: none !important; width: 44px !important; height: 44px !important;
+  margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; line-height: 1 !important; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-load-month-link { display: grid !important; place-items: center; width: 44px; height: 44px; padding: 0 !important; border: 1px solid rgba(36,52,77,.14); border-radius: 50%;
+  background: #fff; color: #172236 !important; font-size: 0 !important; line-height: 1 !important; transition: border-color .2s, color .2s, background .2s; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-load-month-link { position: relative; }
+/* the link also holds the (hidden) month name, so pin the icon to the exact centre of the circle */
+.mec-wrap .mec-calendar .mec-month-navigator .mec-load-month-link i { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%); margin: 0 !important; padding: 0 !important; font-size: 14px !important; line-height: 1 !important; color: inherit !important; }
+.mec-wrap .mec-calendar .mec-month-navigator .mec-load-month-link:hover { border-color: #24344d; background: #24344d; color: #fff !important; }
+/* grid */
+.mec-wrap .mec-calendar .mec-calendar-table { width: 100% !important; margin: 0 !important; background: #fff; border: 1px solid rgba(36,52,77,.14); border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(15,24,40,.06); }
+.mec-wrap .mec-calendar .mec-month-container dl { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100% !important; margin: 0 !important; padding: 0 !important; background: none !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt { display: block !important; float: none !important; width: auto !important; height: auto !important; min-height: 116px; margin: 0 !important; padding: 10px 10px 12px !important;
+  background: #fff !important; border: 0 !important; border-right: 1px solid rgba(36,52,77,.1) !important; border-bottom: 1px solid rgba(36,52,77,.1) !important;
+  font: 600 14px/1.4 "Figtree", sans-serif !important; color: #172236 !important; text-align: left !important; letter-spacing: 0 !important; transition: background .2s; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt:nth-child(7n) { border-right: 0 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl.mec-calendar-row:last-child > dt { border-bottom: 0 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt > div:first-child { font: inherit !important; color: inherit !important; }
+.mec-wrap .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { min-height: 0; padding: 14px 10px !important; font: 700 11px/1.4 "Figtree", sans-serif !important; letter-spacing: .18em !important; text-transform: uppercase; color: #5b687c !important; background: #f5efe3 !important; border-right: 0 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt.mec-table-nullday { color: rgba(23,34,54,.28) !important; background: #f5efe3 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl.mec-calendar-row > dt:not(.mec-table-nullday):hover { background: #fbf8f2 !important; }
+.mec-wrap .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 14px at 18px 20px, #24344d 96%, transparent 100%) no-repeat, #fff !important; color: #fff !important; }
+.mec-wrap .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day > div:first-child { color: #fff !important; }
+.mec-wrap .mec-calendar .mec-calendar-table > .mec-month-container:not(:first-child) dl > dt.mec-selected-day { color: #172236 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt .mec-past-event { opacity: 1 !important; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt a { display: block; text-decoration: none; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt .mec-event-title { display: block; margin: 8px 0 0 !important; padding: 6px 8px !important; border-left: 2px solid #c6ad7a; border-radius: 0 2px 2px 0; background: rgba(198,173,122,.16);
+  font: 500 13px/1.35 "Figtree", sans-serif !important; color: #172236 !important; text-transform: none !important; letter-spacing: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .2s, color .2s; }
+.mec-wrap .mec-calendar .mec-month-container dl > dt a:hover .mec-event-title { background: #24344d; color: #fff !important; }
+/* hover card (MEC tooltip, rendered at the end of <body>) */
+.tooltipster-box:has(.mec-tooltip-event-title) { border: 0 !important; border-radius: 4px !important; background: #fff !important; box-shadow: 0 24px 60px rgba(15,24,40,.18) !important; }
+.tooltipster-box .mec-tooltip-event-title { font: 500 21px/1.2 "Instrument Sans", sans-serif; color: #172236; margin: 0 0 6px; }
+.tooltipster-box .mec-tooltip-event-time { font: 700 11px/1.4 "Figtree", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #a3854e; margin: 0 0 10px; }
+.tooltipster-box .mec-tooltip-event-time i { display: none; }
+.tooltipster-box .mec-tooltip-event-desc { font: 400 14px/1.6 "Figtree", sans-serif; color: #5b687c; }
+.tooltipster-box .mec-tooltip-event-featured img { border-radius: 2px; }
+@media (max-width: 860px) {
+  .mec-wrap:has(.mec-month-navigator) > .mec-search-form.mec-totalcal-box { position: static; flex-wrap: wrap; margin: 0 0 24px !important; }
+  .mec-wrap .mec-search-form .mec-dropdown-wrap, .mec-wrap .mec-search-form .mec-text-input-search { flex: 1 1 200px; width: auto !important; }
+}
+@media (max-width: 640px) {
+  .mec-wrap .mec-calendar .mec-month-navigator { justify-content: space-between; }
+  .mec-wrap .mec-calendar .mec-month-navigator .mec-calendar-header { order: 2; margin: 0 !important; }
+  .mec-wrap .mec-calendar .mec-month-navigator .mec-previous-month { order: 1; }
+  .mec-wrap .mec-calendar .mec-calendar-header h2 { font-size: 28px !important; }
+  .mec-wrap .mec-calendar .mec-month-container dl > dt { min-height: 58px; padding: 6px !important; font-size: 13px !important; text-align: center !important; }
+  .mec-wrap .mec-calendar .mec-month-container dl.mec-calendar-table-head > dt { padding: 10px 2px !important; font-size: 10px !important; letter-spacing: .06em !important; }
+  .mec-wrap .mec-calendar .mec-month-container dl > dt .mec-event-title { width: 6px; height: 6px; margin: 6px auto 0 !important; padding: 0 !important; border: 0; border-radius: 50%; background: #24344d; font-size: 0 !important; }
+  .mec-wrap .mec-calendar .mec-calendar-table > .mec-month-container:first-child dl > dt.mec-selected-day { background: radial-gradient(circle 13px at 50% 18px, #24344d 96%, transparent 100%) no-repeat, #fff !important; }
+}
+
+/* ---- Modern Events Calendar — coming up (list, minimal) [MEC id="252"] ---------- */
+.mec-wrap .mec-event-list-minimal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 28px; margin: 0; }
+.mec-event-list-minimal .mec-event-article { display: block; margin: 0 !important; padding: 18px 0 !important; border: 0 !important; border-top: 1px solid rgba(36,52,77,.14) !important; background: none !important; text-align: left !important; }
+.mec-event-list-minimal .col-md-9 { display: grid !important; grid-template-columns: 76px 1fr; grid-template-rows: auto auto auto; column-gap: 18px; align-items: center; align-content: center;
+  width: 100% !important; padding: 0 !important; float: none !important; text-align: left !important; }
+.mec-event-list-minimal .btn-wrapper { display: none !important; }
+.mec-event-list-minimal .mec-event-date { grid-row: 1 / span 3; display: flex !important; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 2px;
+  aspect-ratio: 1; width: 76px !important; height: auto !important; margin: 0 !important; padding: 0 !important; float: none !important; border-radius: 4px;
+  background: #172236 !important; color: #c6ad7a !important; font: 700 11px/1 "Figtree", sans-serif !important; letter-spacing: .18em; text-transform: uppercase; }
+.mec-event-list-minimal .mec-event-date span { display: block; margin: 0 !important; font: 500 28px/1 "Instrument Sans", sans-serif !important; letter-spacing: 0; color: #fff !important; }
+.mec-event-list-minimal .mec-time-details { grid-column: 2; margin: 0 !important; font: 700 11px/1.4 "Figtree", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #a3854e; }
+.mec-event-list-minimal .mec-event-title { grid-column: 2; margin: 2px 0 !important; padding: 0 !important; font: 500 21px/1.2 "Instrument Sans", sans-serif !important; letter-spacing: -.01em; text-transform: none !important; }
+.mec-event-list-minimal .mec-event-title a { color: #172236 !important; transition: color .2s; }
+.mec-event-list-minimal .mec-event-title a:hover { color: #24344d !important; }
+.mec-event-list-minimal .event-color { display: none !important; }
+.mec-event-list-minimal .mec-event-detail { grid-column: 2; margin: 0 !important; font: 400 14px/1.4 "Figtree", sans-serif !important; color: #5b687c !important; text-align: left !important; }
+@media (max-width: 1024px) { .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .mec-wrap .mec-event-list-minimal { grid-template-columns: 1fr; } }
+
+/* ---- MEC single event: breathing room under the menu-only header ---------- */
+.single-mec-events #main-content { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }
+.single-mec-events .mec-single-event .mec-single-title, .single-mec-events .mec-single-event h1 { font: 500 clamp(36px, 4.8vw, 56px)/1.08 "Instrument Sans", sans-serif !important; letter-spacing: -.02em; color: #172236; margin: 28px 0 14px; }
+.single-mec-events .mec-single-event .mec-single-event-description, .single-mec-events .mec-single-event .mec-events-content { font: 400 17px/1.75 "Figtree", sans-serif; color: #5b687c; }
+/* ---- MEC box calendar: month + year filters, event dots and the day panel under the grid ---- */
+.mec-wrap .mec-search-form .mec-date-search { display: flex !important; gap: 12px; width: auto !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; float: none !important; }
+.mec-wrap .mec-search-form .mec-date-search select { width: 150px !important; }
+.mec-wrap .mec-calendar .mec-calendar-day.mec-has-event::after { background-color: #c6ad7a !important; width: 6px !important; height: 6px !important; }
+.mec-wrap .mec-calendar .mec-calendar-day.mec-has-event a.mec-has-event-a { color: inherit !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side { display: block !important; width: 100% !important; min-height: 0 !important; margin: 24px 0 0 !important; padding: 28px 32px !important;
+  background: #fff !important; border: 1px solid rgba(36,52,77,.14) !important; border-top: 2px solid #c6ad7a !important; box-shadow: none !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-table-side-title { margin: 0 0 8px !important; font: 700 11px/1.4 "Figtree", sans-serif !important; letter-spacing: .22em !important; text-transform: uppercase; color: #a3854e !important; text-align: left !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-table-side-day { width: auto !important; height: auto !important; margin: 0 0 18px !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important;
+  font: 500 30px/1.1 "Instrument Sans", sans-serif !important; letter-spacing: -.03em !important; color: #172236 !important; text-align: left !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-article { display: flex; align-items: center; gap: 18px; margin: 0 !important; padding: 16px 0 !important; border: 0 !important; border-top: 1px solid rgba(36,52,77,.12) !important; background: none !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-image { flex: 0 0 72px; width: 72px !important; margin: 0 !important; float: none !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-image img { width: 72px; height: 72px; object-fit: cover; border-radius: 0; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-monthly-contents { width: auto !important; flex: 1 1 auto; float: none !important; padding: 0 !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-time { margin: 0 0 4px !important; font: 700 11px/1.4 "Figtree", sans-serif !important; letter-spacing: .16em; text-transform: uppercase; color: #a3854e !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-time i { display: none; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-title { margin: 0 !important; padding: 0 !important; font: 500 20px/1.25 "Instrument Sans", sans-serif !important; letter-spacing: -.02em; text-transform: none !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-title a { color: #172236 !important; transition: color .2s; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-title a:hover { color: #a3854e !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-title .event-color { display: none !important; }
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-event-detail { font: 400 14px/1.5 "Figtree", sans-serif !important; color: #5b687c !important; text-align: left !important; }
+.mec-wrap .mec-event-footer { display: none !important; }
+@media (max-width: 860px) {
+  .mec-wrap .mec-search-form .mec-date-search { flex: 1 1 100%; }
+  .mec-wrap .mec-search-form .mec-date-search select { flex: 1 1 0; width: auto !important; }
+  .mec-wrap .mec-calendar .mec-calendar-events-side { padding: 22px 20px !important; }
+}
 /* ===== GRAHAM REDESIGN END ===== */
