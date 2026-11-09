@@ -16,7 +16,7 @@
   }
 
   function accent(h) {
-    if (h.querySelector('.gc-accent, em') || h.closest(SKIP)) return;
+    if (h.querySelector('.gc-accent, em') || h.closest(SKIP) || h.isContentEditable) return;
     var text = h.textContent.replace(/\s+/g, ' ').trim();
     var words = text.split(' ');
     if (words.length < 2) return;
@@ -32,8 +32,28 @@
     target.appendChild(span);
   }
 
-  function run() { document.querySelectorAll('.gc-section h1, .gc-section h2').forEach(accent); }
+  // While a heading is being edited inline in Cornerstone, put the plain text back so the
+  // accent span can never be saved into the heading content.
+  function unwrap(h) {
+    var s = h.querySelectorAll('.gc-accent');
+    if (!s.length) return;
+    s.forEach(function (x) { x.replaceWith(document.createTextNode(x.textContent)); });
+    h.normalize();
+  }
+
+  function run() {
+    document.querySelectorAll('.gc-section h1, .gc-section h2').forEach(function (h) {
+      if (h.isContentEditable) unwrap(h); else accent(h);
+    });
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
+
+  // The Cornerstone editor (and AJAX content) renders elements after page load and re-renders
+  // them on every change, so run again whenever the page changes.
+  var t;
+  new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 120); })
+    .observe(document.documentElement, { childList: true, subtree: true, characterData: true,
+                                         attributes: true, attributeFilter: ['contenteditable'] });
 })();
 /* ===== GRAHAM REDESIGN END ===== */
