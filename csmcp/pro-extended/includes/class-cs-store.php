@@ -115,6 +115,9 @@ class Pro_Extended_CS_Store {
 			if ( ! $doc || ! ( $doc instanceof $content ) ) {
 				return false; // Headers, footers, layouts, components: different document classes.
 			}
+			// HTML storage (7.6+) renders the document into post_content during save;
+			// stale render caches could leak another post's output into it.
+			self::clear_render_state( (int) $post_id );
 			// Content::save() reads elements from data['elements']['data'], which only update()
 			// sets — so elements must always be passed or the page would be emptied.
 			if ( ! isset( $update['elements'] ) ) {
@@ -218,6 +221,138 @@ class Pro_Extended_CS_Store {
 			return $res;
 		} catch ( Throwable $e ) {
 			return new WP_Error( 'cornerstone_save_failed', 'Cornerstone save failed: ' . $e->getMessage() );
+		}
+	}
+
+	/* -------------------------------------------------------- content storage */
+
+	/**
+	 * Site-wide content storage mode (Cornerstone 7.6+ / Pro 6.6+).
+	 * Cornerstone reads the option `cs_document_build_as_html` when it builds
+	 * post_content: truthy = HTML storage (default for new sites since 7.7.0),
+	 * falsy = classic [cs_content] shortcode storage.
+	 *
+	 * @return string 'html' | 'shortcode' | 'unsupported' (Cornerstone < 7.6).
+	 */
+	public static function site_storage_mode() {
+		if ( ! function_exists( 'cs_uses_cornerstone_html' ) ) {
+			return 'unsupported';
+		}
+		return get_option( 'cs_document_build_as_html' ) ? 'html' : 'shortcode';
+	}
+
+	/**
+	 * How a post's post_content is stored right now, and whether it actually
+	 * belongs to this post. HTML storage marks elements with ids like
+	 * "e<post id>-e<n>"; shortcode storage uses [cs_content _p="<post id>"].
+	 * A mismatch means post_content was copied from another post (e.g. a clone)
+	 * and must be rebuilt — other plugins (SEO, search) read that copy.
+	 *
+	 * @return array{mode:string, ok:bool, message:string}
+	 */
+	public static function post_storage( $post_id ) {
+		$post_id = (int) $post_id;
+		$content = (string) get_post_field( 'post_content', $post_id );
+		if ( ! function_exists( 'cs_uses_cornerstone_html' ) || ! function_exists( 'cs_uses_cornerstone_shortcodes' ) ) {
+			return array(
+				'mode'    => false !== strpos( $content, '[cs_content' ) ? 'shortcode' : 'unknown',
+				'ok'      => true,
+				'message' => 'Cornerstone < 7.6: no storage helpers, not validated',
+			);
+		}
+		if ( cs_uses_cornerstone_html( $content ) ) {
+			if ( preg_match( '/\be([1-9][0-9]*)-e[0-9a-z_-]*\b/i', $content, $m ) ) {
+				$ok = (int) $m[1] === $post_id;
+				return array(
+					'mode'    => 'html',
+					'ok'      => $ok,
+					'message' => $ok ? 'HTML marker matches post' : 'HTML marker belongs to post #' . (int) $m[1],
+				);
+			}
+			$empty = ! self::roots_of( self::get_tree( $post_id ) );
+			return array(
+				'mode'    => 'html',
+				'ok'      => $empty,
+				'message' => $empty ? 'empty document' : 'no e<ID>-e element marker found',
+			);
+		}
+		if ( cs_uses_cornerstone_shortcodes( $content ) ) {
+			$ok = (bool) preg_match( '/\[cs_content\b[^\]]*_p=(["\']?)' . $post_id . '\1[^\]]*\]/', $content );
+			return array(
+				'mode'    => 'shortcode',
+				'ok'      => $ok,
+				'message' => $ok ? 'shortcode _p matches post' : 'shortcode _p does not match post',
+			);
+		}
+		return array(
+			'mode'    => 'none',
+			'ok'      => null === self::get_tree( $post_id ),
+			'message' => 'post_content has no Cornerstone output',
+		);
+	}
+
+	/**
+	 * Rebuild post_content from _cornerstone_data by re-saving the document
+	 * through Cornerstone (same as pressing Save in the builder). Uses the
+	 * site's current storage mode unless $mode forces 'html' or 'shortcode'.
+	 *
+	 * @return array|WP_Error post_storage() result after the rebuild.
+	 */
+	public static function rebuild_post_content( $post_id, $mode = null ) {
+		$filter = null;
+		if ( in_array( $mode, array( 'html', 'shortcode' ), true ) ) {
+			$want   = 'html' === $mode ? 1 : 0;
+			$filter = function () use ( $want ) {
+				return $want;
+			};
+			add_filter( 'option_cs_document_build_as_html', $filter );
+			add_filter( 'default_option_cs_document_build_as_html', $filter );
+		}
+		self::clear_render_state( $post_id );
+		try {
+			$res = self::save_via_cornerstone( $post_id, array() );
+		} finally {
+			if ( $filter ) {
+				remove_filter( 'option_cs_document_build_as_html', $filter );
+				remove_filter( 'default_option_cs_document_build_as_html', $filter );
+			}
+		}
+		if ( is_wp_error( $res ) ) {
+			return $res;
+		}
+		if ( true !== $res ) {
+			return new WP_Error( 'not_content', 'Post ' . $post_id . ' is not a Cornerstone content document (or Cornerstone is too old to rebuild it).' );
+		}
+		clean_post_cache( $post_id );
+		self::clear_render_state( $post_id );
+		return self::post_storage( $post_id );
+	}
+
+	/** Drop Cornerstone's in-memory render caches for a post (best effort). */
+	public static function clear_render_state( $post_id ) {
+		clean_post_cache( $post_id );
+		if ( ! function_exists( 'cornerstone' ) ) {
+			return;
+		}
+		try {
+			$resolver = cornerstone( 'Resolver' );
+			if ( is_object( $resolver ) && method_exists( $resolver, 'clearDocumentCache' ) ) {
+				$resolver->clearDocumentCache( $post_id );
+			}
+		} catch ( Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
+		}
+		try {
+			$front_end = cornerstone( 'FrontEnd' );
+			if ( is_object( $front_end ) && property_exists( $front_end, 'the_content_cache' ) ) {
+				$prop = new ReflectionProperty( $front_end, 'the_content_cache' );
+				$prop->setAccessible( true );
+				$cache = $prop->getValue( $front_end );
+				if ( is_array( $cache ) && isset( $cache[ $post_id ] ) ) {
+					unset( $cache[ $post_id ] );
+					$prop->setValue( $front_end, $cache );
+				}
+			}
+		} catch ( Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
 		}
 	}
 

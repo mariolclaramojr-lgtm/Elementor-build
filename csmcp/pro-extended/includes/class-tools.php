@@ -31,6 +31,8 @@ class Pro_Extended_Tools {
 				'To build pages, copy the shape of real examples (same keys, same value formats) rather than inventing keys.',
 				'HTML designs: cs_import_html wraps HTML+CSS in the site\'s own Raw Content/Code element (pixel-accurate, not visually editable). For editable pages, convert to native elements modelled on catalog examples and save with cs_save_element_tree.',
 				'Every write backs up the page first (cs_list_backups / cs_restore_backup). New pages default to draft. After writes, call cs_purge_cache and check the page in the browser and in the Cornerstone editor.',
+				'Content storage (Cornerstone 7.6+): _cornerstone_data is always the source of truth; post_content is a generated copy, either HTML (default on new sites since 7.7) or [cs_content] shortcodes. Never hand-write post_content for a Cornerstone page — writes go through Cornerstone\'s own save, which regenerates it. cs_content_storage reports the mode and validates/repairs pages whose copy is stale or belongs to another post.',
+				'Newer Cornerstone (7.8–7.9) adds elements such as Table, Menu Looper and User Looper, Global Variables, Custom Document Assets, gradients and the Library (formerly Templates) tab. Build new element types only from cs_element_catalog examples (hand-build one in the editor first if the catalog has none). cs_globals lists global colors, fonts and variables; cs_component_usage shows where a component is placed.',
 			)
 		);
 	}
@@ -181,7 +183,7 @@ class Pro_Extended_Tools {
 					),
 					'post_content' => array(
 						'type'        => 'string',
-						'description' => 'Optional: also set post_content (some Cornerstone versions keep a rendered copy there).',
+						'description' => 'Legacy fallback only: used when Cornerstone\'s save pipeline is unavailable (pre-7.x) and the site is not on HTML storage. Ignored otherwise — Cornerstone regenerates post_content itself.',
 					),
 				),
 				'required'    => array( 'id', 'tree' ),
@@ -521,6 +523,54 @@ class Pro_Extended_Tools {
 				'required'    => array( 'id' ),
 				'handler'     => 'preview_link',
 			),
+			'cs_content_storage'   => array(
+				'description' => 'Cornerstone 7.6+ content storage. Reports the site mode (html | shortcode) and, per Cornerstone page, how post_content is stored and whether it belongs to that page (HTML markers e<ID>-e… / [cs_content _p=ID]). `repair` re-saves the listed pages through Cornerstone to regenerate post_content from _cornerstone_data (backs up first); `repair_invalid: true` repairs every page that failed validation. Does not switch the site mode — use Cornerstone Settings › Advanced › Content Storage for that.',
+				'write'       => true,
+				'props'       => array(
+					'post_type'      => array(
+						'type'        => 'string',
+						'description' => 'Only this post type (default: all public types).',
+					),
+					'limit'          => array(
+						'type'    => 'integer',
+						'default' => 200,
+					),
+					'only_invalid'   => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
+					'repair'         => array(
+						'type'  => 'array',
+						'items' => array( 'type' => 'integer' ),
+					),
+					'repair_invalid' => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
+				),
+				'required'    => array(),
+				'handler'     => 'content_storage',
+			),
+			'cs_globals'           => array(
+				'description' => 'Read global design tokens: Global Colors (ids for "global-color:<id>"), Global Fonts and the font config, plus any Global Variables / theme option entries Cornerstone 7.9+ stores. Uses Cornerstone\'s helpers (cs_color_get_stored, cs_fonts_get_config) when present, otherwise the raw options. Change them with cs_update_option (back up the returned previous value).',
+				'write'       => false,
+				'props'       => (object) array(),
+				'required'    => array(),
+				'handler'     => 'globals',
+			),
+			'cs_component_usage'   => array(
+				'description' => 'List every page, header, footer, layout and component that places a given Component / Global Block (by id), with element paths — like Cornerstone 7.9.4\'s component usage list. Check this before editing or deleting a shared component.',
+				'write'       => false,
+				'props'       => array(
+					'id'    => $id,
+					'limit' => array(
+						'type'    => 'integer',
+						'default' => 500,
+					),
+				),
+				'required'    => array( 'id' ),
+				'handler'     => 'component_usage',
+			),
 			'cs_purge_cache'       => array(
 				'description' => 'Best-effort cache clear after writes: Cornerstone generated styles for the page, WordPress object cache, and host page caches (WP Engine) when present.',
 				'write'       => true,
@@ -722,6 +772,15 @@ class Pro_Extended_Tools {
 			'theme'                 => $theme->get( 'Name' ) . ' ' . $theme->get( 'Version' ),
 			'parent_theme'          => $parent ? $parent->get( 'Name' ) . ' ' . $parent->get( 'Version' ) : null,
 			'cornerstone_detected'  => (bool) ( $constants || $classes || function_exists( 'cornerstone' ) ),
+			'content_storage'       => Pro_Extended_CS_Store::site_storage_mode(),
+			'features'              => array(
+				'document_pipeline' => class_exists( 'Themeco\\Cornerstone\\Documents\\Content' ),
+				'html_storage'      => function_exists( 'cs_render_document_html_with_comment' ),
+				'global_colors_api' => function_exists( 'cs_color_get_stored' ),
+				'global_fonts_api'  => function_exists( 'cs_fonts_get_config' ),
+				'components'        => class_exists( 'Themeco\\Cornerstone\\Documents\\Component' ),
+				'twig'              => (bool) apply_filters( 'cs_twig_renderer_enabled', true ),
+			),
 			'plugins'               => $plugins,
 			'constants'             => $constants,
 			'cornerstone_post_types' => $cs_post_types,
@@ -756,8 +815,12 @@ class Pro_Extended_Tools {
 				'parent'      => $p->post_parent,
 				'link'        => get_permalink( $p ),
 				'modified'    => $p->post_modified_gmt,
-				'cornerstone' => '' !== get_post_meta( $p->ID, Pro_Extended_CS_Store::DATA_KEY, true ),
+				'cornerstone' => $is_cs = ( '' !== get_post_meta( $p->ID, Pro_Extended_CS_Store::DATA_KEY, true ) ),
 			);
+			if ( $is_cs ) {
+				$st                          = Pro_Extended_CS_Store::post_storage( $p->ID );
+				$items[ count( $items ) - 1 ]['storage'] = $st['mode'] . ( $st['ok'] ? '' : ' (invalid: ' . $st['message'] . ')' );
+			}
 		}
 		return array(
 			'total' => (int) $query->found_posts,
@@ -780,6 +843,7 @@ class Pro_Extended_Tools {
 			'slug'      => $p->post_name,
 			'link'      => get_permalink( $p ),
 			'template'  => get_page_template_slug( $p ),
+			'storage'   => null !== Pro_Extended_CS_Store::get_tree( $p->ID ) ? Pro_Extended_CS_Store::post_storage( $p->ID ) : null,
 			'meta'      => $meta,
 		);
 		if ( ! isset( $args['include_content'] ) || $args['include_content'] ) {
@@ -964,9 +1028,24 @@ class Pro_Extended_Tools {
 		if ( is_wp_error( $saved_via ) ) {
 			return $saved_via;
 		}
+		$storage = null;
+		if ( $source && null !== Pro_Extended_CS_Store::get_tree( $new_id ) ) {
+			// The copied post_content (and compiled CSS) still carries the source page's
+			// element ids (HTML storage markers e<source>-e…, [cs_content _p=source]).
+			// Re-save through Cornerstone so both are regenerated for the new page.
+			delete_post_meta( $new_id, '_cs_generated_tss' );
+			if ( empty( $args['elements'] ) ) {
+				$rebuilt = Pro_Extended_CS_Store::rebuild_post_content( $new_id );
+				if ( ! is_wp_error( $rebuilt ) ) {
+					$saved_via = 'cornerstone';
+				}
+			}
+			$storage = Pro_Extended_CS_Store::post_storage( $new_id );
+		}
 
 		return array(
 			'id'          => $new_id,
+			'storage'     => $storage,
 			'status'      => $status,
 			'edit_link'   => get_edit_post_link( $new_id, 'raw' ),
 			'preview'     => get_preview_post_link( $new_id ),
@@ -1029,7 +1108,8 @@ class Pro_Extended_Tools {
 		if ( is_wp_error( $via ) ) {
 			return $via;
 		}
-		if ( isset( $args['post_content'] ) && 'raw' === $via ) {
+		$post_content_ignored = isset( $args['post_content'] ) && ( 'raw' !== $via || 'html' === Pro_Extended_CS_Store::site_storage_mode() );
+		if ( isset( $args['post_content'] ) && ! $post_content_ignored ) {
 			wp_update_post(
 				wp_slash(
 					array(
@@ -1050,6 +1130,8 @@ class Pro_Extended_Tools {
 			'id'       => $args['id'],
 			'elements' => $count,
 			'saved_via' => $via,
+			'storage'  => Pro_Extended_CS_Store::post_storage( $args['id'] ),
+			'post_content_ignored' => $post_content_ignored ? 'Cornerstone generates post_content; the passed value was not used.' : null,
 			'outline'  => Pro_Extended_CS_Store::outline( $tree ),
 			'summary'  => "Saved element tree ($count elements) via $via",
 		);
@@ -1149,6 +1231,7 @@ class Pro_Extended_Tools {
 		return array(
 			'id'        => $args['id'],
 			'saved_via' => $via,
+			'storage'   => Pro_Extended_CS_Store::post_storage( $args['id'] ),
 			'outline'   => Pro_Extended_CS_Store::outline( $tree ),
 			'summary' => "Element $path: " . ( $done ? implode( '; ', $done ) : 'no changes' ),
 		);
@@ -1629,6 +1712,7 @@ class Pro_Extended_Tools {
 		self::purge_cache( array( 'id' => $args['id'] ) );
 		return array(
 			'id'      => $args['id'],
+			'storage' => null !== Pro_Extended_CS_Store::get_tree( $args['id'] ) ? Pro_Extended_CS_Store::post_storage( $args['id'] ) : null,
 			'summary' => 'Restored backup #' . $index,
 		);
 	}
@@ -2044,6 +2128,193 @@ class Pro_Extended_Tools {
 		);
 	}
 
+	/* ------------------------------------------------- storage, globals */
+
+	private static function content_storage( $args ) {
+		$types = ! empty( $args['post_type'] ) ? array( sanitize_key( $args['post_type'] ) ) : array_values( array_diff( get_post_types( array( 'public' => true ) ), array( 'attachment' ) ) );
+		$ids   = get_posts(
+			array(
+				'post_type'      => $types,
+				'post_status'    => 'any',
+				'meta_key'       => Pro_Extended_CS_Store::DATA_KEY, // phpcs:ignore WordPress.DB.SlowDBQuery
+				'posts_per_page' => min( 2000, max( 1, isset( $args['limit'] ) ? (int) $args['limit'] : 200 ) ),
+				'orderby'        => 'modified',
+				'order'          => 'DESC',
+				'fields'         => 'ids',
+			)
+		);
+		$pages  = array();
+		$counts = array();
+		$bad    = array();
+		foreach ( $ids as $pid ) {
+			$st                         = Pro_Extended_CS_Store::post_storage( $pid );
+			$counts[ $st['mode'] ]      = ( isset( $counts[ $st['mode'] ] ) ? $counts[ $st['mode'] ] : 0 ) + 1;
+			if ( ! $st['ok'] ) {
+				$bad[] = $pid;
+			}
+			if ( empty( $args['only_invalid'] ) || ! $st['ok'] ) {
+				$pages[] = array_merge(
+					array(
+						'id'    => $pid,
+						'title' => get_the_title( $pid ),
+						'type'  => get_post_type( $pid ),
+					),
+					$st
+				);
+			}
+		}
+
+		$repair = array_map( 'intval', isset( $args['repair'] ) ? (array) $args['repair'] : array() );
+		if ( ! empty( $args['repair_invalid'] ) ) {
+			$repair = array_merge( $repair, $bad );
+		}
+		$repaired = array();
+		foreach ( array_unique( $repair ) as $pid ) {
+			if ( ! $pid || ! current_user_can( 'edit_post', $pid ) ) {
+				$repaired[ $pid ] = 'skipped: no permission';
+				continue;
+			}
+			Pro_Extended_CS_Store::backup( $pid, 'cs_content_storage repair' );
+			$res              = Pro_Extended_CS_Store::rebuild_post_content( $pid );
+			$repaired[ $pid ] = is_wp_error( $res ) ? 'error: ' . $res->get_error_message() : $res;
+		}
+
+		return array(
+			'site_mode' => Pro_Extended_CS_Store::site_storage_mode(),
+			'scanned'   => count( $ids ),
+			'by_mode'   => $counts,
+			'invalid'   => $bad,
+			'pages'     => $pages,
+			'repaired'  => $repaired ?: null,
+			'summary'   => $repaired ? 'Rebuilt post_content for ' . count( $repaired ) . ' page(s)' : '',
+		);
+	}
+
+	/** Call a Cornerstone helper if it exists; null when missing or it fails. */
+	private static function try_cs( $fn ) {
+		if ( ! function_exists( $fn ) ) {
+			return null;
+		}
+		try {
+			return call_user_func( $fn );
+		} catch ( Throwable $e ) {
+			return array( 'error' => $fn . ': ' . $e->getMessage() );
+		}
+	}
+
+	private static function globals( $args ) {
+		global $wpdb;
+		$read = function ( $name ) {
+			$v = get_option( $name, null );
+			return null === $v ? null : Pro_Extended_CS_Store::decode( $v );
+		};
+		$colors = self::try_cs( 'cs_color_get_stored' );
+		$fonts  = self::try_cs( 'cs_fonts_get_config' );
+
+		// Global Variables (7.9.0) and similar newer settings: report any matching option by name.
+		$likes = array();
+		foreach ( self::OPTION_PREFIXES as $p ) {
+			$likes[] = $wpdb->prepare( 'option_name LIKE %s', $wpdb->esc_like( $p ) . '%' );
+		}
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery
+		$names = $wpdb->get_col( "SELECT option_name FROM {$wpdb->options} WHERE (" . implode( ' OR ', $likes ) . ") AND option_name REGEXP 'variable|global_?(setting|param)'" );
+		$vars  = array();
+		foreach ( $names as $n ) {
+			if ( ! preg_match( '/licen[cs]e|key|token|secret|password|pro_extended/i', $n ) ) {
+				$vars[ $n ] = $read( $n );
+			}
+		}
+
+		return array(
+			'colors'          => null !== $colors ? $colors : $read( 'cornerstone_color_items' ),
+			'colors_source'   => null !== $colors ? 'cs_color_get_stored()' : 'option cornerstone_color_items',
+			'fonts'           => $read( 'cornerstone_font_items' ),
+			'font_config'     => null !== $fonts ? $fonts : $read( 'cornerstone_font_config' ),
+			'variables'       => $vars ?: null,
+			'note'            => 'Reference colors in elements as "global-color:<id>" and fonts by their id. If something is missing here, look for it with cs_list_options.',
+		);
+	}
+
+	private static function component_usage( $args ) {
+		$target = (string) (int) $args['id'];
+		$hits   = array();
+		$scan   = function ( $node, $path ) use ( &$scan, &$hits, $target ) {
+			if ( ! is_array( $node ) ) {
+				return;
+			}
+			if ( isset( $node['_type'] ) ) {
+				foreach ( $node as $k => $v ) {
+					if ( is_scalar( $v ) && preg_match( '/(global_block_id|component_id|^component)$/', $k ) && preg_replace( '/\D/', '', (string) $v ) === $target ) {
+						$hits[] = array(
+							'path' => ltrim( $path, '.' ),
+							'type' => $node['_type'],
+							'key'  => $k,
+						);
+						break;
+					}
+				}
+			}
+			foreach ( $node as $k => $v ) {
+				if ( is_array( $v ) ) {
+					$scan( $v, $path . '.' . $k );
+				}
+			}
+		};
+
+		$limit = min( 5000, max( 1, isset( $args['limit'] ) ? (int) $args['limit'] : 500 ) );
+		$found = array();
+		// Content documents (pages, posts, components) keep their tree in _cornerstone_data.
+		$ids = get_posts(
+			array(
+				'post_type'      => 'any',
+				'post_status'    => array( 'publish', 'draft', 'pending', 'private', 'future', 'tco-data' ),
+				'meta_key'       => Pro_Extended_CS_Store::DATA_KEY, // phpcs:ignore WordPress.DB.SlowDBQuery
+				'posts_per_page' => $limit,
+				'fields'         => 'ids',
+			)
+		);
+		// Layouts, headers, footers and components store JSON in post_content.
+		$ids = array_unique(
+			array_merge(
+				$ids,
+				get_posts(
+					array(
+						'post_type'      => array_merge( self::layout_post_types(), array( 'cs_global_block' ) ),
+						'post_status'    => 'any',
+						'posts_per_page' => $limit,
+						'fields'         => 'ids',
+					)
+				)
+			)
+		);
+		foreach ( $ids as $pid ) {
+			if ( (int) $pid === (int) $target ) {
+				continue;
+			}
+			$hits = array();
+			$scan( Pro_Extended_CS_Store::get_tree( $pid ), '' );
+			$json = Pro_Extended_CS_Store::decode( (string) get_post_field( 'post_content', $pid ) );
+			if ( is_array( $json ) ) {
+				$scan( $json, '' );
+			}
+			if ( $hits ) {
+				$found[] = array(
+					'id'        => (int) $pid,
+					'title'     => get_the_title( $pid ),
+					'post_type' => get_post_type( $pid ),
+					'status'    => get_post_status( $pid ),
+					'elements'  => $hits,
+				);
+			}
+		}
+		return array(
+			'component' => (int) $target,
+			'title'     => get_the_title( (int) $target ),
+			'scanned'   => count( $ids ),
+			'used_in'   => $found,
+		);
+	}
+
 	private static function preview_link( $args ) {
 		$hours = isset( $args['hours'] ) ? (int) $args['hours'] : 48;
 		return array(
@@ -2064,8 +2335,8 @@ class Pro_Extended_Tools {
 					$done[] = "deleted meta $key";
 				}
 			}
-			clean_post_cache( $pid );
-			$done[] = 'clean_post_cache';
+			Pro_Extended_CS_Store::clear_render_state( $pid );
+			$done[] = 'clean_post_cache + Cornerstone render state';
 			do_action( 'cs_purge_post_cache', $pid ); // Harmless if nothing listens.
 		}
 		if ( function_exists( 'cornerstone_cleanup_generated_styles' ) && ! empty( $args['all'] ) ) {
@@ -2073,7 +2344,7 @@ class Pro_Extended_Tools {
 			$done[] = 'cornerstone_cleanup_generated_styles';
 		}
 		// Ask Cornerstone to drop its global generated CSS, if this version exposes a hook/function for it.
-		foreach ( array( 'cs_purge_tmp', 'cornerstone_purge_cache', 'cs_purge_cache' ) as $hook ) {
+		foreach ( array( 'cs_purge_tmp', 'cs_purge_all', 'cornerstone_purge_cache', 'cs_purge_cache' ) as $hook ) {
 			if ( has_action( $hook ) ) {
 				do_action( $hook );
 				$done[] = "do_action $hook";

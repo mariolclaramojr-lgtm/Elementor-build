@@ -47,6 +47,8 @@ claude mcp add --transport http --scope user cs-mcp \
 | `cs_get_option cs_assignment_cache_layout_header` | Which header goes where |
 | `gf_list_forms`, `cs_list_menus` | Forms and menus available |
 | `cs_dev_source` (grep) | Read Pro/Cornerstone/plugin source when a key or feature is unclear |
+| `cs_content_storage` | Content storage mode (HTML or shortcode, Cornerstone 7.6+) and any pages whose post_content is stale |
+| `cs_globals` | Global Colors, Fonts and Global Variables (7.9+) already defined |
 
 ---
 
@@ -130,6 +132,10 @@ change, form confirmation) via a MutationObserver.
 4. `cs_purge_cache {"id": <page>}` → check in the browser **and** in the Cornerstone editor.
 5. For risky experiments: `cs_create_page {"clone_from": <id>, "status": "draft"}` +
    `cs_preview_link`. Delete the test page afterwards.
+6. Never write `post_content` by hand on a Cornerstone page. `_cornerstone_data` is the source; Cornerstone
+   regenerates post_content (HTML storage by default since 7.7). If SEO or search shows another page's text,
+   run `cs_content_storage {"repair_invalid": true}`.
+7. Before editing or deleting a shared Component, run `cs_component_usage {"id": <component>}`.
 
 ### HTML → Cornerstone element map
 | Mockup | Cornerstone element | Notes |

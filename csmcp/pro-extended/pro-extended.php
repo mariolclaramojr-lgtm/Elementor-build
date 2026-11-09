@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CSMCP - By Mario C
  * Description: MCP server for Themeco Pro / Cornerstone. Lets an AI agent inspect, create and edit Cornerstone pages, including importing existing HTML designs.
- * Version:     0.7.3
+ * Version:     0.8.0
  * Author:      Mario C
  * Requires PHP: 7.4
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PRO_EXTENDED_VERSION', '0.7.3' );
+define( 'PRO_EXTENDED_VERSION', '0.8.0' );
 define( 'PRO_EXTENDED_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once PRO_EXTENDED_DIR . 'includes/class-cs-store.php';

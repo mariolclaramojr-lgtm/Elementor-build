@@ -15,7 +15,7 @@ class Pro_Extended_MCP_Server {
 
 	const NS       = 'cs-mcp/v1';
 	const ROUTE    = '/mcp';
-	const VERSIONS = array( '2025-06-18', '2025-03-26', '2024-11-05' );
+	const VERSIONS = array( '2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05' );
 
 	public static function register_routes() {
 		register_rest_route(
