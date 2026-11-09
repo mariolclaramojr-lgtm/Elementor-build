@@ -137,7 +137,10 @@ def about():
     team = [(find_all(c, 'image')[0]['image_src'], find_all(c, 'headline')[0]) for c in s2['_modules'][1]['_modules']]
     sec2 = section('2. Mission & Values', [
         row('Mission', [col('Heading Group', [headline('Our Mission'), gold_rule()]),
-                        col('Text', [text(mission, color=INK, size='1.15rem', lh='1.75', maxw='40rem')])],
+                        col('Text', [div('Photo', [media_frame('461:full', minh='19rem')], layout_div_width='100%',
+                                         **bp(layout_div_width=['100%', None, None, None, None])),
+                                     text(mission, color=INK, size='1.15rem', lh='1.75', maxw='40rem', text_margin='1.75rem 0px 0px 0px')],
+                            layout_column_flex_align='stretch')],
             layout='40% 60%', gap='4rem', align='flex-start', layout_row_margin='0px auto 4.5rem auto'),
         row('Values Heading', [col('Heading Group', [headline('Our Values'), gold_rule()])], layout_row_margin='0px auto 1rem auto'),
         cards_row([icon_card(i, h, x) for i, h, x in vals]),
