@@ -66,4 +66,14 @@
     var l = document.createElement('link'); l.rel = r[0]; if (r[1]) l.type = r[1]; l.href = src; document.head.appendChild(l);
   });
 })();
+/* Gravity Forms: after a successful submission, go to the Thank You page.
+   (Set the same thing per form in Forms › Settings › Confirmations › Page to make it permanent.) */
+(function () {
+  var THANKS = '/thank-you/';
+  function go() { if (location.pathname.indexOf(THANKS) !== 0) location.href = THANKS; }
+  if (window.jQuery) jQuery(document).on('gform_confirmation_loaded', go);       // AJAX forms
+  document.addEventListener('DOMContentLoaded', function () {                      // non-AJAX forms
+    if (document.querySelector('.gform_confirmation_message')) go();
+  });
+})();
 /* ===== GRAHAM REDESIGN END ===== */

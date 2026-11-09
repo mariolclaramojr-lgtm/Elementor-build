@@ -83,9 +83,19 @@ header = {'type': 'header', 'title': 'Graham Header', 'regions': {'top': [header
 # ---------------- footer ----------------
 def flink(label, href):
     e = text_link(label, href, color='rgba(255,255,255,0.72)', hover='#ffffff', line='transparent')
+    if href.startswith('http'): e['anchor_blank'] = True
     e.update(anchor_border_width='0px', anchor_padding='0em', anchor_primary_font_size='0.85rem', anchor_primary_letter_spacing='0em',
              anchor_primary_text_transform='none', anchor_primary_font_weight='400', anchor_primary_line_height='1.6')
     return e
+
+def social(icon, option, label):
+    return {'_type': 'social', '_bp_base': BP, 'anchor_href': '{{dc:theme:' + option + '}}', 'anchor_blank': True,
+            'anchor_graphic_icon': icon, 'anchor_graphic_icon_alt': icon, 'anchor_aria_label': label,
+            'anchor_width': '2.6em', 'anchor_height': '2.6em', 'anchor_base_font_size': '0.85rem',
+            'anchor_bg_color': 'transparent', 'anchor_bg_color_alt': GOLD, 'anchor_border_width': '1px', 'anchor_border_style': 'solid',
+            'anchor_border_color': 'rgba(198,173,122,0.45)', 'anchor_border_color_alt': GOLD, 'anchor_border_radius': '100em',
+            'anchor_box_shadow_dimensions': '0em 0em 0em 0em', 'anchor_graphic_icon_font_size': '1em',
+            'anchor_graphic_icon_color': GOLDS, 'anchor_graphic_icon_color_alt': DARK, 'anchor_graphic_margin': '0em'}
 
 def links(title, items):
     kids = []
@@ -100,11 +110,14 @@ def links(title, items):
 footer_main = div('Footer Columns', [
   div('Column – Brand', [logo_gb(),
      text('<p>A church for the city. Sharing the message of Christ and living out His love in our community.</p>',
-          color='rgba(255,255,255,0.58)', size='0.82rem', lh='1.85', maxw='19rem', text_margin='1.4rem 0px 0px 0px')],
+          color='rgba(255,255,255,0.58)', size='0.82rem', lh='1.85', maxw='19rem', text_margin='1.4rem 0px 0px 0px'),
+     div('Social', [social(i, k, t) for i, k, t in [('facebook-f', 'x_social_facebook', 'Facebook'), ('instagram', 'x_social_instagram', 'Instagram'),
+                                                    ('youtube', 'x_social_youtube', 'YouTube'), ('x-twitter', 'x_social_twitter', 'X')]],
+         direction='row', gap='10px', layout_div_margin='1.6rem 0px 0px 0px')],
      layout_div_flex='1.5 1 16rem'),
   links('Explore', [('About', '/about/'), ('Connect', '/connect/'), ('Sermons', '/sermon-manager/'), ('Events', '/event/')]),
   links('Gather', ['Sunday · 10 AM', 'Wednesday · 6 PM', ('Give', '/give/'), ('Plan Your Visit', '/plan-your-visit/')]),
-  links('Contact', ['1000 West Highway<br>City, ST 55555', '411.123.1234', 'info@yourchurch.org']),
+  links('Contact', [('1000 West Highway, City, ST 55555', 'https://www.google.com/maps/search/?api=1&query=1000+West+Highway+City+ST+55555'), ('411.123.1234', 'tel:4111231234'), ('info@yourchurch.org', 'mailto:info@yourchurch.org')]),
 ], direction='row', gap='3rem', wrap=True, layout_div_width='100%', layout_div_padding='5.5rem 0px 4rem 0px')
 
 footer_bottom = div('Footer Bottom', [

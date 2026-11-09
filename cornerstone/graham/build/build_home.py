@@ -277,6 +277,13 @@ sermons = section('4. Sermons', [
 ], section_bg_color=SAND)
 
 # ---------------- 5. GET IN TOUCH ----------------
+def contact_link(label, href):
+    e = text_link(label, href, color='rgba(255,255,255,0.78)', hover=GOLDS, line='transparent')
+    e.update(anchor_border_width='0px', anchor_padding='0em', anchor_primary_font_size='0.9rem', anchor_primary_letter_spacing='0em',
+             anchor_primary_text_transform='none', anchor_primary_font_weight='400', anchor_primary_line_height='1.6', anchor_primary_text_align='left')
+    if href.startswith('http'): e['anchor_blank'] = True
+    return e
+
 def vcard(title, sub, big, icon, num):
     return col(f'Card – {title}', [
       div('Card Top', [
@@ -307,7 +314,9 @@ visit = section('5. Get In Touch (map)', [
            icon_color=GOLD, icon_bg_color='rgba(198,173,122,0.14)', icon_border_radius='50%'),
       ], direction='row', justify='space-between', align='center', layout_div_width='100%'),
       headline('Get In Touch', tag='h3', size='1.3rem', color='#ffffff', weight='700', ls='-0.02em', lh='1.2', margin='1.9rem 0px 0.6rem 0px'),
-      text('<p>1000 West Highway, City, ST 55555<br>411.123.1234<br>info@yourchurch.org</p>', color='rgba(255,255,255,0.75)', size='0.9rem'),
+      div('Contact Links', [contact_link(l, u) for l, u in [('1000 West Highway, City, ST 55555', 'https://www.google.com/maps/search/?api=1&query=1000+West+Highway+City+ST+55555'),
+                                                           ('411.123.1234', 'tel:4111231234'), ('info@yourchurch.org', 'mailto:info@yourchurch.org')]],
+          gap='0.45rem'),
     ], layout_column_bg_color=DEEP, layout_column_padding='2.25rem 2.1rem 2.1rem 2.1rem', **hover_lift),
   ], layout='30% 30% 40%', gap='1.4rem', **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '50% 50%', None, None]}}),
   row('Map', [col('Map', [

@@ -265,12 +265,53 @@ def watch_live():
                  form_box(find_all(p_, 'headline')[0]['text_content'], find_all(p_, 'classic:gravity-forms')[0]), bg=PAPER)
     return [banner('Watch Live', image='453:full'), sec2, sec3, sec4]
 
+def form_card(form_el):
+    return div('Form Box', [orig(form_el)], layout_div_width='100%', layout_div_bg_color='#ffffff',
+               layout_div_padding='2.5rem 2.5rem 2.5rem 2.5rem', layout_div_border_width='2px 0px 0px 0px',
+               layout_div_border_style='solid', layout_div_border_color=GOLD,
+               layout_div_box_shadow_dimensions='0em 1.9em 4em -1.9em', layout_div_box_shadow_color='rgba(15,24,40,0.3)',
+               **bp(layout_div_padding=['1.6rem 1.4rem 1.8rem 1.4rem', None, None, None, None]))
+
 def get_connected():
     t = P(345); s = t[1]
-    sec2 = split('2. Connect Card (form)', media_frame(find_all(s, 'image')[0]['image_src']),
-                 form_box(find_all(s, 'headline')[0]['text_content'].strip(), find_all(s, 'classic:gravity-forms')[0],
-                          intro_html='<p>' + re.sub(r'</?span>', '', find_all(s, 'text')[0]['text_content']) + '</p>'))
+    title = find_all(s, 'headline')[0]['text_content'].strip()
+    intro = re.sub(r'</?span>', '', find_all(s, 'text')[0]['text_content']).replace('\u00a0', ' ').strip()
+    gift = div('Gift Card', [
+        el('icon', None, [], icon='gift', icon_font_size='1.1rem', icon_width='2.75rem', icon_height='2.75rem',
+           icon_color=DARK, icon_bg_color=GOLD, icon_border_radius='50%'),
+        headline('A free gift for you', tag='p', size='1.35rem', color='#ffffff', font=F_ACC, weight='400', ls='0em', lh='1.25',
+                 text_font_style='italic', text_margin='1rem 0px 0px 0px', text_subheadline=True,
+                 text_subheadline_content='When you fill out the connect card', text_subheadline_tag='span', text_subheadline_spacing='0.6em',
+                 text_subheadline_font_family=F_BODY, text_subheadline_font_weight='700', text_subheadline_font_size='0.62rem',
+                 text_subheadline_letter_spacing='0.2em', text_subheadline_text_transform='uppercase', text_subheadline_text_color=GOLD),
+    ], layout_div_bg_color=DEEP, layout_div_max_width='17rem', layout_div_padding='1.6rem 1.75rem 1.6rem 1.75rem',
+       layout_div_margin='-6rem -1.5rem 0px auto', layout_div_border_width='2px 0px 0px 0px', layout_div_border_style='solid',
+       layout_div_border_color=GOLD, layout_div_z_index='2',
+       layout_div_box_shadow_dimensions='0em 1.9em 4.4em -1.25em', layout_div_box_shadow_color='rgba(15,24,40,0.4)',
+       **bp(layout_div_margin=['-3rem 1rem 0px 1rem', '-4rem 1.5rem 0px auto', None, None, None]))
+    sec2 = section('2. Connect Card (form)', [row('Content', [
+        col('Text', [eyebrow('We would love to meet you'), headline(title, margin='1.4rem 0px 0px 0px'), gold_rule(),
+                     text(f'<p>{intro}</p>', color=INK, size='1.05rem', lh='1.75', maxw='30rem'),
+                     div('Image', [media_frame('464:full', minh='22rem'), gift], layout_div_width='100%', layout_div_margin='2.5rem 0px 0px 0px')]),
+        col('Form', [form_card(find_all(s, 'classic:gravity-forms')[0])], layout_column_flex_align='stretch'),
+    ], layout='45% 55%', gap='5rem', align='flex-start',
+       **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None], 'layout_row_gap_column': [None, None, '2.5rem', '3.5rem', None]}})],
+       section_bg_color=IVORY)
     return [banner('Get Connected', image='442:full'), sec2]
+
+def thank_you():
+    steps = [('calendar', 'Plan Your Visit', '<p>Join us Sunday mornings at 10 AM. We will save you a seat.</p>', ('Plan your visit', '/plan-your-visit/')),
+             ('play', 'Watch Live', '<p>Can not make it in person? Worship with us online every Sunday.</p>', ('Watch live', '/watch-live/')),
+             ('book-open', 'Recent Messages', '<p>Catch up on recent sermons and hear what we have been learning together.</p>', ('Listen now', '/sermon-manager/'))]
+    sec1 = banner('Thank You', sub="We've received your message. Someone from our team will be in touch with you soon.", image='458:full')
+    sec2 = section("2. What's Next", [
+        row('Heading', [col('Heading Group', [eyebrow('While you wait'), headline("Here's what's next", margin='1.4rem 0px 0px 0px')]),
+                        col('Buttons', [div('Buttons', [button('Back to home  →', '/', 'navy')])], layout_column_flex_justify='flex-end',
+                            layout_column_flex_align='flex-end', **bp(layout_column_flex_align=['flex-start', 'flex-start', 'flex-start', None, None]))],
+            layout='65% 35%', gap='3rem', align='flex-end', layout_row_margin='0px auto 3rem auto'),
+        cards_row([icon_card(i, t_, x, btn) for i, t_, x, btn in steps]),
+    ], section_bg_color=IVORY)
+    return [sec1, sec2, relabel(GET_IN_TOUCH, '3. Get In Touch (component)')]
 
 def events():
     t = P(235); return [banner('Events', image='441:full'), raw_section('2. Calendar (MEC shortcode)', find_all(t[1], 'classic:raw-content')[0],
@@ -332,8 +373,9 @@ def prayer():
        **{'_bp_data3_4': {'layout_row_layout': ['100%', '100%', '100%', None, None]}})], section_bg_color=IVORY)
     return [sec1, sec2]
 
+THANKS_ID = int(open('thanks_id').read()) if __import__('os').path.exists('thanks_id') else 0
 PAGES = {11: about, 12: connect_page, 272: plan_visit, 14: give, 307: watch_live, 345: get_connected,
-         235: events, 267: sermons, 288: christmas, 58: prayer}
+         235: events, 267: sermons, 288: christmas, 58: prayer, THANKS_ID: thank_you}
 
 def clean(e):
     if isinstance(e, dict):
