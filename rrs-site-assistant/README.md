@@ -7,8 +7,9 @@ assistant does it.
 It includes **CSMCP 0.8.0** (the Cornerstone tools: pages, element trees, menus, forms, media,
 backups, SEO fields). Nothing else needs to be installed.
 
-The site's editors need nothing: no Claude account and no setup. The agency's Anthropic API key is set
-once per site, and every site's usage is billed to that one agency account.
+Everything is done inside WordPress: install the plugin and paste the API key on its settings page.
+No wp-config or file editing. The site's editors need nothing: no Claude account and no setup. Every
+site's usage is billed to the one agency Anthropic account.
 
 ```
 Chat bubble (wp-admin + live site, admins only)
@@ -17,17 +18,20 @@ Chat bubble (wp-admin + live site, admins only)
    → bundled CSMCP tools, called directly in PHP
 ```
 
-## Install (per site)
+## Install (per site), all inside WordPress
 
-1. Upload `rrs-site-assistant.zip` (Plugins → Add New → Upload) and activate it.
+1. **Plugins → Add New → Upload Plugin**, choose `rrs-site-assistant.zip`, click **Activate**.
    If the separate **CSMCP** plugin is active, it is switched off automatically. Its settings,
    activity log, backups and SEO fields carry over. You can then delete it.
-2. Add the API key to `wp-config.php` (preferred), or paste it in **Settings → Site Assistant**:
-   ```php
-   define( 'RRS_AI_API_KEY', 'sk-ant-...' );
-   ```
-3. **Settings → Site Assistant** should show the key as saved and "33 tools available".
-4. A blue chat bubble appears at the bottom right for admins, in wp-admin and on the live site.
+2. WordPress opens **Settings → Site Assistant**. Paste the Anthropic API key (from
+   console.anthropic.com → API Keys) and click **Save Changes**. The key is checked on save: you see
+   "API key works" or a clear error, and a wrong key is not saved.
+3. Done. A blue chat bubble appears at the bottom right for admins, in wp-admin and on the live site.
+
+Until the key is set, every admin page shows a **Finish setup** reminder, and the chat bubble links to
+the setup page.
+
+Optional, for developers only: the key can instead be defined in `wp-config.php` as `RRS_AI_API_KEY`.
 
 ## Admin screens
 
@@ -58,7 +62,7 @@ Tools run as the logged-in user, so CSMCP's per-post permission checks still app
 | Audit trail | Every write is listed in Settings → CSMCP → Activity (user, tool, page). |
 | Read-only switch | Settings → CSMCP lets the assistant look but not change anything. |
 | Cost | Monthly token cap (default 5M tokens). Usage is shown on the settings page. |
-| Key | Never sent to the browser. In wp-config it never touches the database. |
+| Key | Stored on the server and never sent to the browser or shown to site users. |
 
 ## Claude Code (team builds)
 
@@ -78,7 +82,7 @@ off in Settings → Site Assistant on sites where nobody builds with Claude Code
 | `includes/class-settings.php` | Settings page and usage counter |
 | `assets/chat.js`, `chat.css` | The chat bubble, with no dependencies. It isn't loaded inside iframes, such as the Cornerstone preview. |
 
-## Known limits (v0.2)
+## Known limits (v0.3)
 
 - One conversation per user.
 - One model step must finish within the host's request timeout. Very large page rebuilds at high

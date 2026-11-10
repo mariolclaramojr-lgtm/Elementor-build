@@ -55,15 +55,29 @@
 		fab.hidden = open;
 		if (open && !loaded) {
 			loaded = true;
-			api('history', null, 'GET').then(function (r) {
-				(r.items || []).forEach(add);
-				if (!r.items || !r.items.length) greet();
-			}).catch(function () { greet(); });
+			if (!cfg.ready) {
+				greet(); // setup message only
+			} else {
+				api('history', null, 'GET').then(function (r) {
+					(r.items || []).forEach(add);
+					if (!r.items || !r.items.length) greet();
+				}).catch(function () { greet(); });
+			}
 		}
 		if (open) input.focus();
 	}
 
 	function greet() {
+		if (!cfg.ready) {
+			var n = add({ type: 'notice', text: 'The Site Assistant isn’t set up yet: it needs an API key. ' });
+			if (cfg.setup) {
+				var a = document.createElement('a');
+				a.href = cfg.setup; a.textContent = 'Finish setup →';
+				n.appendChild(a);
+			}
+			input.disabled = sendBtn.disabled = true;
+			return;
+		}
 		add({ type: 'assistant', text: 'Hi! I can update pages on ' + cfg.site + ' for you — change text, images and buttons, add sections, or create new pages. What would you like to do?' });
 	}
 

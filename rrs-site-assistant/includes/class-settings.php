@@ -2,8 +2,8 @@
 /**
  * Settings: API key, model, effort, MCP endpoint switch, monthly token cap.
  *
- * The API key can be set in wp-config.php instead of the database:
- *   define( 'RRS_AI_API_KEY', 'sk-ant-...' );
+ * Everything is set on Settings → Site Assistant. (Developers may instead define
+ * RRS_AI_API_KEY in wp-config.php; that is optional.)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,6 +18,67 @@ class RRS_AI_Settings {
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'admin_init', array( __CLASS__, 'register' ) );
+		add_action( 'admin_init', array( __CLASS__, 'activation_redirect' ) );
+		add_action( 'admin_notices', array( __CLASS__, 'setup_notice' ) );
+	}
+
+	public static function url() {
+		return admin_url( 'options-general.php?page=rrs-ai-settings' );
+	}
+
+	/** First visit to wp-admin after activation → the setup page. */
+	public static function activation_redirect() {
+		if ( ! get_option( 'rrs_ai_activation_redirect' ) ) {
+			return;
+		}
+		delete_option( 'rrs_ai_activation_redirect' );
+		if ( wp_doing_ajax() || isset( $_GET['activate-multi'] ) || ! current_user_can( 'manage_options' ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+			return;
+		}
+		wp_safe_redirect( self::url() );
+		exit;
+	}
+
+	/** Reminder on every admin page until the key is set. */
+	public static function setup_notice() {
+		if ( self::get( 'api_key' ) || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		$screen = get_current_screen();
+		if ( $screen && 'settings_page_rrs-ai-settings' === $screen->id ) {
+			return;
+		}
+		echo '<div class="notice notice-warning"><p><strong>Site Assistant</strong> is almost ready: add the API key to turn on the chat. <a class="button button-primary" style="margin-left:8px" href="' . esc_url( self::url() ) . '">Finish setup</a></p></div>';
+	}
+
+	/**
+	 * Check a key against the API (lists one model; costs nothing).
+	 *
+	 * @return true|string True, or an error message.
+	 */
+	public static function check_key( $key ) {
+		$res = wp_remote_get(
+			'https://api.anthropic.com/v1/models?limit=1',
+			array(
+				'headers' => array(
+					'x-api-key'         => $key,
+					'anthropic-version' => RRS_AI_Claude::API_VERSION,
+				),
+				'timeout' => 20,
+			)
+		);
+		if ( is_wp_error( $res ) ) {
+			return 'Could not reach the AI service from this server (' . $res->get_error_message() . ').';
+		}
+		$code = wp_remote_retrieve_response_code( $res );
+		if ( 200 === $code ) {
+			return true;
+		}
+		if ( 401 === $code || 403 === $code ) {
+			return 'That API key was not accepted. Check that you copied the whole key (it starts with sk-ant-).';
+		}
+		$data = json_decode( wp_remote_retrieve_body( $res ) );
+		return 'The AI service answered with an error: ' . ( $data->error->message ?? 'HTTP ' . $code );
 	}
 
 	public static function defaults() {
@@ -83,8 +144,15 @@ class RRS_AI_Settings {
 		$out = $old;
 
 		// Empty key field = keep the saved key (the field is never echoed back).
-		if ( ! empty( $in['api_key'] ) ) {
-			$out['api_key'] = sanitize_text_field( $in['api_key'] );
+		$new_key = trim( sanitize_text_field( $in['api_key'] ?? '' ) );
+		if ( '' !== $new_key && $new_key !== $old['api_key'] ) {
+			$ok = self::check_key( $new_key );
+			if ( true === $ok ) {
+				$out['api_key'] = $new_key;
+				add_settings_error( self::OPTION, 'rrs_ai_key_ok', 'API key works. The chat is on: look for the blue bubble at the bottom right.', 'success' );
+			} else {
+				add_settings_error( self::OPTION, 'rrs_ai_key_bad', $ok . ' The key was not saved.', 'error' );
+			}
 		}
 		if ( ! empty( $in['clear_key'] ) ) {
 			$out['api_key'] = '';
@@ -109,7 +177,7 @@ class RRS_AI_Settings {
 
 			<h2>Status</h2>
 			<ul>
-				<li><strong>API key:</strong> <?php echo $has_key ? ( $from_cfg ? 'set in wp-config.php ✅' : 'saved ✅' ) : '<span style="color:#b32d2e">missing</span>'; ?></li>
+				<li><strong>API key:</strong> <?php echo $has_key ? ( $from_cfg ? 'set in wp-config.php ✅' : 'saved ✅' ) : '<span style="color:#b32d2e">not set yet: paste it below and click Save</span>'; ?></li>
 				<li><strong>Cornerstone tools:</strong>
 					<?php
 					if ( is_wp_error( $tools ) ) {
@@ -136,7 +204,7 @@ class RRS_AI_Settings {
 								<?php if ( $has_key ) : ?>
 									<label><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[clear_key]" value="1"> Remove saved key</label>
 								<?php endif; ?>
-								<p class="description">The agency's key. Site users never see it. Prefer <code>define( 'RRS_AI_API_KEY', '...' );</code> in wp-config.php.</p>
+								<p class="description">Get it at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com → API Keys</a>, paste it here and click <strong>Save Changes</strong>. The key is checked when you save. It is kept on the server and never shown to site users or sent to the browser.</p>
 							<?php endif; ?>
 						</td>
 					</tr>

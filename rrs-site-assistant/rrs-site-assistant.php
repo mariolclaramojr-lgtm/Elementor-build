@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RRS Site Assistant
  * Description: AI chat in WordPress that edits this Themeco Pro / Cornerstone site: create pages, update sections, menus, forms. Includes CSMCP (Cornerstone tools + MCP endpoint for Claude Code); no other plugin needed.
- * Version:     0.2.0
+ * Version:     0.3.0
  * Author:      ReachRight Studios
  * Requires PHP: 7.4
  * Requires at least: 6.4
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'RRS_AI_VERSION', '0.2.0' );
+define( 'RRS_AI_VERSION', '0.3.0' );
 define( 'RRS_AI_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RRS_AI_URL', plugin_dir_url( __FILE__ ) );
 
@@ -66,6 +66,9 @@ if ( class_exists( 'Pro_Extended_Tools' ) ) {
 register_activation_hook(
 	__FILE__,
 	function () {
+		// Open Settings → Site Assistant on the next admin page load.
+		update_option( 'rrs_ai_activation_redirect', 1, false );
+
 		if ( ! class_exists( 'Pro_Extended_Tools' ) ) {
 			return;
 		}

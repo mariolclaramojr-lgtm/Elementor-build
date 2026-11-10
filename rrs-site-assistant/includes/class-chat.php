@@ -290,6 +290,8 @@ PROMPT;
 				'nonce'  => wp_create_nonce( 'wp_rest' ),
 				'postId' => $post_id,
 				'site'   => get_bloginfo( 'name' ),
+				'ready'  => (bool) RRS_AI_Settings::get( 'api_key' ),
+				'setup'  => current_user_can( 'manage_options' ) ? RRS_AI_Settings::url() : '',
 			)
 		);
 	}
