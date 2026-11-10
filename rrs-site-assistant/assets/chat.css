@@ -1,0 +1,66 @@
+.rrs-ai {
+	--rrs-ai-accent: #2271b1;
+	--rrs-ai-bg: #fff;
+	--rrs-ai-text: #1d2327;
+	--rrs-ai-muted: #646970;
+	--rrs-ai-soft: #f0f0f1;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 999999;
+	font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	color: var(--rrs-ai-text);
+}
+.rrs-ai *, .rrs-ai *::before, .rrs-ai *::after { box-sizing: border-box; }
+.rrs-ai [hidden] { display: none !important; }
+
+.rrs-ai__fab {
+	width: 56px; height: 56px; border-radius: 50%; border: 0; cursor: pointer;
+	background: var(--rrs-ai-accent); color: #fff;
+	display: grid; place-items: center;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+}
+.rrs-ai__panel {
+	width: min(400px, calc(100vw - 32px));
+	height: min(600px, calc(100vh - 100px));
+	background: var(--rrs-ai-bg);
+	border-radius: 12px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+	display: flex; flex-direction: column; overflow: hidden;
+}
+.rrs-ai__head {
+	display: flex; justify-content: space-between; align-items: center;
+	padding: 12px 14px; background: var(--rrs-ai-accent); color: #fff;
+}
+.rrs-ai__head button {
+	background: none; border: 0; color: #fff; cursor: pointer; font: inherit; padding: 2px 6px;
+}
+.rrs-ai__close { font-size: 22px !important; line-height: 1; }
+.rrs-ai__new { opacity: .85; text-decoration: underline; }
+
+.rrs-ai__log { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.rrs-ai__msg { max-width: 88%; padding: 8px 12px; border-radius: 10px; word-wrap: break-word; }
+.rrs-ai__msg--user { align-self: flex-end; background: var(--rrs-ai-accent); color: #fff; white-space: pre-wrap; }
+.rrs-ai__msg--assistant { align-self: flex-start; background: var(--rrs-ai-soft); }
+.rrs-ai__msg--assistant ul { margin: 4px 0 4px 18px; padding: 0; list-style: disc; }
+.rrs-ai__msg--assistant code { background: rgba(0, 0, 0, .06); padding: 0 3px; border-radius: 3px; }
+.rrs-ai__msg--assistant a { color: var(--rrs-ai-accent); }
+.rrs-ai__msg--tool, .rrs-ai__msg--typing {
+	align-self: flex-start; background: none; padding: 0 4px; font-size: 12px; color: var(--rrs-ai-muted);
+}
+.rrs-ai__msg--typing { animation: rrs-ai-pulse 1.2s ease-in-out infinite; }
+.rrs-ai__msg--error, .rrs-ai__msg--tool_error { align-self: stretch; max-width: none; background: #fcf0f1; color: #8a2424; font-size: 13px; }
+.rrs-ai__msg--notice { align-self: stretch; max-width: none; background: #fcf9e8; font-size: 13px; }
+.rrs-ai__retry { align-self: flex-start; border: 1px solid var(--rrs-ai-accent); background: #fff; color: var(--rrs-ai-accent); border-radius: 6px; padding: 4px 12px; cursor: pointer; }
+
+.rrs-ai__form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #dcdcde; }
+.rrs-ai__form textarea {
+	flex: 1; resize: none; border: 1px solid #c3c4c7; border-radius: 8px; padding: 8px; font: inherit; color: inherit; background: #fff;
+}
+.rrs-ai__form button {
+	border: 0; border-radius: 8px; padding: 0 16px; background: var(--rrs-ai-accent); color: #fff; cursor: pointer; font: inherit;
+}
+.rrs-ai__form button:disabled { opacity: .5; cursor: default; }
+
+@keyframes rrs-ai-pulse { 50% { opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .rrs-ai__msg--typing { animation: none; } }
