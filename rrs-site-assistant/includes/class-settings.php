@@ -1,6 +1,6 @@
 <?php
 /**
- * Settings: API key, model, CSMCP route, monthly token cap.
+ * Settings: API key, model, effort, MCP endpoint switch, monthly token cap.
  *
  * The API key can be set in wp-config.php instead of the database:
  *   define( 'RRS_AI_API_KEY', 'sk-ant-...' );
@@ -25,7 +25,7 @@ class RRS_AI_Settings {
 			'api_key'     => '',
 			'model'       => 'claude-opus-5-5',
 			'effort'      => 'medium',
-			'mcp_route'   => '/cs-mcp/v1/mcp',
+			'mcp_endpoint' => 1, // CSMCP endpoint for Claude Code.
 			'monthly_cap' => 5000000, // input + output tokens per calendar month.
 		);
 	}
@@ -91,10 +91,9 @@ class RRS_AI_Settings {
 		}
 		$out['model']       = sanitize_text_field( $in['model'] ?? $old['model'] );
 		$out['effort']      = in_array( $in['effort'] ?? '', array( 'low', 'medium', 'high', 'xhigh', 'max' ), true ) ? $in['effort'] : $old['effort'];
-		$out['mcp_route']   = '/' . ltrim( sanitize_text_field( $in['mcp_route'] ?? $old['mcp_route'] ), '/' );
+		$out['mcp_endpoint'] = empty( $in['mcp_endpoint'] ) ? 0 : 1;
 		$out['monthly_cap'] = max( 0, (int) ( $in['monthly_cap'] ?? $old['monthly_cap'] ) );
 
-		delete_transient( RRS_AI_MCP_Bridge::TOOLS_CACHE );
 		return $out;
 	}
 
@@ -103,8 +102,7 @@ class RRS_AI_Settings {
 		$from_cfg = defined( 'RRS_AI_API_KEY' ) && RRS_AI_API_KEY;
 		$has_key  = (bool) self::get( 'api_key' );
 
-		// Live check of the CSMCP connection.
-		$tools = RRS_AI_MCP_Bridge::list_tools( true );
+		$tools = RRS_AI_Tools_Bridge::list_tools();
 		?>
 		<div class="wrap">
 			<h1>Site Assistant</h1>
@@ -112,12 +110,12 @@ class RRS_AI_Settings {
 			<h2>Status</h2>
 			<ul>
 				<li><strong>API key:</strong> <?php echo $has_key ? ( $from_cfg ? 'set in wp-config.php ✅' : 'saved ✅' ) : '<span style="color:#b32d2e">missing</span>'; ?></li>
-				<li><strong>CSMCP tools:</strong>
+				<li><strong>Cornerstone tools:</strong>
 					<?php
 					if ( is_wp_error( $tools ) ) {
 						echo '<span style="color:#b32d2e">' . esc_html( $tools->get_error_message() ) . '</span>';
 					} else {
-						echo esc_html( count( $tools ) . ' tools found ✅' );
+						echo esc_html( count( $tools ) . ' tools available ✅' ) . ' — <a href="' . esc_url( admin_url( 'options-general.php?page=pro-extended&tab=tools' ) ) . '">turn tools on/off, read-only mode, activity &amp; backups</a>';
 					}
 					?>
 				</li>
@@ -158,8 +156,11 @@ class RRS_AI_Settings {
 						</td>
 					</tr>
 					<tr>
-						<th><label for="rrs-route">CSMCP REST route</label></th>
-						<td><input id="rrs-route" class="regular-text" name="<?php echo esc_attr( self::OPTION ); ?>[mcp_route]" value="<?php echo esc_attr( $o['mcp_route'] ); ?>"></td>
+						<th>Claude Code connection</th>
+						<td>
+							<label><input type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[mcp_endpoint]" value="1" <?php checked( $o['mcp_endpoint'], 1 ); ?>> Allow the MCP endpoint <code>/wp-json/cs-mcp/v1/mcp</code></label>
+							<p class="description">For the team's Claude Code builds (Application Password, see Settings → CSMCP). Not needed by the chat. Switch off on sites where nobody builds with Claude Code.</p>
+						</td>
 					</tr>
 					<tr>
 						<th><label for="rrs-cap">Monthly token cap</label></th>
