@@ -5,7 +5,10 @@
       A heading that already contains <em> is left as typed.
    2. Gravity Forms: each form is marked light or dark (lc-gf-light / lc-gf-dark) from the
       background it sits on, so a new form picks up the right styling automatically.
-   3. Headings: the accent is the brighter red when the heading's own text is light (dark background). */
+   3. Headings: the accent is the brighter red when the heading's own text is light (dark background).
+   4. Gravity Forms needs some colours as bare "r, g, b" triplets (--gf-color-*-rgb). CSS can't turn a
+      Global Color into a triplet, so they're read from the form's own colour variables (which come
+      from Global Colors in the global CSS) and written back, so no colour is ever typed by hand. */
 (function () {
   // not: forms, popups, top bar + menu bar, search/blog result titles, sermon/event listing titles from plugins
   var SKIP = '.gform_wrapper, .tooltipster-box, .lc-topbar, .lc-nav, .x-off-canvas, article .entry-title, .smpro-item, .wpfc-sermon, .mec-event-list-minimal, [data-lc-no-accent]';
@@ -56,9 +59,28 @@
     return false;
   }
 
+  var GF_RGB = ['primary', 'primary-contrast', 'secondary', 'secondary-contrast', 'out-ctrl-light', 'out-ctrl-dark',
+    'in-ctrl', 'in-ctrl-contrast', 'in-ctrl-primary', 'in-ctrl-primary-contrast', 'in-ctrl-light', 'in-ctrl-dark'];
+
+  function gfTriplets(w) {
+    var probe = document.createElement('i'), cs = getComputedStyle(w);
+    probe.style.display = 'none';
+    w.appendChild(probe);
+    GF_RGB.forEach(function (k) {
+      var c = cs.getPropertyValue('--gf-color-' + k).replace('!important', '').trim();
+      if (!c) return;
+      probe.style.color = '';
+      probe.style.color = c;
+      var p = getComputedStyle(probe).color.match(/[\d.]+/g);
+      if (p && p.length >= 3) w.style.setProperty('--gf-color-' + k + '-rgb', p[0] + ', ' + p[1] + ', ' + p[2], 'important');
+    });
+    w.removeChild(probe);
+  }
+
   function markForm(w) {
     if (w.classList.contains('lc-gf-dark') || w.classList.contains('lc-gf-light')) return;
     w.classList.add(onDark(w) ? 'lc-gf-dark' : 'lc-gf-light');
+    gfTriplets(w);
   }
 
   function run(root) {

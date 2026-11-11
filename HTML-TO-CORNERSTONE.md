@@ -84,6 +84,27 @@ Create them from the mockup tokens (Lewis: Ivory, Sand, Ink, Lewis Red `#A51C30`
 `#7F1424`, Red on Dark `#E85D6C`; Fraunces + Inter). Elements reference them as
 `global-color:<id>` / font ids.
 
+**Every colour links to a Global Color — no typed hex/rgba anywhere.** Changing a Global Color
+must recolour the whole site.
+| Where | How to write it |
+|---|---|
+| Element colour fields | `global-color:<id>`; tint: `global-color:<id>:0.82` |
+| Theme Options colours (body/headings/buttons/links/navbar) | `global-color:<id>` |
+| Global CSS | `var(--lc-red)` etc. — the `:root` token block at the top of `global.css` is `--lc-*: {{dc:global:color id="<id>"}}`; tint: `{{dc:global:color id="<id>" a="0.35"}}` |
+| Element `css` / header & footer custom CSS | the same `var(--lc-*)` tokens (defined site-wide by the global CSS) |
+| Gravity Forms `--gf-*-rgb` triplets | not in CSS — the global JS derives them from the form's colour vars |
+
+A shade the palette doesn't have → add it as a Global Color first (Lewis added *Ivory Light
+(Fields)* and *Muted (Placeholder)*), then a token. Audit after every build: scan all page,
+header, footer and component trees plus `x_*color*` options for `#…`/`rgba(` that aren't
+`global-color:`.
+
+### Social links
+Social icon links use the Theme Options socials (Globals › Options › Social), never typed URLs:
+`anchor_href: "{{dc:theme:x_social_facebook}}"` (`x_social_instagram`, `x_social_youtube`,
+`x_social_twitter`, `x_social_tiktok`, …). The client fills the URLs in once and every icon updates.
+An empty option renders `href="#"`.
+
 ### Global CSS (`x_custom_styles`)
 - Wrap everything you add between markers so it can be found and replaced safely:
   `/* ===== <PROJECT> REDESIGN START ===== */ … /* ===== <PROJECT> REDESIGN END ===== */`
@@ -93,7 +114,7 @@ Create them from the mockup tokens (Lewis: Ivory, Sand, Ink, Lewis Red `#A51C30`
 - After any global change: `cs_purge_cache {"all": true}`.
 
 ### Global JS (`x_custom_scripts`)
-Reusable copy lives in `cornerstone/global.js`. It does two things automatically:
+Reusable copy lives in `cornerstone/global.js`. It does three things automatically (the third: Gravity Forms `--gf-*-rgb` triplets derived from the Global-Color-linked colour vars):
 
 **Heading accent (H1/H2)** — editors type plain text, the script colours it:
 | Heading length | Coloured |
@@ -187,6 +208,9 @@ authors and search. Two global-CSS rules fill the gaps WordPress leaves:
 `.lc-archive-title …:empty::before { content: "Messages" }`.
 
 ### Components (edit once, every header updates)
+- Repeated page sections become components too, placed as a root-level
+  `{"_type":"global-block","global_block_id":"<id>","title":"<n>. <Name> (component)"}`.
+  Lewis: `Section – Get in Touch` (Home + About).
 - `Top Bar – Announcement` (label, text, link)
 - `Header – Logo`
 - `Header – Plan Your Visit Button` — keep its `lc-nav-cta` class (sticky CSS targets it)
