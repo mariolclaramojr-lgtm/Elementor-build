@@ -1,7 +1,7 @@
-// Clicking the toolbar icon opens (or focuses) a small camera window.
+// Opens (or focuses) the floating camera window when the popup asks for it.
 let camWindowId = null;
 
-chrome.action.onClicked.addListener(async () => {
+async function openCamWindow() {
   if (camWindowId !== null) {
     try {
       await chrome.windows.update(camWindowId, { focused: true });
@@ -17,6 +17,10 @@ chrome.action.onClicked.addListener(async () => {
     height: 350
   });
   camWindowId = win.id;
+}
+
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg?.type === "openCamWindow") openCamWindow();
 });
 
 chrome.windows.onRemoved.addListener((id) => {

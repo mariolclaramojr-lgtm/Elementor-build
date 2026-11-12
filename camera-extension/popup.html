@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { margin: 0; padding: 12px; width: 260px; font: 13px system-ui, sans-serif; background: #fff; color: #202124; }
+    h1 { font-size: 14px; margin: 0 0 10px; }
+    button { display: block; width: 100%; text-align: left; padding: 10px; margin: 0 0 8px; border: 1px solid #dadce0;
+      border-radius: 8px; background: #f8f9fa; cursor: pointer; font: inherit; color: inherit; }
+    button:hover { background: #e8f0fe; border-color: #1a73e8; }
+    button b { display: block; margin-bottom: 2px; }
+    button span { color: #5f6368; font-size: 12px; }
+    #msg { color: #c5221f; font-size: 12px; margin: 0; }
+    #msg:empty { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Presenter Cam</h1>
+  <button id="tab">
+    <b>Show camera on this tab</b>
+    <span>Best for Meet: share this tab and viewers see you. Click again to remove.</span>
+  </button>
+  <button id="window">
+    <b>Open floating window</b>
+    <span>Stays on top of everything. Share your entire screen to show it.</span>
+  </button>
+  <p id="msg"></p>
+  <script src="popup.js"></script>
+</body>
+</html>
