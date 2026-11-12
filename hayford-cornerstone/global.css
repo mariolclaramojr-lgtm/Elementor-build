@@ -1,0 +1,35 @@
+/* ===== HAYFORD REDESIGN START ===== */
+/* Global tokens: every value below comes from Cornerstone Global Colors / Global Fonts,
+   so changing a global updates this CSS too. Use var(--hf-…) in any custom CSS. */
+:root{--hf-ink:%%post color%%global-color:4272616e64205072696d617279%%/post%%;--hf-ink2:%%post color%%global-color:68662d696e6b2d32%%/post%%;--hf-ink-soft:%%post color%%global-color:4272616e64205365636f6e64617279%%/post%%;--hf-paper:%%post color%%global-color:68662d7061706572%%/post%%;--hf-sand:%%post color%%global-color:68662d73616e64%%/post%%;--hf-muted:%%post color%%global-color:68662d6d75746564%%/post%%;--hf-accent:%%post color%%global-color:fd0f76da-a9d9-4855-b526-e420c3cd4cd8%%/post%%;--hf-accent-dark:%%post color%%global-color:68662d616363656e742d6461726b%%/post%%;--hf-accent-light:%%post color%%global-color:68662d616363656e742d6c69676874%%/post%%;--hf-line:%%post color%%global-color:68662d6c696e65%%/post%%;--hf-line-dark:%%post color%%global-color:68662d6c696e652d6461726b%%/post%%;--hf-white:%%post color%%global-color:6dda5a93-484f-4597-9c18-c4bee57d7b0e%%/post%%;--hf-live:%%post color%%global-color:68662d6c697665%%/post%%;--hf-font-body:%%post font-family%%426f647920436f7079%%/post%%;--hf-font-head:%%post font-family%%48656164696e6773%%/post%%;--hf-font-serif:%%post font-family%%416363656e74205365726966%%/post%%;--hf-radius:22px;--hf-radius-sm:14px;--hf-ease:cubic-bezier(.2,.7,.2,1)}
+
+/* 1. Heading accent — added automatically by the global JS (editors type plain text).
+   2–5 words: last word; 6+ words: last two; one word: none. */
+.hf-accent{font-family:var(--hf-font-serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--hf-accent);font-size:1.08em;padding-right:.04em}
+.hf-accent.is-on-dark{color:var(--hf-accent-light)}
+
+/* 2. Gravity Forms — every form on the site (legacy + modern markup). Doubled class beats theme/GF defaults. */
+.gform_wrapper.gform_wrapper fieldset{border:0;margin:0;padding:0;min-width:0}
+.gform_wrapper.gform_wrapper legend{border:0;width:auto;padding:0;line-height:1.4}
+.gform_wrapper.gform_wrapper .ginput_container_date input{width:100%;max-width:none}
+.gform_wrapper.gform_wrapper .ginput_container_date{display:flex;align-items:center;gap:10px}
+.gform_wrapper.gform_wrapper{font-family:var(--hf-font-body);color:var(--hf-ink)}
+.gform_wrapper.gform_wrapper .gform_fields{row-gap:20px;column-gap:16px}
+.gform_wrapper.gform_wrapper .gfield_label,.gform_wrapper.gform_wrapper legend.gfield_label{display:block;margin:0 0 8px;font-family:var(--hf-font-body);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--hf-ink-soft)}
+.gform_wrapper.gform_wrapper .gfield_required{color:var(--hf-accent);margin-left:4px}
+.gform_wrapper.gform_wrapper .gfield_required .gfield_required_text{font-size:0}.gform_wrapper.gform_wrapper .gfield_required .gfield_required_text:after{content:"*";font-size:11.5px}
+.gform_wrapper.gform_wrapper input[type=text],.gform_wrapper.gform_wrapper input[type=email],.gform_wrapper.gform_wrapper input[type=tel],.gform_wrapper.gform_wrapper input[type=url],.gform_wrapper.gform_wrapper input[type=number],.gform_wrapper.gform_wrapper input[type=date],.gform_wrapper.gform_wrapper textarea,.gform_wrapper.gform_wrapper select{width:100%;min-height:52px;padding:14px 16px;border:1px solid var(--hf-line);border-radius:12px;background:var(--hf-paper);color:var(--hf-ink);font:500 15.5px/1.4 var(--hf-font-body);box-shadow:none;transition:border-color .2s,background .2s,box-shadow .2s}
+.gform_wrapper.gform_wrapper textarea{min-height:150px;resize:vertical}
+.gform_wrapper.gform_wrapper input::placeholder,.gform_wrapper.gform_wrapper textarea::placeholder{color:var(--hf-muted);opacity:1}
+.gform_wrapper.gform_wrapper input:focus,.gform_wrapper.gform_wrapper textarea:focus,.gform_wrapper.gform_wrapper select:focus{outline:none;border-color:var(--hf-accent);background:var(--hf-white);box-shadow:0 0 0 4px color-mix(in srgb,var(--hf-accent) 14%,transparent)}
+.gform_wrapper.gform_wrapper .ginput_complex label,.gform_wrapper.gform_wrapper .gform-field-label--type-sub{display:block;margin-top:6px;font-size:12px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--hf-muted)}
+.gform_wrapper.gform_wrapper .gform_footer,.gform_wrapper.gform_wrapper .gform_page_footer{margin-top:26px;padding:0}
+.gform_wrapper.gform_wrapper .gform_footer input[type=submit],.gform_wrapper.gform_wrapper .gform_button,.gform_wrapper.gform_wrapper .gform_page_footer .button{appearance:none;display:inline-flex;align-items:center;min-height:52px;padding:0 30px;border:0;border-radius:999px;background:var(--hf-ink);color:var(--hf-white);font:700 12px/1 var(--hf-font-body);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s var(--hf-ease),transform .3s var(--hf-ease),box-shadow .3s var(--hf-ease)}
+.gform_wrapper.gform_wrapper .gform_footer input[type=submit]:hover,.gform_wrapper.gform_wrapper .gform_button:hover{background:var(--hf-accent);transform:translateY(-2px);box-shadow:0 14px 30px -12px color-mix(in srgb,var(--hf-ink) 45%,transparent)}
+.gform_wrapper.gform_wrapper .gform_validation_errors{margin:0 0 22px;padding:16px 18px;border:1px solid color-mix(in srgb,var(--hf-live) 35%,transparent);border-radius:var(--hf-radius-sm);background:color-mix(in srgb,var(--hf-live) 6%,transparent);box-shadow:none}
+.gform_wrapper.gform_wrapper .gform_validation_errors h2,.gform_wrapper.gform_wrapper .gform_submission_error{margin:0;font:600 14.5px/1.5 var(--hf-font-body);color:var(--hf-live)}
+.gform_wrapper.gform_wrapper .gfield_error input,.gform_wrapper.gform_wrapper .gfield_error textarea{border-color:var(--hf-live)}
+.gform_wrapper.gform_wrapper .gfield_validation_message,.gform_wrapper.gform_wrapper .validation_message,.gform_wrapper.gform_wrapper .gfield_error .gfield_validation_message{margin-top:6px;padding:0;border:0;background:none;font-size:13px;color:var(--hf-live)}
+.gform_confirmation_message{padding:22px 24px;border-radius:var(--hf-radius-sm);background:color-mix(in srgb,var(--hf-accent) 7%,transparent);font:600 15.5px/1.6 var(--hf-font-body);color:var(--hf-ink)}
+@media (max-width:640px){.gform_wrapper.gform_wrapper .ginput_complex{flex-direction:column;gap:12px}.gform_wrapper.gform_wrapper .gform_footer input[type=submit]{width:100%;justify-content:center}}
+/* ===== HAYFORD REDESIGN END ===== */
