@@ -212,7 +212,7 @@ def plan():
                                  'What do you have for my kids?', 'Where do I go when I arrive?', 'Should I bring anything with me?']]
     faq = row([column([reveal(eyebrow('Good to know')), reveal(h2('Frequently Asked Questions'), .1)], layout_column_flex_justify='flex-start'),
                column([accordion(faqs)])], layout='42% 58%', align='flex-start')
-    reg = row([column([image_panel(img('plan_form'), minh='640px', label='Photo')]),
+    reg = row([column([image_panel(img('greeters'), minh='640px', label='Photo', pos='center 35%')]),
                column([form_card('Plan ahead', "Let Us Know You're Coming", 'visit')])], align='stretch')
     return [banner('Plan Your Visit', 'Plan Your Visit', 'sermon3'),
             section([welcome], '2. Welcome to church'),

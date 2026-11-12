@@ -56,3 +56,12 @@ All are assigned to header 585; the old header 186 has no assignments left.
   styled from global CSS sections 3 (Sermon Manager) and 4 (Modern Events Calendar).
 - Forms: Plan Your Visit = GF 9, Get Connected = GF 1, Watch Live = GF 10 (all redirect to /thank-you/).
 - Components reused: Service Times + Contact + Map on About and Plan Your Visit; Give Online on Watch Live.
+
+## Image review (2026-11-12)
+Every image on the site was checked for church-appropriate content (modest dress; no parties or alcohol; focus on worship,
+fellowship and community). Replaced:
+- Thanksgiving Community Dinner event: photo with beer/wine glasses → church potluck line (media 648).
+- Plan Your Visit "Let Us Know You're Coming": party-style photo → greeters welcoming guests at the church doors (649).
+- "Love" sermon series artwork (unrelated marketing graphic) → sermons moved to series "Love Never Fails" (no artwork),
+  so their own church photos show; Demo Sermon given the sanctuary photo (650).
+- Sunday Service event: grey 1200x628 placeholder → sanctuary photo (650).
