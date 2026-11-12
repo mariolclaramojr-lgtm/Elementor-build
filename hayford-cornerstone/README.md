@@ -77,3 +77,7 @@ fellowship and community). Replaced:
 - Test: `node build/searchtest.js` (23 queries, every result link, header icon, results-page box, mobile width).
 - Known: accordion answers are not searchable while Cornerstone content storage is "shortcode" (Settings › Advanced).
   The 2017 theme demo portfolio item "Demo Sermon" (id 29) still shows in results — set it to draft to hide it.
+
+## Footer social icons
+Linked to Theme Options › Social (x_social_*) via {{dc:theme:x_social_...}}. Each icon (Facebook, Instagram, YouTube, X, TikTok,
+Vimeo, LinkedIn, Pinterest, WhatsApp, SoundCloud, RSS) shows only when its Theme Options field has a URL; opens in a new tab.

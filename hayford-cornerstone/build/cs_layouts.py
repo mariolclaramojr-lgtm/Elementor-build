@@ -155,6 +155,24 @@ def social(icon, href, label):
               anchor_graphic_icon_font_size='16px', anchor_graphic_icon_color=gc('white'), anchor_graphic_icon_color_alt=gc('ink'),
               anchor_graphic_margin='0px')
 
+# Social links come from Theme Options › Social (x_social_*). Each button only shows when its field has a URL.
+SOCIALS = [('x_social_facebook', 'facebook-f', 'Facebook'), ('x_social_instagram', 'instagram', 'Instagram'),
+           ('x_social_youtube', 'youtube', 'YouTube'), ('x_social_twitter', 'x-twitter', 'X'),
+           ('x_social_tiktok', 'tiktok', 'TikTok'), ('x_social_vimeo', 'vimeo-v', 'Vimeo'),
+           ('x_social_linkedin', 'linkedin-in', 'LinkedIn'), ('x_social_pinterest', 'pinterest-p', 'Pinterest'),
+           ('x_social_whatsapp', 'whatsapp', 'WhatsApp'), ('x_social_soundcloud', 'soundcloud', 'SoundCloud'),
+           ('x_social_rss', 'rss', 'RSS')]
+
+def social_links():
+    out = []
+    for key, icon, label in SOCIALS:
+        b = social(icon, '{{dc:theme:%s}}' % key, label)
+        b.update(_label=label, anchor_blank=True, anchor_margin='0px',
+                 show_condition=[{'group': True, 'condition': 'expression:string', 'operand': '{{dc:theme:%s}}' % key,
+                                  'operator': 'is-not', 'value': ''}])
+        out.append(b)
+    return out
+
 def col(mods, flex, label):
     return div(mods, _label=label, layout_div_flex=flex, layout_div_min_width='180px')
 
@@ -162,8 +180,8 @@ def footer_regions():
     brand = col([div([logo(LOGO_WHITE, 46)], _label='Logo', layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_flex_align='center', layout_div_height='46px'),
                  T('A place to belong. A faith to grow. We would love to welcome you and your family this weekend.',
                    color='white', size='15px', lh='1.75', text_max_width='320px', text_margin='24px 0px 0px 0px', effects_opacity='0.62'),
-                 div([social('facebook-f', '#facebook', 'Facebook'), social('x-twitter', '#x', 'X')],
-                     layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_margin='28px 0px 0px 0px')],
+                 div(social_links(), _label='Social (Theme Options)',
+                     layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_flex_wrap=True, layout_div_flex_gap='10px', layout_div_margin='28px 0px 0px 0px')],
                 '1.6 1 280px', 'Brand')
     explore = col([footer_heading('Explore'), footer_menu(MENUS['Footer Explore'])], '1 1 180px', 'Explore')
     join = col([footer_heading('Join Us'), footer_menu(MENUS['Footer Join Us'])], '1 1 180px', 'Join Us')
