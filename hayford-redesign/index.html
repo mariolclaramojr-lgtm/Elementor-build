@@ -40,6 +40,13 @@
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M3 14h3.5l4.5 2h4a1.8 1.8 0 0 1 0 3.6H10M3 21h11.5l6-4.2a1.8 1.8 0 0 0-2.1-2.9L14.5 16"/><path d="M15.5 10.5S12 8.4 12 5.9A2.2 2.2 0 0 1 15.5 4.4 2.2 2.2 0 0 1 19 5.9c0 2.5-3.5 4.6-3.5 4.6Z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6 15h4"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M13.5 21v-7.5H16l.5-3h-3V8.7c0-.9.3-1.5 1.6-1.5h1.6V4.5a21 21 0 0 0-2.4-.1c-2.4 0-4 1.4-4 4.1v2H7.5v3h2.8V21z"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M17.8 3.5h3l-6.6 7.5 7.8 9.5h-6.1l-4.8-5.9-5.4 5.9h-3l7-7.9L2.3 3.5h6.2l4.3 5.4zm-1 15.2h1.7L7.3 5.2H5.5z"/></symbol>
 </svg>
@@ -48,15 +55,15 @@
 <!-- ======================= HEADER (fixed, turns solid on scroll) ======================= -->
 <header class="topbar" id="top">
   <div class="wrap header">
-    <a class="brand" href="#top" aria-label="Hayford Church home"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-word"><b>Hayford</b><small>Church</small></span></a>
+    <a class="brand" href="index.html" aria-label="Hayford Church home"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-word"><b>Hayford</b><small>Church</small></span></a>
     <nav class="nav" aria-label="Main navigation">
-      <a href="#visit">Plan Your Visit</a><a href="#about">About</a><a href="#connect">Connect</a><a href="#messages">Sermons</a><a href="#events">Events</a><a href="#give">Give</a>
+      <a href="plan-your-visit.html">Plan Your Visit</a><a href="about.html">About</a><a href="connect.html">Connect</a><a href="messages.html">Sermons</a><a href="events.html">Events</a><a href="give.html">Give</a>
       <a class="nav-search" href="#search" aria-label="Search"><svg class="icon"><use href="#i-search"/></svg></a>
-      <a class="nav-live" href="#live"><span class="live-dot"></span>Watch Live</a>
+      <a class="nav-live" href="watch-live.html"><span class="live-dot"></span>Watch Live</a>
     </nav>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon i-menu"><use href="#i-menu"/></svg><svg class="icon i-close"><use href="#i-close"/></svg></button>
   </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a href="#visit">Plan Your Visit</a><a href="#about">About</a><a href="#connect">Connect</a><a href="#messages">Sermons</a><a href="#events">Events</a><a href="#give">Give</a><a href="#live">Watch Live</a><a href="#search">Search</a></nav>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><a href="plan-your-visit.html">Plan Your Visit</a><a href="about.html">About</a><a href="connect.html">Connect</a><a href="messages.html">Sermons</a><a href="events.html">Events</a><a href="give.html">Give</a><a href="watch-live.html">Watch Live</a><a href="#search">Search</a></nav>
 </header>
 
 <!-- ======================= 1. HERO ======================= -->
@@ -67,8 +74,8 @@
       <div class="eyebrow reveal">A place to belong · A faith to grow</div>
       <h1 class="reveal" style="--d:.1s">Join Us<br>This <em>Weekend</em></h1>
       <div class="hero-actions reveal" style="--d:.2s">
-        <a class="btn" href="#service-times">Plan Your Visit <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
-        <a class="btn btn--ghost" href="#live"><span class="live-dot"></span>Watch Live</a>
+        <a class="btn" href="plan-your-visit.html">Plan Your Visit <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+        <a class="btn btn--ghost" href="watch-live.html"><span class="live-dot"></span>Watch Live</a>
       </div>
     </div>
     <!-- Service Times (moved from the bento into the hero) -->
@@ -94,32 +101,32 @@
       <div class="welcome-copy">
         <h2>Welcome</h2>
         <p>We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us. The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
-        <a class="btn btn--glass btn--sm" href="#our-story">About Us <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+        <a class="btn btn--glass btn--sm" href="about.html">About Us <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
       </div>
     </article>
 
     <!-- Recent Messages -->
     <article class="card image-card message-card on-dark reveal" id="messages">
       <img src="https://images.unsplash.com/photo-1764257241003-e3464685770f?auto=format&fit=crop&w=1800&q=85" alt="Congregation in a modern blue-lit sanctuary with sermon screens" loading="lazy">
-      <a class="play" href="#live" aria-label="Listen now"><svg class="icon icon--fill"><use href="#i-play"/></svg></a>
-      <div class="image-content"><div class="eyebrow">Watch and grow</div><h3>Recent Messages</h3><p>Miss a message or can't make it to church? Watch with us from home.</p><a class="btn btn--sm" href="#live">Listen Now <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
+      <a class="play" href="messages.html" aria-label="Listen now"><svg class="icon icon--fill"><use href="#i-play"/></svg></a>
+      <div class="image-content"><div class="eyebrow">Watch and grow</div><h3>Recent Messages</h3><p>Miss a message or can't make it to church? Watch with us from home.</p><a class="btn btn--sm" href="messages.html">Listen Now <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
     </article>
 
     <!-- Get Connected -->
     <article class="card list-card connect-card reveal" style="--d:.1s" id="connect">
       <div class="card-head"><div><h3>Get Connected</h3><p>Life is better when we're connected.</p></div><span class="round-icon"><svg class="icon"><use href="#i-users"/></svg></span></div>
       <ul class="link-list">
-        <li><a href="#kids">Kids<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#youth">Students &amp; Youth<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#women">Women<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#men">Men<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="connect.html#kids">Kids<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="connect.html#students">Students &amp; Youth<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="connect.html#women">Women<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="connect.html#men">Men<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
       </ul>
     </article>
 
     <!-- Upcoming Events -->
     <article class="card image-card event-card on-dark reveal" id="events">
       <img src="https://images.unsplash.com/photo-1750106404277-fa1983d0298a?auto=format&fit=crop&w=1100&q=85" alt="Worship night with the band on stage and hands raised" loading="lazy">
-      <div class="image-content"><div class="eyebrow">Be part of it</div><h3>Upcoming Events</h3><p>See what is happening here at Hayford Church and stay up-to-date.</p><a class="btn btn--sm" href="#event-list">See What's Next <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
+      <div class="image-content"><div class="eyebrow">Be part of it</div><h3>Upcoming Events</h3><p>See what is happening here at Hayford Church and stay up-to-date.</p><a class="btn btn--sm" href="events.html">See What's Next <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
     </article>
 
     <!-- Location: Google Map + Get Directions (replaces About Us card) -->
@@ -135,10 +142,10 @@
     <article class="card list-card step-card reveal" style="--d:.2s" id="give">
       <div class="card-head"><div><h3>Take a Step</h3><p>See what God can do through you.</p></div><span class="round-icon"><svg class="icon"><use href="#i-steps"/></svg></span></div>
       <ul class="link-list">
-        <li><a href="#giving">Start Giving<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#events">Upcoming Events<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#messages">Previous Messages<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
-        <li><a href="#contact">Contact Us<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="give.html">Start Giving<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="events.html">Upcoming Events<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="messages.html">Previous Messages<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
+        <li><a href="get-connected.html">Contact Us<svg class="icon"><use href="#i-arrow-r"/></svg></a></li>
       </ul>
     </article>
 
@@ -157,7 +164,7 @@
   <section class="cta on-dark reveal" id="live">
     <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy">
     <div><div class="eyebrow">Come as you are</div><h2>We'd love to see you this <em>Sunday.</em></h2><p>Come as you are. There's a place for you at Hayford Church.</p></div>
-    <a class="btn" href="#visit">Plan Your Visit <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+    <a class="btn" href="plan-your-visit.html">Plan Your Visit <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
   </section>
 </main>
 
@@ -166,16 +173,16 @@
   <div class="wrap">
     <div class="footer-main">
       <div class="footer-brand">
-        <a class="brand brand--lg" href="#top" aria-label="Hayford Church home"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-word"><b>Hayford</b><small>Church</small></span></a>
+        <a class="brand brand--lg" href="index.html" aria-label="Hayford Church home"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-word"><b>Hayford</b><small>Church</small></span></a>
         <p>A place to belong. A faith to grow. We would love to welcome you and your family this weekend.</p>
         <div class="social"><a href="#facebook" aria-label="Facebook"><svg class="icon icon--fill"><use href="#i-facebook"/></svg></a><a href="#x" aria-label="X"><svg class="icon icon--fill"><use href="#i-x"/></svg></a></div>
       </div>
-      <div><h3 class="footer-heading">Explore</h3><nav class="footer-links" aria-label="Footer explore navigation"><a href="#visit">Plan Your Visit</a><a href="#about">About Us</a><a href="#connect">Get Connected</a><a href="#messages">Recent Messages</a><a href="#events">Upcoming Events</a></nav></div>
-      <div><h3 class="footer-heading">Join Us</h3><div class="footer-links"><a href="#service-times">Sunday Services · 10AM</a><a href="#service-times">Sunday Evenings · 6PM</a><a href="#service-times">Wednesdays · 7PM</a><a href="#give">Start Giving</a><a href="#live">Watch Live</a></div></div>
+      <div><h3 class="footer-heading">Explore</h3><nav class="footer-links" aria-label="Footer explore navigation"><a href="plan-your-visit.html">Plan Your Visit</a><a href="about.html">About Us</a><a href="connect.html">Get Connected</a><a href="messages.html">Recent Messages</a><a href="events.html">Upcoming Events</a></nav></div>
+      <div><h3 class="footer-heading">Join Us</h3><div class="footer-links"><a href="plan-your-visit.html">Sunday Services · 10AM</a><a href="plan-your-visit.html">Sunday Evenings · 6PM</a><a href="plan-your-visit.html">Wednesdays · 7PM</a><a href="give.html">Start Giving</a><a href="watch-live.html">Watch Live</a></div></div>
       <div><h3 class="footer-heading">Get in Touch</h3><div class="footer-links footer-contact"><a href="mailto:info@yourchurch.com"><svg class="icon"><use href="#i-mail"/></svg>info@yourchurch.com</a><a href="tel:5555555555"><svg class="icon"><use href="#i-phone"/></svg>(555) 555-5555</a><span><svg class="icon"><use href="#i-pin"/></svg><span>1265 Lombardi Ave,<br>Green Bay, WI 54304</span></span></div></div>
     </div>
     <div class="footer-word" aria-hidden="true">HAYFORD</div>
-    <div class="footer-bottom"><small>© Hayford Church. All rights reserved. · Church websites by ReachRight</small><nav aria-label="Footer quick links"><a href="#visit">Plan Your Visit</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div>
+    <div class="footer-bottom"><small>© Hayford Church. All rights reserved. · Church websites by ReachRight</small><nav aria-label="Footer quick links"><a href="plan-your-visit.html">Plan Your Visit</a><a href="about.html">About</a><a href="get-connected.html">Contact</a></nav></div>
   </div>
 </footer>
 
@@ -188,6 +195,8 @@
   toggle.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
   var vid=document.querySelector('.hero-media');if(vid&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){vid.removeAttribute('autoplay');vid.pause()}
+  /* Demo forms: show the confirmation instead of submitting (Gravity Forms handles this on the live site) */
+  document.querySelectorAll('form[data-demo]').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();f.classList.add('is-sent')})});
   var els=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});

@@ -285,3 +285,230 @@ a.contact-detail:hover{background:var(--sand)}
   .footer-bottom{flex-direction:column;text-align:center}
   .footer-bottom nav{flex-wrap:wrap;justify-content:center;gap:16px}
 }
+
+/* =====================================================================
+   INNER PAGES — shared components (About, Plan Your Visit, Connect,
+   Get Connected, Events, Give, Sermons, Watch Live)
+   ===================================================================== */
+.nav a[aria-current="page"]:after{transform:scaleX(1)}
+.mobile-nav a[aria-current="page"]{color:var(--accent)}
+
+/* 1. Page banner */
+.page-hero{position:relative;min-height:clamp(440px,64vh,640px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;isolation:isolate;background:var(--ink)}
+.page-hero-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroZoom 18s var(--ease) forwards}
+.page-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,10,13,.78) 0%,rgba(9,10,13,.35) 60%,rgba(9,10,13,.45) 100%),linear-gradient(0deg,rgba(9,10,13,.85) 0%,rgba(9,10,13,0) 60%)}
+.page-hero-inner{padding:170px 0 68px}
+.crumbs{display:flex;align-items:center;gap:12px;margin-bottom:24px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-light)}
+.crumbs a{color:rgba(255,255,255,.72);transition:color .2s}
+.crumbs a:hover{color:#fff}
+.crumbs i{width:22px;height:1px;background:currentColor;opacity:.7}
+.page-hero h1{font-size:clamp(54px,7.8vw,116px);line-height:.92;letter-spacing:-.05em}
+.page-hero h1 em{font-size:1.1em;letter-spacing:-.02em;padding-right:.04em}
+
+/* Sections */
+.section{position:relative;padding:clamp(72px,8vw,120px) 0}
+.section--white{background:var(--white)}
+.section--dark{background:var(--ink);color:#fff;overflow:hidden}
+.section--dark:before{content:"";position:absolute;right:-200px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,rgba(110,130,255,.16),transparent);pointer-events:none}
+.section--flush-top{padding-top:0}
+.sec-head{max-width:760px;margin-bottom:clamp(36px,4vw,56px)}
+.sec-head--center{margin-inline:auto;text-align:center}
+.sec-head--center .eyebrow{justify-content:center}
+.h2,.sec-head h2{font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.045em;margin-top:16px}
+.h2 em,.sec-head h2 em{font-size:1.08em}
+.sec-head p,.body{font-size:16.5px;line-height:1.85;color:var(--ink-soft);margin:20px 0 0}
+.on-dark .sec-head p,.on-dark .body{color:rgba(255,255,255,.68)}
+.lead{font:600 clamp(21px,2vw,28px)/1.4 var(--font-head);letter-spacing:-.02em;color:var(--ink);margin:22px 0 0}
+.stack>*+*{margin-top:20px}
+.sticky{position:sticky;top:120px}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,5.5vw,88px);align-items:center}
+.split--top{align-items:start}
+.split--wide-left{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.media{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--sand)}
+.media img,.media video,.media iframe{display:block;width:100%;height:100%;object-fit:cover;border:0}
+.media--tall{aspect-ratio:4/5}
+.media--wide{aspect-ratio:16/9}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* Feature cards (values, ways to give) */
+.cards-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.feature-card{display:flex;flex-direction:column;gap:16px;padding:34px;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(14,16,19,.04),0 28px 50px -22px rgba(14,16,19,.28)}
+.feature-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.feature-top .num{font:400 italic 24px var(--font-accent);color:var(--muted)}
+.feature-card .round-icon{font-size:19px}
+.feature-card h3{font-size:24px;letter-spacing:-.03em}
+.feature-card p{margin:0;font-size:15.5px;line-height:1.75;color:var(--ink-soft)}
+.feature-card .btn{align-self:flex-start;margin-top:auto}
+.feature-card--dark{background:var(--ink-2);color:#fff}
+.feature-card--dark p{color:rgba(255,255,255,.7)}
+.feature-card--dark .round-icon{border-color:var(--line-dark);color:var(--accent-light)}
+.feature-card--dark .num{color:rgba(255,255,255,.45)}
+
+/* Accordion (FAQ, beliefs) — native <details> */
+.acc-list{border-bottom:1px solid var(--line)}
+.acc{border-top:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:700 clamp(17px,1.5vw,20px) var(--font-head);letter-spacing:-.02em;transition:color .2s}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{color:var(--accent)}
+.acc-icon{position:relative;flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);transition:background .3s,border-color .3s,color .3s}
+.acc-icon:before,.acc-icon:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%)}
+.acc-icon:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .35s var(--ease)}
+.acc[open] .acc-icon{background:var(--ink);border-color:var(--ink);color:#fff}
+.acc[open] .acc-icon:after{transform:translate(-50%,-50%) rotate(0)}
+.acc-body{padding:0 64px 28px 0;font-size:15.5px;line-height:1.85;color:var(--ink-soft)}
+.acc-body p{margin:0}
+.on-dark .acc-list,.on-dark .acc,.on-dark .acc-icon{border-color:var(--line-dark)}
+.on-dark .acc summary:hover{color:var(--accent-light)}
+.on-dark .acc[open] .acc-icon{background:#fff;border-color:#fff;color:var(--ink)}
+.on-dark .acc-body{color:rgba(255,255,255,.68)}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.team-card{overflow:hidden;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.team-photo{aspect-ratio:1/1;overflow:hidden;background:#f2f2f2}
+.team-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.team-card:hover .team-photo img{transform:scale(1.04)}
+.team-body{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 24px}
+.team-body h3{font-size:18px;letter-spacing:-.02em}
+.team-body p{margin:4px 0 0;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Visit band: service times + contact + map */
+.visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.info-card{display:flex;flex-direction:column;gap:22px;padding:34px;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.info-card--dark{background:var(--ink-2);color:#fff}
+.info-card h2{font-size:clamp(26px,2.4vw,32px);letter-spacing:-.035em}
+.info-card .sub{margin:8px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.info-card--dark .sub{color:rgba(255,255,255,.65)}
+.info-card--dark .times-list{margin-top:auto}
+.info-list{list-style:none;margin:auto 0 0;padding:0}
+.info-list li{border-top:1px solid var(--line)}
+.info-list a,.info-list li>span{display:flex;align-items:center;gap:14px;padding:14px 0;font-size:15px;font-weight:600;line-height:1.4;transition:color .2s}
+.info-list a:hover{color:var(--accent)}
+.info-list .round-icon{width:38px;height:38px;background:var(--paper);border:0;font-size:16px;color:var(--accent)}
+.map-tile{min-height:380px;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--sand)}
+.map-tile iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
+
+.info-card--dark .round-icon{border-color:var(--line-dark);color:var(--accent-light)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Forms */
+.form-card{padding:clamp(28px,4vw,48px);border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.form-card h2{font-size:clamp(32px,3.4vw,46px);line-height:1.02;letter-spacing:-.04em}
+.form-card .intro{margin:14px 0 0;font-size:15.5px;line-height:1.75;color:var(--ink-soft)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0;margin:0;padding:0;border:0}
+.field--full{grid-column:1/-1}
+.field label,.field legend{padding:0;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.req{color:var(--accent)}
+.name-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.name-pair small{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.field input,.field textarea,.select{width:100%;padding:15px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:500 15.5px var(--font-body);transition:border-color .2s,background .2s,box-shadow .2s}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field textarea:focus,.select:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px rgba(59,85,230,.12)}
+.form-actions{margin-top:26px}
+button.btn{border:0;cursor:pointer}
+.form-success{display:none;align-items:center;gap:16px;margin-top:30px;padding:22px 24px;border-radius:var(--radius-sm);background:rgba(59,85,230,.07);font-weight:600}
+.form-success .round-icon{background:var(--accent);border:0;color:#fff}
+form.is-sent .form-grid,form.is-sent .form-actions{display:none}
+form.is-sent .form-success{display:flex}
+.select{appearance:none;-webkit-appearance:none;width:auto;min-width:170px;padding:13px 44px 13px 18px;border-radius:999px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A505A' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 16px center/14px no-repeat;font-weight:600;font-size:14px;cursor:pointer}
+
+/* Connect: ministries */
+.ministry{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(36px,5.5vw,88px);align-items:center}
+.ministry--flip .ministry-media{order:2}
+.ministry-media{aspect-ratio:5/4}
+.ministry h2{font-size:clamp(44px,5.4vw,76px);line-height:.95;letter-spacing:-.05em;margin-top:16px}
+
+/* Events calendar */
+.cal{overflow:hidden;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.cal-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)}
+.cal-bar h2{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.035em}
+.cal-nav{display:flex;align-items:center;gap:10px}
+.cal-nav a{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);transition:background .2s,color .2s,border-color .2s}
+.cal-nav a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.cal-nav a .icon{font-size:15px}
+.cal-nav .prev .icon{transform:scaleX(-1)}
+.cal-tools{display:flex;align-items:center;gap:12px}
+.cal-dows,.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.cal-dows span{padding:14px 16px;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
+.cal-day{display:flex;flex-direction:column;gap:8px;min-height:132px;padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cal-day:nth-child(7n){border-right:0}
+.cal-day h3{align-self:flex-start;padding:3px 9px;margin-left:-9px;border-radius:999px;font:700 13.5px var(--font-head);color:var(--ink-soft)}
+.cal-day.is-out{background:var(--paper)}
+.cal-day.is-today h3{background:var(--accent);color:#fff}
+.cal-event{display:block;padding:9px 11px;border-left:3px solid var(--accent);border-radius:10px;background:rgba(59,85,230,.07);transition:background .2s}
+.cal-event:hover{background:rgba(59,85,230,.14)}
+.cal-event b{display:block;font:700 13px var(--font-head);color:var(--ink)}
+.cal-event span{display:block;margin-top:2px;font-size:12px;color:var(--ink-soft)}
+.cal-list{display:none;list-style:none;margin:0;padding:8px 20px 20px}
+.cal-list li{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.cal-list li:first-child{border-top:0}
+.cal-date{flex:none;width:58px;height:62px;border-radius:14px;display:grid;place-content:center;text-align:center;background:var(--ink);color:#fff}
+.cal-date small{font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--accent-light)}
+.cal-date strong{font:800 22px/1 var(--font-head)}
+.cal-list b{display:block;font:700 16px var(--font-head)}
+.cal-list span{font-size:13.5px;color:var(--ink-soft)}
+
+/* Sermons */
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.sermon-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);overflow:hidden;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.sermon-media{position:relative;display:block;min-height:420px;isolation:isolate;color:#fff;background:var(--ink)}
+.sermon-media img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.sermon-media:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(9,10,13,.55),rgba(9,10,13,.05) 60%)}
+.sermon-card:hover .sermon-media img{transform:scale(1.04)}
+.sermon-media .play{top:50%;left:50%;right:auto;margin:-38px 0 0 -38px}
+.sermon-body{display:flex;flex-direction:column;gap:20px;padding:clamp(28px,4vw,48px)}
+.sermon-meta span{display:inline-flex;align-items:center;gap:8px}
+.sermon-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-size:13.5px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;background:rgba(59,85,230,.08);color:var(--accent);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.sermon-body h2{font-size:clamp(32px,3.4vw,46px);letter-spacing:-.04em}
+.sermon-body h2 a:hover{color:var(--accent)}
+.sermon-body p{margin:0;font-size:15.5px;line-height:1.8;color:var(--ink-soft)}
+.speaker{display:flex;align-items:center;gap:12px;font-weight:700}
+.speaker img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.speaker small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sermon-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.scripture{font-size:14px;color:var(--ink-soft)}
+.scripture b{color:var(--ink)}
+.scripture a{color:var(--accent);font-weight:600}
+.share{display:flex;gap:8px}
+.share a{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:15px;transition:all .25s}
+.share a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Watch live */
+.video-card{overflow:hidden;border-radius:var(--radius);background:var(--ink);box-shadow:0 40px 80px -40px rgba(14,16,19,.55);aspect-ratio:16/9}
+.video-card iframe{display:block;width:100%;height:100%;border:0}
+
+@media (max-width:980px){
+  .split,.split--wide-left,.ministry,.sermon-card{grid-template-columns:1fr}
+  .ministry--flip .ministry-media{order:0}
+  .cards-3,.team-grid{grid-template-columns:1fr 1fr}
+  .visit-grid{grid-template-columns:1fr 1fr}
+  .visit-grid .map-tile{grid-column:1/-1}
+  .sticky{position:static}
+  .sermon-media{min-height:320px}
+}
+@media (max-width:760px){
+  .cal-dows,.cal-grid{display:none}
+  .cal-list{display:block}
+  .cal-bar{padding:20px}
+}
+@media (max-width:640px){
+  .page-hero{min-height:380px}
+  .page-hero-inner{padding:130px 0 40px}
+  .page-hero h1{font-size:clamp(46px,13vw,64px)}
+  .crumbs{margin-bottom:18px;font-size:10px}
+  .cards-3,.visit-grid,.form-grid,.name-pair{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .team-body{padding:16px}
+  .team-body h3{font-size:15px}
+  .team-body p{font-size:11px}
+  .feature-card,.info-card{padding:28px 24px}
+  .acc-body{padding-right:0}
+  .filters .select{flex:1 1 calc(50% - 6px);min-width:0}
+  .cal-tools{width:100%}
+  .cal-tools .select{flex:1}
+}
+.page-main{padding:0}
