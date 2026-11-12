@@ -148,9 +148,7 @@ main{padding:clamp(48px,5vw,72px) 0 clamp(64px,7vw,96px)}
 .link-list a:hover{color:var(--accent-dark);padding-left:6px}
 .link-list a:hover .icon{transform:translateX(4px);color:var(--accent-dark)}
 .connect-card{grid-column:span 4}
-.step-card{grid-column:span 4;background:var(--sand)}
-.step-card .link-list li{border-color:rgba(14,16,19,.12)}
-.step-card .round-icon{border-color:rgba(14,16,19,.14)}
+.step-card{grid-column:span 4;background:var(--white)}
 
 /* Image cards */
 .image-card{color:#fff;isolation:isolate;min-height:420px;display:flex;align-items:flex-end;background:#1A1D22}
