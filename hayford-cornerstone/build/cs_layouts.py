@@ -44,7 +44,7 @@ def search(dark=False):
 def live_btn(dark=False):
     d = btn('Watch Live', '/watch-live/', style='glass', small=True, icon='circle')
     d.update(anchor_min_height='40px', anchor_padding='6px 18px 6px 16px', anchor_primary_font_size='11px',
-             anchor_margin='0px 0px 0px 0.5em')
+             anchor_margin='0px 0px 0px clamp(14px, 2vw, 30px)')
     if dark:
         d.update(anchor_bg_color=gc('ink'), anchor_bg_color_alt=gc('accent'), anchor_border_color=gc('ink'),
                  anchor_primary_text_color=gc('white'), anchor_primary_text_color_alt=gc('white'))
@@ -99,7 +99,7 @@ def header_regions():
     def desk(dark, sticky):
         return bar('Desktop' + (' Sticky' if sticky else ''), [
             container([logo(LOGO_DARK if dark else LOGO_WHITE)], container_flex='0 0 auto'),
-            container([main_nav(dark), search(dark), live_btn(dark)], container_flex='1 0 0%', container_row_flex_justify='flex-end'),
+            container([main_nav(dark), live_btn(dark)], container_flex='1 0 0%', container_row_flex_justify='flex-end'),
         ], sticky=sticky, dark=dark)
     def mob(dark, sticky):
         return bar('Mobile' + (' Sticky' if sticky else ''), [
@@ -112,7 +112,7 @@ def solid_header_regions():
     """Header for posts, archives, sermons and events (no dark banner behind it)."""
     def desk():
         b = bar('Desktop', [container([logo(LOGO_DARK)], container_flex='0 0 auto'),
-                            container([main_nav(True), search(True), live_btn(True)], container_flex='1 0 0%',
+                            container([main_nav(True), live_btn(True)], container_flex='1 0 0%',
                                       container_row_flex_justify='flex-end')], dark=True)
         b.update(bar_position_top='relative', bar_sticky=True, bar_sticky_trigger_offset='0', bar_height='76px')
         return b
