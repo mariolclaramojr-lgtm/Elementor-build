@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Presenter Cam",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Show your camera while presenting in Google Meet: as a bubble inside the tab you share, or in a floating window.",
   "permissions": ["activeTab", "scripting"],
   "action": {

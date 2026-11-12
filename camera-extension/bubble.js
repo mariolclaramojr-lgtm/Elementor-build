@@ -98,16 +98,36 @@
   document.addEventListener("fullscreenchange", placeHost);
   placeHost();
 
-  navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
-    .then((s) => {
-      if (!host.isConnected) { s.getTracks().forEach((t) => t.stop()); return; }
-      stream = s;
-      video.srcObject = s;
-      msgEl.textContent = "";
-    })
-    .catch((err) => {
-      msgEl.textContent = err.name === "NotAllowedError"
-        ? "Camera blocked. Allow it with the camera icon in the address bar, then try again."
-        : "Camera error: " + err.message;
-    });
+  let starting = false;
+  function startCamera() {
+    if (starting || stream) return;
+    starting = true;
+    msgEl.textContent = "Starting camera…";
+    // If nothing happens for a few seconds, Chrome is waiting on a permission prompt.
+    const hint = setTimeout(() => {
+      if (!stream) msgEl.textContent =
+        "Waiting for camera permission. Click the camera icon in the address bar and choose Allow.";
+    }, 3000);
+    navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
+      .then((s) => {
+        if (!host.isConnected) { s.getTracks().forEach((t) => t.stop()); return; }
+        stream = s;
+        video.srcObject = s;
+        msgEl.textContent = "";
+      })
+      .catch((err) => {
+        msgEl.textContent = err.name === "NotAllowedError"
+          ? "Camera blocked on this site. Click the camera icon in the address bar, choose Allow, then click here to retry."
+          : err.name === "NotReadableError"
+            ? "Camera is busy or blocked by your computer. Click here to retry."
+            : "Camera error: " + err.message + " Click here to retry.";
+      })
+      .finally(() => { clearTimeout(hint); starting = false; });
+  }
+  // Clicking the bubble while there's no video retries.
+  host.addEventListener("click", (e) => {
+    const onButton = e.composedPath().some((el) => el.tagName === "BUTTON");
+    if (!stream && !onButton) startCamera();
+  });
+  startCamera();
 })();
