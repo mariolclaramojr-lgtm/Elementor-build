@@ -23,6 +23,7 @@ Rebuild of `hayford-redesign/` (HTML mockup) in Themeco Pro 6.9.8 / Cornerstone 
 | Footer (entire site) | 587 |
 | Component — Closing CTA | 591 |
 | Component — Service Times + Contact + Map | 592 |
+| Component — Give Online (used on Watch Live) | 631 |
 | Gravity Forms — Contact / Connection Card | 1 |
 | Gravity Forms — Let Us Know You're Coming | 9 |
 | Gravity Forms — Prayer Request | 10 |
@@ -46,3 +47,12 @@ Media: logo-white=538, logo-dark=539, site-icon=540, hero_poster=541, hero_mp4=5
 `build/` holds the generators (`cs_home.py`, `cs_layouts.py`, `cs_components.py`, `cs_thanks.py`); `hf.py` talks to the
 CSMCP endpoint using the cs-mcp server registered in Claude Code (credentials are read from the local Claude config,
 never stored here).
+
+## Inner pages (built 2026-11-12, `build/cs_pages.py`)
+Written onto the existing pages so URLs are unchanged (previous trees backed up by Cornerstone and locally):
+About (11), Plan Your Visit (487), Connect (12), Get Connected (492), Events (63), Give (14), Messages (167), Watch Live (490).
+All are assigned to header 585; the old header 186 has no assignments left.
+- Plugins: Events = `[MEC id="53"]` (Monthly View), Messages = `[smpro_archive per_page="15"]` — both in Raw Content,
+  styled from global CSS sections 3 (Sermon Manager) and 4 (Modern Events Calendar).
+- Forms: Plan Your Visit = GF 9, Get Connected = GF 1, Watch Live = GF 10 (all redirect to /thank-you/).
+- Components reused: Service Times + Contact + Map on About and Plan Your Visit; Give Online on Watch Live.

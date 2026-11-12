@@ -32,4 +32,71 @@
 .gform_wrapper.gform_wrapper .gfield_validation_message,.gform_wrapper.gform_wrapper .validation_message,.gform_wrapper.gform_wrapper .gfield_error .gfield_validation_message{margin-top:6px;padding:0;border:0;background:none;font-size:13px;color:var(--hf-live)}
 .gform_confirmation_message{padding:22px 24px;border-radius:var(--hf-radius-sm);background:color-mix(in srgb,var(--hf-accent) 7%,transparent);font:600 15.5px/1.6 var(--hf-font-body);color:var(--hf-ink)}
 @media (max-width:640px){.gform_wrapper.gform_wrapper .ginput_complex{flex-direction:column;gap:12px}.gform_wrapper.gform_wrapper .gform_footer input[type=submit]{width:100%;justify-content:center}}
+/* 3. Sermon Manager — archive cards, filters, single sermon */
+#wpfc_sermon_sorting{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px;margin:0 0 28px;padding:0}
+#wpfc_sermon_sorting>div{margin:0;padding:0}
+#wpfc_sermon_sorting select{appearance:auto;min-width:170px;min-height:46px;padding:0 16px;border:1px solid var(--hf-line);border-radius:999px;background:var(--hf-white);color:var(--hf-ink);font:600 14px var(--hf-font-body);box-shadow:none;cursor:pointer}
+#wpfc_sermon_sorting select:focus{outline:none;border-color:var(--hf-accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--hf-accent) 14%,transparent)}
+.smpro-items .smpro-item{height:100%;overflow:hidden;border:0;border-radius:var(--hf-radius);background:var(--hf-white);box-shadow:0 1px 2px color-mix(in srgb,var(--hf-ink) 4%,transparent),0 18px 40px -18px color-mix(in srgb,var(--hf-ink) 18%,transparent);transition:transform .4s var(--hf-ease),box-shadow .4s var(--hf-ease)}
+.smpro-items .smpro-item:hover{transform:translateY(-4px);box-shadow:0 28px 50px -22px color-mix(in srgb,var(--hf-ink) 28%,transparent)}
+.smpro-items .smpro-item__main{padding:28px 28px 22px}
+.smpro-items .smpro-item__topline{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.smpro-items .smpro-meta-item_type_date .smpro-meta-item__text{font:500 13px var(--hf-font-body);color:var(--hf-muted)}
+.smpro-items .smpro-meta-item_type_series a{display:inline-flex;padding:6px 12px;border-radius:999px;background:color-mix(in srgb,var(--hf-accent) 8%,transparent);color:var(--hf-accent);font:700 10.5px var(--hf-font-body);letter-spacing:.16em;text-transform:uppercase}
+.smpro-items .smpro-title{margin:0 0 16px;padding:0;line-height:1.15}
+.smpro-items .smpro-title .smpro-title__text,.smpro-title__text{font:800 26px/1.15 var(--hf-font-head);letter-spacing:-.03em;color:var(--hf-ink)}
+.smpro-items .smpro-title a:hover{color:var(--hf-accent)}
+.smpro-items .smpro-meta-item_type_preacher{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.smpro-items .smpro-meta-item__img img,.smpro-items .smpro-meta-item__img{width:40px;height:40px;border-radius:50%;overflow:hidden}
+.smpro-items .smpro-meta-item_type_preacher .smpro-meta-item__prefix{font:700 10.5px var(--hf-font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--hf-muted)}
+.smpro-items .smpro-meta-item_type_preacher .smpro-meta-item__text{font:700 14px var(--hf-font-body);color:var(--hf-ink)}
+.smpro-items .smpro-description{font:400 15px/1.75 var(--hf-font-body);color:var(--hf-ink-soft)}
+.smpro-items .smpro-meta-item_type_bible-passage{margin-top:14px;font:400 14px var(--hf-font-body);color:var(--hf-ink-soft)}
+.smpro-items .smpro-meta-item_type_bible-passage .smpro-meta-item__prefix{font-weight:700;color:var(--hf-ink)}
+.smpro-items .smpro-item__footer{margin-top:18px;padding-top:16px;border-top:1px solid var(--hf-line)}
+.smpro-items .smpro-item__meta a,.smpro-items .smpro-item__meta{font:600 13px var(--hf-font-body);color:var(--hf-accent)}
+.smpro-share .a2a_kit a .a2a_svg{border-radius:50%!important;background:var(--hf-paper)!important}
+.smpro-share .a2a_kit a .a2a_svg path{fill:var(--hf-ink)}
+.smpro-share .a2a_kit a:hover .a2a_svg{background:var(--hf-ink)!important}.smpro-share .a2a_kit a:hover .a2a_svg path{fill:var(--hf-white)}
+
+@media (max-width:978px){body .smpro-items .smpro-items-container,body .smpro-items{--smpro-layout-columns:2!important}}
+@media (max-width:640px){body .smpro-items .smpro-items-container,body .smpro-items{--smpro-layout-columns:1!important}#wpfc_sermon_sorting select{min-width:0;width:100%}#wpfc_sermon_sorting>div{flex:1 1 calc(50% - 6px)}}
+
+/* 4. Modern Events Calendar — monthly view, search, single event */
+.mec-wrap,.mec-single-event{--mec-color-skin:var(--hf-accent);--mec-color-skin-rgba-1:color-mix(in srgb,var(--hf-accent) 15%,transparent)}
+.mec-wrap .mec-calendar dt.mec-has-event:after{background-color:var(--hf-accent)!important}
+.mec-wrap .mec-calendar .mec-calendar-row dt.mec-has-event:hover:after{background-color:var(--hf-white)!important}
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-table-side-day{border-color:var(--hf-accent)!important}
+.mec-wrap,.mec-wrap h1,.mec-wrap h2,.mec-wrap h3,.mec-wrap h4,.mec-wrap h5,.mec-wrap h6{font-family:var(--hf-font-body)}
+.mec-wrap .mec-color,.mec-wrap .mec-color-hover:hover,.mec-wrap .mec-color-before :before{color:var(--hf-accent)!important}
+.mec-wrap .mec-bg-color,.mec-wrap .mec-bg-color-hover:hover{background-color:var(--hf-accent)!important}
+.mec-wrap .mec-border-color,.mec-wrap .mec-border-color-hover:hover{border-color:var(--hf-accent)!important}
+.mec-wrap .mec-totalcal-box{margin:0 0 20px;padding:0;border:0;background:transparent;box-shadow:none}
+.mec-wrap .mec-totalcal-box .mec-dropdown-search,.mec-wrap .mec-totalcal-box .mec-text-input-search{border-radius:999px;overflow:hidden}
+.mec-wrap .mec-totalcal-box select,.mec-wrap .mec-totalcal-box input[type=search],.mec-wrap .mec-totalcal-box input[type=text]{min-height:46px;border:1px solid var(--hf-line)!important;border-radius:999px!important;background:var(--hf-white);color:var(--hf-ink);font:600 14px var(--hf-font-body);box-shadow:none}
+.mec-wrap .mec-calendar.mec-box-calendar,.mec-wrap .mec-box-calendar.mec-calendar .mec-calendar-side{border:0;background:transparent;box-shadow:none}
+.mec-wrap .mec-calendar .mec-calendar-header h2{font:800 clamp(24px,2.4vw,32px) var(--hf-font-head);letter-spacing:-.035em;text-transform:none;color:var(--hf-ink)}
+.mec-wrap .mec-calendar .mec-load-month,.mec-wrap .mec-box-calendar.mec-calendar .mec-load-month{border:1px solid var(--hf-line);border-radius:999px;background:var(--hf-white);box-shadow:none;color:var(--hf-ink-soft);font:700 11.5px var(--hf-font-body);letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s}
+.mec-wrap .mec-calendar .mec-load-month:hover,.mec-wrap .mec-calendar .mec-load-month:hover a,.mec-wrap .mec-calendar .mec-load-month:hover i{background:var(--hf-ink);color:var(--hf-white)!important}
+.mec-wrap .mec-calendar .mec-calendar-table-head dt{font:700 11px var(--hf-font-body);letter-spacing:.2em;color:var(--hf-muted);background:transparent}
+.mec-wrap .mec-calendar dt{font:700 14px var(--hf-font-head);color:var(--hf-ink-soft);border-color:var(--hf-line)!important;transition:background .2s,color .2s}
+.mec-wrap .mec-calendar dt.mec-has-event{color:var(--hf-ink)}
+.mec-wrap .mec-calendar dt.mec-has-event:after{background-color:var(--hf-accent)}
+.mec-wrap .mec-calendar dt:hover{background:color-mix(in srgb,var(--hf-accent) 8%,transparent)}
+.mec-wrap .mec-calendar dt.mec-selected-day,.mec-wrap .mec-calendar dt.mec-selected-day:hover{background:var(--hf-accent)!important;color:var(--hf-white)!important}
+.mec-wrap .mec-calendar dt.mec-selected-day:after{background-color:var(--hf-white)}
+.mec-wrap .mec-calendar .mec-calendar-events-side{border-left:1px solid var(--hf-line)}
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-table-side-title{font:700 11px var(--hf-font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--hf-muted)}
+.mec-wrap .mec-calendar .mec-calendar-events-side .mec-table-side-day{border:2px solid var(--hf-accent);border-radius:12px;font:800 15px var(--hf-font-head);color:var(--hf-accent)!important}
+.mec-wrap .mec-calendar .mec-event-article{padding:16px 0;border-bottom:1px solid var(--hf-line)}
+.mec-wrap .mec-calendar .mec-event-article .mec-event-title,.mec-wrap .mec-calendar .mec-event-article .mec-event-title a{font:700 16px var(--hf-font-head);letter-spacing:-.01em;text-transform:none;color:var(--hf-ink)}
+.mec-wrap .mec-calendar .mec-event-article .mec-event-title a:hover{color:var(--hf-accent)}
+.mec-wrap .mec-calendar .mec-event-article .mec-event-time{font:500 13px var(--hf-font-body);color:var(--hf-ink-soft)}
+.mec-single-event .mec-frontbox,.mec-single-event .mec-event-meta,.mec-single-event .mec-events-meta-group{border:0!important;border-radius:var(--hf-radius);box-shadow:0 18px 40px -18px color-mix(in srgb,var(--hf-ink) 18%,transparent)}
+.mec-single-event .mec-single-title{font:800 clamp(32px,3.6vw,48px)/1.05 var(--hf-font-head);letter-spacing:-.04em;color:var(--hf-ink)}
+.mec-single-event .mec-events-meta-group h3,.mec-single-event .mec-event-meta h3{font:700 12px var(--hf-font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--hf-ink)}
+.mec-single-event .mec-events-button,.mec-single-event .mec-booking-button{border-radius:999px;border:1px solid var(--hf-line);background:var(--hf-white);color:var(--hf-ink);font:700 12px var(--hf-font-body);letter-spacing:.1em;text-transform:uppercase;box-shadow:none}
+.mec-single-event .mec-events-button:hover{background:var(--hf-ink);color:var(--hf-white);border-color:var(--hf-ink)}
+.mec-single-event .mec-single-event-image img{border-radius:var(--hf-radius)}
+@media (max-width:640px){.mec-wrap .mec-calendar .mec-calendar-header{padding-top:52px}.mec-wrap .mec-calendar .mec-calendar-header h2{font-size:24px}.mec-wrap .mec-calendar .mec-calendar-events-side{border-left:0;border-top:1px solid var(--hf-line)}}
 /* ===== HAYFORD REDESIGN END ===== */
