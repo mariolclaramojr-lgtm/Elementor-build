@@ -30,7 +30,19 @@ def lift(d):
              effects_duration='400ms', effects_timing_function='cubic-bezier(0.2, 0.7, 0.2, 1)')
     return d
 
+def accent(text):
+    """Heading accent = an italic word (<em>), styled by global CSS. Same rule as before:
+    one word: none; 2-5 words: last word; 6+ words: last two. Editors toggle it with the italic button."""
+    import re
+    if '<em' in text or '<span' in text: return text
+    n = len(re.sub(r'<br\s*/?>', ' ', text).split())
+    if n < 2: return text
+    k = 1 if n <= 5 else 2
+    m = re.search(r'(\S+(?:\s+\S+){%d})\s*$' % (k - 1), text)
+    return text[:m.start(1)] + '<em>' + m.group(1) + '</em>' + text[m.end(1):] if m else text
+
 def H(text, tag='h2', size='clamp(38px, 4.6vw, 64px)', color='ink', lh='1', ls='-0.045em', weight='800', **kw):
+    if tag in ('h1', 'h2'): text = accent(text)
     return el('headline', text_content=text, text_tag=tag, text_font_family=F['head'], text_font_weight=weight,
               text_font_size=size, text_line_height=lh, text_letter_spacing=ls, text_text_color=gc(color), **kw)
 
@@ -211,7 +223,7 @@ def image_card(label, image, eyebrow_t, title, body, button, cols, md, minh='420
 
 welcome = cell([
     div([eyebrow('Welcome home', color='accent_light', margin='0px'),
-         H('Faith.<br>Community.<br><span class="hf-accent is-on-dark">Hope.</span>', tag='div', size='clamp(38px, 4.2vw, 58px)', color='white', lh='0.98', ls='-0.045em')],
+         H('Faith.<br>Community.<br><em>Hope.</em>', tag='div', size='clamp(38px, 4.2vw, 58px)', color='white', lh='0.98', ls='-0.045em')],
         _label='Label', layout_div_flexbox=True, layout_div_flex_direction='column', layout_div_flex_justify='space-between',
         layout_div_flex_align='flex-start', layout_div_flex='0 0 35%', layout_div_padding='clamp(36px, 4.5vw, 64px)',
         layout_div_border_width='0px 1px 0px 0px', layout_div_border_style='solid', layout_div_border_color=gc('line_dark'),

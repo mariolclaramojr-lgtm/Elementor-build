@@ -3,10 +3,11 @@
    so changing a global updates this CSS too. Use var(--hf-…) in any custom CSS. */
 :root{--hf-ink:%%post color%%global-color:4272616e64205072696d617279%%/post%%;--hf-ink2:%%post color%%global-color:68662d696e6b2d32%%/post%%;--hf-ink-soft:%%post color%%global-color:4272616e64205365636f6e64617279%%/post%%;--hf-paper:%%post color%%global-color:68662d7061706572%%/post%%;--hf-sand:%%post color%%global-color:68662d73616e64%%/post%%;--hf-muted:%%post color%%global-color:68662d6d75746564%%/post%%;--hf-accent:%%post color%%global-color:fd0f76da-a9d9-4855-b526-e420c3cd4cd8%%/post%%;--hf-accent-dark:%%post color%%global-color:68662d616363656e742d6461726b%%/post%%;--hf-accent-light:%%post color%%global-color:68662d616363656e742d6c69676874%%/post%%;--hf-line:%%post color%%global-color:68662d6c696e65%%/post%%;--hf-line-dark:%%post color%%global-color:68662d6c696e652d6461726b%%/post%%;--hf-white:%%post color%%global-color:6dda5a93-484f-4597-9c18-c4bee57d7b0e%%/post%%;--hf-live:%%post color%%global-color:68662d6c697665%%/post%%;--hf-font-body:%%post font-family%%426f647920436f7079%%/post%%;--hf-font-head:%%post font-family%%48656164696e6773%%/post%%;--hf-font-serif:%%post font-family%%416363656e74205365726966%%/post%%;--hf-radius:22px;--hf-radius-sm:14px;--hf-ease:cubic-bezier(.2,.7,.2,1)}
 
-/* 1. Heading accent — added automatically by the global JS (editors type plain text).
-   2–5 words: last word; 6+ words: last two; one word: none. */
-.hf-accent{font-family:var(--hf-font-serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--hf-accent);font-size:1.08em;padding-right:.04em}
-.hf-accent.is-on-dark{color:var(--hf-accent-light)}
+/* 1. Heading accent — make a word italic in any heading (Cornerstone text editor › Italic) and it becomes the
+   serif accent. Shows in the Cornerstone editor and on the site. Rule of thumb: 2–5 words → last word, 6+ → last two.
+   Over a photo/dark background (any element with a Cornerstone background layer) it switches to the light accent. */
+:is(h1,h2,h3,h4,.x-text-content-text-primary) em,.hf-accent{font-family:var(--hf-font-serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--hf-accent);font-size:1.08em;padding-right:.04em}
+:where(.x-section,.x-row,.x-col,.x-cell,.x-div,.x-bar):has(> .x-bg) :is(h1,h2,h3,h4,.x-text-content-text-primary) em,.hf-accent.is-on-dark{color:var(--hf-accent-light)}
 
 /* 2. Gravity Forms — every form on the site (legacy + modern markup). Doubled class beats theme/GF defaults. */
 .gform_wrapper.gform_wrapper fieldset{border:0;margin:0;padding:0;min-width:0}

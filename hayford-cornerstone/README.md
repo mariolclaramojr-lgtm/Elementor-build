@@ -10,7 +10,8 @@ Rebuild of `hayford-redesign/` (HTML mockup) in Themeco Pro 6.9.8 / Cornerstone 
   classic buttons pill Ink→Accent, container 92% / 1240px.
 - **Global CSS** (`global.css` here = Theme Options › CSS, between HAYFORD markers): maps every global colour/font to
   `var(--hf-…)` via `%%post color%%global-color:<id>%%/post%%`, heading accent style, Gravity Forms styling.
-- **Global JS** (`global.js` = Theme Options › JS): heading accent (H1/H2 last word / last two words). Editors type plain text.
+- **Heading accent**: an italic word (`<em>`) in a heading is styled by global CSS as the serif accent (light tint over photos /
+  dark backgrounds). It shows in the Cornerstone editor and on the site; editors use the italic button. No global JS is needed.
 
 ## Documents
 | What | ID |
