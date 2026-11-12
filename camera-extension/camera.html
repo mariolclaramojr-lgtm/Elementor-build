@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Presenter Cam</title>
+  <link rel="stylesheet" href="camera.css">
+</head>
+<body>
+  <div id="stage">
+    <video id="video" autoplay playsinline muted></video>
+    <p id="status">Starting camera…</p>
+  </div>
+  <div id="controls">
+    <select id="device" title="Camera"></select>
+    <label title="Mirror the image"><input type="checkbox" id="mirror" checked> Mirror</label>
+    <label title="Crop to a circle"><input type="checkbox" id="circle"> Circle</label>
+    <button id="pip" title="Float above all windows">Pop out</button>
+  </div>
+  <script src="camera.js"></script>
+</body>
+</html>
