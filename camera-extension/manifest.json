@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Presenter Cam",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Show your camera in a floating window while presenting in Google Meet.",
   "action": {
     "default_title": "Open Presenter Cam"

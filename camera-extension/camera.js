@@ -66,12 +66,35 @@ mirrorBox.addEventListener("change", () => { applyStyles(); save(); });
 circleBox.addEventListener("change", () => { applyStyles(); save(); });
 navigator.mediaDevices.addEventListener("devicechange", () => listCameras(deviceSelect.value));
 
-// Picture-in-Picture: a small always-on-top window that stays visible over
-// Slides, other apps, and anything you share in Meet.
+// Pop out: an always-on-top window that stays visible over Slides, other
+// apps, and anything you share in Meet. Uses Document Picture-in-Picture
+// (keeps the circle shape) and falls back to classic video PiP.
+let pipWin = null;
+const stage = document.getElementById("stage");
+
 pipBtn.addEventListener("click", async () => {
   try {
-    if (document.pictureInPictureElement) {
-      await document.exitPictureInPicture();
+    if (pipWin) { pipWin.close(); return; }
+    if (document.pictureInPictureElement) { await document.exitPictureInPicture(); return; }
+
+    if ("documentPictureInPicture" in window) {
+      pipWin = await documentPictureInPicture.requestWindow({ width: 260, height: 260 });
+      const link = pipWin.document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = chrome.runtime.getURL("camera.css");
+      pipWin.document.head.appendChild(link);
+      const pipStage = pipWin.document.createElement("div");
+      pipStage.id = "stage";
+      pipWin.document.body.appendChild(pipStage);
+      pipStage.appendChild(video);
+      video.play();
+      pipBtn.textContent = "Pop in";
+      pipWin.addEventListener("pagehide", () => {
+        stage.prepend(video);
+        video.play();
+        pipWin = null;
+        pipBtn.textContent = "Pop out";
+      });
     } else {
       await video.requestPictureInPicture();
     }

@@ -13,8 +13,8 @@ chrome.action.onClicked.addListener(async () => {
   const win = await chrome.windows.create({
     url: chrome.runtime.getURL("camera.html"),
     type: "popup",
-    width: 420,
-    height: 380
+    width: 320,
+    height: 350
   });
   camWindowId = win.id;
 });

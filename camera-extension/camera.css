@@ -1,17 +1,20 @@
 * { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #111; color: #eee; font: 13px system-ui, sans-serif; }
-body { display: flex; flex-direction: column; }
-#stage { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-video { width: 100%; height: 100%; object-fit: cover; }
+html, body { margin: 0; height: 100%; background: #000; color: #eee; font: 13px system-ui, sans-serif; overflow: hidden; }
+#stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+video { width: 100%; height: 100%; object-fit: cover; display: block; }
 video.mirror { transform: scaleX(-1); }
-video.circle { width: auto; height: 92%; aspect-ratio: 1; border-radius: 50%; }
+/* Circle fills the window edge to edge; make the window square for the cleanest look */
+video.circle { width: auto; height: auto; max-width: 100vw; max-height: 100vh; aspect-ratio: 1; border-radius: 50%; }
+@supports (width: 1vmin) { video.circle { width: 100vmin; height: 100vmin; } }
 #status { position: absolute; margin: 0; padding: 12px; text-align: center; }
 #status:empty { display: none; }
-#controls { display: flex; gap: 10px; align-items: center; padding: 8px; background: #1c1c1c; flex-wrap: wrap; }
+/* Controls float over the video and only show on hover */
+#controls { position: absolute; left: 8px; right: 8px; bottom: 8px; display: flex; gap: 10px; align-items: center;
+  padding: 8px; background: rgba(28,28,28,.85); border-radius: 10px; flex-wrap: wrap;
+  opacity: 0; transition: opacity .2s; }
+body:hover #controls, #controls:focus-within { opacity: 1; }
 #controls select { flex: 1; min-width: 120px; }
 select, button { font: inherit; padding: 4px 8px; border-radius: 6px; border: 1px solid #444; background: #2a2a2a; color: #eee; }
 button { cursor: pointer; }
 button:hover { background: #383838; }
 label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
-/* Hide controls when the window is tiny */
-@media (max-height: 160px) { #controls { display: none; } }
