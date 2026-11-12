@@ -100,4 +100,6 @@
 .mec-single-event .mec-events-button:hover{background:var(--hf-ink);color:var(--hf-white);border-color:var(--hf-ink)}
 .mec-single-event .mec-single-event-image img{border-radius:var(--hf-radius)}
 @media (max-width:640px){.mec-wrap .mec-calendar .mec-calendar-header{padding-top:52px}.mec-wrap .mec-calendar .mec-calendar-header h2{font-size:24px}.mec-wrap .mec-calendar .mec-calendar-events-side{border-left:0;border-top:1px solid var(--hf-line)}}
+/* 5. Search results — Sermon Manager appends its full sermon card to excerpts; keep the plain excerpt only */
+.search-results .x-cell .x-content > article.wpfc_sermon{display:none}
 /* ===== HAYFORD REDESIGN END ===== */

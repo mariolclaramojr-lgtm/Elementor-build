@@ -66,3 +66,14 @@ fellowship and community). Replaced:
 - "Love" sermon series artwork (unrelated marketing graphic) → sermons moved to series "Love Never Fails" (no artwork),
   so their own church photos show; Demo Sermon given the sanctuary photo (650).
 - Sunday Service event: grey 1200x628 placeholder → sanctuary photo (650).
+
+## Search (2026-11-12)
+- Search results = Pro archive layout 657 "Hayford — Search Results" (`build/cs_search.py`), assigned to `archive:search`:
+  dark banner with the query + search box, result cards (main-query looper, linked cards with excerpt + "Read more"),
+  and a "We couldn't find a match" panel with popular links (both switched by the `archive:have-posts` condition).
+- Header 586 (solid) is now the site-wide fallback; header 585 also covers search results.
+- Every page has a short excerpt (used in results). Global CSS section 5 hides Sermon Manager's injected card in excerpts.
+- About beliefs + Plan Your Visit FAQ use "Accordion Item (Elements)" so answers are real Text elements.
+- Test: `node build/searchtest.js` (23 queries, every result link, header icon, results-page box, mobile width).
+- Known: accordion answers are not searchable while Cornerstone content storage is "shortcode" (Settings › Advanced).
+  The 2017 theme demo portfolio item "Demo Sermon" (id 29) still shows in results — set it to draft to hide it.

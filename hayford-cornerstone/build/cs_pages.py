@@ -118,7 +118,12 @@ def grid3(cells, md=2, sm=1, label='Cards'):
 
 def accordion(items, dark=False, first_open=True):
     fg = 'white' if dark else 'ink'
-    acc = el('accordion', [el('accordion-item', accordion_item_header_content=q, accordion_item_content=a,
+    def answer(a):
+        t = T(f'<p>{a}</p>', color='white' if dark else 'ink_soft', size='15.5px', lh='1.85')
+        if dark: t['effects_opacity'] = '0.68'
+        return t
+    # accordion-item-elements: the answer is a real Text element, so it is part of the searchable page content
+    acc = el('accordion', [el('accordion-item-elements', [answer(a)], accordion_item_header_content=q,
                               accordion_item_starts_open=(first_open and i == 0)) for i, (q, a) in enumerate(items)],
              _label='Accordion', accordion_grouped=True, accordion_item_spacing='0px', accordion_item_bg_color='transparent',
              accordion_item_border_width='1px 0px 0px 0px', accordion_item_border_style='solid',
