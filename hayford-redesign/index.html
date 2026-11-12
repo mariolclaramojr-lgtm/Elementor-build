@@ -88,13 +88,13 @@
 
   <section class="bento" aria-label="Church homepage content">
     <!-- Welcome -->
-    <article class="card welcome-card on-dark reveal" id="welcome">
+    <article class="card welcome-card on-dark reveal" id="about">
       <img class="welcome-bg" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy">
       <div class="welcome-label"><div class="eyebrow">Welcome home</div><strong><span>Faith.</span><span>Community.</span><span>Hope.</span></strong></div>
       <div class="welcome-copy">
         <h2>Welcome</h2>
         <p>We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us. The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
-        <a class="btn btn--glass btn--sm" href="#about">About Us <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+        <a class="btn btn--glass btn--sm" href="#our-story">About Us <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
       </div>
     </article>
 
@@ -122,10 +122,13 @@
       <div class="image-content"><div class="eyebrow">Be part of it</div><h3>Upcoming Events</h3><p>See what is happening here at Hayford Church and stay up-to-date.</p><a class="btn btn--sm" href="#event-list">See What's Next <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
     </article>
 
-    <!-- About Us -->
-    <article class="card image-card about-card on-dark reveal" style="--d:.1s" id="about">
-      <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=1100&q=85" alt="Church members praying together" loading="lazy">
-      <div class="image-content"><div class="eyebrow">Get to know us</div><h3>About Us</h3><p>Learn about who we are, our mission and vision, and meet our team.</p><a class="btn btn--sm" href="#our-story">Learn More <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a></div>
+    <!-- Location: Google Map + Get Directions (replaces About Us card) -->
+    <article class="card map-card reveal" style="--d:.1s" id="location">
+      <iframe class="map-frame" title="Map to Hayford Church, 1265 Lombardi Ave, Green Bay, WI 54304" src="https://maps.google.com/maps?q=1265+Lombardi+Ave,+Green+Bay,+WI+54304&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="map-panel">
+        <div class="map-info"><span class="round-icon"><svg class="icon"><use href="#i-pin"/></svg></span><div><small>Visit us</small><span>1265 Lombardi Ave, Green Bay, WI 54304</span></div></div>
+        <a class="btn btn--dark btn--sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=1265+Lombardi+Ave,+Green+Bay,+WI+54304" target="_blank" rel="noopener">Get Directions <span class="chip"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+      </div>
     </article>
 
     <!-- Take a Step -->
