@@ -307,26 +307,30 @@ def contact_tile(icon, label, value, href=None):
     bp(d, 'layout_div_width', sm='100%')
     return d
 
+# Plan Your Visit CTA (replaces the Contact Us card; contact details live in the footer + visit band)
+visit_icon = el('icon', icon='door-open', icon_font_size='22px', icon_width='64px', icon_height='64px',
+                icon_color=gc('accent'), icon_bg_color=gc('paper'), icon_border_radius='50%')
+visit_copy = div([eyebrow('New here?', margin='0px 0px 10px 0px'),
+                  H('Plan Your Visit', tag='h3', size='clamp(26px, 2.4vw, 32px)', lh='1.15', ls='-0.035em'),
+                  T('Visiting somewhere new can be intimidating. We have smiling faces waiting to greet you and we will show you where to go. Enjoy a cup of coffee and relax with us!',
+                    size='15.5px', lh='1.7', text_margin='10px 0px 0px 0px', text_max_width='620px')],
+                 _label='Copy', layout_div_flex='1 1 320px')
+bp(visit_copy, 'layout_div_flex', md='0 0 auto')
 contact = cell([
-    div([H('Contact Us', tag='h3', size='28px', lh='1.2', ls='-0.035em'),
-         T('Want to chat? Hit us up!', size='15px', lh='1.5', text_margin='6px 0px 0px 0px')],
-        _label='Intro', layout_div_flex='0 0 22%', layout_div_min_width='200px'),
-    div([contact_tile('envelope', 'Email', 'info@yourchurch.com', 'mailto:info@yourchurch.com'),
-         contact_tile('phone', 'Phone', '(555) 555-5555', 'tel:5555555555'),
-         contact_tile('location-dot', 'Visit', '1265 Lombardi Ave, Green Bay, WI 54304')],
-        _label='Details', layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_flex_wrap=True,
-        layout_div_flex_gap='14px', layout_div_flex='1 1 0%'),
-], 'Contact Us', (1, 13), (1, 3), id='contact', layout_cell_bg_color=gc('white'), layout_cell_flex_direction='row',
-   layout_cell_flex_align='center', layout_cell_flex_wrap=True, layout_cell_flex_gap='40px', layout_cell_padding='34px 38px')
+    div([visit_icon, visit_copy], _label='Icon + copy', layout_div_flexbox=True, layout_div_flex_direction='row',
+        layout_div_flex_align='center', layout_div_flex_gap='28px', layout_div_flex_wrap=False, layout_div_flex='1 1 480px'),
+    div([btn("Let Us Know You're Coming", '/plan-your-visit/#register-form', style='dark')], _label='Button',
+        layout_div_flex='0 0 auto'),
+], 'Plan Your Visit (CTA)', (1, 13), (1, 3), id='plan-your-visit', layout_cell_bg_color=gc('white'),
+   layout_cell_flex_direction='row', layout_cell_flex_align='center', layout_cell_flex_justify='space-between',
+   layout_cell_flex_wrap=True, layout_cell_flex_gap='32px', layout_cell_padding='34px 38px')
 bp(contact, 'layout_cell_flex_direction', md='column')
 bp(contact, 'layout_cell_flex_align', md='flex-start')
 bp(contact, 'layout_cell_flex_gap', md='24px')
 bp(contact, 'layout_cell_padding', sm='28px 24px')
-contact['_modules'][1]['layout_div_width'] = 'auto'
-bp(contact['_modules'][1], 'layout_div_width', md='100%')
-bp(contact['_modules'][1], 'layout_div_flex_direction', sm='column')
-bp(contact['_modules'][1], 'layout_div_flex', md='0 0 auto')
-bp(contact['_modules'][1], 'layout_div_flex_wrap', sm=False)
+bp(contact['_modules'][0], 'layout_div_flex_direction', sm='column')
+bp(contact['_modules'][0], 'layout_div_flex_align', sm='flex-start')
+bp(contact['_modules'][0], 'layout_div_flex_gap', sm='18px')
 bp(contact['_modules'][0], 'layout_div_flex', md='0 0 auto')
 card_shadow('layout_cell', contact)
 reveal(contact)
