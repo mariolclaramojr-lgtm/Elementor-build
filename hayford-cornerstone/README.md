@@ -32,8 +32,12 @@ Rebuild of `hayford-redesign/` (HTML mockup) in Themeco Pro 6.9.8 / Cornerstone 
 Menus: Main (menu:2), Mobile Menu (menu:13), Footer Explore (menu:14), Footer Join Us (menu:15), Footer Quick Links (menu:16), get-connected (menu:11), take-a-step (menu:12).
 Media: logo-white=538, logo-dark=539, site-icon=540, hero_poster=541, hero_mp4=542, hero_webm=543, img_messages=544, img_events=545, img_welcome=546, img_cta=547, logo-white-header=588, logo-dark-header=589, logo-white-footer=590, sermon1=597, sermon2=598, sermon3=599, sermon4=600, event1=601, event2=602, event3=603, event4=604.
 
-## Go-live checklist (after homepage approval)
-1. Copy draft 548 into Home (8) or set 548 as front page; add the real pages to header 585 assignments.
+## Published (2026-11-12)
+- The new homepage is live on Home (page 8, the front page). The previous Home layout is in Cornerstone backups (index 0) for page 8.
+- Header 585 is assigned to the front page, Home (8), draft 548 and Thank You (613). Header 186 keeps the other old pages until they are rebuilt.
+
+## Remaining checklist
+1. As each inner page is rebuilt, move it from header 186 to header 585 assignments.
 2. Appearance › Customize › Site Identity › Site Icon → `hayford-site-icon.png` (media 540).
 3. MEC › Locations → "Hayford Church": add the address (events already point at it).
 4. Delete page 594 and the "Test Submission (QA)" form entries.
