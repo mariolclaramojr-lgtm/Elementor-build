@@ -260,11 +260,13 @@ def events():
     r = el('layout-row', [reveal(card_shadow('layout_column', card))], layout_row_global_container=True)
     # 3-column event cards below the calendar: [hf_event_cards] from the Hayford Event Cards plugin (../plugin/).
     # Same paper background with no top padding, so it reads as a continuation of the calendar section.
+    # (Alternative without the plugin: [MEC id="680"] MEC grid skin, styled by global CSS 4b; see README.)
     head = el('layout-row', [el('layout-column', [sec_head('Mark your calendar', 'Upcoming Events')])], layout_row_global_container=True)
     cards = el('layout-row', [el('layout-column', [reveal(shortcode('[hf_event_cards count="6" columns="3"]',
                                                                   'Hayford Event Cards — upcoming events (3 columns)'), .1)])],
                layout_row_global_container=True, _label='Event cards')
-    return [banner("See What's Next", 'Events', 'event1'), section([r], '2. Events calendar (MEC)'),
+    return [banner("See What's Next", 'Events', 'event1'),
+            section([r], '2. Events calendar (MEC)', pad='clamp(72px, 8vw, 120px) 0px clamp(48px, 5vw, 72px) 0px'),
             section([head, cards], '3. Upcoming events (cards)', sid='upcoming-events',
                     pad='0px 0px clamp(72px, 8vw, 120px) 0px')]
 

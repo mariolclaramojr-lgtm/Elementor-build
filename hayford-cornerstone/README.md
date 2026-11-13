@@ -102,3 +102,8 @@ element with `[hf_event_cards count="6" columns="3"]`.
 - Attributes: `count` (6, max 24), `columns` (3; 1–4 — tablet ≤978px caps at 2, mobile ≤767px is 1), `category` (mec_category slugs/names/ids,
   comma-separated), `excerpt` (words, 0 hides), `group` ("no" = one card per occurrence), `image` ("no" hides photos), `heading` (h2/h3/h4), `class`.
 - Usable anywhere (pages, Global Blocks, homepage): e.g. `[hf_event_cards count="3" category="worship"]`.
+
+## Events card view — MEC grid alternative (2026-11-13)
+Plugin-free alternative to `[hf_event_cards]` (the Events page uses the plugin; swap the Raw Content shortcode to fall back):
+`[MEC id="680"]` = MEC Grid skin, classic style, 3 columns, upcoming only, 6 events. Styled by global CSS section 4b
+(3 / 2 / 1 columns on desktop / tablet / phone). Edit count/limit in MEC › Shortcodes › "Upcoming Events — 3-column cards".
