@@ -6,7 +6,7 @@
 /* 1. Heading accent — make a word italic in any heading (Cornerstone text editor › Italic) and it becomes the
    serif accent. Shows in the Cornerstone editor and on the site. Rule of thumb: 2–5 words → last word, 6+ → last two.
    Over a photo/dark background (any element with a Cornerstone background layer) it switches to the light accent. */
-:is(h1,h2,h3,h4,.x-text-content-text-primary) em,.hf-accent{font-family:var(--hf-font-serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--hf-accent);font-size:1.08em;padding-right:.04em}
+:is(h1,h2,h3,h4,.x-text-content-text-primary) em,.hf-accent{font-family:var(--hf-font-serif);font-style:italic;font-weight:500;letter-spacing:-.01em;color:var(--hf-accent);font-size:1.08em;padding-right:.04em}
 :where(.x-section,.x-row,.x-col,.x-cell,.x-div,.x-bar):has(> .x-bg) :is(h1,h2,h3,h4,.x-text-content-text-primary) em,.hf-accent.is-on-dark{color:var(--hf-accent-light)}
 
 /* 2. Gravity Forms — every form on the site (legacy + modern markup). Doubled class beats theme/GF defaults. */

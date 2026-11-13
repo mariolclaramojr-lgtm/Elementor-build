@@ -5,7 +5,7 @@ Rebuild of `hayford-redesign/` (HTML mockup) in Themeco Pro 6.9.8 / Cornerstone 
 ## Global layer
 - **Global Colors** (Cornerstone › Global Colors): Ink, Ink 2, Ink Soft, Paper, Sand, Muted, Accent, Accent Dark,
   Accent Light, Line, Line on Dark, Live, White. Existing ids kept (Brand Primary = Ink, Accent color = Accent …).
-- **Global Fonts**: Body Copy = DM Sans, Headings = Manrope, Accent Serif = Instrument Serif.
+- **Global Fonts**: Body Copy = DM Sans, Headings = Manrope, Accent (headings italic) = Fraunces.
 - **Theme Options**: page bg Paper, body Ink Soft, headings Ink 800 with negative tracking, links Accent,
   classic buttons pill Ink→Accent, container 92% / 1240px.
 - **Global CSS** (`global.css` here = Theme Options › CSS, between HAYFORD markers): maps every global colour/font to

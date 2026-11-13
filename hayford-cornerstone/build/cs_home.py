@@ -319,21 +319,21 @@ def contact_tile(icon, label, value, href=None):
     bp(d, 'layout_div_width', sm='100%')
     return d
 
-# Plan Your Visit CTA (replaces the Contact Us card; contact details live in the footer + visit band)
-visit_icon = el('icon', icon='door-open', icon_font_size='22px', icon_width='64px', icon_height='64px',
+# Give CTA (replaces the Contact Us card; contact details live in the footer + visit band)
+visit_icon = el('icon', icon='hand-holding-heart', icon_font_size='22px', icon_width='64px', icon_height='64px',
                 icon_color=gc('accent'), icon_bg_color=gc('paper'), icon_border_radius='50%')
-visit_copy = div([eyebrow('New here?', margin='0px 0px 10px 0px'),
-                  H('Plan Your Visit', tag='h3', size='clamp(26px, 2.4vw, 32px)', lh='1.15', ls='-0.035em'),
-                  T('Visiting somewhere new can be intimidating. We have smiling faces waiting to greet you and we will show you where to go. Enjoy a cup of coffee and relax with us!',
+visit_copy = div([eyebrow('Live generously', margin='0px 0px 10px 0px'),
+                  H('Give', tag='h3', size='clamp(26px, 2.4vw, 32px)', lh='1.15', ls='-0.035em'),
+                  T("Giving is an act of worship and obedience from a heart surrendered to Christ. Give on Sunday, online or by mail — your generosity makes a difference for the glory of God at our church.",
                     size='15.5px', lh='1.7', text_margin='10px 0px 0px 0px', text_max_width='620px')],
                  _label='Copy', layout_div_flex='1 1 320px')
 bp(visit_copy, 'layout_div_flex', md='0 0 auto')
 contact = cell([
     div([visit_icon, visit_copy], _label='Icon + copy', layout_div_flexbox=True, layout_div_flex_direction='row',
         layout_div_flex_align='center', layout_div_flex_gap='28px', layout_div_flex_wrap=False, layout_div_flex='1 1 480px'),
-    div([btn("Let Us Know You're Coming", '/plan-your-visit/#register-form', style='dark')], _label='Button',
+    div([btn('Give Now', '/give/', style='dark')], _label='Button',
         layout_div_flex='0 0 auto'),
-], 'Plan Your Visit (CTA)', (1, 13), (1, 3), id='plan-your-visit', layout_cell_bg_color=gc('white'),
+], 'Give (CTA)', (1, 13), (1, 3), id='give-cta', layout_cell_bg_color=gc('white'),
    layout_cell_flex_direction='row', layout_cell_flex_align='center', layout_cell_flex_justify='space-between',
    layout_cell_flex_wrap=True, layout_cell_flex_gap='32px', layout_cell_padding='34px 38px')
 bp(contact, 'layout_cell_flex_direction', md='column')
