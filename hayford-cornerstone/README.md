@@ -81,3 +81,7 @@ fellowship and community). Replaced:
 ## Footer social icons
 Linked to Theme Options › Social (x_social_*) via {{dc:theme:x_social_...}}. Each icon (Facebook, Instagram, YouTube, X, TikTok,
 Vimeo, LinkedIn, Pinterest, WhatsApp, SoundCloud, RSS) shows only when its Theme Options field has a URL; opens in a new tab.
+
+## Favicon
+Set via global JS (Theme Options › JS, global.js): adds favicon + apple-touch-icon pointing to media 540 on every page.
+Recommended permanent fix: Appearance › Customize › Site Identity › Site Icon › hayford-site-icon.png (the JS steps aside automatically once that is set).
