@@ -258,7 +258,12 @@ def events():
     card = el('layout-column', [shortcode('[MEC id="53"]', 'Modern Events Calendar — Monthly View')], _label='Calendar card',
               layout_column_bg_color=gc('white'), layout_column_padding='clamp(20px, 3vw, 36px)', layout_column_border_radius='22px')
     r = el('layout-row', [reveal(card_shadow('layout_column', card))], layout_row_global_container=True)
-    return [banner("See What's Next", 'Events', 'event1'), section([r], '2. Events calendar (MEC)')]
+    head = el('layout-row', [el('layout-column', [sec_head('Coming up', 'Upcoming Events')])], layout_row_global_container=True)
+    cards = el('layout-row', [el('layout-column', [shortcode('[MEC id="680"]', 'Modern Events Calendar — Grid (3 columns)')])],
+               layout_row_global_container=True, _label='Event cards')
+    return [banner("See What's Next", 'Events', 'event1'),
+            section([r], '2. Events calendar (MEC)', pad='clamp(72px, 8vw, 120px) 0px clamp(48px, 5vw, 72px) 0px'),
+            section([head, cards], '3. Upcoming events — card view (MEC grid)', bg='white')]
 
 # ---------------------------------------------------------------- GIVE
 def give():
