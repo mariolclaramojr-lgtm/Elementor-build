@@ -1,0 +1,50 @@
+/* Hayford Event Cards — [hf_event_cards]
+   Uses the site's global tokens (var(--hf-…), defined in Theme Options › CSS); fallbacks = current live values.
+   Card language matches the Sermon Manager cards and search result cards: white, 22px radius, soft shadow, lift on hover. */
+.hf-ec{--hf-ec-cols:3;--hf-ec-ink:var(--hf-ink,#0e1013);--hf-ec-soft:var(--hf-ink-soft,#4a505a);--hf-ec-muted:var(--hf-muted,#8a909a);--hf-ec-accent:var(--hf-accent,#3b55e6);--hf-ec-line:var(--hf-line,rgba(14,16,19,.1));--hf-ec-white:var(--hf-white,#fff);--hf-ec-sand:var(--hf-sand,#e9ebef);--hf-ec-body:var(--hf-font-body,"DM Sans",sans-serif);--hf-ec-head:var(--hf-font-head,"Manrope",sans-serif);--hf-ec-radius:var(--hf-radius,22px);--hf-ec-ease:var(--hf-ease,cubic-bezier(.2,.7,.2,1));width:100%;font-family:var(--hf-ec-body)}
+.hf-ec .hf-ec-grid{display:grid;grid-template-columns:repeat(var(--hf-ec-cols),minmax(0,1fr));gap:20px;margin:0;padding:0;list-style:none}
+.hf-ec .hf-ec-item{display:flex;margin:0;padding:0;list-style:none}
+.hf-ec .hf-ec-item::before,.hf-ec .hf-ec-meta li::before{content:none}
+
+/* card */
+.hf-ec .hf-ec-card{position:relative;display:flex;flex-direction:column;width:100%;overflow:hidden;border-radius:var(--hf-ec-radius);background:var(--hf-ec-white);box-shadow:0 1px 2px color-mix(in srgb,var(--hf-ec-ink) 4%,transparent),0 18px 40px -18px color-mix(in srgb,var(--hf-ec-ink) 18%,transparent);transition:transform .4s var(--hf-ec-ease),box-shadow .4s var(--hf-ec-ease)}
+.hf-ec .hf-ec-card:hover{transform:translateY(-4px);box-shadow:0 1px 2px color-mix(in srgb,var(--hf-ec-ink) 4%,transparent),0 28px 50px -22px color-mix(in srgb,var(--hf-ec-ink) 28%,transparent)}
+.hf-ec .hf-ec-card:has(.hf-ec-title a:focus-visible){outline:2px solid var(--hf-ec-accent);outline-offset:3px}
+
+/* photo + date badge */
+.hf-ec .hf-ec-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--hf-ec-sand)}
+.hf-ec .hf-ec-media img{display:block;width:100%;height:100%;max-width:none;margin:0;border-radius:0;object-fit:cover;transition:transform .9s var(--hf-ec-ease)}
+.hf-ec .hf-ec-card:hover .hf-ec-media img{transform:scale(1.045)}
+.hf-ec .hf-ec-badge{position:absolute;top:16px;left:16px;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:60px;padding:10px 10px 9px;border-radius:var(--hf-radius-sm,14px);background:var(--hf-ec-white);box-shadow:0 12px 26px -12px rgba(9,10,13,.5);line-height:1;text-align:center}
+.hf-ec .hf-ec-badge-m{display:block;padding-left:.2em;font:700 10.5px/1 var(--hf-ec-body);letter-spacing:.2em;text-transform:uppercase;color:var(--hf-ec-accent)}
+.hf-ec .hf-ec-badge-d{display:block;margin-top:6px;font:800 27px/1 var(--hf-ec-head);letter-spacing:-.04em;color:var(--hf-ec-ink)}
+.hf-ec .hf-ec-card--noimg .hf-ec-badge{position:static;align-self:flex-start;margin:0 0 20px;background:color-mix(in srgb,var(--hf-ec-accent) 8%,transparent);box-shadow:none}
+
+/* body */
+.hf-ec .hf-ec-body{display:flex;flex:1 1 auto;flex-direction:column;padding:24px 28px 26px}
+.hf-ec .hf-ec-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
+.hf-ec .hf-ec-cat{display:inline-flex;padding:6px 12px;border-radius:999px;background:color-mix(in srgb,var(--hf-ec-accent) 8%,transparent);font:700 10.5px/1.2 var(--hf-ec-body);letter-spacing:.16em;text-transform:uppercase;color:var(--hf-ec-accent)}
+.hf-ec .hf-ec-repeat{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1.2 var(--hf-ec-body);color:var(--hf-ec-muted)}
+.hf-ec .hf-ec-repeat .hf-ec-icon{width:13px;height:13px}
+.hf-ec .hf-ec-title{margin:0 0 14px;padding:0;font:800 clamp(21px,1.7vw,24px)/1.18 var(--hf-ec-head);letter-spacing:-.03em;text-transform:none;color:var(--hf-ec-ink)}
+.hf-ec .hf-ec-title a{color:inherit;text-decoration:none;transition:color .2s}
+.hf-ec .hf-ec-title a::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit}
+.hf-ec .hf-ec-title a:focus{outline:0}
+.hf-ec .hf-ec-card:hover .hf-ec-title a{color:var(--hf-ec-accent)}
+.hf-ec .hf-ec-meta{display:grid;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.hf-ec .hf-ec-meta li{display:flex;align-items:flex-start;gap:10px;margin:0;padding:0;font:500 14px/1.45 var(--hf-ec-body);color:var(--hf-ec-soft)}
+.hf-ec .hf-ec-meta .hf-ec-icon{flex:none;width:16px;height:16px;margin-top:1px;color:var(--hf-ec-accent)}
+.hf-ec .hf-ec-excerpt{display:-webkit-box;margin:0;overflow:hidden;font:400 15px/1.7 var(--hf-ec-body);color:var(--hf-ec-soft);-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.hf-ec .hf-ec-foot{margin-top:auto;padding-top:22px}
+.hf-ec .hf-ec-more{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--hf-ec-line);font:700 11.5px/1 var(--hf-ec-body);letter-spacing:.14em;text-transform:uppercase;color:var(--hf-ec-ink)}
+.hf-ec .hf-ec-chip{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--hf-ec-ink);color:var(--hf-ec-white);transition:background .3s var(--hf-ec-ease),transform .3s var(--hf-ec-ease)}
+.hf-ec .hf-ec-chip .hf-ec-icon{width:14px;height:14px}
+.hf-ec .hf-ec-card:hover .hf-ec-chip{background:var(--hf-ec-accent);transform:translateX(3px)}
+
+/* empty state */
+.hf-ec .hf-ec-empty{margin:0;padding:28px 32px;border-radius:var(--hf-ec-radius);background:var(--hf-ec-white);font:600 15.5px/1.6 var(--hf-ec-body);color:var(--hf-ec-soft);box-shadow:0 18px 40px -18px color-mix(in srgb,var(--hf-ec-ink) 18%,transparent)}
+
+/* tablet 2 columns, mobile 1 (same breakpoints as the Cornerstone grids: md ≤ 978px, sm ≤ 767px) */
+@media (max-width:978px){.hf-ec .hf-ec-grid{grid-template-columns:repeat(min(var(--hf-ec-cols),2),minmax(0,1fr))}}
+@media (max-width:767px){.hf-ec .hf-ec-grid{grid-template-columns:minmax(0,1fr);gap:16px}.hf-ec .hf-ec-body{padding:22px 24px 24px}}
+@media (prefers-reduced-motion:reduce){.hf-ec .hf-ec-card,.hf-ec .hf-ec-media img,.hf-ec .hf-ec-chip{transition:none}.hf-ec .hf-ec-card:hover{transform:none}.hf-ec .hf-ec-card:hover .hf-ec-media img{transform:none}}
