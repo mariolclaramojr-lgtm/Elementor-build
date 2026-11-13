@@ -85,3 +85,7 @@ Vimeo, LinkedIn, Pinterest, WhatsApp, SoundCloud, RSS) shows only when its Theme
 ## Favicon
 Set via global JS (Theme Options › JS, global.js): adds favicon + apple-touch-icon pointing to media 540 on every page.
 Recommended permanent fix: Appearance › Customize › Site Identity › Site Icon › hayford-site-icon.png (the JS steps aside automatically once that is set).
+
+## Logo (2026-11-13)
+Sprout-in-arch mark + "Hayford" (Fraunces) / CHURCH (DM Sans). Vector files in hayford-redesign/logo/. Site PNGs (2x per display size,
+because Pro caps a scaling image at half its pixel height): white 40/34/52 = media 675/676/677, dark 40/34 = 678/679, site icon 674.

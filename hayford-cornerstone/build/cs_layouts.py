@@ -9,10 +9,14 @@ MENUS = json.load(open(f'{SP}/cs/menus.json'))
 LOGO_WHITE, LOGO_DARK = '538:full', '539:full'
 SEARCH = json.load(open(f'{SP}/cs/searchmodal.json'))
 
-LOGO_IDS = {'538:full': {34: '588:full', 30: '588:full', 46: '590:full'}, '539:full': {34: '589:full', 30: '589:full'}}
+# Sprout logo. One PNG per display size (2x for retina): Pro caps a scaling image at half its pixel height.
+LOGO_SIZE = {34: 40, 30: 34, 46: 52}
+LOGO_IDS = {('538:full', 40): '675:full', ('538:full', 34): '676:full', ('538:full', 52): '677:full',
+            ('539:full', 40): '678:full', ('539:full', 34): '679:full'}
 def logo(src, height=34):
-    src = LOGO_IDS.get(src, {}).get(height, src)
-    w = int(296 * height / 68) if height != 46 else 200
+    height = LOGO_SIZE.get(height, height)
+    src = LOGO_IDS.get((src, height), src)
+    w = round(height * 214 / 58)
     return el('image', image_src=src, image_type='scaling', image_width=w, image_height=height, image_max_width=f'{w}px',
               image_link=True, image_href='/', image_alt='Hayford Church', image_retina=True,
               image_box_shadow_dimensions='0em 0em 0em 0em', image_border_width='0px')
@@ -177,7 +181,7 @@ def col(mods, flex, label):
     return div(mods, _label=label, layout_div_flex=flex, layout_div_min_width='180px')
 
 def footer_regions():
-    brand = col([div([logo(LOGO_WHITE, 46)], _label='Logo', layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_flex_align='center', layout_div_height='46px'),
+    brand = col([div([logo(LOGO_WHITE, 46)], _label='Logo', layout_div_flexbox=True, layout_div_flex_direction='row', layout_div_flex_align='center', layout_div_height='52px'),
                  T('A place to belong. A faith to grow. We would love to welcome you and your family this weekend.',
                    color='white', size='15px', lh='1.75', text_max_width='320px', text_margin='24px 0px 0px 0px', effects_opacity='0.62'),
                  div(social_links(), _label='Social (Theme Options)',
