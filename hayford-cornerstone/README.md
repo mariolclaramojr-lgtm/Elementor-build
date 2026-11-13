@@ -90,6 +90,20 @@ Recommended permanent fix: Appearance › Customize › Site Identity › Site I
 Sprout-in-arch mark + "Hayford" (Fraunces) / CHURCH (DM Sans). Vector files in hayford-redesign/logo/. Site PNGs (2x per display size,
 because Pro caps a scaling image at half its pixel height): white 40/34/52 = media 675/676/677, dark 40/34 = 678/679, site icon 674.
 
-## Events card view (2026-11-13)
-Events page section 3: `[MEC id="680"]` = MEC Grid skin, classic style, 3 columns, upcoming only, 6 events. Styled by global CSS section 4b
+## Event cards (2026-11-13)
+Events page (63) gets a 3-column card grid of upcoming events **below** the calendar: section "3. Upcoming events (cards)"
+(`#upcoming-events`, `build/cs_pages.py` `events()`): "Mark your calendar" eyebrow + "Upcoming *Events*" heading, then a Raw Content
+element with `[hf_event_cards count="6" columns="3"]`.
+- The shortcode comes from the small site plugin **Hayford Event Cards** (`plugin/hayford-event-cards/`, upload `plugin/hayford-event-cards.zip`
+  at Plugins › Add New › Upload). CSS ships with the plugin (`assets/event-cards.css`) and uses the global `var(--hf-…)` tokens.
+- Data: MEC's occurrence table (`{prefix}mec_dates`), so cards are ordered by next occurrence; a repeating event shows once with its next
+  date and an "Every Sunday"-style label, linking to `?occurrence=Y-m-d`. Featured image (16:10), date badge, category pill, date + time,
+  location (MEC location), 22-word excerpt, "Event details". Whole card is the link.
+- Attributes: `count` (6, max 24), `columns` (3; 1–4 — tablet ≤978px caps at 2, mobile ≤767px is 1), `category` (mec_category slugs/names/ids,
+  comma-separated), `excerpt` (words, 0 hides), `group` ("no" = one card per occurrence), `image` ("no" hides photos), `heading` (h2/h3/h4), `class`.
+- Usable anywhere (pages, Global Blocks, homepage): e.g. `[hf_event_cards count="3" category="worship"]`.
+
+## Events card view — MEC grid alternative (2026-11-13)
+Plugin-free alternative to `[hf_event_cards]` (the Events page uses the plugin; swap the Raw Content shortcode to fall back):
+`[MEC id="680"]` = MEC Grid skin, classic style, 3 columns, upcoming only, 6 events. Styled by global CSS section 4b
 (3 / 2 / 1 columns on desktop / tablet / phone). Edit count/limit in MEC › Shortcodes › "Upcoming Events — 3-column cards".
