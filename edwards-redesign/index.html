@@ -355,5 +355,57 @@
   items.forEach(function (el) { io.observe(el); });
 })();
 </script>
+<!-- PREVIEW ONLY: colour picker (remove before build) -->
+<div class="picker collapsed" id="picker">
+  <button class="picker-toggle" type="button" aria-expanded="false">Colour picker <span class="chips"><i data-chip="accent"></i><i data-chip="label"></i></span></button>
+  <div class="picker-body">
+    <div class="pick" data-key="accent" data-default="#CF4C00" data-swatches="#CF4C00,#E05A00,#B8460A,#D9822B,#C8922E,#B5523B,#A23B2A,#2F7DBF">
+      <span class="pick-label">Accent colour<small>Buttons, highlighted heading words, labels, icons</small></span>
+      <div class="pick-row"><input type="color" id="pick-accent" aria-label="Accent colour"><input type="text" id="pick-accent-hex" aria-label="Accent hex value" maxlength="7"><button type="button" class="reset">Reset</button></div>
+      <div class="swatches"></div>
+    </div>
+    <div class="pick" data-key="label" data-default="#CF4C00" data-swatches="#CF4C00,#F07A33,#F59E5B,#F3B27A,#FFFFFF,#E6E9EE,#C9D1D9">
+      <span class="pick-label">Small labels on dark backgrounds<small>"Love God. Love People.", "Church", "Service Times", footer titles</small></span>
+      <div class="pick-row"><input type="color" id="pick-label" aria-label="Label colour"><input type="text" id="pick-label-hex" aria-label="Label hex value" maxlength="7"><button type="button" class="reset">Reset</button></div>
+      <div class="swatches"></div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement, box = document.getElementById('picker'), toggle = box.querySelector('.picker-toggle');
+  function rgb(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }).join(', '); }
+  function valid(h) { return /^#[0-9a-f]{6}$/i.test(h); }
+  function set(key, hex) {
+    hex = hex.toUpperCase();
+    if (key === 'accent') {
+      root.style.setProperty('--accent', hex); root.style.setProperty('--accent-light', hex);
+      root.style.setProperty('--accent-light-rgb', rgb(hex)); root.style.setProperty('--rule-dark', 'rgba(' + rgb(hex) + ', .28)');
+    } else { root.style.setProperty('--label-on-dark', hex); }
+    var pick = box.querySelector('.pick[data-key="' + key + '"]');
+    pick.querySelector('input[type="color"]').value = hex.toLowerCase();
+    var t = pick.querySelector('input[type="text"]'); if (document.activeElement !== t) t.value = hex;
+    pick.querySelectorAll('.swatches button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.hex === hex); });
+    box.querySelector('[data-chip="' + key + '"]').style.background = hex;
+    try { localStorage.setItem('edwards-pick-' + key, hex); } catch (e) {}
+  }
+  box.querySelectorAll('.pick').forEach(function (pick) {
+    var key = pick.dataset.key, def = pick.dataset.default, sw = pick.querySelector('.swatches');
+    pick.dataset.swatches.split(',').forEach(function (h) {
+      var b = document.createElement('button'); b.type = 'button'; b.dataset.hex = h; b.style.background = h; b.title = h; b.setAttribute('aria-label', h);
+      b.addEventListener('click', function () { set(key, h); }); sw.appendChild(b);
+    });
+    pick.querySelector('input[type="color"]').addEventListener('input', function (e) { set(key, e.target.value); });
+    var t = pick.querySelector('input[type="text"]');
+    t.addEventListener('input', function () { var v = t.value.trim(); if (v[0] !== '#') v = '#' + v; if (valid(v)) set(key, v); });
+    t.addEventListener('blur', function () { t.value = pick.querySelector('input[type="color"]').value.toUpperCase(); });
+    pick.querySelector('.reset').addEventListener('click', function () { set(key, def); });
+    var saved = null; try { saved = localStorage.getItem('edwards-pick-' + key); } catch (e) {}
+    set(key, valid(saved || '') ? saved : def);
+  });
+  toggle.addEventListener('click', function () { var open = box.classList.toggle('collapsed') === false; toggle.setAttribute('aria-expanded', open); });
+})();
+</script>
+
 </body>
 </html>
