@@ -247,8 +247,14 @@ p { margin: 0; max-width: 62ch; }
   animation: heroZoom 14s var(--ease) both;
 }
 @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
-/* No colour overlay on the hero video; a soft text shadow keeps the copy readable */
-.hero h1, .hero .eyebrow, .site-header:not(.scrolled) .nav a:not(.btn), .site-header:not(.scrolled) .logo-text { text-shadow: 0 2px 18px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.35); }
+/* Neutral black overlay on the hero video (no colour tint) */
+.hero::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 48%, rgba(0,0,0,.42) 0%, rgba(0,0,0,.6) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.6) 100%);
+}
 .hero-content {
   flex: 1;
   display: grid;
@@ -273,7 +279,7 @@ p { margin: 0; max-width: 62ch; }
 .hero-content > :nth-child(4) { animation-delay: .6s; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 
-.hero-times { background: rgba(var(--shade-rgb), .5); backdrop-filter: blur(8px); }
+.hero-times { background: rgba(0,0,0,.45); backdrop-filter: blur(8px); }
 .hero-times .wrap {
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   gap: .5rem 2.5rem;
