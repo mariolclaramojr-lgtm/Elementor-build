@@ -17,7 +17,7 @@
     2. Welcome Home      — 2/3 justified 7-photo gallery (opens a lightbox) left, 1/3 text + button right
     3. Find Connection   — intro (heading, text, button) left, 3 aligned ministry image cards right
     4. Watch Us Live     — heading + text, 2 buttons, service facts, live-stream tile
-    5. Service Times     — heading + button, 2x2 details ledger (times, email, location, phone), Google Map
+    5. Plan Your Visit   — heading + intro, 2x2 detail cards (times, location, email, phone), 2 buttons | Google Map
     6. Footer            — background image; invite + buttons, logo/social, menus, service times, contact, credit
 
   Interactions: header turns solid on scroll, hero load sequence, image curtain reveals,
@@ -124,14 +124,14 @@
           <span class="ministry-text">Gathered around God's Word.</span>
         </span>
       </a>
-      <a href="connect.html" class="ministry reveal d1">
+      <a href="connect.html" class="ministry reveal">
         <img src="ministry-family.jpg" alt="" width="1000" height="667" loading="lazy">
         <span class="ministry-body">
           <span class="ministry-title">Community</span>
           <span class="ministry-text">For every stage of life.</span>
         </span>
       </a>
-      <a href="connect.html" class="ministry reveal d2">
+      <a href="connect.html" class="ministry reveal">
         <img src="ministry-christ.jpg" alt="" width="1000" height="667" loading="lazy">
         <span class="ministry-body">
           <span class="ministry-title">Discipleship</span>
@@ -173,48 +173,47 @@
   </div>
 </section>
 
-<!-- ======================= 5. SERVICE TIMES & CONTACT ======================= -->
+<!-- ======================= 5. PLAN YOUR VISIT — details cards + map ======================= -->
 <section class="section" aria-labelledby="visit-title">
-  <div class="wrap visit-grid">
-    <div class="visit-intro text-stack">
-      <span class="eyebrow reveal">Plan Your Visit</span>
-      <h2 id="visit-title" class="reveal d1">Join us <em>this week</em></h2>
-      <p class="lead-serif reveal d2">We can't wait to meet you.</p>
-      <a href="plan-your-visit.html" class="btn btn-primary reveal d3">Plan Your Visit
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="ledger">
-      <div class="ledger-item reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        <h3>Service Times</h3>
-        <div class="detail">Sundays at 10am<br>Wednesday at 7pm</div>
+  <div class="wrap visit">
+    <div class="visit-info">
+      <div class="text-stack">
+        <span class="eyebrow reveal">Plan Your Visit</span>
+        <h2 id="visit-title" class="reveal d1">Join us <em>this week</em></h2>
+        <p class="reveal d2">We can't wait to meet you. Here's everything you need for your first visit.</p>
       </div>
-      <div class="ledger-item reveal d1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>
-        <h3>Email</h3>
-        <div class="detail"><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></div>
+      <div class="info-grid">
+        <div class="info-card reveal ">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <h3>Service Times</h3>
+          <div class="detail">Sundays at 10am<br>Wednesday at 7pm</div>
+        </div>
+        <div class="info-card reveal d1">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <h3>Location</h3>
+          <div class="detail">1234 Street<br>My Town, XX 12345</div>
+        </div>
+        <div class="info-card reveal d2">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <h3>Email</h3>
+          <div class="detail"><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></div>
+        </div>
+        <div class="info-card reveal d3">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span>
+          <h3>Phone</h3>
+          <div class="detail"><a href="tel:5555555555">(555) 555-5555</a></div>
+        </div>
       </div>
-      <div class="ledger-item reveal d2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <h3>Location</h3>
-        <div class="detail">1234 Street<br>My Town, XX 12345</div>
-      </div>
-      <div class="ledger-item reveal d3">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>
-        <h3>Phone</h3>
-        <div class="detail"><a href="tel:5555555555">(555) 555-5555</a></div>
+      <div class="visit-actions reveal">
+        <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Franklin,+TN" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
       </div>
     </div>
     <!-- Google Maps embed (Cornerstone: Map element / Elementor: Google Maps widget). Placeholder location: swap Franklin, TN for the church address. -->
     <div class="map reveal">
       <div class="map-fallback"><strong>Map</strong><span>1234 Street, My Town, XX 12345</span></div>
       <iframe title="Map to Edwards Church" src="https://maps.google.com/maps?q=Franklin,+TN&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      <div class="map-card">
-        <span class="k">Find Us</span>
-        <strong>1234 Street<br>My Town, XX 12345</strong>
-        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Franklin,+TN" target="_blank" rel="noopener">Get Directions
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
     </div>
   </div>
 </section>
