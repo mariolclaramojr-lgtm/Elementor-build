@@ -163,14 +163,8 @@ p { margin: 0; max-width: 62ch; }
   padding-block: 1.7rem;
   transition: padding .5s var(--ease);
 }
-.site-header::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-  background: rgba(255,255,255,.14);
-  transition: opacity .5s var(--ease);
-}
 .site-header.scrolled { background: rgba(34, 45, 56, .94); backdrop-filter: blur(12px); box-shadow: 0 10px 30px -18px rgba(0,0,0,.6); }
 .site-header.scrolled .wrap { padding-block: .95rem; }
-.site-header.scrolled::after { opacity: 0; }
 
 /* Logo: square monogram + spaced wordmark */
 .logo { display: inline-flex; align-items: center; gap: .95rem; text-decoration: none; color: #fff; }
@@ -254,13 +248,6 @@ p { margin: 0; max-width: 62ch; }
     radial-gradient(ellipse 70% 60% at 50% 48%, rgba(34,45,56,.5) 0%, rgba(34,45,56,.72) 100%),
     linear-gradient(180deg, rgba(34,45,56,.55) 0%, rgba(34,45,56,0) 30%, rgba(34,45,56,.75) 100%);
 }
-/* thin accent frame inset into the hero */
-.hero-frame {
-  position: absolute; z-index: -1;
-  inset: clamp(96px, 12vh, 120px) clamp(16px, 3vw, 40px) clamp(88px, 11vh, 104px);
-  border: 1px solid var(--rule-dark);
-  pointer-events: none;
-}
 .hero-content {
   flex: 1;
   display: grid;
@@ -285,7 +272,7 @@ p { margin: 0; max-width: 62ch; }
 .hero-content > :nth-child(4) { animation-delay: .6s; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 
-.hero-times { border-top: 1px solid rgba(255,255,255,.14); background: rgba(34,45,56,.5); backdrop-filter: blur(8px); }
+.hero-times { background: rgba(34,45,56,.5); backdrop-filter: blur(8px); }
 .hero-times .wrap {
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   gap: .5rem 2.5rem;
@@ -321,37 +308,31 @@ html.js .reveal.in { opacity: 1; transform: none; }
 html.js .reveal.d1 { transition-delay: .1s; } html.js .reveal.d2 { transition-delay: .2s; }
 html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-delay: .4s; }
 
-/* ======================= 2. WELCOME HOME — full-bleed split ======================= */
+/* ======================= 2. WELCOME HOME — text + image ======================= */
 .welcome {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  min-height: 820px;
-  background: var(--paper);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
 }
-.welcome-media { position: relative; min-height: 420px; }
-.welcome-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.welcome .text-stack p { color: var(--text-soft); }
+.welcome-media { position: relative; padding: 0 0 3rem 3rem; }
 .welcome-media::before {
-  content: ""; position: absolute; z-index: 3; inset: clamp(16px, 2.2vw, 32px);
-  border: 1px solid rgba(255,255,255,.6);
-  pointer-events: none;
+  content: ""; position: absolute; left: 0; bottom: 0; width: 70%; height: 70%;
+  background: var(--mist);
 }
-.welcome-media:hover img { transform: scale(1.04); }
-.welcome-text {
-  display: grid; align-content: center;
-  padding-block: var(--section);
-  padding-left: clamp(28px, 7vw, 120px);
-  padding-right: max(24px, calc((100vw - var(--wrap)) / 2), env(safe-area-inset-right, 0px));
+.welcome-photo { position: relative; }
+.welcome-photo img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
+.welcome-photo:hover img { transform: scale(1.04); }
+.welcome-card {
+  position: absolute; z-index: 3; right: 1.5rem; bottom: 0;
+  display: grid; gap: .2rem;
+  background: var(--ink); color: #fff;
+  padding: 1.4rem 1.7rem;
+  box-shadow: var(--shadow);
 }
-.welcome-text p { color: var(--text-soft); }
-.welcome-times {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%; max-width: 30rem;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-}
-.welcome-times div { display: grid; gap: .15rem; padding: 1.1rem 0; }
-.welcome-times div + div { border-left: 1px solid var(--rule); padding-left: 1.6rem; }
-.welcome-times .k { font-size: .66rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
-.welcome-times .v { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1.1; color: var(--ink); font-variant-numeric: lining-nums; }
+.welcome-card .k { font-size: .66rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); margin-bottom: .3rem; }
+.welcome-card .v { font-weight: 600; font-size: 1.05rem; }
 
 /* ======================= 3. FIND CONNECTION — intro + 3 aligned ministry cards ======================= */
 .connect-grid {
@@ -535,15 +516,12 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .nav a:not(.btn)::after { display: none; }
   .nav .btn { margin-top: 1.3rem; justify-content: center; }
   .welcome, .live-grid, .visit-grid { grid-template-columns: minmax(0, 1fr); }
-  .welcome { min-height: 0; }
-  .welcome-media { aspect-ratio: 16 / 10; min-height: 0; }
-  .welcome-text { padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+  .welcome-media { padding: 0 0 2.5rem 1.5rem; }
   .visit-intro { position: static; }
   .footer-top { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
   .hero-content { padding-top: 8.5rem; padding-bottom: 3.5rem; }
-  .hero-frame { display: none; }
   .hero-times .wrap { gap: .4rem 1.2rem; font-size: .82rem; }
   .ministries { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .ministry { aspect-ratio: 4 / 3; }

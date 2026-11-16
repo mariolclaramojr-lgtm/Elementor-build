@@ -14,7 +14,7 @@
   EDWARDS — REDESIGN MOCKUP v2 (classic & trustworthy)
   Same sections as the original home page (header floats over the hero):
     1. Hero              — background video (client-supplied), static centred 2-line heading, 2 buttons, service-times strip
-    2. Welcome Home      — full-bleed split: edge-to-edge photo + heading, text, service times, button
+    2. Welcome Home      — text + button left, photo with service-times card right
     3. Find Connection   — intro (heading, text, button) + 3 aligned ministry image cards
     4. Watch Us Live     — heading + text, 2 buttons, service facts, live-stream tile
     5. Service Times     — heading + button, 2x2 details ledger (times, email, location, phone)
@@ -60,7 +60,6 @@
       <source src="hero.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="hero-frame" aria-hidden="true"></div>
 
   <div class="wrap hero-content">
     <span class="eyebrow eyebrow-center">Love God. Love People.</span>
@@ -84,23 +83,26 @@
   </div>
 </section>
 
-<!-- ======================= 2. WELCOME HOME — full-bleed split ======================= -->
-<section class="welcome" aria-labelledby="welcome-title">
-  <div class="welcome-media reveal-img">
-    <img src="welcome.jpg" alt="Sunlit sanctuary with wooden pews and a vaulted timber ceiling" width="1800" height="1200" loading="lazy">
-  </div>
-  <div class="welcome-text">
+<!-- ======================= 2. WELCOME HOME — text + image ======================= -->
+<section class="section" aria-labelledby="welcome-title">
+  <div class="wrap welcome">
     <div class="text-stack">
       <span class="eyebrow reveal">Welcome Home</span>
       <h2 id="welcome-title" class="reveal d1">We are so glad <em>you're here.</em></h2>
       <p class="reveal d2">We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us.</p>
       <p class="reveal d2">The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
-      <div class="welcome-times reveal d3">
-        <div><span class="k">Sundays</span><span class="v">10am</span></div>
-        <div><span class="k">Wednesday</span><span class="v">7pm</span></div>
-      </div>
-      <a href="plan-your-visit.html" class="btn btn-primary reveal d4">Plan Your Visit
+      <a href="plan-your-visit.html" class="btn btn-primary reveal d3">Plan Your Visit
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="welcome-media">
+      <div class="welcome-photo reveal-img">
+        <img src="welcome.jpg" alt="Sunlit sanctuary with wooden pews and a vaulted timber ceiling" width="1800" height="1200" loading="lazy">
+      </div>
+      <div class="welcome-card reveal d3">
+        <span class="k">Service Times</span>
+        <span class="v">Sundays at 10am</span>
+        <span class="v">Wednesday at 7pm</span>
+      </div>
     </div>
   </div>
 </section>
