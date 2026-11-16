@@ -6,11 +6,11 @@
    Tokens below become Cornerstone / Elementor Global Colors & Global Fonts.
    ========================================================================== */
 :root {
-  /* Color — Slate blue & terracotta */
+  /* Color — Slate blue & orange */
   --ink:          #2F3E4C;  /* Slate blue — headings, dark bands, buttons */
   --ink-deep:     #222D38;  /* Deep slate — footer, overlays              */
-  --accent:       #AD5B41;  /* Terracotta — accent on light backgrounds   */
-  --accent-light: #E39A7F;  /* Terracotta on dark backgrounds             */
+  --accent:       #CF4C00;  /* Orange — accent on light backgrounds       */
+  --accent-light: #CF4C00;  /* Orange on dark backgrounds                 */
   --mist:         #EEF0F1;  /* Cool grey — alternate light band           */
   --paper:        #FFFFFF;  /* Page                                       */
   --text:         #26303A;  /* Body copy on light                         */
@@ -19,7 +19,7 @@
   --on-dark-soft: #A9B4BE;  /* Secondary copy on dark                     */
   --rule:         #DADFE3;  /* Hairlines on light                         */
   --shade-rgb:    34, 45, 56;     /* = --ink-deep, for overlays        */
-  --accent-light-rgb: 227, 154, 127; /* = --accent-light, for tints    */
+  --accent-light-rgb: 207, 76, 0; /* = --accent-light, for tints    */
   --rule-dark:    rgba(var(--accent-light-rgb), .28); /* Hairlines on dark          */
 
   /* Type */
@@ -58,7 +58,7 @@ body {
 img, video { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent-light); outline-offset: 3px; }
-::selection { background: var(--accent-light); color: var(--ink-deep); }
+::selection { background: var(--accent); color: #fff; }
 
 .wrap {
   width: 100%;
@@ -135,7 +135,8 @@ p { margin: 0; max-width: 62ch; }
 .btn:hover svg { transform: translateX(4px); }
 .btn-primary { background: var(--ink); color: #fff; }
 .btn-primary::before { background: var(--accent); }
-.btn-accent { background: var(--accent-light); color: var(--ink-deep); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { color: var(--ink-deep); }
 .btn-accent::before { background: #fff; }
 .btn-outline { border-color: var(--ink); color: var(--ink); }
 .btn-outline::before { background: var(--ink); }
@@ -185,7 +186,7 @@ p { margin: 0; max-width: 62ch; }
   transition: background-color .4s var(--ease), color .4s var(--ease);
 }
 .logo-mark::after { content: ""; position: absolute; inset: 4px; border: 1px solid var(--rule-dark); }
-.logo:hover .logo-mark { background: var(--accent-light); color: var(--ink-deep); }
+.logo:hover .logo-mark { background: var(--accent); color: #fff; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: .22em; text-transform: uppercase; }
 .logo-sub { font-size: .58rem; font-weight: 600; letter-spacing: .5em; text-transform: uppercase; color: var(--accent-light); margin-top: .4rem; }
@@ -218,7 +219,7 @@ p { margin: 0; max-width: 62ch; }
   transition: background-color .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
 }
 .nav .nav-social a::after { display: none; }
-.nav .nav-social a:hover { background: var(--accent-light); border-color: var(--accent-light); color: var(--ink-deep); }
+.nav .nav-social a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 .nav-social svg { width: 15px; height: 15px; }
 .menu-toggle {
   display: none;
@@ -463,7 +464,7 @@ html.js .ministry.reveal { transition: opacity 1s var(--ease), transform 1s var(
   border-radius: 50%;
   display: grid; place-items: center;
   background: rgba(var(--accent-light-rgb), .92);
-  color: var(--ink-deep);
+  color: #fff;
   transition: transform .5s var(--ease), background-color .4s var(--ease);
 }
 .play::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 1px solid rgba(var(--accent-light-rgb), .5); animation: ring 2.6s var(--ease) infinite; }
@@ -554,7 +555,7 @@ html.js .ministry.reveal { transition: opacity 1s var(--ease), transform 1s var(
 .footer ul a:hover { color: var(--accent-light); padding-left: .4rem; }
 .social { display: flex; gap: .7rem; margin-top: 1.6rem; }
 .social a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease); }
-.social a:hover { background: var(--accent-light); border-color: var(--accent-light); color: var(--ink-deep); }
+.social a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 .social svg { width: 17px; height: 17px; }
 .footer-bottom { background: rgba(0,0,0,.18); }
 .footer-bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; font-size: .82rem; }
