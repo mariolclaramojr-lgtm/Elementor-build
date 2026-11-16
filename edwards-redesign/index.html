@@ -8,14 +8,14 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <!--
   EDWARDS — REDESIGN MOCKUP v2 (classic & trustworthy)
   Same sections as the original home page (header floats over the hero):
-    1. Hero              — background video (client-supplied), static centred heading, 2 buttons, service-times strip
-    2. Welcome Home      — heading + subheading + text + button, two-photo collage with service badge
-    3. Find Connection   — centred heading + text, cinematic wide image with overlapping panel, 3 ministry cards
+    1. Hero              — background video (client-supplied), static centred 2-line heading, 2 buttons, service-times strip
+    2. Welcome Home      — full-bleed split: edge-to-edge photo + heading, text, service times, button
+    3. Find Connection   — sticky intro (heading, text, button) + 3 tall ministry image cards
     4. Watch Us Live     — heading + text, 2 buttons, service facts, live-stream tile
     5. Service Times     — heading + button, 2x2 details ledger (times, email, location, phone)
     6. Footer            — monogram logo, menu, social icons, credit
@@ -64,8 +64,7 @@
 
   <div class="wrap hero-content">
     <span class="eyebrow eyebrow-center">Love God. Love People.</span>
-    <h1>Where real people can come to grow, be family &amp; <em>find Jesus.</em></h1>
-    <p class="hero-sub">Whoever you are and wherever you're coming from, there is a place for you here.</p>
+    <h1>Where real people<br> <em>find Jesus.</em></h1>
     <div class="hero-actions">
       <a href="plan-your-visit.html" class="btn btn-brass">New Here?
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -85,71 +84,64 @@
   </div>
 </section>
 
-<!-- ======================= 2. WELCOME HOME ======================= -->
-<section class="section" aria-labelledby="welcome-title">
-  <div class="wrap welcome-grid">
+<!-- ======================= 2. WELCOME HOME — full-bleed split ======================= -->
+<section class="welcome" aria-labelledby="welcome-title">
+  <div class="welcome-media reveal-img">
+    <img src="welcome.jpg" alt="Sunlit sanctuary with wooden pews and a vaulted timber ceiling" width="1800" height="1200" loading="lazy">
+  </div>
+  <div class="welcome-text">
     <div class="text-stack">
-      <span class="eyebrow reveal">New Here?</span>
-      <h2 id="welcome-title" class="reveal d1">Welcome <em>Home</em></h2>
-      <p class="lead-serif reveal d2">We are so glad you're here.</p>
-      <p class="reveal d3">We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us. The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
+      <span class="eyebrow reveal">Welcome Home</span>
+      <h2 id="welcome-title" class="reveal d1">We are so glad <em>you're here.</em></h2>
+      <p class="reveal d2">We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us.</p>
+      <p class="reveal d2">The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
+      <div class="welcome-times reveal d3">
+        <div><span class="k">Sundays</span><span class="v">10am</span></div>
+        <div><span class="k">Wednesday</span><span class="v">7pm</span></div>
+      </div>
       <a href="plan-your-visit.html" class="btn btn-primary reveal d4">Plan Your Visit
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="collage">
-      <div class="collage-main reveal-img">
-        <img src="welcome.jpg" alt="Sunlit sanctuary with wooden pews and a vaulted timber ceiling" width="1400" height="933" loading="lazy">
-      </div>
-      <div class="collage-inset reveal-img">
-        <img src="welcome-2.jpg" alt="Four friends with their arms around each other at sunset" width="1000" height="667" loading="lazy">
-      </div>
-      <div class="collage-badge reveal d3">
-        <span class="label">Sundays</span>
-        <span class="value">10</span>
-        <span class="unit">o'clock</span>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= 3. FIND CONNECTION ======================= -->
+<!-- ======================= 3. FIND CONNECTION — sticky intro + ministry image cards ======================= -->
 <section class="section section-mist" aria-labelledby="connect-title">
-  <div class="wrap">
-    <div class="connect-head">
-      <span class="eyebrow eyebrow-center reveal">Ministries</span>
+  <div class="wrap connect-grid">
+    <div class="connect-intro text-stack">
+      <span class="eyebrow reveal">Ministries</span>
       <h2 id="connect-title" class="reveal d1">Find <em>Connection</em></h2>
       <p class="reveal d2">We offer several opportunities for you and your family to get involved in ministries at our church designed to grow and strengthen your faith alongside others.</p>
+      <p class="reveal d2">It's our desire to create environments where other people in the same stages and phases of life can develop authentic relationships with one another while being encouraged to grab hold of how God's truth intersects with and impacts their lives.</p>
+      <a href="connect.html" class="btn btn-outline reveal d3">Our Ministries
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-
-    <div class="connect-stage">
-      <div class="connect-image reveal-img">
-        <img src="connection.jpg" alt="Small group seated together with open Bibles and notebooks" width="2000" height="1333" loading="lazy">
-      </div>
-      <div class="connect-panel reveal d2">
-        <h3>Authentic relationships, rooted in God's truth</h3>
-        <p>It's our desire to create environments where other people in the same stages and phases of life can develop authentic relationships with one another while being encouraged to grab hold of how God's truth intersects with and impacts their lives.</p>
-        <a href="connect.html" class="btn btn-primary">Our Ministries
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
+    <div class="ministries">
+      <a href="connect.html" class="ministry reveal">
+        <img src="ministry-word.jpg" alt="" width="2000" height="1333" loading="lazy">
+        <span class="ministry-body">
+          <span class="ministry-label">The Word</span>
+          <span class="ministry-title">Gathered around the Word</span>
+          <span class="ministry-text">Our ministry programs all center on gathering as a community around the Word of God.</span>
+        </span>
+      </a>
+      <a href="connect.html" class="ministry reveal d1">
+        <img src="ministry-family.jpg" alt="" width="1000" height="667" loading="lazy">
+        <span class="ministry-body">
+          <span class="ministry-label">Community</span>
+          <span class="ministry-title">Every stage of life</span>
+          <span class="ministry-text">Authentic relationships with others in the same stages and phases of life.</span>
+        </span>
+      </a>
+      <a href="connect.html" class="ministry reveal d2">
+        <img src="ministry-christ.jpg" alt="" width="1000" height="667" loading="lazy">
+        <span class="ministry-body">
+          <span class="ministry-label">Discipleship</span>
+          <span class="ministry-title">Lives modeled after Christ</span>
+          <span class="ministry-text">Living out how God's truth intersects with and impacts our lives.</span>
+        </span>
+      </a>
     </div>
-
-    <ul class="pillars">
-      <li class="pillar reveal">
-        <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg></span>
-        <h3>Gathered around the Word</h3>
-        <p>Our ministry programs all center on gathering as a community around the Word of God.</p>
-      </li>
-      <li class="pillar reveal d1">
-        <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20c.6-3.5 2.8-5.5 5.5-5.5s4.9 2 5.5 5.5M14 14.6c.8-.4 1.6-.6 2.5-.6 2.4 0 4.2 1.8 4.8 5"/></svg></span>
-        <h3>Every stage of life</h3>
-        <p>Grow alongside others in the same stages and phases of life as you.</p>
-      </li>
-      <li class="pillar reveal d2">
-        <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v18M6 9h12"/></svg></span>
-        <h3>Lives modeled after Christ</h3>
-        <p>Encouragement to live out how God's truth shapes every part of life.</p>
-      </li>
-    </ul>
   </div>
 </section>
 
