@@ -34,6 +34,10 @@
   --wrap: 1240px;
   --section: clamp(5rem, 3rem + 7vw, 9.5rem);
   --ease: cubic-bezier(.22, .61, .36, 1);
+  /* Corners */
+  --radius-lg: 18px;  /* photos, cards, map, live tile */
+  --radius-md: 12px;  /* small boxes, overlays          */
+  --radius-sm: 8px;   /* buttons, icon boxes            */
   --shadow: 0 30px 60px -30px rgba(34, 45, 56, .45);
 }
 
@@ -567,6 +571,29 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .to-top:hover { background: var(--accent); color: #fff; }
 .to-top svg { width: 18px; height: 18px; }
 
+
+/* ======================= Soft corners ======================= */
+.btn, .menu-toggle, .nav .btn { border-radius: var(--radius-sm); }
+.logo-mark, .logo-mark::after { border-radius: var(--radius-sm); }
+.logo-mark::after { border-radius: 5px; }
+.gallery-item { border-radius: var(--radius-md); }
+.ministry, .live-screen, .map { border-radius: var(--radius-lg); overflow: hidden; }
+.live-screen img { border-radius: var(--radius-lg); }
+.live-screen .shade { border-radius: var(--radius-lg); }
+.live-screen .c1 { border-top-left-radius: 10px; }
+.live-screen .c2 { border-top-right-radius: 10px; }
+.live-screen .c3 { border-bottom-left-radius: 10px; }
+.live-screen .c4 { border-bottom-right-radius: 10px; }
+.live-badge { border-radius: 999px; }
+.map-card { border-radius: var(--radius-md); }
+.ledger { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--rule); border-top: 3px solid var(--ink); }
+.ledger-item { border-bottom-color: var(--rule); }
+.ledger-item:nth-last-child(-n+2) { border-bottom: 0; }
+.lightbox img { border-radius: var(--radius-md); }
+.lightbox button, .to-top { border-radius: var(--radius-sm); }
+.hero-times { border-radius: 0; }
+.welcome-times, .live-meta { border-radius: 0; }
+
 /* ======================= Responsive ======================= */
 @media (max-width: 1100px) {
   .nav { gap: 1.4rem; }
@@ -607,8 +634,9 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .lb-prev { left: calc(50% - 60px); } .lb-next { right: calc(50% - 60px); }
   .ministry { aspect-ratio: 4 / 3; }
   .ledger { grid-template-columns: minmax(0, 1fr); }
-  .ledger-item { padding: 2rem 0; }
+  .ledger-item { padding: 1.8rem 1.4rem; }
   .ledger-item:nth-child(odd) { border-right: 0; }
+  .ledger-item:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
   .ledger-item:hover { background: none; }
   .map-card { left: .75rem; right: .75rem; top: auto; bottom: .75rem; max-width: none; }
   .live-caption { left: 1.4rem; right: 1.4rem; bottom: 1.3rem; }
