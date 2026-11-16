@@ -9,8 +9,8 @@
   /* Color — Slate blue & amber orange */
   --ink:          #2F3E4C;  /* Slate blue — headings, dark bands, buttons */
   --ink-deep:     #222D38;  /* Deep slate — footer, overlays              */
-  --accent:       #D9822B;  /* Amber orange — accent                      */
-  --accent-light: #D9822B;  /* Amber orange on dark backgrounds           */
+  --accent:       #DB783C;  /* Amber orange — accent                      */
+  --accent-light: #DB783C;  /* Amber orange on dark backgrounds           */
   --mist:         #EEF0F1;  /* Cool grey — alternate light band           */
   --paper:        #FFFFFF;  /* Page                                       */
   --text:         #26303A;  /* Body copy on light                         */
@@ -19,7 +19,7 @@
   --on-dark-soft: #A9B4BE;  /* Secondary copy on dark                     */
   --rule:         #DADFE3;  /* Hairlines on light                         */
   --shade-rgb:    34, 45, 56;     /* = --ink-deep, for overlays        */
-  --accent-light-rgb: 217, 130, 43;
+  --accent-light-rgb: 219, 120, 60;
   --label-on-dark: var(--accent-light); /* small uppercase labels on dark bands */ /* = --accent-light, for tints    */
   --rule-dark:    rgba(var(--accent-light-rgb), .28); /* Hairlines on dark          */
 
@@ -632,42 +632,6 @@ html.js .ministry.reveal { transition: opacity 1s var(--ease), transform 1s var(
 .lightbox button, .to-top { border-radius: var(--radius-sm); }
 .hero-times { border-radius: 0; }
 .welcome-times, .live-meta { border-radius: 0; }
-
-/* ======================= PREVIEW ONLY: accent colour picker (remove before build) ======================= */
-.cp {
-  position: fixed; z-index: 90;
-  right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 62px);
-  width: 300px; max-width: calc(100vw - 32px);
-  background: #f9f9f9; color: #1d2329;
-  border-radius: 14px; box-shadow: 0 24px 60px -20px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.08);
-  font-family: "Segoe UI", var(--font-body); font-size: .85rem;
-  user-select: none;
-}
-.cp-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .6rem; background: none; border: 0; padding: .8rem 1rem; cursor: pointer; font: inherit; font-weight: 600; color: inherit; }
-.cp-toggle i { width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
-.cp-body { display: grid; gap: 14px; padding: 4px 16px 16px; }
-.cp.collapsed .cp-body { display: none; }
-.cp.collapsed { width: auto; }
-.cp.collapsed .cp-toggle { padding: .6rem .8rem; }
-.cp-top { display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 10px; }
-.cp-spectrum { position: relative; height: 165px; border-radius: 6px; overflow: hidden; cursor: crosshair; touch-action: none; box-shadow: 0 0 0 1px rgba(0,0,0,.1); }
-.cp-spectrum canvas { display: block; width: 100%; height: 100%; }
-.cp-marker { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.3); pointer-events: none; }
-.cp-preview { border-radius: 6px; box-shadow: 0 0 0 1px rgba(0,0,0,.1); }
-.cp-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 10px; border-radius: 999px; outline: none; cursor: pointer; margin: 0; }
-.cp-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #1d2329; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
-.cp-slider::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #1d2329; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
-.cp-slider:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1d2329; }
-.cp-fields { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; }
-.cp-fields select, .cp-fields input {
-  height: 34px; border: 1px solid #d0d4d9; border-bottom-color: #9aa1a9; border-radius: 6px; background: #fff;
-  font: inherit; color: inherit; padding: 0 .6rem; min-width: 0;
-}
-.cp-fields input { font-family: ui-monospace, Menlo, Consolas, monospace; }
-.cp-actions { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
-.cp-actions span { color: #5d6670; font-size: .75rem; }
-.cp-actions button { height: 30px; padding: 0 .8rem; border: 1px solid #d0d4d9; border-radius: 6px; background: #fff; font: inherit; font-size: .75rem; cursor: pointer; }
-.cp-actions button:hover { background: #eef0f2; }
 
 /* ======================= Responsive ======================= */
 @media (max-width: 1100px) {
