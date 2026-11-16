@@ -17,8 +17,8 @@
     2. Welcome Home      — text + button left, photo with service-times card right
     3. Find Connection   — intro (heading, text, button) + 3 aligned ministry image cards
     4. Watch Us Live     — heading + text, 2 buttons, service facts, live-stream tile
-    5. Service Times     — heading + button, 2x2 details ledger (times, email, location, phone)
-    6. Footer            — monogram logo, menu, social icons, credit
+    5. Service Times     — heading + button, 2x2 details ledger (times, email, location, phone), Google Map
+    6. Footer            — background image; invite + buttons, logo/social, menus, service times, contact, credit
 
   Interactions: header turns solid on scroll, hero load sequence, image curtain reveals,
   text fade-ups, card lift, button fill sweeps, back-to-top. All respect reduced motion.
@@ -206,6 +206,17 @@
         <div class="detail"><a href="tel:5555555555">(555) 555-5555</a></div>
       </div>
     </div>
+    <!-- Google Maps embed (Cornerstone: Map element / Elementor: Google Maps widget) -->
+    <div class="map reveal">
+      <div class="map-fallback"><strong>Map</strong><span>1234 Street, My Town, XX 12345</span></div>
+      <iframe title="Map to Edwards Church" src="https://maps.google.com/maps?q=1234+Street,+My+Town&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="map-card">
+        <span class="k">Find Us</span>
+        <strong>1234 Street<br>My Town, XX 12345</strong>
+        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=1234+Street+My+Town" target="_blank" rel="noopener">Get Directions
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -213,44 +224,65 @@
 
 <!-- ======================= 6. FOOTER ======================= -->
 <footer class="footer">
-  <div class="wrap footer-top">
+  <div class="wrap footer-cta">
     <div>
+      <h2>We'd love to <em>see you Sunday.</em></h2>
+      <p>Join us Sundays at 10am and Wednesday at 7pm.</p>
+    </div>
+    <div class="btns">
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="give.html" class="btn btn-ghost">Give</a>
+    </div>
+  </div>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
       <a href="index.html" class="logo" aria-label="Edwards Church home">
         <span class="logo-mark" aria-hidden="true">E</span>
         <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
       </a>
       <p class="footer-tagline">Love God. Love People.</p>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+      </div>
     </div>
-    <div class="footer-cols">
-      <div>
-        <h3>Visit</h3>
-        <ul>
-          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="connect.html">Connect</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Engage</h3>
-        <ul>
-          <li><a href="sermons.html">Sermons</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="give.html">Give</a></li>
-          <li><a href="watch-live.html">Watch Live</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Follow</h3>
-        <div class="social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
-          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
-        </div>
-      </div>
+    <div>
+      <h3>Visit</h3>
+      <ul>
+        <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="connect.html">Connect</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Engage</h3>
+      <ul>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="watch-live.html">Watch Live</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Service Times</h3>
+      <ul>
+        <li>Sundays at 10am</li>
+        <li>Wednesday at 7pm</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>1234 Street<br>My Town, XX 12345</li>
+        <li><a href="tel:5555555555">(555) 555-5555</a></li>
+        <li><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="wrap">
-      <span>&copy; 2026 Edwards Church</span>
+      <span>&copy; 2026 Edwards Church. All rights reserved.</span>
       <a href="https://reachrightstudios.com">church websites by REACHRIGHT</a>
     </div>
   </div>

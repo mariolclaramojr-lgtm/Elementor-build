@@ -364,8 +364,8 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .live::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse 50% 70% at 85% 50%, rgba(227,154,127,.12), transparent 70%),
-    repeating-linear-gradient(90deg, rgba(227,154,127,.05) 0 1px, transparent 1px 124px);
+    linear-gradient(90deg, rgba(34,45,56,.95) 0%, rgba(34,45,56,.86) 50%, rgba(34,45,56,.75) 100%),
+    url("live-bg.jpg") center / cover no-repeat;
 }
 .live h2 { color: #fff; }
 .live h2 em { color: var(--accent-light); }
@@ -426,7 +426,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .visit-grid {
   display: grid;
   grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
-  gap: clamp(3rem, 6vw, 6rem);
+  gap: 3.5rem clamp(3rem, 6vw, 6rem);
   align-items: start;
 }
 .visit-intro { position: sticky; top: 120px; }
@@ -455,26 +455,67 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .ledger-item .detail a { text-decoration: none; background: linear-gradient(var(--accent), var(--accent)) left bottom / 0 1px no-repeat; transition: background-size .4s var(--ease), color .3s ease; }
 .ledger-item .detail a:hover { color: var(--accent); background-size: 100% 1px; }
 
+/* Map */
+.map {
+  grid-column: 1 / -1;
+  position: relative;
+  height: clamp(320px, 38vw, 460px);
+  background: var(--mist);
+  overflow: hidden;
+}
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.35) contrast(1.05); }
+.map-fallback { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: .3rem; color: var(--text-soft); font-size: .9rem; }
+.map-card {
+  position: absolute; z-index: 2; left: 1.5rem; top: 1.5rem;
+  background: var(--paper); padding: 1.5rem 1.7rem;
+  box-shadow: var(--shadow);
+  display: grid; gap: .35rem; max-width: 300px;
+}
+.map-card .k { font-size: .66rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
+.map-card strong { color: var(--ink); font-size: 1.05rem; }
+.map-card .link-arrow { margin-top: .6rem; color: var(--accent); }
+
 /* ======================= 6. FOOTER ======================= */
-.footer { background: var(--ink-deep); color: var(--on-dark-soft); font-size: .92rem; }
+.footer {
+  position: relative; isolation: isolate;
+  color: var(--on-dark-soft); font-size: .95rem;
+  background: var(--ink-deep);
+}
+.footer::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(34,45,56,.8) 0%, rgba(34,45,56,.9) 45%, rgba(34,45,56,.97) 100%),
+    url("footer-bg.jpg") center 30% / cover no-repeat;
+}
+.footer-cta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 2rem;
+  padding-block: 4.5rem 3.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.footer-cta h2 { color: #fff; font-size: clamp(1.9rem, 1.4rem + 1.8vw, 3rem); }
+.footer-cta h2 em { color: var(--accent-light); }
+.footer-cta p { color: var(--on-dark); margin-top: .8rem; }
+.footer-cta .btns { display: flex; flex-wrap: wrap; gap: 1rem; }
 .footer-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
-  gap: 3rem;
-  padding-block: 5rem 4rem;
-  border-bottom: 1px solid var(--rule-dark);
+  grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding-block: 3.75rem;
 }
-.footer-tagline { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--on-dark); margin-top: 1.6rem; }
-.footer-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.footer-brand p { margin-top: 1.3rem; color: var(--on-dark-soft); max-width: 30ch; }
+.footer-tagline { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #fff; margin-top: 1.4rem; }
 .footer h3 { font-family: var(--font-body); font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.2rem; }
-.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+.footer li { color: var(--on-dark); }
 .footer a { text-decoration: none; color: var(--on-dark); transition: color .25s ease, padding .35s var(--ease); }
 .footer ul a:hover { color: var(--accent-light); padding-left: .4rem; }
-.social { display: flex; gap: .7rem; }
-.social a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--rule-dark); transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease); }
+.social { display: flex; gap: .7rem; margin-top: 1.6rem; }
+.social a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease); }
 .social a:hover { background: var(--accent-light); border-color: var(--accent-light); color: var(--ink-deep); }
 .social svg { width: 17px; height: 17px; }
-.footer-bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.7rem; font-size: .8rem; }
+.footer-bottom { background: rgba(0,0,0,.18); }
+.footer-bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; font-size: .82rem; }
 .footer-bottom a:hover { color: var(--accent-light); }
 
 /* Back to top */
@@ -518,7 +559,8 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .welcome, .live-grid, .visit-grid { grid-template-columns: minmax(0, 1fr); }
   .welcome-media { padding: 0 0 2.5rem 1.5rem; }
   .visit-intro { position: static; }
-  .footer-top { grid-template-columns: minmax(0, 1fr); }
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
   .hero-content { padding-top: 8.5rem; padding-bottom: 3.5rem; }
@@ -529,7 +571,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .ledger-item { padding: 2rem 0; }
   .ledger-item:nth-child(odd) { border-right: 0; }
   .ledger-item:hover { background: none; }
-  .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .map-card { left: .75rem; right: .75rem; top: auto; bottom: .75rem; max-width: none; }
   .live-caption { left: 1.4rem; right: 1.4rem; bottom: 1.3rem; }
   .live-badge { top: 1.4rem; left: 1.4rem; }
   .play { width: 66px; height: 66px; margin: -33px 0 0 -33px; }
