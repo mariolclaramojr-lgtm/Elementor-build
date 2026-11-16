@@ -14,18 +14,18 @@
   --mist:         #EEF0F1;  /* Cool grey — alternate light band           */
   --paper:        #FFFFFF;  /* Page                                       */
   --text:         #26303A;  /* Body copy on light                         */
-  --text-soft:    #5A6570;  /* Secondary copy on light                    */
+  --text-soft:    #4C5763;  /* Secondary copy on light                    */
   --on-dark:      #E8ECEF;  /* Body copy on dark                          */
   --on-dark-soft: #A9B4BE;  /* Secondary copy on dark                     */
   --rule:         #DADFE3;  /* Hairlines on light                         */
   --rule-dark:    rgba(227, 154, 127, .28); /* Hairlines on dark          */
 
   /* Type */
-  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --font-body:    "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 
-  --fs-h1: clamp(2.6rem, 1.2rem + 5.4vw, 6.6rem);
-  --fs-h2: clamp(2.3rem, 1.5rem + 2.8vw, 4rem);
+  --fs-h1: clamp(2.2rem, 1rem + 4.6vw, 5.6rem);
+  --fs-h2: clamp(2rem, 1.4rem + 2.2vw, 3.4rem);
   --fs-lead: clamp(1.35rem, 1.15rem + .7vw, 1.75rem);
   --fs-body: 1.0625rem;
   --fs-label: .72rem;
@@ -44,7 +44,7 @@ body {
   background: var(--paper);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -65,16 +65,16 @@ a { color: inherit; }
 /* ---------- Type ---------- */
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--ink);
-  line-height: 1.06;
-  letter-spacing: -.02em;
+  line-height: 1.1;
+  letter-spacing: -.022em;
   margin: 0;
   text-wrap: balance;
   font-variant-numeric: lining-nums;
 }
 h2 { font-size: var(--fs-h2); }
-h1 em, h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+h1 em, h2 em { font-style: normal; color: var(--accent); }
 p { margin: 0; max-width: 62ch; }
 
 .eyebrow {
@@ -92,10 +92,11 @@ p { margin: 0; max-width: 62ch; }
 
 .lead-serif {
   font-family: var(--font-display);
-  font-style: italic;
-  font-size: var(--fs-lead);
+  font-style: normal;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--accent);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 /* ---------- Buttons (fill sweeps in on hover) ---------- */
@@ -186,7 +187,7 @@ p { margin: 0; max-width: 62ch; }
 .logo-mark::after { content: ""; position: absolute; inset: 4px; border: 1px solid var(--rule-dark); }
 .logo:hover .logo-mark { background: var(--accent-light); color: var(--ink-deep); }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-name { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; letter-spacing: .24em; text-transform: uppercase; }
+.logo-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: .22em; text-transform: uppercase; }
 .logo-sub { font-size: .58rem; font-weight: 600; letter-spacing: .5em; text-transform: uppercase; color: var(--accent-light); margin-top: .4rem; }
 
 .nav { display: flex; align-items: center; gap: 2.1rem; }
@@ -271,7 +272,7 @@ p { margin: 0; max-width: 62ch; }
   padding-bottom: 5rem;
 }
 .hero .eyebrow { color: var(--accent-light); }
-.hero h1 { color: #fff; font-size: var(--fs-h1); font-weight: 400; line-height: 1.08; }
+.hero h1 { color: #fff; font-size: var(--fs-h1); font-weight: 700; line-height: 1.08; }
 .hero h1 em { color: var(--accent-light); }
 .hero-sub { font-size: 1.125rem; color: var(--on-dark); max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: .5rem; }
@@ -350,7 +351,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .welcome-times div { display: grid; gap: .15rem; padding: 1.1rem 0; }
 .welcome-times div + div { border-left: 1px solid var(--rule); padding-left: 1.6rem; }
 .welcome-times .k { font-size: .66rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
-.welcome-times .v { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.1; color: var(--ink); font-variant-numeric: lining-nums; }
+.welcome-times .v { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1.1; color: var(--ink); font-variant-numeric: lining-nums; }
 
 /* ======================= 3. FIND CONNECTION — intro + 3 aligned ministry cards ======================= */
 .connect-grid {
@@ -374,7 +375,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .ministry:hover img { transform: scale(1.06); }
 .ministry:hover::after { transform: scaleX(1); }
 .ministry-body { display: grid; gap: .4rem; padding: 1.6rem 1.5rem; }
-.ministry-title { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.2; }
+.ministry-title { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; }
 .ministry-text { font-size: .88rem; line-height: 1.5; color: var(--on-dark); }
 
 /* ======================= 4. WATCH US LIVE ======================= */
@@ -399,7 +400,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 .live-meta div { display: grid; gap: .2rem; }
 .live-meta .k { font-size: .66rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); }
 .live-meta .v, .live-caption .when, .collage-badge .value { font-variant-numeric: lining-nums; }
-.live-meta .v { font-family: var(--font-display); font-size: 1.6rem; color: #fff; line-height: 1.2; }
+.live-meta .v { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: #fff; line-height: 1.2; }
 
 .live-screen { position: relative; display: block; text-decoration: none; color: #fff; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
 .live-screen img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
@@ -437,7 +438,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   position: absolute; z-index: 3; left: 2.4rem; right: 2.4rem; bottom: 2.1rem;
   display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap;
 }
-.live-caption .when { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.1; }
+.live-caption .when { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
 .live-caption .sub { font-size: .66rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); font-weight: 600; }
 
 /* ======================= 5. SERVICE TIMES & CONTACT ======================= */
@@ -482,7 +483,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   padding-block: 5rem 4rem;
   border-bottom: 1px solid var(--rule-dark);
 }
-.footer-tagline { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--on-dark); margin-top: 1.6rem; }
+.footer-tagline { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--on-dark); margin-top: 1.6rem; }
 .footer-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
 .footer h3 { font-family: var(--font-body); font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.2rem; }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
