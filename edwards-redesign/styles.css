@@ -586,33 +586,6 @@ html.js .ministry.reveal { transition: opacity 1s var(--ease), transform 1s var(
 .hero-times { border-radius: 0; }
 .welcome-times, .live-meta { border-radius: 0; }
 
-/* ======================= PREVIEW ONLY: colour preset switcher (remove before build) ======================= */
-.presets {
-  position: fixed; z-index: 90;
-  left: max(16px, env(safe-area-inset-left, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px));
-  width: min(300px, calc(100vw - 32px));
-  background: #fff; color: #1d2329;
-  border-radius: 16px; box-shadow: 0 24px 60px -20px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.06);
-  font-family: var(--font-body); font-size: .85rem;
-}
-.presets-toggle {
-  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .6rem;
-  background: none; border: 0; padding: .85rem 1rem; cursor: pointer; font: inherit; font-weight: 600; color: inherit;
-}
-.presets-toggle .now { font-weight: 500; color: #5d6670; }
-.presets-list { display: grid; gap: .35rem; padding: 0 .6rem .7rem; max-height: 60vh; overflow-y: auto; }
-.presets.collapsed .presets-list { display: none; }
-.preset {
-  display: flex; align-items: center; gap: .7rem;
-  padding: .5rem .55rem; border-radius: 10px;
-  background: none; border: 1px solid transparent; cursor: pointer; font: inherit; color: inherit; text-align: left;
-}
-.preset:hover { background: #f3f4f6; }
-.preset[aria-pressed="true"] { border-color: #1d2329; background: #f7f7f8; }
-.preset .sw { display: flex; flex: none; border-radius: 7px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
-.preset .sw i { width: 16px; height: 26px; }
-.preset small { display: block; color: #6b737c; font-size: .74rem; }
-
 /* ======================= Responsive ======================= */
 @media (max-width: 1100px) {
   .nav { gap: 1.4rem; }
