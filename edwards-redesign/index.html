@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Edwards Church Redesign</title>
+<meta name="description" content="Redesign mockup of the Edwards church theme home page: same sections and content, classic premium finish in navy and brass.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  EDWARDS — REDESIGN MOCKUP (classic & trustworthy)
+  Same sections as the original home page (header lives over the hero):
+    1. Hero              — background video (image fallback), typed headline, "New Here?" button, service-times strip
+    2. Welcome Home      — heading + subheading + text + button, framed image
+    3. Find Connection   — framed image, heading + text, ministry pillars, button
+    4. Watch Us Live     — heading + text, 2 buttons, framed "live" screen
+    5. Service Times     — heading, 4-column details ledger (times, email, location, phone)
+    6. Footer            — logo, menu, social icons, credit
+
+  Colours/fonts are the variables in styles.css → set once as Global Colors / Global Fonts.
+  Hero video: the Edwards theme's own Cheer-Up.mp4 (compressed copy in hero.mp4/.webm, original URL as fallback).
+  Photos: Unsplash (the original site photos are only 600px wide).
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Edwards Church home">
+      <svg viewBox="0 0 34 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <path d="M2 39V17C2 8.7 8.7 2 17 2s15 6.7 15 15v22"/>
+        <path d="M17 11v20M11 17h12" stroke-linecap="square"/>
+        <path d="M1 39h32"/>
+      </svg>
+      <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="sermons.html">Sermons</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="watch-live.html">Watch Live</a>
+      <a href="plan-your-visit.html" class="btn btn-brass">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= 1. HERO ======================= -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-media" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg">
+      <source src="hero.webm" type="video/webm">
+      <source src="hero.mp4" type="video/mp4">
+      <source src="https://edwardstheme1.wpengine.com/wp-content/uploads/2019/08/Cheer-Up.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="wrap hero-content">
+    <span class="eyebrow">Love God. Love People.</span>
+    <h1>Where real people can come to <span class="typed" data-words="grow.|be family.|find Jesus.">grow.</span></h1>
+    <div class="hero-actions">
+      <a href="plan-your-visit.html" class="btn btn-brass">New Here?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="hero-times">
+    <div class="wrap">
+      <strong>Service Times</strong>
+      <span>Sundays at 10am</span>
+      <span>Wednesday at 7pm</span>
+      <span>1234 Street, My Town, XX 12345</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. WELCOME HOME ======================= -->
+<section class="section" aria-labelledby="welcome-title">
+  <div class="wrap split">
+    <div class="split-text">
+      <span class="eyebrow">New Here?</span>
+      <h2 id="welcome-title">Welcome <em>Home</em></h2>
+      <p class="lead-serif">We are so glad you're here.</p>
+      <p>We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us. The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>
+      <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="split-media">
+      <figure class="frame" style="margin-block-start:0">
+        <img src="welcome.jpg" alt="Sunlit sanctuary with wooden pews and a vaulted timber ceiling" width="1400" height="933" loading="lazy">
+        <div class="frame-note">
+          <span class="label">Join us</span>
+          <span class="value">Sundays at 10am</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. FIND CONNECTION ======================= -->
+<section class="section section-mist" aria-labelledby="connect-title">
+  <div class="wrap split split-reverse">
+    <div class="split-text">
+      <span class="eyebrow">Ministries</span>
+      <h2 id="connect-title">Find <em>Connection</em></h2>
+      <p>We offer several opportunities for you and your family to get involved in ministries at our church designed to grow and strengthen your faith alongside others. It's our desire to create environments where other people in the same stages and phases of life can develop authentic relationships with one another while being encouraged to grab hold of how God's truth intersects with and impacts their lives.</p>
+      <ul class="pillars">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>
+          <div><h3>Gathered around the Word</h3><p>Every ministry centers on gathering as a community around the Word of God.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20c.6-3.5 2.8-5.5 5.5-5.5s4.9 2 5.5 5.5M14 14.6c.8-.4 1.6-.6 2.5-.6 2.4 0 4.2 1.8 4.8 5"/></svg>
+          <div><h3>Every stage of life</h3><p>Authentic relationships with others in the same stages and phases of life.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v18M6 9h12"/></svg>
+          <div><h3>Lives modeled after Christ</h3><p>Encouraged to live out how God's truth shapes every part of life.</p></div>
+        </li>
+      </ul>
+      <a href="connect.html" class="btn btn-outline">Our Ministries
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="split-media">
+      <figure class="frame" style="margin-block-start:0">
+        <img src="connection.jpg" alt="Small group seated together with open Bibles and notebooks" width="1400" height="933" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. WATCH US LIVE ======================= -->
+<section class="section live" aria-labelledby="live-title">
+  <div class="wrap live-grid">
+    <div class="split-text">
+      <span class="eyebrow">Online</span>
+      <h2 id="live-title">Watch Us <em>Live</em></h2>
+      <p>We want to stay connected with you! You can join us LIVE on Sundays at 10am, or you can watch or listen to previous messages anytime.</p>
+      <div class="live-actions">
+        <a href="watch-live.html" class="btn btn-brass">Watch Live
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="sermons.html" class="btn btn-outline-light">Previous Messages</a>
+      </div>
+    </div>
+    <a href="watch-live.html" class="live-screen" aria-label="Watch the live stream">
+      <img src="watch-live.jpg" alt="" width="1400" height="933" loading="lazy">
+      <span class="live-badge"><i></i>Live Stream</span>
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+      <span class="live-caption">
+        <span class="when">Sundays at 10am</span>
+        <span class="sub">Messages on demand anytime</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ======================= 5. SERVICE TIMES & CONTACT ======================= -->
+<section class="section" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="visit-head">
+      <div class="heading-group">
+        <span class="eyebrow">Plan Your Visit</span>
+        <h2 id="visit-title">Join us <em>this week</em></h2>
+      </div>
+      <a href="plan-your-visit.html" class="btn btn-primary">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="ledger">
+      <div class="ledger-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <h3>Service Times</h3>
+        <div class="detail">Sundays at 10am<br>Wednesday at 7pm</div>
+      </div>
+      <div class="ledger-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>
+        <h3>Email</h3>
+        <div class="detail"><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></div>
+      </div>
+      <div class="ledger-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <h3>Location</h3>
+        <div class="detail">1234 Street<br>My Town, XX 12345</div>
+      </div>
+      <div class="ledger-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>
+        <h3>Phone</h3>
+        <div class="detail"><a href="tel:5555555555">(555) 555-5555</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= 6. FOOTER ======================= -->
+<footer class="footer">
+  <div class="wrap footer-top">
+    <div>
+      <a href="index.html" class="logo" aria-label="Edwards Church home">
+        <svg viewBox="0 0 34 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M2 39V17C2 8.7 8.7 2 17 2s15 6.7 15 15v22"/>
+          <path d="M17 11v20M11 17h12" stroke-linecap="square"/>
+          <path d="M1 39h32"/>
+        </svg>
+        <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+      </a>
+      <p class="footer-tagline">Love God. Love People.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="connect.html">Connect</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Engage</h3>
+        <ul>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="watch-live.html">Watch Live</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <span>&copy; 2026 Edwards Church</span>
+      <a href="https://reachrightstudios.com">church websites by REACHRIGHT</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Mobile menu */
+(function () {
+  var btn = document.querySelector('.menu-toggle'), nav = document.getElementById('site-nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+})();
+
+/* Sticky header after the hero */
+(function () {
+  var header = document.querySelector('.site-header');
+  function check() { header.classList.toggle('is-stuck', window.scrollY > 420); }
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+})();
+
+/* Typed headline: grow. / be family. / find Jesus. (same words as the original theme) */
+(function () {
+  var el = document.querySelector('.typed');
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var words = el.dataset.words.split('|'), w = 0, i = words[0].length, deleting = false;
+  setTimeout(function tick() {
+    var word = words[w];
+    if (!deleting) {
+      i++;
+      if (i > word.length) { deleting = true; return setTimeout(tick, 1600); }
+    } else {
+      i--;
+      if (i < 0) { deleting = false; w = (w + 1) % words.length; i = 0; return setTimeout(tick, 250); }
+    }
+    el.textContent = word.slice(0, Math.max(i, 0));
+    setTimeout(tick, deleting ? 45 : 85);
+  }, 1600);
+})();
+</script>
+</body>
+</html>
