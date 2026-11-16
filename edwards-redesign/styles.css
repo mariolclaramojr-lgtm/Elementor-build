@@ -6,11 +6,11 @@
    Tokens below become Cornerstone / Elementor Global Colors & Global Fonts.
    ========================================================================== */
 :root {
-  /* Color — Slate blue & orange */
+  /* Color — Slate blue & amber orange */
   --ink:          #2F3E4C;  /* Slate blue — headings, dark bands, buttons */
   --ink-deep:     #222D38;  /* Deep slate — footer, overlays              */
-  --accent:       #CF4C00;  /* Orange — accent on light backgrounds       */
-  --accent-light: #CF4C00;  /* Orange on dark backgrounds                 */
+  --accent:       #D9822B;  /* Amber orange — accent                      */
+  --accent-light: #D9822B;  /* Amber orange on dark backgrounds           */
   --mist:         #EEF0F1;  /* Cool grey — alternate light band           */
   --paper:        #FFFFFF;  /* Page                                       */
   --text:         #26303A;  /* Body copy on light                         */
@@ -19,7 +19,7 @@
   --on-dark-soft: #A9B4BE;  /* Secondary copy on dark                     */
   --rule:         #DADFE3;  /* Hairlines on light                         */
   --shade-rgb:    34, 45, 56;     /* = --ink-deep, for overlays        */
-  --accent-light-rgb: 207, 76, 0;
+  --accent-light-rgb: 217, 130, 43;
   --label-on-dark: var(--accent-light); /* small uppercase labels on dark bands */ /* = --accent-light, for tints    */
   --rule-dark:    rgba(var(--accent-light-rgb), .28); /* Hairlines on dark          */
 
@@ -136,9 +136,11 @@ p { margin: 0; max-width: 62ch; }
 .btn:hover svg { transform: translateX(4px); }
 .btn-primary { background: var(--ink); color: #fff; }
 .btn-primary::before { background: var(--accent); }
-.btn-accent { background: var(--accent); color: #fff; }
-.btn-accent:hover { color: var(--ink-deep); }
-.btn-accent::before { background: #fff; }
+.btn-accent { background: #fff; color: var(--ink-deep); }
+.btn-accent:hover { color: #fff; }
+.btn-accent::before { background: var(--accent); }
+.footer .btn-accent { color: var(--ink-deep); }
+.footer .btn-accent:hover { color: #fff; }
 .btn-outline { border-color: var(--ink); color: var(--ink); }
 .btn-outline::before { background: var(--ink); }
 .btn-outline:hover { color: #fff; }
@@ -292,16 +294,16 @@ p { margin: 0; max-width: 62ch; }
 .hero-content > :nth-child(4) { animation-delay: .6s; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 
-.hero-times { background: rgba(0,0,0,.45); backdrop-filter: blur(8px); }
+.hero-times { background: var(--accent); color: var(--ink-deep); }
 .hero-times .wrap {
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   gap: .5rem 2.5rem;
   padding-block: 1.35rem;
   font-size: .875rem;
-  color: var(--on-dark);
+  color: var(--ink-deep); font-weight: 500;
 }
-.hero-times strong { font-weight: 600; letter-spacing: .22em; text-transform: uppercase; font-size: .68rem; color: var(--label-on-dark); }
-.hero-times .dot { width: 4px; height: 4px; background: var(--accent-light); transform: rotate(45deg); }
+.hero-times strong { font-weight: 700; letter-spacing: .22em; text-transform: uppercase; font-size: .68rem; color: #fff; }
+.hero-times .dot { width: 4px; height: 4px; background: var(--ink-deep); transform: rotate(45deg); }
 
 /* ======================= Shared section ======================= */
 .section { padding-block: var(--section); }
@@ -597,32 +599,6 @@ html.js .ministry.reveal { transition: opacity 1s var(--ease), transform 1s var(
 .lightbox button, .to-top { border-radius: var(--radius-sm); }
 .hero-times { border-radius: 0; }
 .welcome-times, .live-meta { border-radius: 0; }
-
-/* ======================= PREVIEW ONLY: colour picker (remove before build) ======================= */
-.picker {
-  position: fixed; z-index: 90;
-  left: max(16px, env(safe-area-inset-left, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px));
-  width: min(320px, calc(100vw - 32px));
-  background: #fff; color: #1d2329;
-  border-radius: 16px; box-shadow: 0 24px 60px -20px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.06);
-  font-family: var(--font-body); font-size: .85rem;
-}
-.picker-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: .6rem; background: none; border: 0; padding: .85rem 1rem; cursor: pointer; font: inherit; font-weight: 600; color: inherit; }
-.picker-toggle .chips { display: flex; gap: 4px; }
-.picker-toggle .chips i { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(0,0,0,.12); }
-.picker-body { display: grid; gap: 1.1rem; padding: .2rem 1rem 1rem; }
-.picker.collapsed .picker-body { display: none; }
-.pick { display: grid; gap: .5rem; }
-.pick-label { font-weight: 600; font-size: .8rem; }
-.pick-label small { display: block; font-weight: 400; color: #6b737c; font-size: .72rem; }
-.pick-row { display: flex; align-items: center; gap: .5rem; }
-.pick-row input[type="color"] { width: 44px; height: 36px; padding: 0; border: 1px solid #d6dade; border-radius: 8px; background: none; cursor: pointer; }
-.pick-row input[type="text"] { width: 96px; height: 36px; padding: 0 .6rem; border: 1px solid #d6dade; border-radius: 8px; font: inherit; font-family: ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; }
-.pick-row button { height: 36px; padding: 0 .7rem; border: 1px solid #d6dade; border-radius: 8px; background: #fff; font: inherit; font-size: .75rem; cursor: pointer; }
-.pick-row button:hover { background: #f3f4f6; }
-.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
-.swatches button { width: 26px; height: 26px; border-radius: 50%; border: 0; cursor: pointer; box-shadow: 0 0 0 1px rgba(0,0,0,.12); }
-.swatches button[aria-pressed="true"] { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1d2329; }
 
 /* ======================= Responsive ======================= */
 @media (max-width: 1100px) {
