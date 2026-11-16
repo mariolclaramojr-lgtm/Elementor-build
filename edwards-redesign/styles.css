@@ -247,13 +247,8 @@ p { margin: 0; max-width: 62ch; }
   animation: heroZoom 14s var(--ease) both;
 }
 @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
-.hero::after {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background:
-    radial-gradient(ellipse 70% 60% at 50% 48%, rgba(var(--shade-rgb), .5) 0%, rgba(var(--shade-rgb), .72) 100%),
-    linear-gradient(180deg, rgba(var(--shade-rgb), .55) 0%, rgba(var(--shade-rgb), 0) 30%, rgba(var(--shade-rgb), .75) 100%);
-}
+/* No colour overlay on the hero video; a soft text shadow keeps the copy readable */
+.hero h1, .hero .eyebrow, .site-header:not(.scrolled) .nav a:not(.btn), .site-header:not(.scrolled) .logo-text { text-shadow: 0 2px 18px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.35); }
 .hero-content {
   flex: 1;
   display: grid;
