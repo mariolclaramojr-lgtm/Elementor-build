@@ -308,36 +308,68 @@ html.js .reveal.in { opacity: 1; transform: none; }
 html.js .reveal.d1 { transition-delay: .1s; } html.js .reveal.d2 { transition-delay: .2s; }
 html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-delay: .4s; }
 
-/* ======================= 2. WELCOME HOME — text + image ======================= */
+/* ======================= 2. WELCOME HOME — 2/3 gallery + 1/3 text ======================= */
 .welcome {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(3rem, 6vw, 6rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
 }
 .welcome .text-stack p { color: var(--text-soft); }
-.welcome-media { position: relative; padding: 0 0 3rem 3rem; }
-.welcome-media::before {
-  content: ""; position: absolute; left: 0; bottom: 0; width: 70%; height: 70%;
-  background: var(--mist);
+
+/* Justified gallery: 7 photos tile one fixed rectangle (4 columns x 3 rows), every edge flush */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
 }
-.welcome-photo { position: relative; }
-.welcome-photo img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
-.welcome-photo:hover img { transform: scale(1.04); }
-.welcome-card {
-  position: absolute; z-index: 3; right: 1.5rem; bottom: 0;
-  display: grid; gap: .2rem;
-  background: var(--ink); color: #fff;
-  padding: 1.4rem 1.7rem;
-  box-shadow: var(--shadow);
+.gallery-item { position: relative; display: block; overflow: hidden; background: var(--mist); cursor: zoom-in; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+.gallery-item::after {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(34,45,56,.35) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.5-4.5M11 8v6M8 11h6'/%3E%3C/svg%3E") center / 34px no-repeat;
+  opacity: 0; transition: opacity .4s var(--ease);
 }
-.welcome-card .k { font-size: .66rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-light); margin-bottom: .3rem; }
-.welcome-card .v { font-weight: 600; font-size: 1.05rem; }
+.gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.07); }
+.gallery-item:hover::after, .gallery-item:focus-visible::after { opacity: 1; }
+.g-a { grid-column: 1 / 3; grid-row: 1 / 3; }
+.g-b { grid-column: 3; grid-row: 1; }
+.g-c { grid-column: 4; grid-row: 1 / 3; }
+.g-d { grid-column: 3; grid-row: 2; }
+.g-e { grid-column: 1; grid-row: 3; }
+.g-f { grid-column: 2 / 4; grid-row: 3; }
+.g-g { grid-column: 4; grid-row: 3; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem;
+  padding: max(24px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: rgba(20, 27, 34, .94);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.lightbox[hidden] { display: none; }
+.lightbox.open { opacity: 1; }
+.lightbox figure { margin: 0; display: grid; justify-items: center; gap: .9rem; min-width: 0; }
+.lightbox img { max-height: 82vh; width: auto; max-width: 100%; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.5); transform: scale(.97); transition: transform .4s var(--ease); }
+.lightbox.open img { transform: none; }
+.lightbox figcaption { color: var(--on-dark-soft); font-size: .8rem; letter-spacing: .2em; }
+.lightbox button {
+  width: 52px; height: 52px; display: grid; place-items: center;
+  background: none; border: 1px solid rgba(255,255,255,.3); color: #fff; cursor: pointer;
+  transition: background-color .3s ease, border-color .3s ease;
+}
+.lightbox button:hover { background: var(--accent); border-color: var(--accent); }
+.lightbox button svg { width: 22px; height: 22px; }
+.lb-close { position: absolute; top: max(20px, env(safe-area-inset-top, 0px)); right: max(20px, env(safe-area-inset-right, 0px)); }
 
 /* ======================= 3. FIND CONNECTION — intro + 3 aligned ministry cards ======================= */
 .connect-grid {
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, .9fr);
   gap: clamp(3rem, 6vw, 6rem);
   align-items: center;
 }
@@ -539,6 +571,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
 @media (max-width: 1100px) {
   .nav { gap: 1.4rem; }
   .connect-grid { grid-template-columns: minmax(0, 1fr); }
+  .connect-intro { order: -1; }
 }
 @media (max-width: 980px) {
   .menu-toggle { display: block; }
@@ -557,7 +590,7 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .nav a:not(.btn)::after { display: none; }
   .nav .btn { margin-top: 1.3rem; justify-content: center; }
   .welcome, .live-grid, .visit-grid { grid-template-columns: minmax(0, 1fr); }
-  .welcome-media { padding: 0 0 2.5rem 1.5rem; }
+  .welcome .text-stack { order: -1; }
   .visit-intro { position: static; }
   .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-brand { grid-column: 1 / -1; }
@@ -566,6 +599,12 @@ html.js .reveal.d3 { transition-delay: .3s; } html.js .reveal.d4 { transition-de
   .hero-content { padding-top: 8.5rem; padding-bottom: 3.5rem; }
   .hero-times .wrap { gap: .4rem 1.2rem; font-size: .82rem; }
   .ministries { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: 150px; aspect-ratio: auto; gap: 8px; }
+  .gallery .gallery-item { grid-column: auto; grid-row: auto; }
+  .gallery .g-a { grid-column: 1 / -1; grid-row: span 2; }
+  .lightbox { grid-template-columns: minmax(0, 1fr); }
+  .lb-prev, .lb-next { position: absolute; bottom: max(20px, env(safe-area-inset-bottom, 0px)); }
+  .lb-prev { left: calc(50% - 60px); } .lb-next { right: calc(50% - 60px); }
   .ministry { aspect-ratio: 4 / 3; }
   .ledger { grid-template-columns: minmax(0, 1fr); }
   .ledger-item { padding: 2rem 0; }
