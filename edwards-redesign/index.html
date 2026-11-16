@@ -351,5 +351,47 @@
   items.forEach(function (el) { io.observe(el); });
 })();
 </script>
+<!-- PREVIEW ONLY: colour preset switcher (remove before build) -->
+<div class="presets collapsed" id="presets">
+  <button class="presets-toggle" type="button" aria-expanded="false">Color presets <span class="now"></span></button>
+  <div class="presets-list"></div>
+</div>
+<script>
+(function () {
+  var P = [
+    { n: 'Slate & Terracotta', d: 'Current', ink: '#2F3E4C', deep: '#222D38', accent: '#AD5B41', light: '#E39A7F', mist: '#EEF0F1', text: '#26303A', soft: '#4C5763', rule: '#DADFE3' },
+    { n: 'Burgundy & Copper', d: 'Rich, traditional', ink: '#5A1F2B', deep: '#3D141D', accent: '#A4643A', light: '#E2A978', mist: '#F5F0EE', text: '#2B2023', soft: '#5F5255', rule: '#E6DCD9' },
+    { n: 'Deep Teal & Coral', d: 'Fresh, welcoming', ink: '#18454A', deep: '#0F3034', accent: '#C2533B', light: '#F08C73', mist: '#ECF3F2', text: '#1E2E30', soft: '#4D6266', rule: '#D4E1DF' },
+    { n: 'Charcoal & Ochre', d: 'Modern classic', ink: '#2A2A2A', deep: '#1A1A1A', accent: '#A8721A', light: '#E2B458', mist: '#F2F2F0', text: '#222222', soft: '#575757', rule: '#DDDDD9' },
+    { n: 'Plum & Rose', d: 'Warm, distinctive', ink: '#3E2A47', deep: '#2A1C31', accent: '#A24C68', light: '#E89BB3', mist: '#F4F0F5', text: '#2A2230', soft: '#5E5466', rule: '#E2DBE5' },
+    { n: 'Olive & Sand', d: 'Earthy, calm', ink: '#3C4632', deep: '#283022', accent: '#946630', light: '#D9AE6E', mist: '#F1F1EB', text: '#2A2E25', soft: '#5A6052', rule: '#DCDDD1' },
+    { n: 'Royal Blue & Sky', d: 'Bright, trustworthy', ink: '#1C2E6E', deep: '#111C49', accent: '#2F5AD0', light: '#93B3FF', mist: '#EFF3FB', text: '#161B2E', soft: '#4F5770', rule: '#D9DFEE' },
+    { n: 'Midnight & Mint', d: 'Cool, contemporary', ink: '#1F2A44', deep: '#141B2E', accent: '#1E8A72', light: '#7FD8BF', mist: '#EEF4F3', text: '#1B2232', soft: '#4F5A6C', rule: '#D8E2E1' },
+    { n: 'Espresso & Gold', d: 'Warm, premium', ink: '#3A2B24', deep: '#271C17', accent: '#A07A2C', light: '#E1C06F', mist: '#F4F1EC', text: '#2A211C', soft: '#5E544E', rule: '#E2DBD2' }
+  ];
+  function rgb(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }).join(', '); }
+  var root = document.documentElement, box = document.getElementById('presets'), list = box.querySelector('.presets-list'), now = box.querySelector('.now'), toggle = box.querySelector('.presets-toggle');
+  function apply(i) {
+    var c = P[i], st = root.style;
+    st.setProperty('--ink', c.ink); st.setProperty('--ink-deep', c.deep); st.setProperty('--accent', c.accent); st.setProperty('--accent-light', c.light);
+    st.setProperty('--mist', c.mist); st.setProperty('--text', c.text); st.setProperty('--text-soft', c.soft); st.setProperty('--rule', c.rule);
+    st.setProperty('--shade-rgb', rgb(c.deep)); st.setProperty('--accent-light-rgb', rgb(c.light)); st.setProperty('--rule-dark', 'rgba(' + rgb(c.light) + ', .28)');
+    now.textContent = c.n;
+    list.querySelectorAll('.preset').forEach(function (b, j) { b.setAttribute('aria-pressed', j === i); });
+    try { localStorage.setItem('edwards-preset', i); } catch (e) {}
+  }
+  P.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'preset';
+    b.innerHTML = '<span class="sw"><i style="background:' + c.deep + '"></i><i style="background:' + c.ink + '"></i><i style="background:' + c.accent + '"></i><i style="background:' + c.light + '"></i><i style="background:' + c.mist + '"></i></span><span>' + c.n + '<small>' + c.d + '</small></span>';
+    b.addEventListener('click', function () { apply(i); });
+    list.appendChild(b);
+  });
+  toggle.addEventListener('click', function () { var open = box.classList.toggle('collapsed') === false; toggle.setAttribute('aria-expanded', open); });
+  var saved = 0; try { saved = +localStorage.getItem('edwards-preset') || 0; } catch (e) {}
+  apply(saved < P.length ? saved : 0);
+})();
+</script>
+
 </body>
 </html>
