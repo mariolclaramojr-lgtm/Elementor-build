@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plan Your Visit | Edwards Church</title>
+<meta name="description" content="Plan your visit to Edwards Church: what to expect, FAQs, and let us know you are coming.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  EDWARDS — PLAN YOUR VISIT (redesign mockup)
+  Sections (same as the original page):
+    1. Banner "What To Expect"   2. There is a place for you here (video)   3. FAQs (accordion)
+    4. Let Us Know You're Coming (list + form)   5. Service times, contact + map   + Footer
+  Shared header/footer/styles with the home page. Photos: Unsplash.
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Edwards Church home">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="sermons.html">Sermons</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="watch-live.html">Watch Live</a>
+      <span class="nav-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+      </span>
+      <a href="plan-your-visit.html" class="btn btn-accent" aria-current="page">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= 1. PAGE BANNER ======================= -->
+<section class="page-banner" aria-label="Plan Your Visit">
+  <div class="page-banner-bg" aria-hidden="true"><img src="img/banner-visit.jpg" alt="Church greeters welcoming people at the front doors" width="2000" height="1333"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true"></span><span>Plan Your Visit</span></nav>
+    <h1>What To <em>Expect</em></h1>
+    <p class="lead">Smiling faces, a cup of coffee and a place for your whole family.</p>
+  </div>
+</section>
+
+<!-- ======================= 2. A PLACE FOR YOU — video + text ======================= -->
+<section class="section" aria-labelledby="place-title">
+  <div class="wrap split">
+    <div class="split-media reveal">
+      <div class="video-card">
+        <video autoplay muted loop playsinline preload="metadata" poster="img/visit-video-poster.jpg">
+          <source src="hero.webm" type="video/webm">
+          <source src="hero.mp4" type="video/mp4">
+        </video>
+        <button class="vc-toggle" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><span>Pause</span></button>
+      </div>
+    </div>
+    <div class="text-stack">
+      <span class="eyebrow reveal">Welcome</span>
+      <h2 id="place-title" class="reveal d1">There is a place <em>for you here.</em></h2>
+      <p class="reveal d2">We want church to be a place where your entire family is encouraged to draw closer to Christ. Visiting somewhere new can be intimidating. We want to make sure that you feel comfortable and welcome when you walk into our doors. We have smiling faces waiting to greet you and we will show you where to go. Enjoy a cup of coffee and relax with us!</p>
+      <a href="#coming" class="btn btn-primary reveal d3">Let Us Know You're Coming <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. FAQS — accordion ======================= -->
+<section class="section section-mist" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div class="text-stack">
+      <span class="eyebrow reveal">FAQs</span>
+      <h2 id="faq-title" class="reveal d1">Frequently Asked <em>Questions</em></h2>
+      <p class="reveal d2">Still wondering about something? Send us a note and we'll be happy to help.</p>
+      <a href="mailto:info@yourchurch.com" class="btn btn-outline reveal d3">Ask a Question</a>
+    </div>
+    <div class="accordion reveal" data-single>
+      <details class="acc" open>
+        <summary>What do I wear?<span class="acc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="acc-body"><p>This is the accordion body content. It is typically best to keep this area short and to the point so it isn't too overwhelming.</p></div>
+      </details>
+      <details class="acc">
+        <summary>What is a typical service like?<span class="acc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="acc-body"><p>This is the accordion body content. It is typically best to keep this area short and to the point so it isn't too overwhelming.</p></div>
+      </details>
+      <details class="acc">
+        <summary>What do you have for my kids?<span class="acc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="acc-body"><p>This is the accordion body content. It is typically best to keep this area short and to the point so it isn't too overwhelming.</p></div>
+      </details>
+      <details class="acc">
+        <summary>Where do I go when I arrive?<span class="acc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="acc-body"><p>This is the accordion body content. It is typically best to keep this area short and to the point so it isn't too overwhelming.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. LET US KNOW YOU'RE COMING — list + form ======================= -->
+<section class="section" id="coming" aria-labelledby="coming-title">
+  <div class="wrap split">
+    <div class="text-stack">
+      <span class="eyebrow reveal">First Visit</span>
+      <h2 id="coming-title" class="reveal d1">Let Us Know <em>You're Coming</em></h2>
+      <p class="reveal d2">We can't wait to meet you! We want to make your first visit a great one, so let us know you're coming and we will:</p>
+      <ul class="check-list reveal d3">
+        <li>Meet you at our Welcome Center</li>
+        <li>Help you get your kids checked into kids church</li>
+        <li>Get you a cup of coffee and some refreshments</li>
+        <li>Show you around our church building</li>
+      </ul>
+    </div>
+    <div class="form-card reveal">
+      <form class="form" data-success="We've got your details and we'll be watching for you. See you soon!">
+        <div class="form-row">
+          <label class="field"><span>First Name <em>*</em></span><input id="pyv-first" name="first" type="text" autocomplete="given-name" required></label>
+          <label class="field"><span>Last Name</span><input id="pyv-last" name="last" type="text" autocomplete="family-name"></label>
+        </div>
+        <label class="field"><span>Email <em>*</em></span><input id="pyv-email" name="email" type="email" autocomplete="email" required></label>
+        <label class="field"><span>When will you be visiting?</span><input id="pyv-date" name="date" type="date"><small>MM / DD / YYYY</small></label>
+        <label class="field"><span>Will anybody be coming with you?</span><textarea id="pyv-guests" name="guests" placeholder="e.g. my spouse and two kids (ages 4 and 7)"></textarea></label>
+        <button type="submit" class="btn btn-primary">Submit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICE TIMES & CONTACT — detail cards + map ======================= -->
+<section class="section" aria-labelledby="visit-title">
+  <div class="wrap visit">
+    <div class="visit-info">
+      <div class="text-stack">
+        <span class="eyebrow reveal">Plan Your Visit</span>
+        <h2 id="visit-title" class="reveal d1">Join us <em>this week</em></h2>
+        <p class="reveal d2">We can't wait to meet you. Here's everything you need for your first visit.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card reveal ">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <h3>Service Times</h3>
+          <div class="detail">Sundays at 10am<br>Wednesday at 7pm</div>
+        </div>
+        <div class="info-card reveal d1">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <h3>Location</h3>
+          <div class="detail">1234 Street<br>My Town, XX 12345</div>
+        </div>
+        <div class="info-card reveal d2">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <h3>Email</h3>
+          <div class="detail"><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></div>
+        </div>
+        <div class="info-card reveal d3">
+          <span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span>
+          <h3>Phone</h3>
+          <div class="detail"><a href="tel:5555555555">(555) 555-5555</a></div>
+        </div>
+      </div>
+      <div class="visit-actions reveal">
+        <a href="#coming" class="btn btn-primary">Let Us Know You're Coming
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Franklin,+TN" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+    <!-- Google Maps embed (Cornerstone: Map element / Elementor: Google Maps widget). Placeholder location: swap Franklin, TN for the church address. -->
+    <div class="map reveal">
+      <div class="map-fallback"><strong>Map</strong><span>1234 Street, My Town, XX 12345</span></div>
+      <iframe title="Map to Edwards Church" src="https://maps.google.com/maps?q=Franklin,+TN&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="wrap footer-cta">
+    <div>
+      <h2>We'd love to <em>see you Sunday.</em></h2>
+      <p>Join us Sundays at 10am and Wednesday at 7pm.</p>
+    </div>
+    <div class="btns">
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="give.html" class="btn btn-ghost">Give</a>
+    </div>
+  </div>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" aria-label="Edwards Church home">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+      </a>
+      <p class="footer-tagline">Love God. Love People.</p>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h3>Visit</h3>
+      <ul>
+        <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="connect.html">Connect</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Engage</h3>
+      <ul>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="watch-live.html">Watch Live</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Service Times</h3>
+      <ul>
+        <li>Sundays at 10am</li>
+        <li>Wednesday at 7pm</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>1234 Street<br>My Town, XX 12345</li>
+        <li><a href="tel:5555555555">(555) 555-5555</a></li>
+        <li><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <span>&copy; 2026 Edwards Church. All rights reserved.</span>
+      <a href="https://reachrightstudios.com">church websites by REACHRIGHT</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+
+<script src="js/site.js"></script>
+</body>
+</html>

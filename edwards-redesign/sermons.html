@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sermons | Edwards Church</title>
+<meta name="description" content="Watch or listen to messages from Edwards Church.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  EDWARDS — SERMONS (redesign mockup)
+  Sections (same as the original page):
+    1. Banner "Sermons"   2. Filters (speaker, series, topic, book) + sermon list   + Footer
+  In the build this is the Sermon Manager shortcode, styled to match.
+  Shared header/footer/styles with the home page. Photos: Unsplash.
+-->
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Edwards Church home">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="connect.html">Connect</a>
+      <a href="sermons.html" aria-current="page">Sermons</a>
+      <a href="events.html">Events</a>
+      <a href="give.html">Give</a>
+      <a href="watch-live.html">Watch Live</a>
+      <span class="nav-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+      </span>
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= 1. PAGE BANNER ======================= -->
+<section class="page-banner" aria-label="Sermons">
+  <div class="page-banner-bg" aria-hidden="true"><img src="img/banner-sermons.jpg" alt="Pastor preaching from the stage" width="2000" height="1333"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true"></span><span>Sermons</span></nav>
+    <h1>Sermons</h1>
+    <p class="lead">Watch or listen to previous messages anytime.</p>
+  </div>
+</section>
+
+<!-- ======================= 2. SERMON ARCHIVE — filters + list (Sermon Manager shortcode in the build) ======================= -->
+<section class="section section-mist" aria-label="Sermon archive">
+  <div class="wrap">
+    <form class="filters reveal" id="sermon-filters" aria-label="Filter sermons">
+      <label class="field"><span>Speaker</span><select id="speaker" name="speaker"><option value="">All</option><option value="First and Last Name">First and Last Name</option></select></label>
+      <label class="field"><span>Series</span><select id="series" name="series"><option value="">All</option></select></label>
+      <label class="field"><span>Topic</span><select id="topic" name="topic"><option value="">All</option></select></label>
+      <label class="field"><span>Book</span><select id="book" name="book"><option value="">All</option><option value="John">John</option></select></label>
+      <button type="reset" class="btn btn-outline">Clear Filters</button>
+    </form>
+
+    <article class="sermon reveal" data-speaker="First and Last Name" data-series="" data-topic="" data-book="John">
+      <a href="#" data-build-href="/sermon-archive/sample-sermon/" class="sermon-media" aria-label="Watch Sample Sermon">
+        <img src="gallery-2.jpg" alt="" width="1400" height="933" loading="lazy">
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+      </a>
+      <div class="sermon-body">
+        <span class="sermon-date">Sunday, December 18, 2022</span>
+        <h2><a href="#" data-build-href="/sermon-archive/sample-sermon/">Sample Sermon</a></h2>
+        <div class="sermon-meta">
+          <span><strong>Speaker:</strong> <a href="#">First and Last Name</a></span>
+          <span><strong>Scripture:</strong> John 3:16</span>
+        </div>
+        <p>Lorem ipsum dolor sit amet, ex has autem posse percipitur, esse ullamcorper an eos, cum quod dolor a...</p>
+        <div class="sermon-foot">
+          <a href="#" class="pill">Sunday Morning</a>
+          <div class="share">Share
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+            <a href="https://twitter.com/share?url=" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+            <a href="mailto:?subject=Sample%20Sermon" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <p class="empty-state" id="no-sermons" hidden>No sermons match those filters. Try clearing them.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="wrap footer-cta">
+    <div>
+      <h2>We'd love to <em>see you Sunday.</em></h2>
+      <p>Join us Sundays at 10am and Wednesday at 7pm.</p>
+    </div>
+    <div class="btns">
+      <a href="plan-your-visit.html" class="btn btn-accent">Plan Your Visit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="give.html" class="btn btn-ghost">Give</a>
+    </div>
+  </div>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" aria-label="Edwards Church home">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span class="logo-text"><span class="logo-name">Edwards</span><span class="logo-sub">Church</span></span>
+      </a>
+      <p class="footer-tagline">Love God. Love People.</p>
+      <div class="social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h3>Visit</h3>
+      <ul>
+        <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="connect.html">Connect</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Engage</h3>
+      <ul>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="watch-live.html">Watch Live</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Service Times</h3>
+      <ul>
+        <li>Sundays at 10am</li>
+        <li>Wednesday at 7pm</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>1234 Street<br>My Town, XX 12345</li>
+        <li><a href="tel:5555555555">(555) 555-5555</a></li>
+        <li><a href="mailto:info@yourchurch.com">info@yourchurch.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <span>&copy; 2026 Edwards Church. All rights reserved.</span>
+      <a href="https://reachrightstudios.com">church websites by REACHRIGHT</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+
+<script src="js/site.js"></script>
+<script>
+(function () {
+  /* Sermon filters (mockup: filters the sermons listed on this page) */
+  var form = document.getElementById('sermon-filters'), cards = document.querySelectorAll('.sermon'), empty = document.getElementById('no-sermons');
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var ok = ['speaker', 'series', 'topic', 'book'].every(function (k) { var v = form.elements[k].value; return !v || c.dataset[k] === v; });
+      c.hidden = !ok; if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+  }
+  form.addEventListener('change', apply);
+  form.addEventListener('submit', function (e) { e.preventDefault(); apply(); });
+  form.addEventListener('reset', function () { setTimeout(apply); });
+})();
+</script>
+</body>
+</html>
