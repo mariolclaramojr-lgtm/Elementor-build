@@ -16,7 +16,8 @@ Site: rrnewedwards.wpenginepowered.com (Pro 6.9.8 / Cornerstone 7.9.8). Follows 
 - **Visit Us – Service Times, Contact + Map** (id 354): place with `{"_type":"global-block","global_block_id":"354"}`.
 
 ## Pages
-- Home (Redesign Draft) — page 355 (draft, template-blank-4.php). Built by `build/home.py`.
+- **Home — live** (page 8, template-blank-4.php), published 2026-11-17 from `build/home.py`. Previous version: `cs_list_backups 8` index 0.
+- Home (Redesign Draft) — page 355, draft copy used for review.
 
 ## Build scripts
 `build/cs_lib.py` (element builders, native elements only), `build/home.py`, `build/run.py`.
