@@ -1,0 +1,4 @@
+{
+    "name": "x_custom_styles",
+    "value": ".x-column.right {\n  margin-right: 0;\n}\n\n.single-wpfc_sermon .content_wrapper,\n.tax-wpfc_preacher .content_wrapper,\n.post-type-archive-wpfc_sermon .content_wrapper {\n    width: 1200px;\n    margin: 0 auto;\n    position: relative;\n}\n\n#wpfc_sermon_sorting { justify-content: center; }\n\n.wpfc-sermon-single-image { text-align: center; }\n\n\n\n.wpfc-sermon-single .entry-header {display: none;}\n\n.smpro-title__text {font-size: 1.8rem;}\n\n.smpro-title {\n    margin-top: -25px;\n}\n"
+}

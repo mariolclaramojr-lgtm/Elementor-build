@@ -1,0 +1,92 @@
+{
+    "name": "cs_assignment_cache_layout_header",
+    "value": [
+        {
+            "id": 186,
+            "title": "Main Header",
+            "rules": [
+                {
+                    "group": true,
+                    "condition": "single:front-page",
+                    "value": ""
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 11
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 12
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 14
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 167
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 204
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 221
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 231
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 63
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 8
+                },
+                {
+                    "group": true,
+                    "condition": "single:specific-post-of-type|page",
+                    "value": 167
+                }
+            ],
+            "priority": 0
+        },
+        {
+            "id": 267,
+            "title": "Blog Header",
+            "rules": [
+                {
+                    "group": true,
+                    "condition": "archive:front-page",
+                    "value": "",
+                    "toggle": true
+                }
+            ],
+            "priority": 10
+        },
+        {
+            "id": 280,
+            "title": "Archive Header",
+            "rules": [
+                {
+                    "group": true,
+                    "condition": "site:entire-site",
+                    "value": ""
+                }
+            ],
+            "priority": 20
+        }
+    ]
+}
