@@ -31,3 +31,12 @@ Site: rrnewedwards.wpenginepowered.com (Pro 6.9.8 / Cornerstone 7.9.8). Follows 
 ## Build scripts
 `build/cs_lib.py` (element builders, native elements only), `build/home.py`, `build/run.py`.
 `media.json` = Media Library ids, `state.json` = created ids. Credentials are NOT stored here.
+
+## Inner pages (live, 2026-11-17) — `build/inner.py`, `build/run_inner.py`
+Plan Your Visit 204 · About 11 · Connect 12 · Sermons 167 (`[smpro_archive per_page="9"]`) · Events 63 (`[MEC id="52"]`) ·
+Give 14 · Watch Live 221. Forms: Gravity Forms #3 (Let Us Know You're Coming) and #7 (Prayer Request) via Form Integration.
+Plugin styling (Gravity Forms, Sermon Manager, MEC) is in `global.css` (PLUGINS block), all colours/fonts as Cornerstone globals.
+
+## Headers
+Main Header 186 · Archive Header 280 (dynamic archive title) · Blog Header 267 · Single Header 414 (sermons + events, post title).
+Sample Sermon (166) moved to trash; Sunday Service event (65) got a featured image.

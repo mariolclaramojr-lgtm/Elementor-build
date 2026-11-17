@@ -27,7 +27,7 @@ def build(orig, media):
                 'anchor_box_shadow_dimensions': '!0em 0em 0em 0em', 'anchor_graphic_icon_font_size': '0.95em',
                 'anchor_graphic_icon_color': G('white'), 'anchor_graphic_icon_color_alt': G('white'), '_modules': []}
     for bi, bar in enumerate(regions['top']):
-        bar.update(bar_sticky=True, bar_sticky_trigger_offset='60', bar_sticky_shrink='0.82', bar_sticky_slide_enabled=False,
+        bar.update(bar_bg_color='transparent', bar_position_top='absolute', bar_sticky=True, bar_sticky_trigger_offset='60', bar_sticky_shrink='0.82', bar_sticky_slide_enabled=False,
                    bar_content_max_length='1288px', bar_outer_spacing='24px', bar_height='6.5em',
                    _label='Desktop Bar' if bi == 0 else 'Mobile Bar')
         bar['class'] = 'ed-header-bar'
@@ -60,4 +60,27 @@ def build(orig, media):
                 e.update(p); mods.append(e)
             else: mods.append(e)
         cont['_modules'] = mods
+    return regions
+
+
+def build_with_banner(orig, media, banner_text, banner_bar_label='Title Banner'):
+    """Archive/Blog headers: same nav bars as the Main Header + a slate title banner (dynamic content)."""
+    regions = build(orig, media)
+    top = regions['top']
+    # drop any old banner bars (bars that hold a headline), keep nav bars
+    navs = [b for b in top if not any(e.get('_type') == 'headline' for e in b['_modules'][0]['_modules'])]
+    for i, b in enumerate(navs):
+        b['_label'] = 'Desktop Bar' if i == 0 else 'Mobile Bar'
+        b['bar_z_index'] = '9999'
+    banner = {'_type': 'bar', '_bp_base': '4_4', '_region': 'top', '_label': banner_bar_label, 'bar_height': 'auto',
+              'bar_bg_color': G('slate-deep'), 'bar_padding': '9em 0em 4em 0em', 'bar_content_max_length': '1288px', 'bar_outer_spacing': '24px',
+              'bar_box_shadow_dimensions': '!0em 0em 0em 0em', 'bar_position_top': 'relative', 'bar_z_index': '1',
+              '_modules': [{'_type': 'container', '_bp_base': '4_4', '_region': 'top', 'title': 'Banner Content', 'container_flex': '1 1 auto',
+                            'container_row_flex_justify': 'center',
+                            '_modules': [{'_type': 'headline', '_bp_base': '4_4', '_region': 'top', 'title': 'Page Title (dynamic)',
+                                          'text_content': banner_text, 'text_tag': 'h1', 'text_font_family': FONT, 'text_font_weight': '700',
+                                          'text_font_size': '3.4em', 'text_line_height': '1.1', 'text_letter_spacing': '-0.022em',
+                                          'text_text_color': G('white'), 'text_text_align': 'center', 'class': 'ed-archive-title',
+                                          '_modules': []}]}]}
+    regions['top'] = navs + [banner]
     return regions

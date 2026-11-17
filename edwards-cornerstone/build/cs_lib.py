@@ -63,10 +63,10 @@ def headline(title, content, tag='h2', size='3.2em', color='slate', weight='700'
     p.update(props)
     return el('headline', title, bp=bp, **p)
 
-def label(title, content, color='accent', size='0.72em', align='none', **props):
+def label(title, content, color='accent', size='0.72em', align='none', ls='0.24em', transform='uppercase', **props):
     """Small uppercase label (eyebrow text, card labels)."""
-    return headline(title, content, tag='span', size=size, color=color, weight='700', lh='1.4', ls='0.24em',
-                    align=align, transform='uppercase', **props)
+    return headline(title, content, tag='span', size=size, color=color, weight='700', lh='1.4', ls=ls,
+                    align=align, transform=transform, **props)
 
 def eyebrow(content, color='accent', center=False, **props):
     line = lambda t: el('line', t, line_width='2.75em', line_size='1px', line_color=G(color) if color != 'white' else G('white'))
