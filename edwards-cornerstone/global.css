@@ -1,0 +1,40 @@
+/* ===== EDWARDS REDESIGN START ===== */
+/* Only what Cornerstone elements have no setting for. Colours/fonts always reference the Cornerstone
+   globals (%%post color%%global-color:…%%/post%% / %%post font-family%%…%%/post%%), never hard-coded. */
+
+/* Heading accent — the global JS wraps the last word(s) of every H1/H2 in span.ed-accent */
+.ed-accent { color: %%post color%%global-color:edwards-accent%%/post%%; }
+
+/* Find Connection cards — the hovered card widens, the others narrow (desktop only) */
+@media (min-width: 1001px) {
+  .ed-expand-cards > .ed-expand-card { transition: flex-grow .7s cubic-bezier(.22,.61,.36,1); }
+  .ed-expand-cards:hover > .ed-expand-card { flex-grow: .75; }
+  .ed-expand-cards > .ed-expand-card:hover { flex-grow: 2.2; }
+}
+
+/* Welcome gallery — soft zoom on hover; click opens the photo viewer (global JS) */
+.ed-lightbox { overflow: hidden; cursor: zoom-in; }
+.ed-lightbox img { transition: transform .9s cubic-bezier(.22,.61,.36,1); }
+.ed-lightbox:hover img { transform: scale(1.06); }
+
+/* Photo viewer (created by the global JS) */
+.ed-lb { position: fixed; inset: 0; z-index: 99999; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 1rem;
+  padding: 24px 16px; background: %%post color%%global-color:edwards-slate-deep:0.94%%/post%%; opacity: 0; transition: opacity .3s ease; }
+.ed-lb.is-open { opacity: 1; }
+.ed-lb[hidden] { display: none; }
+.ed-lb figure { margin: 0; display: grid; justify-items: center; gap: .9rem; min-width: 0; }
+.ed-lb img { max-height: 82vh; width: auto; max-width: 100%; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.ed-lb figcaption { color: %%post color%%global-color:edwards-on-dark%%/post%%; font-family: %%post font-family%%edwards-sans%%/post%%; font-size: .8rem; letter-spacing: .2em; }
+.ed-lb button { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 8px; cursor: pointer;
+  background: none; border: 1px solid %%post color%%global-color:e013c488-df27-4ba3-8b8a-b36f9d2a99ba:0.3%%/post%%; color: %%post color%%global-color:e013c488-df27-4ba3-8b8a-b36f9d2a99ba%%/post%%; }
+.ed-lb button:hover { background: %%post color%%global-color:edwards-accent%%/post%%; border-color: %%post color%%global-color:edwards-accent%%/post%%; }
+.ed-lb .ed-lb-close { position: absolute; top: 20px; right: 20px; }
+@media (max-width: 640px) { .ed-lb { grid-template-columns: minmax(0,1fr); } .ed-lb .ed-lb-prev, .ed-lb .ed-lb-next { position: absolute; bottom: 20px; } .ed-lb .ed-lb-prev { left: calc(50% - 60px); } .ed-lb .ed-lb-next { right: calc(50% - 60px); } }
+
+/* Next-service countdown: pulsing dot while a service is live (global JS adds .is-live) */
+.ed-next-service.is-live .ed-next-value::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: .5em; border-radius: 50%;
+  background: %%post color%%global-color:e013c488-df27-4ba3-8b8a-b36f9d2a99ba%%/post%%; vertical-align: middle; animation: ed-pulse 1.8s infinite; }
+@keyframes ed-pulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,.7); } 70% { box-shadow: 0 0 0 8px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+
+@media (prefers-reduced-motion: reduce) { .ed-expand-cards > .ed-expand-card, .ed-lightbox img, .ed-lb { transition: none !important; } }
+/* ===== EDWARDS REDESIGN END ===== */
