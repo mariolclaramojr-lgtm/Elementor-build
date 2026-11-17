@@ -45,6 +45,9 @@
 .search .ed-archive-title .x-text-content-text-primary::before { content: "Results for \201C"; }
 .search .ed-archive-title .x-text-content-text-primary::after { content: "\201D"; }
 
+/* Pro's closed off-canvas menu can sit wider than the viewport on load; clip it (clip keeps sticky header working) */
+html, body { overflow-x: clip; }
+
 /* ===== PLUGINS: Gravity Forms, Sermon Manager, MEC ===== */
 /* ---------- Checklist (Text elements with class ed-checklist) ---------- */
 .ed-checklist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
