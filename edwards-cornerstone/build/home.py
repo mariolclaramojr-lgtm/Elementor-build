@@ -69,7 +69,7 @@ hero = section('1. Hero (video)', [
     col('Content', [
       eyebrow('Love God. Love People.', center=True, **reveal(150)),
       headline('Heading (H1)', 'Where real people find Jesus.', tag='h1', size='4.4em', color='white', lh='1.08', align='center', text_max_width='780px',
-               bp={'text_font_size': ['2.4em', '3.4em']}, **reveal(300)),
+               bp={'text_font_size': ['2.4em', '2.6em', '3.4em', '3.8em']}, **reveal(300)),
       div('Buttons', [
         button('Button – New Here', 'New Here?', '/plan-your-visit/', 'light', arrow=True),
         button('Button – Watch Live', 'Watch Live', '/watch-live/', 'ghost'),

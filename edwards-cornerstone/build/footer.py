@@ -48,7 +48,7 @@ footer_component = [section('Footer', [
     fcol('Service Times', [plain('Times', '<p>Sundays at 10am<br>Wednesday at 7pm</p>')]),
     fcol('Contact', [plain('Address', '<p>1234 Street<br>My Town, XX 12345</p>'),
                      flink('(555) 555-5555', 'tel:5555555555'), flink('info@yourchurch.com', 'mailto:info@yourchurch.com')]),
-  ], layout='26% 18.5% 18.5% 18.5% 18.5%', gap='2.5em', layout_phone='100%', layout_tablet='50% 50%', layout_row_padding='3.75em 0em 3.75em 0em'),
+  ], layout='26% 18.5% 18.5% 18.5% 18.5%', gap='2.5em', layout_phone='100%', layout_tablet='33.33% 33.33% 33.33%', layout_row_padding='3.75em 0em 3.75em 0em'),
   row('Bottom Bar', [
     col('Copyright', [text('Copyright', '<p>&copy; 2026 Edwards Church. All rights reserved.</p>', color='on-dark', size='0.82em')]),
     col('Credit', [flink('church websites by REACHRIGHT', 'https://reachrightstudios.com')], align='flex-end',

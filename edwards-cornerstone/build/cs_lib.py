@@ -1,6 +1,6 @@
 """Element builders for the Edwards Cornerstone build.
 Native Cornerstone elements only; colours/fonts always reference the Cornerstone globals.
-Breakpoints on this site: base = desktop, _bp_base "2_2", responsive arrays are [phone(<500), tablet(500-1000), desktop(None)]."""
+Breakpoints on this site: 5 (_bp_base "4_4"): xs<479, sm 479-766, md 767-978, lg 979-1198, xl base."""
 
 FONT = 'edwards-sans'
 def G(name, a=None):
@@ -9,11 +9,16 @@ def G(name, a=None):
     return f'global-color:{gid}' + (f':{a}' if a is not None else '')
 
 def el(_type, title=None, children=None, bp=None, **props):
-    e = {'_type': _type, '_bp_base': '2_2'}
+    e = {'_type': _type, '_bp_base': '4_4'}
     if title: e['title'] = title
     e.update(props)
     if bp:
-        e['_bp_data2_2'] = {k: [v[0], v[1], None] for k, v in bp.items()}
+        # site uses 5 breakpoints: [xs <479, sm 479-766, md 767-978, lg 979-1198, xl base]
+        # 2-tuple (phone, tablet) -> phone on xs+sm, tablet on md+lg; 4-tuple given explicitly
+        def expand(v):
+            v = list(v)
+            return v + [None] if len(v) == 4 else [v[0], v[0], v[1], v[1], None]
+        e['_bp_data4_4'] = {k: expand(v) for k, v in bp.items()}
     e['_modules'] = children or []
     return e
 

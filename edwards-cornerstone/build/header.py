@@ -10,7 +10,7 @@ def build(orig, media):
         img.update(image_src=f"{logo['id']}:full", image_type='standard', image_styled_width='180px', image_width=585, image_height=162, image_retina=False,
                    image_href='/', image_link=True, image_alt='Edwards Church', title='Logo')
     def fix_collapsed(nc, menu):
-        nc.update(menu=menu, title='Mobile Menu (off-canvas)',
+        nc.update(hide_bp='xl', toggle_anchor_margin='0em 0em 0em auto', menu=menu, title='Mobile Menu (off-canvas)', toggle_type='burger-1', toggle_burger_width='12em', toggle_burger_spacing='3.25em', toggle_burger_size='0.1em', toggle_anchor_graphic_icon_color=G('white'),
           toggle_color=G('white'), toggle_color_alt=G('accent'), toggle_anchor_primary_particle=False, toggle_anchor_secondary_particle=False,
           off_canvas_bg_color=G('slate-deep', 0.6), off_canvas_content_bg_color=G('slate-deep'), off_canvas_close_color=G('white'), off_canvas_close_color_alt=G('accent'),
           anchor_bg_color='transparent', anchor_bg_color_alt=G('white', 0.06),
@@ -19,7 +19,7 @@ def build(orig, media):
           anchor_primary_text_color=G('white'), anchor_primary_text_color_alt=G('accent'), anchor_primary_particle_color=G('accent', 0.12),
           sub_anchor_primary_text_color=G('white'), sub_anchor_primary_text_color_alt=G('accent'))
     def social(net, icon, href):
-        return {'_type': 'social', '_bp_base': '4_4', '_region': 'top', 'title': f'Social – {net}',
+        return {'_type': 'social', '_bp_base': '4_4', '_region': 'top', 'hide_bp': 'lg md sm xs', 'title': f'Social – {net}',
                 'anchor_graphic_icon': icon, 'anchor_graphic_icon_alt': icon, 'anchor_href': href, 'anchor_blank': True,
                 'anchor_width': '2.15em', 'anchor_height': '2.15em', 'anchor_margin': '0em 0.5em 0em 0em',
                 'anchor_bg_color': 'transparent', 'anchor_bg_color_alt': G('accent'),
@@ -39,7 +39,7 @@ def build(orig, media):
             t = e['_type']
             if t == 'image': fix_logo(e); mods.append(e)
             elif t == 'nav-inline':
-                e.update(menu='menu:2', title='Main Menu', menu_margin='0px 1.25em 0px auto', anchor_margin='2em 0.9em 2em 0.9em',
+                e.update(hide_bp='lg md sm xs', menu='menu:2', title='Main Menu', menu_margin='0px 1.25em 0px auto', anchor_margin='2em 0.9em 2em 0.9em',
                   anchor_primary_font_family=FONT, anchor_primary_font_weight='500', anchor_primary_font_size='0.76em', anchor_primary_letter_spacing='0.16em',
                   anchor_primary_text_color=G('white', 0.86), anchor_primary_text_color_alt=G('white'),
                   anchor_primary_particle=True, anchor_primary_particle_color=G('accent'), anchor_primary_particle_width='100%', anchor_primary_particle_height='1px',
@@ -56,6 +56,8 @@ def build(orig, media):
                 p.update(anchor_text_primary_content='Plan Your Visit', anchor_href='/plan-your-visit/', anchor_padding='1em 1.4em 1em 1.4em', anchor_primary_font_size='0.74em',
                          anchor_margin='0em 0em 0em 1.75em', title='Button – Plan Your Visit', anchor_graphic=False)
                 p['class'] = 'ed-nav-cta'
+                p['hide_bp'] = 'sm xs'
+                p['anchor_margin'] = '0em 0em 0em 1.25em'
                 for k in [k for k in e if k.startswith('anchor_')]: del e[k]
                 e.update(p); mods.append(e)
             else: mods.append(e)
