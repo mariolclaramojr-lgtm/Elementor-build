@@ -17,10 +17,14 @@ def el(_type, title=None, children=None, bp=None, **props):
     e['_modules'] = children or []
     return e
 
-def reveal(delay=0):
+def provider():
+    """Native: hovering this element drives its children's hover colours / particles / effects."""
+    return dict(effects_provider=True, effects_provider_targets='colors particles effects')
+
+def reveal(delay=0, zoom=False):
     """Native Cornerstone scroll effect: fade up once."""
     return dict(effects_scroll=True, effects_type_scroll='transform', effects_opacity_exit='0', effects_opacity_enter='1',
-                effects_transform_exit='translate(0px, 1.5rem)', effects_transform_enter='translate(0px, 0px)',
+                effects_transform_exit=('scale(1.06)' if zoom else 'translate(0px, 1.5rem)'), effects_transform_enter='translate(0px, 0px)',
                 effects_duration_scroll='900ms', effects_delay_scroll=f'{delay}ms', effects_behavior_scroll='fire-once')
 
 # ---------- layout ----------
@@ -80,19 +84,32 @@ BTN_BASE = dict(anchor_primary_font_family=FONT, anchor_primary_font_weight='600
                 anchor_primary_letter_spacing='0.16em', anchor_primary_text_transform='uppercase', anchor_primary_line_height='1',
                 anchor_padding='1.15em 1.9em 1.15em 1.9em', anchor_border_radius='8px', anchor_border_width='1px', anchor_border_style='solid',
                 anchor_box_shadow_dimensions='!0em 0em 0em 0em', anchor_text_margin='0px',
+                # hover: accent fill sweeps in from the left (native particle)
+                anchor_primary_particle=True, anchor_primary_particle_location='c_c', anchor_primary_particle_placement='inside',
+                anchor_primary_particle_scale='scale-x', anchor_primary_particle_transform_origin='0% 50%',
+                anchor_primary_particle_width='100%', anchor_primary_particle_height='100%', anchor_primary_particle_delay='0ms',
+                anchor_primary_particle_border_radius='0px', effects_duration='450ms',
                 anchor_graphic=False)
+ARROW = dict(anchor_graphic=True, anchor_graphic_type='icon', anchor_graphic_icon='arrow-right', anchor_graphic_icon_alt='arrow-right',
+             anchor_graphic_icon_font_size='1em', anchor_graphic_margin='0em 0em 0em 0.75em', anchor_flex_direction='row-reverse',
+             anchor_graphic_has_interactions=True, anchor_graphic_interaction='x-anchor-slide-right')
 BTN = {
- 'primary': dict(anchor_bg_color=G('slate'), anchor_bg_color_alt=G('accent'), anchor_border_color=G('slate'), anchor_border_color_alt=G('accent'),
-                 anchor_primary_text_color=G('white'), anchor_primary_text_color_alt=G('white')),
- 'light':   dict(anchor_bg_color=G('white'), anchor_bg_color_alt=G('accent'), anchor_border_color=G('white'), anchor_border_color_alt=G('accent'),
-                 anchor_primary_text_color=G('slate-deep'), anchor_primary_text_color_alt=G('white')),
- 'ghost':   dict(anchor_bg_color='transparent', anchor_bg_color_alt=G('white'), anchor_border_color=G('white', 0.55), anchor_border_color_alt=G('white'),
-                 anchor_primary_text_color=G('white'), anchor_primary_text_color_alt=G('slate-deep')),
- 'outline': dict(anchor_bg_color='transparent', anchor_bg_color_alt=G('slate'), anchor_border_color=G('slate'), anchor_border_color_alt=G('slate'),
-                 anchor_primary_text_color=G('slate'), anchor_primary_text_color_alt=G('white')),
+ 'primary': dict(anchor_bg_color=G('slate'), anchor_bg_color_alt=G('slate'), anchor_border_color=G('slate'), anchor_border_color_alt=G('accent'),
+                 anchor_primary_text_color=G('white'), anchor_primary_text_color_alt=G('white'), anchor_primary_particle_color=G('accent'),
+                 anchor_graphic_icon_color=G('white'), anchor_graphic_icon_color_alt=G('white')),
+ 'light':   dict(anchor_bg_color=G('white'), anchor_bg_color_alt=G('white'), anchor_border_color=G('white'), anchor_border_color_alt=G('accent'),
+                 anchor_primary_text_color=G('slate-deep'), anchor_primary_text_color_alt=G('white'), anchor_primary_particle_color=G('accent'),
+                 anchor_graphic_icon_color=G('slate-deep'), anchor_graphic_icon_color_alt=G('white')),
+ 'ghost':   dict(anchor_bg_color='transparent', anchor_bg_color_alt='transparent', anchor_border_color=G('white', 0.55), anchor_border_color_alt=G('white'),
+                 anchor_primary_text_color=G('white'), anchor_primary_text_color_alt=G('slate-deep'), anchor_primary_particle_color=G('white'),
+                 anchor_graphic_icon_color=G('white'), anchor_graphic_icon_color_alt=G('slate-deep')),
+ 'outline': dict(anchor_bg_color='transparent', anchor_bg_color_alt='transparent', anchor_border_color=G('slate'), anchor_border_color_alt=G('slate'),
+                 anchor_primary_text_color=G('slate'), anchor_primary_text_color_alt=G('white'), anchor_primary_particle_color=G('slate'),
+                 anchor_graphic_icon_color=G('slate'), anchor_graphic_icon_color_alt=G('white')),
 }
-def button(title, label_, href, style='primary', blank=False, **props):
+def button(title, label_, href, style='primary', blank=False, arrow=False, **props):
     p = dict(BTN_BASE); p.update(BTN[style])
+    if arrow: p.update(ARROW)
     p.update(anchor_text_primary_content=label_, anchor_href=href, anchor_blank=blank)
     p.update(props)
     return el('button', title, **p)
@@ -100,7 +117,7 @@ def button(title, label_, href, style='primary', blank=False, **props):
 def image(title, media, alt='', ratio='auto', radius='12px', fill=False, link=None, **props):
     p = dict(image_type='standard', image_src=f"{media['id']}:full", image_alt=alt, image_retina=False,
              image_display='block', image_styled_width='100%', image_outer_border_radius=radius, image_inner_border_radius=radius,
-             image_object_fit='cover', image_object_position='50% 50%', aspect_ratio_value=ratio)
+             image_object_fit='cover', image_object_position='50% 50%', image_aspect_ratio_value=ratio)
     if fill: p.update(image_styled_height='100%')
     if link: p.update(image_link=True, image_href=link)
     p.update(props)

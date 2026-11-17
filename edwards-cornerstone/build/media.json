@@ -62,5 +62,13 @@
  "footer-bg": {
   "id": 353,
   "url": "https://rrnewedwards.wpenginepowered.com/wp-content/uploads/2026/11/footer-bg.jpg"
+ },
+ "logo-white": {
+  "id": 361,
+  "url": "https://rrnewedwards.wpenginepowered.com/wp-content/uploads/2026/11/logo-white.png"
+ },
+ "logo-dark": {
+  "id": 362,
+  "url": "https://rrnewedwards.wpenginepowered.com/wp-content/uploads/2026/11/logo-dark.png"
  }
 }

@@ -1,5 +1,19 @@
 {
  "visit_component": 354,
  "home_draft": 355,
- "home_live": 8
+ "home_live": 8,
+ "footer_component": 376,
+ "footer_layout": 377,
+ "sermons": {
+  "Rooted in Love": 378,
+  "The Good Shepherd": 379,
+  "A Harvest of Grace": 380,
+  "Walking in the Light": 381
+ },
+ "events": {
+  "Community Thanksgiving Dinner": 382,
+  "Women's Bible Study": 383,
+  "Youth Night": 384,
+  "Christmas Eve Candlelight Service": 385
+ }
 }

@@ -13,7 +13,16 @@ Site: rrnewedwards.wpenginepowered.com (Pro 6.9.8 / Cornerstone 7.9.8). Follows 
 - Originals backed up in `backups/2026-11-17-original/`.
 
 ## Components
+- **Footer – Edwards** (id 376) — placed in the Pro footer **Edwards Footer** (377, entire site).
 - **Visit Us – Service Times, Contact + Map** (id 354): place with `{"_type":"global-block","global_block_id":"354"}`.
+
+## Header
+- **Main Header** (186) rebuilt in place: Edwards logo (Media 361), Main menu (menu:2), Social ×2, Plan Your Visit button,
+  mobile off-canvas menu (menu:21), sticky bar — solid on scroll via global CSS `.ed-header-bar.x-bar-fixed`.
+  Original JSON in `backups/2026-11-17-original/header-186-main.json`.
+
+## Demo content
+- 4 sermons (Sermon Manager, ids 378–381) and 4 events (MEC, ids 382–385) — `build/demo_content.py`.
 
 ## Pages
 - **Home — live** (page 8, template-blank-4.php), published 2026-11-17 from `build/home.py`. Previous version: `cs_list_backups 8` index 0.
