@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crossroads Church</title>
+<meta name="description" content="Crossroads Church in Carmel, IN. Sundays at 9:00 and 11:00 AM, 1550 West Main Street.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  CROSSROADS CHURCH — HOMEPAGE REDESIGN (premium)
+  Same 5 sections as demo-modern-sanctuary.promptly.church, same copy, same photos:
+    1. Hero          — header over photo, eyebrow, H1, text, 2 buttons, service-times bar
+    2. Welcome       — image + heading + text + button
+    3. Find Your Place — heading + text, 3 image cards
+    4. Visit Us      — heading + text, service times, address, contact, 2 buttons
+    5. Footer        — logo, menu, credit
+  Italic word in a heading = the accent word (global script/em in the builder).
+-->
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to main content</a>
+
+<!-- ======================= HEADER (component, transparent over hero) ======================= -->
+<header class="header" id="top">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Crossroads Church home"><b>Crossroads</b><small>Church</small></a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/about">About</a>
+      <a href="/ministries">Ministries</a>
+      <a href="/watch">Sermons</a>
+      <a href="/events">Events</a>
+      <a href="/give">Give</a>
+      <a href="/new-here" class="btn btn-gold">New Here</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ======================= 1. HERO ======================= -->
+<section class="hero on-dark" aria-label="Welcome">
+  <div class="hero-media" aria-hidden="true">
+    <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-communion-elements-167-hero.webp" alt="" fetchpriority="high">
+  </div>
+  <div class="hero-body">
+    <div class="wrap" style="width:100%">
+      <div class="hero-copy">
+        <p class="eyebrow">Carmel, IN</p>
+        <h1>Find Your <em>Way</em> Here</h1>
+        <p class="lead">Crossroads is a polished, welcoming church in Carmel where clear, practical teaching meets real community. Come as you are, and bring your questions.</p>
+        <div class="btns">
+          <a href="/new-here" class="btn btn-gold">Plan Your Visit</a>
+          <a href="/watch" class="btn btn-ghost">Watch Online</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Service-times bar -->
+  <div class="service-bar">
+    <div class="wrap">
+      <div class="cell"><span class="label">Sunday</span><span class="big">9:00 AM &amp; 11:00 AM</span></div>
+      <div class="cell"><span class="label">Location</span><span class="big">1550 West Main Street</span></div>
+      <a class="cell" href="/new-here">Plan your first Sunday
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. WELCOME ======================= -->
+<section class="section welcome">
+  <div class="wrap">
+    <figure class="frame">
+      <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-cross-silhouette-186-section.webp" alt="A cross in silhouette against a soft evening light" loading="lazy">
+      <figcaption><span class="label">Since</span><span class="year">2009</span></figcaption>
+    </figure>
+    <div class="welcome-copy">
+      <p class="eyebrow">Welcome Home</p>
+      <h2>Excellent and <em>Real</em> at the Same Time</h2>
+      <p class="body">That's how one recent visitor described their first Sunday with us, and it's exactly what we hope you'll feel. Pastor Ryan and his wife Megan started Crossroads in their living room in 2009, and we still love a full table and a good question.</p>
+      <div class="mission">
+        <span class="label">Our mission</span>
+        <p>Helping people find their way to Jesus and grow in Him, together.</p>
+      </div>
+      <div><a href="/about" class="btn btn-ink">Our Story
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. FIND YOUR PLACE ======================= -->
+<section class="section place">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Get Started</p>
+      <h2>Find Your <em>Place</em></h2>
+      <p>Whether you're bringing little ones, exploring faith for the first time, or ready to get involved, there's a next step waiting for you.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="/ministries#kids-ministry">
+        <div class="card-img"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/kids/kids-playground-198-card.webp" alt="Children playing on a playground" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Kids Ministry</h3>
+          <p>A safe, joyful space parents trust, where kids learn about Jesus through age-appropriate teaching, play, and caring leaders.</p>
+          <span class="link-arrow">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card" href="/new-here">
+        <div class="card-img"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-communion-elements-165-card.webp" alt="Communion bread and cup" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Sunday Experience</h3>
+          <p>Contemporary, polished worship and clear, practical teaching you can actually use on Monday. Choose our 9:00 or 11:00 AM gathering.</p>
+          <span class="link-arrow">Plan Your Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card" href="/ministries">
+        <div class="card-img"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/outreach/outreach-tree-planting-volunteer-071-card.webp" alt="A volunteer planting a tree" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Ministries</h3>
+          <p>From groups to serving teams, find the people and purpose that help you grow in your faith alongside others.</p>
+          <span class="link-arrow">Explore Ministries <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. VISIT US ======================= -->
+<section class="section visit on-dark">
+  <div class="visit-bg" aria-hidden="true"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-communion-161-hero.webp" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="visit-copy">
+      <p class="eyebrow">Visit Us</p>
+      <h2>Join Us This <em>Sunday</em></h2>
+      <p class="lead">There's a place for you at Crossroads in Carmel, and a seat saved at the table.</p>
+      <div class="btns">
+        <a href="/new-here" class="btn btn-gold">Plan Your Visit</a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Crossroads%20Church%2C%201550%20West%20Main%20Street%2C%20Carmel%2C%20IN%2046032" class="btn btn-ghost" target="_blank" rel="noopener">Get Directions<span class="sr"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+    <div class="panel">
+      <div>
+        <span class="label">Sunday</span>
+        <div class="times" style="margin-top:1rem">
+          <div class="time"><span class="big">9:00</span><span class="label">AM Gathering</span></div>
+          <div class="time"><span class="big">11:00</span><span class="label">AM Gathering</span></div>
+        </div>
+      </div>
+      <div class="details">
+        <div><span class="label">Find Us</span><p>1550 West Main Street<br>Carmel, IN 46032</p></div>
+        <div><span class="label">Say Hello</span><p><a href="tel:3175550128">(317) 555-0128</a><br><a href="mailto:hello@crossroadscarmel.church">hello@crossroadscarmel.church</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= 5. FOOTER ======================= -->
+<footer class="footer on-dark">
+  <div class="wrap">
+    <div class="top">
+      <a href="/" class="logo" aria-label="Crossroads Church home"><b>Crossroads</b><small>Church</small></a>
+      <nav aria-label="Footer">
+        <a href="/about">About</a><a href="/ministries">Ministries</a><a href="/watch">Sermons</a><a href="/events">Events</a><a href="/give">Give</a><a href="/new-here">Your First Visit</a>
+      </nav>
+    </div>
+    <div class="bottom">
+      <span>&copy; 2026 Crossroads Church, 1550 West Main Street, Carmel, IN 46032</span>
+      <a href="https://promptly.church">Powered by Promptly</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var h=document.querySelector('.header'),t=document.querySelector('.menu-toggle'),n=document.getElementById('site-nav');
+  function s(){h.classList.toggle('scrolled',window.scrollY>40)}
+  s();window.addEventListener('scroll',s,{passive:true});
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');t.setAttribute('aria-expanded',false)}});
+})();
+</script>
+</body>
+</html>
