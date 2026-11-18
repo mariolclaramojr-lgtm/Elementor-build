@@ -5,7 +5,7 @@ MEDIA = json.load(open(os.environ['EDW_MEDIA'])); M = lambda k: MEDIA[k]
 
 def flink(t, href):
     p = dict(anchor_text_primary_content=t, anchor_href=href, anchor_bg_color='transparent', anchor_bg_color_alt='transparent',
-             anchor_padding='0.3em 0em 0.3em 0em', anchor_border_width='0px', anchor_box_shadow_dimensions='!0em 0em 0em 0em',
+             anchor_padding='0.3em 0em 0.3em 0em', anchor_text_margin='0px', anchor_border_width='0px', anchor_box_shadow_dimensions='!0em 0em 0em 0em',
              anchor_primary_font_family=FONT, anchor_primary_font_size='0.95em', anchor_primary_font_weight='400', anchor_primary_line_height='1.4',
              anchor_primary_text_color=G('on-dark'), anchor_primary_text_color_alt=G('accent'), anchor_graphic=False,
              effects_alt=True, effects_type_alt='transform', effects_transform_alt='translate(0.4em, 0px)')
