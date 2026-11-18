@@ -70,6 +70,14 @@
     }
     tick(); setInterval(tick, 30000);
   }
+
+  /* ---- Favicon (until a WordPress Site Icon is set) ---- */
+  if (!document.querySelector('link[rel~="icon"]')) {
+    var fav = document.createElement('link'); fav.rel = 'icon'; fav.type = 'image/png';
+    fav.href = '/wp-content/uploads/2026/11/site-icon.png'; document.head.appendChild(fav);
+    var ati = document.createElement('link'); ati.rel = 'apple-touch-icon'; ati.href = fav.href; document.head.appendChild(ati);
+  }
+
   function init() { lightbox(); countdown(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

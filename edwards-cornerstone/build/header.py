@@ -7,7 +7,7 @@ def build(orig, media):
     regions = copy.deepcopy(orig['regions'])
     logo = media['logo-white']
     def fix_logo(img):
-        img.update(image_src=f"{logo['id']}:full", image_type='standard', image_styled_width='180px', image_width=585, image_height=162, image_retina=False,
+        img.update(image_src=f"{logo['id']}:full", image_type='standard', image_styled_width='186px', image_width=606, image_height=168, image_retina=False,
                    image_href='/', image_link=True, image_alt='Edwards Church', title='Logo')
     def fix_collapsed(nc, menu):
         nc.update(hide_bp='xl', toggle_anchor_margin='0em 0em 0em auto', menu=menu, title='Mobile Menu (off-canvas)', toggle_type='burger-1', toggle_burger_width='12em', toggle_burger_spacing='3.25em', toggle_burger_size='0.1em', toggle_anchor_graphic_icon_color=G('white'),
