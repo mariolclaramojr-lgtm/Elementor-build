@@ -48,7 +48,7 @@ def build(orig, media):
                   sub_anchor_primary_text_color=G('white'), sub_anchor_primary_text_color_alt=G('accent'), sub_anchor_primary_font_family=FONT)
                 mods.append(e)
                 if bi == 0:
-                    mods += [social('Facebook', 'facebook-f', '#'), social('X', 'x-twitter', '#')]
+                    mods += [social('Facebook', 'facebook-f', '#'), social('X', 'x-twitter', '#'), social('YouTube', 'youtube', '#')]
             elif t == 'nav-collapsed':
                 fix_collapsed(e, 'menu:21'); mods.append(e)
             elif t == 'button':

@@ -41,7 +41,7 @@ footer_component = [section('Footer', [
     col('Brand', [
       image('Logo', M('logo-white'), alt='Edwards Church', radius='0px', image_styled_width='195px', image_link=True, image_href='/'),
       headline('Tagline', 'Love God. Love People.', tag='p', size='1.1em', color='white', weight='700', ls='0em', text_margin='1.4em 0em 0em 0em'),
-      div('Social', [social('Facebook', 'facebook-f', '#'), social('X', 'x-twitter', '#')], direction='row', gap='0.7em', layout_div_margin='1.4em 0em 0em 0em'),
+      div('Social', [social('Facebook', 'facebook-f', '#'), social('X', 'x-twitter', '#'), social('YouTube', 'youtube', '#')], direction='row', gap='0.7em', layout_div_margin='1.4em 0em 0em 0em'),
     ]),
     fcol('Visit', [flink('Plan Your Visit', '/plan-your-visit/'), flink('About', '/about/'), flink('Connect', '/connect/')]),
     fcol('Engage', [flink('Sermons', '/sermons/'), flink('Events', '/events/'), flink('Give', '/give/'), flink('Watch Live', '/watch-live/')]),
