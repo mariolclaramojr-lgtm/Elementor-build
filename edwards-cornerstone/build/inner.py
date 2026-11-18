@@ -8,7 +8,7 @@ def bgimg(k): return f"{M(k)['id']}:full"
 LOREM_ACC = "This is the accordion body content. It is typically best to keep this area short and to the point so it isn't too overwhelming."
 
 # ---------------- shared pieces ----------------
-def page_banner(crumb, title_, img_key, lead=None, extra=None, label_='1. Page Banner'):
+def page_banner(crumb, title_, img_key, lead=None, extra=None, label_='1. Page Banner', pos='center'):
     kids = [
       div('Breadcrumb', [
         button('Crumb – Home', 'Home', '/', 'ghost', anchor_border_width='0px', anchor_padding='0em', anchor_primary_particle=False,
@@ -24,7 +24,7 @@ def page_banner(crumb, title_, img_key, lead=None, extra=None, label_='1. Page B
                          layout_column_min_height='clamp(420px, 58vh, 580px)', layout_column_padding='9.5em 0em 4.5em 0em',
                          bp={'layout_column_padding': ['8em 0em 3em 0em', None], 'layout_column_min_height': ['380px', None]})])],
         padding='0px 0px 0px 0px', section_bg_advanced=True, section_bg_color=G('slate-deep'),
-        bg_lower_type='image', bg_lower_image=bgimg(img_key), bg_lower_image_size='cover', bg_lower_image_position='center',
+        bg_lower_type='image', bg_lower_image=bgimg(img_key), bg_lower_image_size='cover', bg_lower_image_position=pos,
         bg_upper_type='color', bg_upper_color=G('overlay-banner'), bp={'section_padding': ['0px 0px 0px 0px', '0px 0px 0px 0px']})
 
 def accordion(title, items, open_first=True, columns=False):
@@ -80,7 +80,7 @@ def plan_your_visit(cid):
                frame_border_radius='18px', frame_overflow=True, frame_bg_color=G('black'),
                frame_box_shadow_dimensions='0em 2em 4em -2em', frame_box_shadow_color=G('slate-deep', 0.45), **reveal(0, zoom=True))
     return [
-      page_banner('Plan Your Visit', 'What To Expect', 'banner-visit', 'Smiling faces, a cup of coffee and a place for your whole family.'),
+      page_banner('Plan Your Visit', 'What To Expect', 'banner-visit', 'Smiling faces, a cup of coffee and a place for your whole family.', pos='50% 20%'),
       split('2. A Place For You (video + text)', [video], [
           eyebrow('Welcome', **reveal()),
           headline('Heading', 'There is a place for you here.', **reveal(100)),
@@ -165,7 +165,7 @@ def connect():
 
 # ---------------- SERMONS (167) — Sermon Manager shortcode ----------------
 def sermons():
-    return [page_banner('Sermons', 'Sermons', 'banner-sermons', 'Watch or listen to previous messages anytime.'),
+    return [page_banner('Sermons', 'Sermons', 'banner-sermons', 'Watch or listen to previous messages anytime.', pos='50% 15%'),
             section('2. Sermon Archive (Sermon Manager shortcode)', [row('Content', [col('Sermons', [
                 el('raw-content', 'Sermon List (shortcode)', raw_content='[smpro_archive per_page="9"]', **{'class': 'ed-sermons'})], align='stretch')])], bg=G('mist'))]
 
