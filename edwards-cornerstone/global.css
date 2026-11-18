@@ -48,6 +48,9 @@
 /* Pro's closed off-canvas menu can sit wider than the viewport on load; clip it (clip keeps sticky header working) */
 html, body { overflow-x: clip; }
 
+/* Service-times bar: always a 25% darker shade of the Accent Global Color (change the % to adjust) */
+.x-row.ed-times-bar { background-color: color-mix(in srgb, %%post color%%global-color:edwards-accent%%/post%% 75%, black) !important; }
+
 /* ===== PLUGINS: Gravity Forms, Sermon Manager, MEC ===== */
 /* ---------- Checklist (Text elements with class ed-checklist) ---------- */
 .ed-checklist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }

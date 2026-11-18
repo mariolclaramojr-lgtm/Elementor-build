@@ -87,7 +87,7 @@ hero = section('1. Hero (video)', [
       ], direction='row', wrap=True, gap='0px', align='stretch', layout_div_width='100%',
          layout_div_max_width='1240px', layout_div_margin='0px auto 0px auto'),
     ], align='stretch'),
-  ], container=False, layout_row_bg_color=G('accent'), layout_row_width='100%'),
+  ], container=False, layout_row_bg_color=G('accent'), layout_row_width='100%', **{'class': 'ed-times-bar'}),
 ], padding='0px 0px 0px 0px', section_bg_advanced=True, section_bg_color=G('slate-deep'),
    bg_lower_type='video', bg_lower_video=M('hero-bw.mp4')['url'], bg_lower_video_poster=M('hero-poster')['url'],
    bg_upper_type='color', bg_upper_color=G('black', 0.55), section_z_index='1',
