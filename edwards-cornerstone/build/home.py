@@ -9,13 +9,13 @@ def bgimg(k): return f"{M(k)['id']}:full"
 # ============ COMPONENT: Visit Us (contact details + map) ============
 def info_card(t, ic, label_, value_html, delay):
     return div(f'Card – {t}', [
-        icon('Icon', ic, color='accent', size='1.05em', bg='white', box='2.6em', icon_bg_color_alt=G('accent'), icon_color_alt=G('white'),
+        icon('Icon', ic, color='accent', size='1.05em', bg='accent', box='2.6em', icon_bg_color=G('accent', 0.12), icon_bg_color_alt=G('accent'), icon_color_alt=G('white'),
              icon_box_shadow_dimensions='0em 0.4em 0.9em -0.5em', icon_box_shadow_color=G('slate', 0.35)),
         label('Label', label_, size='0.7em'),
         text('Value', value_html, color='slate', size='1.05em', text_font_weight='500', text_line_height='1.55'),
     ], gap='0.55em', layout_div_flex='1 1 calc(50% - 8px)', layout_div_padding='1.6em 1.6em 1.7em 1.6em',
-       layout_div_bg_color=G('mist'), layout_div_bg_color_alt=G('white'), layout_div_border_radius='18px',
-       layout_div_border_width='1px', layout_div_border_color='transparent', layout_div_border_color_alt=G('rule'),
+       layout_div_bg_color=G('white'), layout_div_bg_color_alt=G('white'), layout_div_border_radius='18px',
+       layout_div_border_width='1px', layout_div_border_color=G('rule'), layout_div_border_color_alt=G('accent', 0.45),
        layout_div_box_shadow_dimensions='0em 1.5em 2.5em -1.75em', layout_div_box_shadow_color='transparent',
        layout_div_box_shadow_color_alt=G('slate', 0.45),
        effects_alt=True, effects_type_alt='transform', effects_transform_alt='translate(0px, -4px)', **provider(), **reveal(delay),
@@ -27,7 +27,7 @@ MAP_EMBED = ('<iframe title="Map to Edwards Church" src="https://maps.google.com
 visit_component = [section('Visit Us – Service Times, Contact + Map', [
   row('Content', [
     col('Text + Contact Details', [
-      eyebrow('Plan Your Visit', **reveal()),
+      eyebrow('Get In Touch', **reveal()),
       headline('Heading', 'Join us this week', tag='h2', **reveal(100)),
       text('Intro', '<p>We can\'t wait to meet you. Here\'s everything you need for your first visit.</p>', **reveal(200)),
       div('Contact Details', [
@@ -42,13 +42,13 @@ visit_component = [section('Visit Us – Service Times, Contact + Map', [
       ], direction='row', wrap=True, gap='1em', **reveal(200)),
     ], gap='1.6em', justify='center'),
     col('Map', [
-      el('map', 'Map (Google embed)', map_type='embed', map_embed_code=MAP_EMBED, frame_content_sizing='fixed-height', frame_content_height='520px',
-         frame_bg_color=G('mist'), frame_border_radius='18px', bp={'frame_content_height': ['320px', '380px']}),
-    ], align='stretch', layout_column_min_height='520px', layout_column_border_radius='18px', layout_column_overflow='hidden',
-       layout_column_bg_color=G('mist'), layout_column_box_shadow_dimensions='0em 2em 4em -2em', layout_column_box_shadow_color=G('slate-deep', 0.45),
-       bp={'layout_column_min_height': ['320px', '380px']}, **reveal(200)),
-  ], layout='50% 50%', gap='70px', layout_row_flex_align='stretch'),
-], bg=G('white'))]
+      el('map', 'Map (Google embed)', map_type='embed', map_embed_code=MAP_EMBED, frame_content_sizing='fixed-height', frame_content_height='560px',
+         frame_bg_color=G('mist'), frame_border_radius='18px', frame_overflow=True,
+         frame_box_shadow_dimensions='0em 2em 4em -2em', frame_box_shadow_color=G('slate-deep', 0.45),
+         bp={'frame_content_height': ['320px', '400px']}),
+    ], align='stretch', justify='center', **reveal(200)),
+  ], layout='50% 50%', gap='70px', layout_row_flex_align='center'),
+], bg=G('soft'))]
 
 # ============ HOME ============
 def times_item(t, ic, lab, val, cls='', dark=False, grow='1'):
