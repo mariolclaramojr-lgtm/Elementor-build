@@ -123,7 +123,7 @@ def about(cid):
     def member(i):
         return col(f'Card – Team Member {i + 1}', [
             div('Photo (placeholder)', [icon('Placeholder', 'user', color='rule', size='7em', effects_alt=True, effects_type_alt='transform', effects_transform_alt='translate(0px, -6px) scale(1.03)')],
-                align='center', justify='flex-end', layout_div_width='100%', layout_div_height='300px', layout_div_bg_color=G('white'), layout_div_border_radius='18px', layout_div_overflow='hidden',
+                align='center', justify='flex-end', layout_div_width='100%', layout_div_height='300px', layout_div_bg_color=G('white'), layout_div_border_radius='18px', layout_div_overflow='hidden', layout_div_overflow_x='hidden', layout_div_overflow_y='hidden',
                 layout_div_padding='0em 0em 0em 0em'),
             headline('Name', 'First & Last Name', tag='h3', size='1.2em', align='center', ls='0em', text_margin='0.8em 0em 0em 0em'),
             label('Position', 'Position / Title', align='center', size='0.72em')], align='center', gap='0.35em', **provider(), **reveal((i % 3) * 100))
