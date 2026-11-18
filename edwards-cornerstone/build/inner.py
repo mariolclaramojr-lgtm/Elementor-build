@@ -219,3 +219,37 @@ def watch_live():
 
 PAGES = {'plan-your-visit': (204, plan_your_visit), 'about': (11, about), 'connect': (12, connect), 'sermons': (167, sermons),
          'events': (63, events), 'give': (14, give), 'watch-live': (221, watch_live)}
+
+# ---------------- GET CONNECTED (231) ----------------
+def get_connected(cid):
+    return [page_banner('Get Connected', 'Contact Us', 'gallery-6', "We'd love to hear from you."),
+            split('2. Connect With Us (form)', [photo('Church members greeting each other', 'coffee', ratio='4/4.4')], [
+                eyebrow('Get Connected', **reveal()), headline('Heading', 'Connect With Us', **reveal(100)),
+                text('Text', '<p>Thank you for connecting with us. We would love to answer any questions you may have and we have a free gift for you taking the time to give us some information.</p>', **reveal(200)),
+                form_card('Contact Form', 1)], bg='white', layout='45% 55%'),
+            visit(cid, '3. Visit Us (Component)')]
+
+# ---------------- THANK YOU (330) ----------------
+def thank_you():
+    tick = icon('Check Icon', 'check', color='white', size='1.8em', bg='accent', box='2.3em', icon_border_radius='50%',
+                icon_box_shadow_dimensions='0em 0em 0em 0.6em', icon_box_shadow_color=G('accent', 0.18), **reveal(0, zoom=True))
+    card = div('Message Card', [
+        tick,
+        headline('Heading', 'Thank you!', tag='h2', size='3em', align='center', **reveal(100)),
+        text('Text', '<p>Thank you for contacting us, someone will be in touch shortly.</p>', align='center', size='1.15em', max_width='34rem', **reveal(200)),
+        el('line', 'Divider', line_width='60px', line_size='2px', line_color=G('accent'), line_margin='0.6em 0em 0.6em 0em'),
+        text('While You Wait', '<p>In the meantime, catch up on a recent message or join us live on Sunday.</p>', align='center', size='0.95em', max_width='30rem', **reveal(250)),
+        div('Buttons', [
+            button('Button – Home', 'Back to Home', '/', 'primary', arrow=True),
+            button('Button – Sermons', 'Recent Messages', '/sermons/', 'outline'),
+            button('Button – Watch Live', 'Watch Live', '/watch-live/', 'outline'),
+        ], direction='row', wrap=True, gap='0.8em', justify='center', layout_div_margin='0.6em 0em 0em 0em', **reveal(300)),
+    ], gap='1.1em', align='center', layout_div_width='100%', layout_div_max_width='760px', layout_div_margin='0px auto 0px auto',
+       layout_div_padding='3.5em 3em 3.5em 3em', layout_div_bg_color=G('white'), layout_div_border_radius='18px',
+       layout_div_border_width='1px', layout_div_border_color=G('rule'),
+       layout_div_box_shadow_dimensions='0em 2em 4em -2em', layout_div_box_shadow_color=G('slate-deep', 0.45),
+       bp={'layout_div_padding': ['2.2em 1.4em 2.2em 1.4em', None]})
+    return [page_banner('Thank You', "We'll be in touch", 'gallery-1', 'Your message has been received.'),
+            section('2. Thank You Message', [row('Content', [col('Card', [card], align='stretch')])], bg=G('mist'))]
+
+PAGES.update({'get-connected': (231, get_connected), 'thank-you': (330, thank_you)})

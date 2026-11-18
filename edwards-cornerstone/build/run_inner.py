@@ -12,7 +12,7 @@ import inner
 slugs = sys.argv[1:] or list(inner.PAGES)
 for slug in slugs:
     pid, fn = inner.PAGES[slug]
-    tree = fn(st['visit_component']) if slug in ('plan-your-visit', 'about') else fn()
+    tree = fn(st['visit_component']) if slug in ('plan-your-visit', 'about', 'get-connected') else fn()
     r = tool('cs_save_element_tree', id=pid, tree=tree)
     print(slug, pid, 'elements', r.get('elements'), 'storage ok' if (r.get('storage') or {}).get('ok') else r.get('storage'))
 tool('cs_purge_cache', all=True); print('purged')
