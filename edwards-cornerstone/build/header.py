@@ -23,9 +23,9 @@ def build(orig, media):
                 'anchor_graphic_icon': icon, 'anchor_graphic_icon_alt': icon, 'anchor_href': href, 'anchor_blank': True,
                 'anchor_width': '2.15em', 'anchor_height': '2.15em', 'anchor_margin': '0em 0.5em 0em 0em',
                 'anchor_bg_color': 'transparent', 'anchor_bg_color_alt': G('accent'),
-                'anchor_border_width': '1px', 'anchor_border_style': 'solid', 'anchor_border_color': G('white', 0.3), 'anchor_border_color_alt': G('accent'),
+                'anchor_border_width': '1px', 'anchor_border_style': 'solid', 'anchor_border_color': G('accent', 0.6), 'anchor_border_color_alt': G('accent'),
                 'anchor_box_shadow_dimensions': '!0em 0em 0em 0em', 'anchor_graphic_icon_font_size': '0.95em',
-                'anchor_graphic_icon_color': G('white'), 'anchor_graphic_icon_color_alt': G('white'), '_modules': []}
+                'anchor_graphic_icon_color': G('accent'), 'anchor_graphic_icon_color_alt': G('white'), '_modules': []}
     for bi, bar in enumerate(regions['top']):
         bar.update(bar_bg_color='transparent', bar_position_top='absolute', bar_sticky=True, bar_sticky_trigger_offset='60', bar_sticky_shrink='0.82', bar_sticky_slide_enabled=False,
                    bar_content_max_length='1288px', bar_outer_spacing='24px', bar_height='6.5em',

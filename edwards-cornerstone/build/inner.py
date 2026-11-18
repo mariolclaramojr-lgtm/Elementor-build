@@ -49,7 +49,7 @@ def gform(t, form_id):
     return el('form-integration', t, form_integration_type='gravity-forms', form_integration_gravityforms_id=str(form_id))
 
 def form_card(t, form_id):
-    return div(f'Form Box – {t}', [gform(f'Form – {t} (Gravity Forms #{form_id})', form_id)],
+    return div(f'Form Box – {t}', [gform(f'Form – {t} (Gravity Forms #{form_id})', form_id)], align='stretch',
         layout_div_width='100%', layout_div_padding='2.4em 2.4em 2.4em 2.4em', layout_div_bg_color=G('white'), layout_div_border_radius='18px',
         layout_div_border_width='1px', layout_div_border_color=G('rule'), layout_div_box_shadow_dimensions='0em 2em 4em -2em',
         layout_div_box_shadow_color=G('slate-deep', 0.45), bp={'layout_div_padding': ['1.5em 1.3em 1.5em 1.3em', None]}, **reveal(200))
@@ -222,11 +222,19 @@ PAGES = {'plan-your-visit': (204, plan_your_visit), 'about': (11, about), 'conne
 
 # ---------------- GET CONNECTED (231) ----------------
 def get_connected(cid):
+    card = div('Form Card', [
+        eyebrow('Get Connected', center=True, **reveal()),
+        headline('Heading', 'Connect With Us', align='center', **reveal(100)),
+        text('Text', '<p>Thank you for connecting with us. We would love to answer any questions you may have and we have a free gift for you taking the time to give us some information.</p>',
+             align='center', max_width='36rem', **reveal(200)),
+        div('Form', [gform('Form – Contact Form (Gravity Forms #1)', 1)], align='stretch', layout_div_width='100%', layout_div_margin='0.8em 0em 0em 0em', **reveal(300)),
+    ], gap='1.1em', align='center', layout_div_width='100%', layout_div_max_width='760px', layout_div_margin='0px auto 0px auto',
+       layout_div_padding='3.5em 3em 3.5em 3em', layout_div_bg_color=G('white'), layout_div_border_radius='18px',
+       layout_div_border_width='1px', layout_div_border_color=G('rule'),
+       layout_div_box_shadow_dimensions='0em 2em 4em -2em', layout_div_box_shadow_color=G('slate-deep', 0.45),
+       bp={'layout_div_padding': ['2.2em 1.4em 2.2em 1.4em', None]})
     return [page_banner('Get Connected', 'Contact Us', 'gallery-6', "We'd love to hear from you."),
-            split('2. Connect With Us (form)', [photo('Church members greeting each other', 'coffee', ratio='4/4.4')], [
-                eyebrow('Get Connected', **reveal()), headline('Heading', 'Connect With Us', **reveal(100)),
-                text('Text', '<p>Thank you for connecting with us. We would love to answer any questions you may have and we have a free gift for you taking the time to give us some information.</p>', **reveal(200)),
-                form_card('Contact Form', 1)], bg='white', layout='45% 55%'),
+            section('2. Connect With Us (form)', [row('Content', [col('Card', [card], align='stretch')])], bg=G('mist')),
             visit(cid, '3. Visit Us (Component)')]
 
 # ---------------- THANK YOU (330) ----------------
