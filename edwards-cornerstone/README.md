@@ -40,3 +40,9 @@ Plugin styling (Gravity Forms, Sermon Manager, MEC) is in `global.css` (PLUGINS 
 ## Headers
 Main Header 186 · Archive Header 280 (dynamic archive title) · Blog Header 267 · Single Header 414 (sermons + events, post title).
 Sample Sermon (166) moved to trash; Sunday Service event (65) got a featured image.
+
+## Primary colour (for Jay)
+- Global Colors › **★ PRIMARY – Edwards** (id `edwards-accent`, #DB783C) drives buttons, heading highlights, icons and labels.
+- The Home service-times bar is always **25% darker** than the Primary (global CSS rule `.x-row.ed-times-bar`, `color-mix(... 75%, black)`).
+  Change the Primary → the bar follows automatically. Lower 75% = darker.
+- Old theme colours are labelled "Legacy – …" and are not used by the new design.
