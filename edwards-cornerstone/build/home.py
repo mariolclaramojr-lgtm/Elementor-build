@@ -113,8 +113,8 @@ welcome = section('2. Welcome Home (gallery + text)', [
     col('Text', [
       eyebrow('Welcome Home', **reveal()),
       headline('Heading', "We are so glad you're here.", **reveal(100)),
-      text('Text', '<p>We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us.</p>'
-                   '<p>The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>', **reveal(200)),
+      text('Text', '<p>We are a congregation of believers committed to sharing the message of Christ and guiding others towards faith in Him. As a church, we aim to love those in our community with the same love Christ has given to us. '
+                   'The work of our church is aimed at directing others towards the Savior in the hopes that they will encounter the one true God and be transformed by His gracious love for them. Through all we do, say, and preach, we pray that we will shine the light of Christ to all those we encounter.</p>', **reveal(200)),
       button('Button – Plan Your Visit', 'Plan Your Visit', '/plan-your-visit/', 'primary', arrow=True, **reveal(300)),
     ], gap='1.6em', justify='center'),
   ], layout='66.66% 33.33%', gap='70px', layout_row_flex_align='center'),
