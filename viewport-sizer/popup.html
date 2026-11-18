@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Viewport Sizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <img src="icons/icon32.png" alt="" width="20" height="20">
+      <h1>Viewport Sizer</h1>
+    </div>
+    <div class="current" title="The current page viewport in CSS pixels">
+      <span id="cur-size">—</span>
+      <span id="cur-badge" class="badge" hidden></span>
+    </div>
+  </header>
+
+  <div class="seg" role="tablist" aria-label="Mode">
+    <button data-mode="resize" role="tab" title="Resize this browser window so the page viewport is exactly this size">Resize window</button>
+    <button data-mode="emulate" role="tab" title="Emulate a device in this tab: exact viewport at any size, pixel ratio, touch and mobile user agent">Emulate</button>
+    <button data-mode="window" role="tab" title="Open this page (or a URL) in a new window with this viewport">New window</button>
+  </div>
+  <p id="mode-hint" class="hint"></p>
+
+  <form id="form" autocomplete="off">
+    <div class="dims">
+      <label>Width
+        <input id="w" type="number" min="1" max="10000" inputmode="numeric" required>
+      </label>
+      <button type="button" id="rotate" class="icon-btn" title="Swap width and height" aria-label="Swap width and height">⇄</button>
+      <label>Height
+        <input id="h" type="number" min="1" max="10000" inputmode="numeric" placeholder="auto">
+      </label>
+    </div>
+
+    <div class="emu-only">
+      <label>Pixel ratio
+        <select id="dpr">
+          <option value="0">Screen default</option>
+          <option value="1">1×</option>
+          <option value="1.5">1.5×</option>
+          <option value="2">2×</option>
+          <option value="2.625">2.625×</option>
+          <option value="3">3×</option>
+        </select>
+      </label>
+      <label class="check"><input id="mobile" type="checkbox"> Mobile (touch + UA)</label>
+      <label class="check"><input id="reload" type="checkbox"> Reload page</label>
+    </div>
+
+    <div class="win-only">
+      <label>URL <input id="url" type="url" placeholder="Current page"></label>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="primary">Apply</button>
+      <button type="button" id="save" title="Save as a custom preset">Save</button>
+      <button type="button" id="reset" title="Stop emulation and restore the window size (Alt+Shift+R)">Reset</button>
+    </div>
+  </form>
+
+  <p id="msg" class="msg" role="status" aria-live="polite"></p>
+
+  <section id="presets"></section>
+
+  <footer>Alt+Shift+V re-applies the last size · Alt+Shift+R resets</footer>
+
+  <script src="presets.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
