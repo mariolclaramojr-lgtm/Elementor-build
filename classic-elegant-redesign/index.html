@@ -15,7 +15,7 @@
 
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 2v20M6 8h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 40 52"><g fill="none" stroke="currentColor" stroke-linecap="square"><path d="M3 51V21a17 17 0 0 1 34 0v30" stroke-width="1.4"/><path d="M8 51V22a12 12 0 0 1 24 0v29" stroke-width=".8" opacity=".55"/><path d="M1 51h38" stroke-width="1.4"/></g><path d="M18.9 15h2.2v8h6v2.2h-6V44h-2.2V25.2h-6V23h6z" fill="currentColor"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5-12-7.5Z" fill="currentColor"/></symbol>
@@ -31,8 +31,8 @@
 <!-- ===== HEADER: Top Bar – Announcement (Component) ===== -->
 <div class="topbar">
   <div class="wrap">
-    <span class="pill">Advent</span>
-    <span>Lessons &amp; Carols by candlelight — Sunday, December 20 at 5:00 PM</span>
+    <span class="pill">Christmas</span>
+    <span>Christmas Eve Candlelight Service — Thursday, December 24 at 6:00 PM</span>
     <a href="#">Details</a>
   </div>
 </div>
@@ -42,8 +42,8 @@
   <div class="wrap">
     <!-- Component: Header – Logo -->
     <a href="#" class="brand" aria-label="St. Matthew's Presbyterian Church — home">
-      <span class="brand-mark"><svg><use href="#i-cross"/></svg></span>
-      <span><span class="brand-name">St. Matthew's</span><span class="brand-sub">Presbyterian · Charleston</span></span>
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-logo"/></svg>
+      <span class="brand-text"><span class="brand-name">St. Matthew's</span><span class="brand-sub">Presbyterian Church</span></span>
     </a>
     <!-- Navigation Inline (WP menu) + Buttons -->
     <nav class="nav" aria-label="Main">
@@ -78,7 +78,7 @@
 <!-- ===== 1. HERO ===== -->
 <!-- Section (bg image + gradient overlay) › Row: Content (2 cols) -->
 <section class="hero on-dark">
-  <div class="hero-media"><img src="img/hero-arches.jpg" alt="" fetchpriority="high"></div>
+  <div class="hero-media"><img src="img/hero-worship.jpg" alt="" fetchpriority="high"></div>
   <div class="wrap">
     <div class="hero-grid">
       <!-- Column: Text -->
@@ -176,7 +176,7 @@
       <!-- Row: Card – Groups &amp; Ministries -->
       <div class="split-row rv">
         <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
-        <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/small-groups-prayer-bible-study-178-card.webp" alt="" loading="lazy"></div></div>
+        <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/groups-prayer.jpg" alt="" loading="lazy"></div></div>
         <!-- Column: Text -->
         <div class="split-text">
           <div class="eyebrow">Midweek &amp; Weekends</div>
@@ -251,8 +251,8 @@
     <div class="footer-grid">
       <div class="footer-about">
         <a href="#" class="brand">
-          <span class="brand-mark"><svg><use href="#i-cross"/></svg></span>
-          <span><span class="brand-name">St. Matthew's</span><span class="brand-sub">Presbyterian · Charleston</span></span>
+          <svg class="brand-mark" aria-hidden="true"><use href="#i-logo"/></svg>
+          <span class="brand-text"><span class="brand-name">St. Matthew's</span><span class="brand-sub">Presbyterian Church</span></span>
         </a>
         <p>Glorifying God through reverent worship, faithful preaching and sacramental fellowship since 1847.</p>
         <div class="socials">

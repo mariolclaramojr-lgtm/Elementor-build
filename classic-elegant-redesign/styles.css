@@ -116,13 +116,14 @@ p { margin: 0 0 1.1em; }
   background: rgba(251,248,242,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 var(--linen);
 }
-.brand { display: flex; align-items: center; gap: 14px; color: var(--white); }
-.brand-mark { width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; display: grid; place-items: center; color: var(--gold-light); transition: color .4s; }
-.brand-mark svg { width: 18px; height: 18px; }
-.brand-name { font: 500 24px/1 var(--serif); letter-spacing: .01em; }
-.brand-sub { display: block; margin-top: 6px; font: 600 10px/1 var(--sans); letter-spacing: .32em; text-transform: uppercase; opacity: .7; }
+.brand { display: flex; align-items: center; gap: 16px; color: var(--white); }
+.brand-mark { flex: none; width: 34px; height: 44px; color: var(--gold-light); transition: color .4s; }
+.brand-text { display: flex; flex-direction: column; padding-left: 16px; border-left: 1px solid rgba(214,183,113,.45); }
+.brand-name { font: 500 27px/1 var(--serif); letter-spacing: .005em; white-space: nowrap; }
+.brand-sub { display: block; margin-top: 7px; font: 600 9.5px/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; white-space: nowrap; opacity: .72; }
 .is-stuck .brand { color: var(--ink); }
 .is-stuck .brand-mark { color: var(--gold); }
+.is-stuck .brand-text { border-color: var(--linen); }
 
 .nav { display: flex; align-items: center; gap: 38px; }
 .nav a.nav-link { position: relative; font: 600 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.88); padding: 8px 0; transition: color .3s; }
@@ -341,7 +342,9 @@ p { margin: 0 0 1.1em; }
   .topbar .pill { display: none; }
   .site-header { top: 52px; padding: 16px 0; }
   .brand-name { font-size: 20px; }
-  .brand-mark { width: 38px; height: 38px; }
+  .brand-mark { width: 28px; height: 36px; }
+  .brand { gap: 12px; }
+  .brand-text { padding-left: 12px; }
   .nav .btn-gold { display: none; }
   .hero .wrap { padding-top: 180px; padding-bottom: 40px; }
   .hero-actions .btn { flex: 1 1 100%; }
