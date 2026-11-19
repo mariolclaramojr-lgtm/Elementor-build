@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vertical Church — Phoenix, AZ</title>
+<meta name="description" content="Premium redesign mockup of the Vertical Church (Bold & Energetic) template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!--
+  VERTICAL CHURCH — PREMIUM REDESIGN (home)
+  Original: demo-bold-energetic.promptly.church — 6 blocks (hero, welcome, 3 cards,
+  "this week", CTA, footer). Rethought as 9 sections:
+    0. Announcement bar   — global component
+    1. Hero               — full-bleed photo, oversized headline, glass "This Sunday" card
+    2. Marquee            — brand line, replaces the plain times ticker
+    3. Welcome            — story + pastor sign-off + image collage + 4 stats   (light)
+    4. Find Your Place    — 5-tile bento: Sundays, Kids, Students, Groups, Serve
+    5. Plan Your Sunday   — 3 gathering cards, what-to-expect list, location   (light)
+    6. Latest Message     — featured sermon, current series progress, recent list
+    7. Upcoming Events    — editorial event rows                                (light)
+    8. Next Step CTA      — photo with brand-colour wash
+    9. Footer             — about, explore, gatherings, contact + newsletter, giant wordmark
+
+  Accent words in headings are plain <em> (italic serif, brand colour) — no custom code per heading.
+  Colours / fonts are the :root tokens in styles.css → set once as Global Colors / Global Fonts.
+  Images: the template's own stock library.
+-->
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5v3M12 2.5v3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17v2M19 17v2M3.5 12.5L5.5 7a2 2 0 0 1 1.9-1.4h9.2A2 2 0 0 1 18.5 7l2 5.5V17H3.5v-4.5zM3.5 12.5h17"/><circle cx="7.5" cy="14.8" r=".6" fill="currentColor"/><circle cx="16.5" cy="14.8" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 3v18M6 9h12"/></symbol>
+</svg>
+
+<!-- ===== 0. ANNOUNCEMENT BAR ===== -->
+<div class="topbar" role="region" aria-label="Announcement">
+  <div class="wrap">
+    <span class="tag">New Series</span>
+    <span class="msg">“All In” starts this Sunday — 9, 11 &amp; 5.</span>
+    <a href="#message">Watch the trailer</a>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Vertical Church home">
+      <span class="logo-mark"><svg><use href="#i-cross"/></svg></span>
+      <span>Vertical<small>Phoenix, AZ</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#welcome">About</a>
+      <a href="#place">Ministries</a>
+      <a href="#message">Sermons</a>
+      <a href="#events">Events</a>
+      <a href="#">Give</a>
+      <a href="#sunday" class="btn btn-primary">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-185-hero.webp" alt="" fetchpriority="high">
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">A church for Phoenix · Since 2015</span>
+    <h1>Life goes<br><em>vertical.</em></h1>
+    <div class="hero-row">
+      <div>
+        <p class="lead">A church in the heart of Phoenix where the gospel changes everything. Come as you are. Leave different.</p>
+        <div class="hero-actions">
+          <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+          <a href="#message" class="btn btn-ghost btn-play"><span class="play"><svg><use href="#i-play"/></svg></span>Watch Online</a>
+        </div>
+      </div>
+      <aside class="service-card" aria-label="Service times">
+        <div class="label"><span class="live-dot"></span>This Sunday</div>
+        <div class="times">
+          <div>9:00<small>AM</small></div>
+          <div>11:00<small>AM</small></div>
+          <div>5:00<small>PM</small></div>
+        </div>
+        <address>
+          <span>2800 North Central Ave<br>Phoenix, AZ 85004</span>
+          <a href="https://maps.google.com/?q=2800+North+Central+Avenue+Phoenix+AZ+85004" aria-label="Get directions"><svg><use href="#i-arrow"/></svg></a>
+        </address>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. MARQUEE ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Come as you are <i class="star">✦</i> <b class="outline">Leave different</b> <i class="star">✦</i> High-energy worship <i class="star">✦</i> <b class="outline">Honest preaching</b> <i class="star">✦</i></span>
+    <span>Come as you are <i class="star">✦</i> <b class="outline">Leave different</b> <i class="star">✦</i> High-energy worship <i class="star">✦</i> <b class="outline">Honest preaching</b> <i class="star">✦</i></span>
+  </div>
+</div>
+
+<!-- ===== 3. WELCOME ===== -->
+<section class="welcome on-light" id="welcome">
+  <div class="wrap">
+    <div class="welcome-grid">
+      <div class="reveal">
+        <span class="eyebrow">Welcome to Vertical</span>
+        <h2>You'll say, “that was <em>church?”</em></h2>
+        <p class="lead">Vertical exists to help people take their next step with Jesus — no matter where they're starting.</p>
+        <p>From the moment you walk in, you'll find high-energy worship, honest preaching, and a room full of people who are done playing it safe with their faith. We planted this church in 2015 with one conviction: the gospel changes everything. We think you're about to find out why.</p>
+        <div class="pastor">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&q=75&auto=format&fit=crop&crop=faces" alt="Pastor Marcus Reyes">
+          <div><strong>Marcus Reyes</strong><span>Lead Pastor</span></div>
+          <span class="sig">Marcus</span>
+        </div>
+      </div>
+      <div class="collage reveal">
+        <div class="main"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-hands-raised-190-section.webp" alt="A worshipper with arms raised under stage lights" loading="lazy"></div>
+        <div class="sub"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-coffee-fellowship-134-section.webp" alt="Friends talking over coffee" loading="lazy"></div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 148 148" aria-hidden="true"><defs><path id="circ" d="M74,74 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text font-size="10.5" font-weight="600" letter-spacing="3.2" fill="#fff" font-family="Inter, sans-serif"><textPath href="#circ">THE GOSPEL CHANGES EVERYTHING ✦ </textPath></text></svg>
+          <b><svg class="x" viewBox="0 0 24 24"><use href="#i-cross"/></svg></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b>2015</b><span>Planted in downtown Phoenix</span></div>
+      <div class="stat"><b>3</b><span>Gatherings every Sunday</span></div>
+      <div class="stat"><b>40<sup>+</sup></b><span>Groups meeting across the Valley</span></div>
+      <div class="stat"><b>1</b><span>Conviction: the gospel changes everything</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. FIND YOUR PLACE ===== -->
+<section class="place" id="place">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Get started</span>
+        <h2>Find your <em>place.</em></h2>
+      </div>
+      <p>Whether you're brand new or ready to go deeper, there's a next step with your name on it.</p>
+    </div>
+
+    <div class="bento">
+      <a href="#sunday" class="tile tile-1 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-worship-team-stage-103-section.webp" alt="" loading="lazy">
+        <span class="num">01 — SUNDAYS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>The Sunday<br>Experience</h3>
+        <p>Cinematic production, bold preaching, and worship that actually moves you. Seventy minutes you won't want to end.</p>
+      </a>
+      <a href="#" class="tile tile-2 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/kids/kids-group-huddle-160-section.webp" alt="" loading="lazy">
+        <span class="num">02 — KIDS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Vertical Kids</h3>
+        <p>Safe, secure, and genuinely fun. Birth – 5th grade, every gathering.</p>
+      </a>
+      <a href="#" class="tile tile-3 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-085-section.webp" alt="" loading="lazy">
+        <span class="num">03 — STUDENTS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Vertical Students</h3>
+        <p>Middle and high school. Wednesday nights, 6:30 PM.</p>
+      </a>
+      <a href="#" class="tile tile-4 reveal">
+        <span class="big">40+</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Groups</h3>
+        <p>Real community doesn't happen from a seat. Find a group near you.</p>
+      </a>
+      <a href="#" class="tile tile-5 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-team-huddle-hands-079-section.webp" alt="" loading="lazy">
+        <span class="num">05 — SERVE</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Join the Team</h3>
+        <p>Worship, production, kids, hospitality — use what you've got to make Sundays happen.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PLAN YOUR SUNDAY ===== -->
+<section class="sunday on-light" id="sunday">
+  <div class="wrap sunday-grid">
+    <div class="reveal">
+      <span class="eyebrow">Join us this Sunday</span>
+      <h2>Three ways to be in <em>the room.</em></h2>
+      <p class="lead">Pick the gathering that works for you. Every one has the same worship, the same message, and a seat with your name on it.</p>
+      <ul class="expect">
+        <li><span class="ico"><svg><use href="#i-coffee"/></svg></span><div><strong>Coffee's on us</strong><span>Grab a free coffee in the lobby and meet our team.</span></div></li>
+        <li><span class="ico"><svg><use href="#i-shield"/></svg></span><div><strong>Secure kids check-in</strong><span>Pre-register online and skip the line.</span></div></li>
+        <li><span class="ico"><svg><use href="#i-clock"/></svg></span><div><strong>About 70 minutes</strong><span>Worship, a message, and you're out on time.</span></div></li>
+        <li><span class="ico"><svg><use href="#i-car"/></svg></span><div><strong>Guest parking up front</strong><span>Turn on your hazards and we'll wave you in.</span></div></li>
+      </ul>
+      <div class="actions">
+        <a href="#" class="btn btn-dark">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+        <a href="#" class="btn btn-outline-dark">I'm New — Ask a Question</a>
+      </div>
+    </div>
+
+    <div class="gatherings reveal">
+      <div class="gathering">
+        <time datetime="09:00">9:00<small>AM</small></time>
+        <div><strong>Morning Gathering</strong><span>Quieter start, great for families</span></div>
+        <span class="pill">Kids · Birth–5th</span>
+      </div>
+      <div class="gathering featured">
+        <time datetime="11:00">11:00<small>AM</small></time>
+        <div><strong>Main Gathering</strong><span>Our biggest room, full band</span></div>
+        <span class="pill">Most popular</span>
+      </div>
+      <div class="gathering">
+        <time datetime="17:00">5:00<small>PM</small></time>
+        <div><strong>Night Gathering</strong><span>Students &amp; young adults, extended worship</span></div>
+        <span class="pill">Kids · Birth–5th</span>
+      </div>
+      <div class="location">
+        <div><b>2800 North Central Avenue</b><span>Phoenix, AZ 85004 · (602) 555-0187</span></div>
+        <a href="https://maps.google.com/?q=2800+North+Central+Avenue+Phoenix+AZ+85004" class="link-arrow">Get directions <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. LATEST MESSAGE ===== -->
+<section class="message" id="message">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Watch &amp; listen</span>
+        <h2>Latest <em>message.</em></h2>
+      </div>
+      <a href="#" class="btn btn-ghost">All Sermons <svg><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="message-grid">
+      <a href="#" class="feature-video reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-081-section.webp" alt="" loading="lazy">
+        <span class="play-btn" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+        <div class="meta"><span class="series">All In · Part 3</span><span>Pastor Marcus Reyes</span><span>Nov 16, 2026</span><span>42 min</span></div>
+        <h3>No Plan B: Faith That Burns the Boats</h3>
+      </a>
+      <div class="message-side">
+        <div class="series-card reveal">
+          <span class="eyebrow">Current series</span>
+          <h3>All In</h3>
+          <p>A five-week call to stop sitting on the fence — with your time, your money, and your whole heart.</p>
+          <div class="progress" aria-label="Week 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <div class="progress-label"><span>Week 3 of 5</span><span>Ends Dec 14</span></div>
+        </div>
+        <div class="recent reveal">
+          <a href="#"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-142-section.webp" alt="" loading="lazy"><div><strong>Count the Cost</strong><span>All In · Part 2 · Nov 9</span></div><svg><use href="#i-arrow"/></svg></a>
+          <a href="#"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-praise-013-section.webp" alt="" loading="lazy"><div><strong>Why Halfway Doesn't Work</strong><span>All In · Part 1 · Nov 2</span></div><svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. UPCOMING EVENTS ===== -->
+<section class="events on-light" id="events">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">What's happening</span>
+        <h2>Upcoming <em>events.</em></h2>
+      </div>
+      <a href="#" class="btn btn-outline-dark">Full Calendar <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="event-list">
+      <article class="event reveal">
+        <div class="date"><b>23</b><span>Nov · Sun</span></div>
+        <h3>Newcomers Lunch</h3>
+        <p>Meet Pastor Marcus and the team over lunch after the 11 AM gathering.</p>
+        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-coffee-fellowship-134-section.webp" alt="" loading="lazy"></div>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <a href="#" class="cover" aria-label="Newcomers Lunch details"></a>
+      </article>
+      <article class="event reveal">
+        <div class="date"><b>06</b><span>Dec · Sat</span></div>
+        <h3>Serve Phoenix Day</h3>
+        <p>Twelve projects across the city in one morning. Bring the whole family.</p>
+        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-hands-together-unity-077-section.webp" alt="" loading="lazy"></div>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <a href="#" class="cover" aria-label="Serve Phoenix Day details"></a>
+      </article>
+      <article class="event reveal">
+        <div class="date"><b>24</b><span>Dec · Wed</span></div>
+        <h3>Christmas Eve at Vertical</h3>
+        <p>Candlelight, carols, and the story that changes everything. 3, 5 &amp; 7 PM.</p>
+        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-083-section.webp" alt="" loading="lazy"></div>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <a href="#" class="cover" aria-label="Christmas Eve details"></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. NEXT STEP CTA ===== -->
+<section class="cta">
+  <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-hands-joined-196-hero.webp" alt="" loading="lazy">
+  <div class="wrap reveal">
+    <span class="eyebrow">Your next step</span>
+    <h2>Starts <em>here.</em></h2>
+    <p class="lead">No matter where you've been or where you're starting from, there's a seat saved for you this Sunday.</p>
+    <div class="actions">
+      <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+      <a href="#message" class="btn btn-ghost">Watch Online First</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 9. FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="about">
+        <a href="#" class="logo"><span class="logo-mark"><svg><use href="#i-cross"/></svg></span><span>Vertical<small>Phoenix, AZ</small></span></a>
+        <p>We exist to help people take their next step with Jesus — no matter where they're starting.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.5 21v-7.5H17l.5-3h-3V8.8c0-.9.4-1.6 1.7-1.6H17.6V4.6c-.5-.1-1.4-.2-2.4-.2-2.4 0-3.9 1.4-3.9 4v2.1H9v3h2.3V21"/></svg></a>
+          <a href="#" aria-label="Spotify podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.6c2.5-.7 5-.4 7 .7M8.7 15.5c1.8-.4 3.6-.2 5.1.6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#">I'm New</a></li>
+          <li><a href="#welcome">About</a></li>
+          <li><a href="#place">Ministries</a></li>
+          <li><a href="#message">Sermons</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#">Give</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sundays</h4>
+        <ul>
+          <li><span>9:00 AM</span><small>Morning</small></li>
+          <li><span>11:00 AM</span><small>Main</small></li>
+          <li><span>5:00 PM</span><small>Night</small></li>
+          <li><span>Wed 6:30 PM</span><small>Students</small></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h4>Visit &amp; Contact</h4>
+        <p>2800 North Central Avenue<br>Phoenix, AZ 85004</p>
+        <p><a href="tel:+16025550187">(602) 555-0187</a><br><a href="mailto:info@verticalchurch.com">info@verticalchurch.com</a></p>
+        <form class="newsletter" onsubmit="event.preventDefault()">
+          <label class="sr-only" for="nl">Email address</label>
+          <input id="nl" type="email" placeholder="Get the weekly update">
+          <button type="submit" aria-label="Subscribe"><svg><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Vertical</div>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Vertical Church. All rights reserved.</span>
+      <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Powered by Promptly</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  // Sticky header
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 160);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle'), nav = document.getElementById('nav');
+  toggle.addEventListener('click', () => { const o = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', false); document.body.style.overflow = ''; }));
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
