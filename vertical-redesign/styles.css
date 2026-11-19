@@ -144,7 +144,7 @@ h1 em, h2 em, .display em {
 .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .35s var(--ease); }
 .header.is-stuck .wrap { height: 72px; }
 .logo { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-stretch: 115%; font-weight: 800; font-size: 17px; letter-spacing: .02em; text-transform: uppercase; }
-.logo-mark { width: 34px; height: 34px; border-radius: 9px; background: var(--white); color: var(--ink); display: grid; place-items: center; transform: rotate(-8deg); }
+.logo-mark { width: 34px; height: 34px; border-radius: 9px; background: var(--flame); color: var(--white); display: grid; place-items: center; transform: rotate(-8deg); }
 .logo-mark svg { width: 16px; height: 16px; transform: rotate(8deg); }
 .logo small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: .24em; color: var(--muted); margin-top: 2px; }
 .nav { display: flex; align-items: center; gap: 36px; }
