@@ -96,7 +96,7 @@ h1 em,h2 em{font-style:normal;background:var(--brass);color:var(--ink);padding:.
 /* ============ 1. HERO ============
    Full-bleed photo with a black gradient fading from left (behind the text) to clear on the right. */
 .hero{position:relative;margin-top:-84px;padding:calc(84px + clamp(72px,10vw,150px)) 0 0;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scaleX(-1);filter:grayscale(1) contrast(1.1);z-index:-2}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(1) contrast(1.1) brightness(1.15);z-index:-2}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(90deg,var(--ink) 0%,var(--ink) 28%,rgba(14,14,16,.82) 45%,rgba(14,14,16,.35) 68%,rgba(14,14,16,0) 88%),
   linear-gradient(180deg,rgba(14,14,16,.6) 0%,rgba(14,14,16,0) 22%,rgba(14,14,16,0) 70%,var(--ink) 100%)}
@@ -218,6 +218,8 @@ h1 em,h2 em{font-style:normal;background:var(--brass);color:var(--ink);padding:.
 .f-bar nav{display:flex;flex-wrap:wrap;gap:4px 22px}
 .f-bar nav a{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);transition:color .25s}
 .f-bar nav a:hover{color:var(--brass)}
+.f-bar .powered{color:var(--bone);font-weight:600;transition:color .25s}
+.f-bar .powered:hover{color:var(--brass)}
 @media (max-width:900px){.f-grid{grid-template-columns:1fr 1fr;gap:40px}.f-grid > div:first-child{grid-column:1/-1}}
 @media (max-width:520px){.f-grid{grid-template-columns:1fr}}
 
