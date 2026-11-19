@@ -12,6 +12,7 @@
   --white:      #FFFFFF;
   --flame:      #FF4A1C;   /* brand accent (on dark)        */
   --flame-deep: #E0330A;   /* brand accent (on light, CTA)  */
+  --flame-dark: #B8290A;   /* footer background            */
   --text-dark:  #0F0F12;
   --muted-dark: #5D5A55;   /* body copy on light            */
   --muted:      #A3A1A8;   /* body copy on dark             */
@@ -346,47 +347,20 @@ h1 em, h2 em, .display em {
 .footer li a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
 .footer li span { font-size: 15.5px; color: rgba(255,255,255,.86); }
 .footer li small { color: var(--muted); margin-left: 8px; font-size: 13px; }
-.newsletter { display: flex; margin-top: 4px; border-bottom: 1px solid rgba(255,255,255,.3); }
-.newsletter input { flex: 1; min-width: 0; background: none; border: 0; color: var(--white); font: inherit; font-size: 15px; padding: 14px 0; outline: none; }
-.newsletter input::placeholder { color: var(--muted); }
-.newsletter button { background: none; border: 0; color: var(--white); cursor: pointer; padding: 0 0 0 12px; }
-.newsletter button svg { width: 22px; height: 22px; }
 .footer .contact p { color: rgba(255,255,255,.86); font-size: 15.5px; margin-bottom: 8px; }
-.wordmark {
-  font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase;
-  font-size: clamp(64px, 16.4vw, 252px); line-height: .78; letter-spacing: -.045em;
-  text-align: center; white-space: nowrap;
-  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0) 92%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  margin: 0 -.05em -.06em; user-select: none;
-}
 .footer-bottom { display: flex; justify-content: space-between; gap: 24px; padding: 28px 0 32px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
 .footer-bottom nav { display: flex; gap: 24px; }
 .footer-bottom a:hover { color: var(--white); }
 
 /* Red footer variant */
-.footer { background: var(--flame-deep); border-top: 0; --line: rgba(255,255,255,.22); --muted: rgba(255,255,255,.72); }
-.footer .logo-mark { background: var(--white); color: var(--flame-deep); }
+.footer { background: var(--flame-dark); border-top: 0; --line: rgba(255,255,255,.22); --muted: rgba(255,255,255,.72); }
+.footer .logo-mark { background: var(--white); color: var(--flame-dark); }
 .footer .about p { color: rgba(255,255,255,.85); }
 .footer h4 { color: rgba(255,255,255,.7); }
 .footer li a, .footer li span, .footer .contact p { color: var(--white); }
 .footer li a:hover { color: var(--white); }
 .socials a { border-color: rgba(255,255,255,.4); }
-.socials a:hover { background: var(--white); border-color: var(--white); color: var(--flame-deep); }
-.newsletter { border-bottom-color: rgba(255,255,255,.5); }
-.newsletter input::placeholder { color: rgba(255,255,255,.75); }
-.wordmark { background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0) 92%); -webkit-background-clip: text; background-clip: text; }
-.footer-bottom { color: rgba(255,255,255,.75); }
-
-/* =====================================================================
-   Reveal on scroll (JS adds .js; content stays visible without it)
-   ===================================================================== */
-.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.js .reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
-}
+.socials a:hover { background: var(--white); border-color: var(--white); color: var(--flame-dark); }
 
 /* =====================================================================
    Responsive
