@@ -140,6 +140,7 @@ h1 em, h2 em, .display em {
 .header::before { content: ""; position: absolute; inset: 0; background: rgba(10,10,12,.86); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); opacity: 0; transition: opacity .35s; }
 .header.is-stuck { position: fixed; top: 0; }
 .header.is-stuck::before { opacity: 1; }
+.header .wrap { position: relative; z-index: 1; }
 .header .logo, .header .menu-toggle { position: relative; z-index: 2; }
 .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .35s var(--ease); }
 .header.is-stuck .wrap { height: 72px; }
