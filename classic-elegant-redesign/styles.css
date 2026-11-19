@@ -256,14 +256,15 @@ p { margin: 0 0 1.1em; }
 .address-line { display: flex; gap: 10px; align-items: center; margin-top: 28px; font-size: 15px; }
 .address-line svg { width: 16px; height: 16px; color: var(--gold-light); }
 
-.liturgy { position: relative; padding: 52px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.03); }
-.liturgy h3 { font-size: 34px; }
-.liturgy > p { margin: 14px 0 28px; font-size: 16px; }
-.liturgy ol { list-style: none; margin: 0; padding: 0; counter-reset: lit; }
-.liturgy li { counter-increment: lit; display: grid; grid-template-columns: 48px 1fr; gap: 8px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.1); }
-.liturgy li::before { content: counter(lit, upper-roman); font: italic 400 20px/1.3 var(--serif); color: var(--gold-light); }
-.liturgy li strong { display: block; font: 500 22px/1.3 var(--serif); color: var(--white); }
-.liturgy li span { display: block; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.62); }
+.welcome-video { position: relative; display: block; min-height: 560px; overflow: hidden; color: var(--white); }
+.welcome-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.welcome-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(12,21,36,.85) 0%, rgba(12,21,36,.2) 55%, rgba(12,21,36,.1) 100%); }
+.welcome-video:hover img { transform: scale(1.04); }
+.welcome-video:hover .play { transform: scale(1.08); background: var(--gold-light); }
+.welcome-video .caption { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 36px 40px; }
+.welcome-video .caption small { display: block; font: 700 11px/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--gold-light); }
+.welcome-video .caption strong { display: block; margin-top: 12px; font: 500 28px/1.2 var(--serif); color: var(--white); max-width: 380px; }
+
 
 /* =========================================================
    5. FROM THE PULPIT — latest sermon
@@ -383,6 +384,7 @@ p { margin: 0 0 1.1em; }
   .place-card, .place-cards:hover .place-card, .place-cards .place-card:hover { flex: none; height: 440px; }
   .place-card .reveal { grid-template-rows: 1fr; opacity: 1; margin-top: 18px; }
   .sermon-media { min-height: 340px; }
+  .welcome-video { min-height: 420px; }
   .sermon-list { grid-template-columns: 1fr; }
   .sermon-list a + a { padding-left: 0; border-left: 0; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -405,7 +407,6 @@ p { margin: 0 0 1.1em; }
   .welcome-media .badge strong { font-size: 40px; }
   .time-row { grid-template-columns: 1fr auto; gap: 8px 16px; }
   .time-row .day { grid-column: 1 / -1; }
-  .liturgy { padding: 32px 24px; }
   .event { grid-template-columns: 64px 1fr; gap: 20px; }
   .event .arrow { display: none; }
   .event .date strong { font-size: 44px; }
