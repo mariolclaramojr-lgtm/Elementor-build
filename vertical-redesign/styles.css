@@ -139,6 +139,8 @@ h1 em, h2 em, .display em {
   transition: background .35s var(--ease), padding .35s var(--ease), top .35s var(--ease);
 }
 .header::before { content: ""; position: absolute; inset: 0; background: rgba(10,10,12,.86); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); opacity: 0; transition: opacity .35s; }
+.header::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 200px; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(10,10,12,.85) 0%, rgba(10,10,12,.55) 45%, rgba(10,10,12,0) 100%); transition: opacity .35s; }
+.header.is-stuck::after { opacity: 0; }
 .header.is-stuck { position: fixed; top: 0; }
 .header.is-stuck::before { opacity: 1; }
 .header .wrap { position: relative; z-index: 1; }
