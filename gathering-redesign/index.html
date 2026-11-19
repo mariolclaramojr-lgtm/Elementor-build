@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Neighborhood Gathering | Brooklyn, NY</title>
+<meta name="description" content="A Brooklyn church where every language, every background and every story has a seat. Sundays at 11:00 AM and 6:00 PM on Myrtle Avenue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<!-- Shared icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 14 18"><path d="M7 0v18M1 6h12" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 18 18"><path d="M2 6h14M2 12h14" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 18 18"><path d="M3 3l12 12M15 3 3 15" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+
+<!-- ===== 0. TOP BAR (global header) ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot"></span><strong>This Sunday</strong> &nbsp;·&nbsp; 11:00 AM &amp; 6:00 PM</span>
+    <span class="tb-right">245 Myrtle Avenue, Brooklyn &nbsp;·&nbsp; <a href="#visit">First time? Start here</a></span>
+  </div>
+</div>
+
+<!-- ===== HEADER (global, sticky) ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="The Neighborhood Gathering — home">
+      <span class="logo-mark"><svg><use href="#i-cross"/></svg></span>
+      <span>The Neighborhood<br>Gathering</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#">About</a><a href="#">Ministries</a><a href="#">Sermons</a><a href="#">Events</a><a href="#">Give</a>
+    </nav>
+    <a href="#visit" class="btn btn-brass">Plan Your Visit</a>
+    <button class="burger" aria-label="Open menu" data-open><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <div class="mnav-top">
+    <span class="logo"><span class="logo-mark"><svg><use href="#i-cross"/></svg></span><span>The Neighborhood<br>Gathering</span></span>
+    <button class="burger" aria-label="Close menu" data-close><svg><use href="#i-close"/></svg></button>
+  </div>
+  <a href="#">About</a><a href="#">Ministries</a><a href="#">Sermons</a><a href="#">Events</a><a href="#">Give</a>
+  <a href="#visit" class="btn btn-brass">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+</div>
+
+<main>
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">A church in Brooklyn, NY</div>
+        <h1>From the block, <em>for the block.</em></h1>
+        <p class="lead">Every language, every background, every story has a seat here. Come as you are — you're already welcome.</p>
+        <div class="hero-actions">
+          <a href="#visit" class="btn btn-brass">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+          <a href="#" class="btn btn-ghost"><span class="play"><svg><use href="#i-play"/></svg></span>Watch Online</a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="main"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-vocal-worship-team-061-hero.webp" alt="Worship leaders singing on a Sunday at The Gathering"></div>
+        <div class="inset"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-prayer-189-card.webp" alt="A woman praying during worship"></div>
+        <div class="badge"><span><b>Since</b>2017</span></div>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div><span>Sundays</span><strong>11:00 AM &amp; 6:00 PM</strong></div>
+      <div><span>Where</span><strong>245 Myrtle Ave, Brooklyn</strong></div>
+      <div><span>Can't make it?</span><strong>Stream live online</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. WELCOME (light) ===== -->
+<section class="welcome light">
+  <div class="wrap">
+    <div class="welcome-head">
+      <div class="reveal">
+        <div class="eyebrow">Welcome to The Gathering</div>
+        <h2>We say what nobody <em>else would.</em></h2>
+      </div>
+      <div class="welcome-copy reveal">
+        <p>Brooklyn deserves a church that actually looks and sounds like Brooklyn.</p>
+        <p>That was the conviction Pastor Deon Alexander planted The Gathering on in 2017. Worship that crosses cultures. Preaching that doesn't flinch. A room where someone always walks out saying, "I've never heard it said like that before — and I needed it."</p>
+        <div class="signature">
+          <span class="av">DA</span>
+          <div><strong>Pastor Deon Alexander</strong><span>Founding Pastor</span></div>
+          <a href="#" class="link">Our Story <svg><use href="#i-up"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <figure class="welcome-figure reveal">
+      <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-hands-raised-197-section.webp" alt="The congregation worshipping together">
+      <figcaption>Sunday at The Gathering</figcaption>
+    </figure>
+    <div class="values">
+      <div class="reveal"><span class="num">i.</span><h3>Every language</h3><p>Worship that crosses cultures, because our neighbors do. Whatever you speak, you belong in the room.</p></div>
+      <div class="reveal"><span class="num">ii.</span><h3>Honest preaching</h3><p>Real questions, straight answers from Scripture, and nothing watered down to keep it comfortable.</p></div>
+      <div class="reveal"><span class="num">iii.</span><h3>Block by block</h3><p>Sunday after Sunday, house by house — building a church that loves this neighborhood out loud.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. FIND YOUR PLACE (dark) ===== -->
+<section class="pathways">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Get Started</div><h2>Find your <em>place.</em></h2></div>
+      <p class="lead">Brand new or ready to go deeper — there's a next step here with your name on it.</p>
+    </div>
+    <div class="cards">
+      <a href="#" class="card reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/kids/kids-group-huddle-160-card.webp" alt="">
+        <span class="num">01</span><span class="arrow"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Kids Ministry</h3>
+        <p>While you're in service, your kids are in theirs — safe, fun and built for real curiosity. Little ones belong here too.</p>
+        <span class="cta">Learn more</span>
+      </a>
+      <a href="#visit" class="card reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-personal-prayer-149-hero.webp" alt="">
+        <span class="num">02</span><span class="arrow"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Sunday Experience</h3>
+        <p>Urban-eclectic worship, honest preaching and a room full of real people. Sundays here hit different — come see for yourself.</p>
+        <span class="cta">Plan your visit</span>
+      </a>
+      <a href="#" class="card reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/small-groups/small-groups-coffee-fellowship-124-card.webp" alt="">
+        <span class="num">03</span><span class="arrow"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Ministries</h3>
+        <p>From House Churches to serving the neighborhood, there are ways to get involved, go deeper and find your people.</p>
+        <span class="cta">Explore ministries</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. JOIN US THIS SUNDAY (light) ===== -->
+<section class="visit light" id="visit">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <div class="eyebrow">Join us this Sunday</div>
+      <h2>Two services. <em>One family.</em></h2>
+      <div class="times">
+        <div class="time"><span>Morning</span><strong>11:00<small>AM</small></strong><p>Kids ministry during service.</p></div>
+        <div class="time"><span>Evening</span><strong>6:00<small>PM</small></strong><p>Same message, same welcome.</p></div>
+      </div>
+      <div class="address">
+        <div><span>Address</span><strong>245 Myrtle Avenue, Brooklyn, NY 11205</strong></div>
+        <a href="https://maps.google.com/?q=245+Myrtle+Avenue+Brooklyn+NY+11205" class="btn btn-brass">Directions <svg><use href="#i-up"/></svg></a>
+      </div>
+    </div>
+    <div class="expect reveal">
+      <h3>Your first Sunday</h3>
+      <p>No dress code, no pressure — here's what to expect when you walk in.</p>
+      <ol class="steps">
+        <li><strong>Find us on Myrtle</strong><p>Come 10 minutes early. A host at the door will help you get settled.</p></li>
+        <li><strong>Check in the kids</strong><p>Our team gets your children set up in a safe, secure space.</p></li>
+        <li><strong>Grab a coffee</strong><p>Meet a few neighbors before the music starts.</p></li>
+        <li><strong>Worship &amp; the Word</strong><p>Music that crosses cultures, then a message straight from Scripture.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. CTA ===== -->
+<section class="cta-band">
+  <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-team-huddle-hands-079-hero.webp" alt="">
+  <div class="wrap reveal">
+    <div class="eyebrow">Come and see</div>
+    <h2>Your story <em>belongs here.</em></h2>
+    <p class="lead">Whatever brought you to this page, it's worth showing up in person. Come find out what The Gathering is all about.</p>
+    <div class="hero-actions">
+      <a href="#visit" class="btn btn-brass">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+      <a href="#" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== 6. FOOTER (global) ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo"><span class="logo-mark"><svg><use href="#i-cross"/></svg></span><span>The Neighborhood<br>Gathering</span></a>
+        <p>A church for the block, from the block — where every language, every background and every story has a seat.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#">About</a></li><li><a href="#">Ministries</a></li><li><a href="#">Sermons</a></li><li><a href="#">Events</a></li><li><a href="#">Give</a></li><li><a href="#">I'm New</a></li></ul></div>
+      <div><h4>Visit</h4><ul><li>245 Myrtle Avenue<br>Brooklyn, NY 11205</li><li><a href="https://maps.google.com/?q=245+Myrtle+Avenue+Brooklyn+NY+11205">Get directions ↗</a></li><li>Sundays<br>11:00 AM &amp; 6:00 PM</li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+17185550173">(718) 555-0173</a></li><li><a href="mailto:hey@gathering.nyc">hey@gathering.nyc</a></li><li><a href="#">Send us a message ↗</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 The Neighborhood Gathering</span><span>Brooklyn, NY</span></div>
+  </div>
+  <div class="wordmark" aria-hidden="true">The Gathering</div>
+</footer>
+
+<script>
+// Sticky header: tighten + blur after scrolling
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+// Mobile menu
+const mnav=document.getElementById('mnav');
+document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>mnav.classList.add('open'));
+document.querySelectorAll('[data-close],#mnav a').forEach(b=>b.addEventListener('click',()=>mnav.classList.remove('open')));
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
