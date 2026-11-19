@@ -217,11 +217,6 @@ p { margin: 0 0 1.1em; }
 .signoff .who strong { display: block; font: 500 22px/1.2 var(--serif); color: var(--ink); }
 .signoff .who span { font-size: 13px; color: var(--muted); }
 
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(72px, 9vw, 120px); border-top: 1px solid var(--linen); }
-.stat { padding: 40px 28px 0 0; }
-.stat + .stat { padding-left: 28px; border-left: 1px solid var(--linen); }
-.stat strong { display: block; font: 400 56px/1 var(--serif); color: var(--ink); letter-spacing: -0.02em; }
-.stat span { display: block; margin-top: 12px; font-size: 14px; line-height: 1.5; color: var(--muted); }
 
 /* =========================================================
    3. FIND YOUR PLACE (expanding cards)
@@ -385,8 +380,6 @@ p { margin: 0 0 1.1em; }
   .welcome-grid, .worship-grid, .cta-grid, .section-head, .sermon { grid-template-columns: 1fr; }
   .section-head .head-link { justify-self: start; }
   .welcome-media { max-width: 520px; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
   .place-cards { flex-direction: column; height: auto; }
   .place-card, .place-cards:hover .place-card, .place-cards .place-card:hover { flex: none; height: 440px; }
   .place-card .reveal { grid-template-rows: 1fr; opacity: 1; margin-top: 18px; }
@@ -411,11 +404,6 @@ p { margin: 0 0 1.1em; }
   .welcome-media { padding: 0 0 32px 32px; }
   .welcome-media .badge { width: 128px; height: 128px; right: -6px; }
   .welcome-media .badge strong { font-size: 40px; }
-  .stats { grid-template-columns: 1fr 1fr; }
-  .stat, .stat + .stat { padding: 28px 12px 0 0; }
-  .stat + .stat { padding-left: 16px; }
-  .stat:nth-child(3) { padding-left: 0; }
-  .stat strong { font-size: 44px; }
   .time-row { grid-template-columns: 1fr auto; gap: 8px 16px; }
   .time-row .day { grid-column: 1 / -1; }
   .liturgy { padding: 32px 24px; }
