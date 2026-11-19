@@ -128,13 +128,6 @@ a.hbox:hover .hbox__arrow { transform: rotate(-45deg); }
   .hbox--navy { min-height: 0; }
 }
 
-/* ---------- Marquee ---------- */
-.marquee { overflow: hidden; background: var(--gold); color: var(--ink); padding: 18px 0; }
-.marquee__track { display: flex; width: max-content; animation: slide 30s linear infinite; }
-.marquee span { font: 400 clamp(30px, 3.4vw, 46px)/1 var(--f-display); letter-spacing: .02em; padding: 0 28px; display: flex; align-items: center; gap: 56px; white-space: nowrap; }
-.marquee span::after { content: "✦"; font-size: .55em; }
-@keyframes slide { to { transform: translateX(-50%); } }
-
 /* ---------- 2. Vision Sunday ---------- */
 .vision__grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
 .vision__year { font: 400 clamp(120px, 16vw, 240px)/.8 var(--f-display); color: transparent; -webkit-text-stroke: 1.5px var(--gold); display: block; margin-bottom: 20px; }
@@ -146,9 +139,9 @@ a.hbox:hover .hbox__arrow { transform: rotate(-45deg); }
 .statement { font: 400 clamp(30px, 3.6vw, 54px)/1.12 var(--f-serif); letter-spacing: -.01em; max-width: 1100px; margin: 0 0 clamp(48px, 6vw, 80px); }
 .statement strong { font-weight: 400; color: var(--gold); font-style: italic; }
 .about__grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--g); align-items: stretch; }
-.about__img { border-radius: var(--r); overflow: hidden; min-height: 420px; }
-.about__img img { width: 100%; height: 100%; object-fit: cover; }
-.about__card { background: var(--navy); color: rgba(255,255,255,.78); border-radius: var(--r); padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.about__img { border-radius: var(--r); overflow: hidden; position: relative; min-height: 340px; }
+.about__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about__card { background: var(--navy); color: rgba(255,255,255,.78); border-radius: var(--r); padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; gap: 28px; }
 .about__card h2 { color: #fff; font-size: clamp(44px, 4.6vw, 72px); }
 
 /* ---------- 4. Path ---------- */
@@ -219,6 +212,7 @@ a.hbox:hover .hbox__arrow { transform: rotate(-45deg); }
 /* ---------- 10. Gallery (filmstrip) ---------- */
 .gallery { background: var(--paper); overflow: hidden; }
 .strip { display: flex; gap: 14px; width: max-content; animation: slide 60s linear infinite; }
+@keyframes slide { to { transform: translateX(-50%); } }
 .strip--rev { animation-direction: reverse; margin-top: 14px; }
 .strip:hover { animation-play-state: paused; }
 .strip img { height: clamp(180px, 22vw, 300px); width: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-sm); }
@@ -252,7 +246,7 @@ a.hbox:hover .hbox__arrow { transform: rotate(-45deg); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
-  .marquee__track, .strip { animation: none; }
+  .strip { animation: none; }
 }
 
 /* ---------- Responsive ---------- */
