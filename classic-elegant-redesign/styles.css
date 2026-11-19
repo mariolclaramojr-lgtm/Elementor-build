@@ -166,7 +166,7 @@ p { margin: 0 0 1.1em; }
     linear-gradient(90deg, rgba(12,21,36,.92) 0%, rgba(12,21,36,.62) 45%, rgba(12,21,36,.18) 100%),
     linear-gradient(0deg, rgba(12,21,36,.9) 0%, rgba(12,21,36,0) 45%);
 }
-.hero .wrap { position: relative; z-index: 2; padding-top: 220px; padding-bottom: 72px; }
+.hero .wrap { position: relative; z-index: 2; padding-top: 220px; padding-bottom: 110px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: end; }
 .hero-copy { max-width: 760px; }
 .hero h1 { color: var(--white); }
@@ -187,11 +187,6 @@ p { margin: 0 0 1.1em; }
 .service-card .addr { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.75); }
 .service-card .addr svg { flex: none; width: 16px; height: 16px; margin-top: 2px; color: var(--gold-light); }
 
-.hero-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 72px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.14); font: 600 11px/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: rgba(255,255,255,.6); }
-.scroll-cue { display: inline-flex; align-items: center; gap: 14px; }
-.scroll-cue i { width: 1px; height: 36px; background: rgba(255,255,255,.3); position: relative; overflow: hidden; }
-.scroll-cue i::after { content: ""; position: absolute; left: 0; top: -36px; width: 1px; height: 36px; background: var(--gold-light); animation: drip 2.2s var(--ease) infinite; }
-@keyframes drip { to { top: 36px; } }
 
 /* =========================================================
    2. WELCOME
@@ -369,7 +364,6 @@ p { margin: 0 0 1.1em; }
   .nav .btn-gold { display: none; }
   .hero .wrap { padding-top: 180px; padding-bottom: 40px; }
   .hero-actions .btn { flex: 1 1 100%; }
-  .hero-foot { display: none; }
   .service-card { padding: 26px; }
   .welcome-media { padding: 0 0 32px 32px; }
   .welcome-media .badge { width: 128px; height: 128px; right: -6px; }
