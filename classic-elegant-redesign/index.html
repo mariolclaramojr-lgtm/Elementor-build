@@ -33,7 +33,7 @@
   <div class="wrap">
     <span class="pill">Advent</span>
     <span>Lessons &amp; Carols by candlelight — Sunday, December 20 at 5:00 PM</span>
-    <a href="#events">Details</a>
+    <a href="#">Details</a>
   </div>
 </div>
 
@@ -49,10 +49,10 @@
     <nav class="nav" aria-label="Main">
       <a class="nav-link" href="#">About</a>
       <a class="nav-link" href="#">Ministries</a>
-      <a class="nav-link" href="#sermons">Sermons</a>
-      <a class="nav-link" href="#events">Events</a>
+      <a class="nav-link" href="#">Sermons</a>
+      <a class="nav-link" href="#">Events</a>
       <a class="nav-link" href="#">Give</a>
-      <a class="btn btn-ghost" href="#sermons">Watch Online</a>
+      <a class="btn btn-ghost" href="#">Watch Online</a>
       <!-- Component: Header – Plan Your Visit Button (keep class lc-nav-cta) -->
       <a class="btn btn-gold lc-nav-cta" href="#visit">Plan Your Visit</a>
       <button class="menu-toggle" id="menuOpen" aria-label="Open menu"><span></span></button>
@@ -66,8 +66,8 @@
   <nav aria-label="Mobile">
     <a href="#">About</a>
     <a href="#">Ministries</a>
-    <a href="#sermons">Sermons</a>
-    <a href="#events">Events</a>
+    <a href="#">Sermons</a>
+    <a href="#">Events</a>
     <a href="#">Give</a>
   </nav>
   <a class="btn btn-gold" href="#visit">Plan Your Visit</a>
@@ -89,7 +89,7 @@
         <!-- Div: Buttons -->
         <div class="hero-actions rv">
           <a class="btn btn-gold" href="#visit">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#sermons"><svg style="width:12px;height:12px"><use href="#i-play"/></svg> Watch Online</a>
+          <a class="btn btn-ghost" href="#"><svg style="width:12px;height:12px"><use href="#i-play"/></svg> Watch Online</a>
         </div>
       </div>
       <!-- Column: Service Times card (Div: Card) -->
@@ -147,37 +147,40 @@
       </div>
       <p class="lead rv">There is a place at St. Matthew's for every season of life. Here are a few ways to begin.</p>
     </div>
-    <!-- Rows: one per card — Image left / Text right; hovered column widens (global CSS) -->
+    <!-- Rows: one per card — Image left / Text right; photo widens on hover (global CSS) -->
     <div class="split-rows">
       <!-- Row: Card – Sunday Experience -->
       <div class="split-row rv">
-        <!-- Column: Image -->
-        <div class="split-media"><img src="img/worship-hands-raised-085-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
+        <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/worship-hands-raised-085-card.webp" alt="" loading="lazy"></div></div>
         <!-- Column: Text -->
         <div class="split-text">
-          <h3>Sunday<br>Experience</h3>
-          <p>Services at 8:30 and 11:00 follow a traditional liturgical order — Scripture, prayer, proclamation and the Lord's Supper — led with reverence by Rev. Dr. James Whitfield.</p>
+          <div class="eyebrow">Sundays · 8:30 &amp; 11:00 AM</div>
+          <h3>Sunday<br><em>Experience</em></h3>
+          <p>Services follow a traditional liturgical order — Scripture, prayer, proclamation and the Lord's Supper — led with reverence by Rev. Dr. James Whitfield.</p>
           <a class="text-link" href="#visit">Plan Your Visit <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <!-- Row: Card – Children's Ministry -->
       <div class="split-row rv">
-        <!-- Column: Image -->
-        <div class="split-media"><img src="img/kids-group-huddle-160-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
+        <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/kids-group-huddle-160-card.webp" alt="" loading="lazy"></div></div>
         <!-- Column: Text -->
         <div class="split-text">
-          <h3>Children's<br>Ministry</h3>
+          <div class="eyebrow">Nursery – Grade 5</div>
+          <h3>Children's<br><em>Ministry</em></h3>
           <p>Age-appropriate classes where children meet Scripture, song and the beauty of the Reformed faith, in a safe, checked-in environment led by trained teachers.</p>
           <a class="text-link" href="#">Learn More <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
-      <!-- Row: Card – Groups & Ministries -->
+      <!-- Row: Card – Groups &amp; Ministries -->
       <div class="split-row rv">
-        <!-- Column: Image -->
-        <div class="split-media"><img src="img/small-groups-prayer-bible-study-178-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
+        <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/small-groups-prayer-bible-study-178-card.webp" alt="" loading="lazy"></div></div>
         <!-- Column: Text -->
         <div class="split-text">
-          <h3>Groups &amp;<br>Ministries</h3>
+          <div class="eyebrow">Midweek &amp; Weekends</div>
+          <h3>Groups &amp;<br><em>Ministries</em></h3>
           <p>From Wednesday Evening Prayer to small-group fellowship, there are many ways to grow in faith, serve your neighbour and build lasting friendships.</p>
           <a class="text-link" href="#">Explore Ministries <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
@@ -194,7 +197,7 @@
       <!-- Column: Text -->
       <div class="worship-copy">
         <div class="eyebrow rv">Join Us for Worship</div>
-        <h2 class="h-section rv">Ancient worship for a modern <em>week</em></h2>
+        <h2 class="h-section rv">Worship that anchors your <em>week</em></h2>
         <!-- Div: Service Times -->
         <div class="times rv">
           <div class="time-row"><span class="day">Sunday</span><span class="what">Traditional Worship</span><span class="when">8:30</span></div>
@@ -214,82 +217,9 @@
   </div>
 </section>
 
-<!-- ===== 5. FROM THE PULPIT (latest sermon) ===== -->
-<!-- Section › Row: Heading Group › Row: Sermon (Video / Text) › Sermon List (shortcode) -->
-<section class="section" id="sermons">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow rv">From the Pulpit</div>
-        <h2 class="h-section rv">This week's <em>sermon</em></h2>
-      </div>
-      <p class="lead rv">Missed Sunday, or want to hear it again? Every sermon is online the same afternoon.</p>
-    </div>
-    <article class="sermon rv">
-      <!-- Column: Video -->
-      <div class="sermon-media">
-        <img src="img/bible-hands.jpg" alt="" loading="lazy">
-        <a class="play" href="#" aria-label="Play sermon"><svg><use href="#i-play"/></svg></a>
-      </div>
-      <!-- Column: Text -->
-      <div class="sermon-body">
-        <div class="eyebrow">Series · The Gospel of John</div>
-        <h3>The Word Became <em>Flesh</em></h3>
-        <div class="sermon-meta"><span>Rev. Dr. James Whitfield</span><span>November 15, 2026</span><span>38 min</span></div>
-        <div class="scripture">“And the Word became flesh and dwelt among us, and we have seen his glory.”<cite>John 1:14</cite></div>
-        <div class="sermon-actions">
-          <a class="btn btn-ink" href="#"><svg style="width:12px;height:12px"><use href="#i-play"/></svg> Watch Sermon</a>
-          <a class="text-link" href="#">All Sermons <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
-    </article>
-    <!-- Div: Sermon List (shortcode) -->
-    <div class="sermon-list rv">
-      <a href="#"><small>Nov 8</small><strong>In the Beginning Was the Word</strong><span>John 1:1–5 · Rev. Dr. James Whitfield</span></a>
-      <a href="#"><small>Nov 1</small><strong>A Witness to the Light</strong><span>John 1:6–13 · Rev. Anna Calloway</span></a>
-      <a href="#"><small>Oct 25</small><strong>Grace Upon Grace</strong><span>John 1:15–18 · Rev. Dr. James Whitfield</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 6. UPCOMING EVENTS ===== -->
-<!-- Section (stone) › Row: Heading Group › Event List (MEC shortcode) -->
-<section class="section band-stone" id="events">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow rv">Life Together</div>
-        <h2 class="h-section rv">Upcoming <em>gatherings</em></h2>
-      </div>
-      <p class="head-link rv"><a class="text-link" href="#">View Full Calendar <svg width="16" height="16"><use href="#i-arrow"/></svg></a></p>
-    </div>
-    <div class="events">
-      <a class="event rv" href="#">
-        <div class="date"><strong>29</strong><span>Nov</span></div>
-        <div><h3>First Sunday of Advent</h3><p>Lighting of the Advent wreath and a new sermon series, “O Come, Emmanuel.”</p></div>
-        <div class="meta"><b>8:30 &amp; 11:00 AM</b>Sanctuary</div>
-        <span class="arrow"><svg><use href="#i-arrow"/></svg></span>
-      </a>
-      <a class="event rv" href="#">
-        <div class="date"><strong>06</strong><span>Dec</span></div>
-        <div><h3>Hanging of the Greens &amp; Family Supper</h3><p>Decorate the sanctuary together, then share a meal in Whitfield Hall.</p></div>
-        <div class="meta"><b>4:00 PM</b>Whitfield Hall</div>
-        <span class="arrow"><svg><use href="#i-arrow"/></svg></span>
-      </a>
-      <a class="event rv" href="#">
-        <div class="date"><strong>20</strong><span>Dec</span></div>
-        <div><h3>Lessons &amp; Carols by Candlelight</h3><p>Nine readings and carols with the Chancel Choir. Bring a friend.</p></div>
-        <div class="meta"><b>5:00 PM</b>Sanctuary</div>
-        <span class="arrow"><svg><use href="#i-arrow"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 7. NEXT STEP (Plan Your Visit) ===== -->
-<!-- Section (bg image + overlay) › Row: Content (Text / What to Expect) -->
-<section class="section cta on-dark" id="visit">
-  <div class="cta-media"><img src="img/community-team-huddle-hands-079-hero.webp" alt="" loading="lazy"></div>
+<!-- ===== 5. NEXT STEP (Plan Your Visit) ===== -->
+<!-- Section (light) › Row: Content (Text / What to Expect) -->
+<section class="section cta" id="visit">
   <div class="wrap">
     <div class="cta-grid">
       <!-- Column: Text -->
@@ -299,7 +229,7 @@
         <p class="lead rv">We would be honoured to welcome you in person. Come as you are — whether this is your first visit or you're ready to call St. Matthew's home.</p>
         <div class="cta-actions rv">
           <a class="btn btn-gold" href="#">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#">Ask a Question</a>
+          <a class="btn btn-line" href="#">Ask a Question</a>
         </div>
       </div>
       <!-- Column: What to Expect (list) -->
