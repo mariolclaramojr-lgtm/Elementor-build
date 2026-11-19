@@ -46,13 +46,12 @@
 
 <main>
 
-<!-- ======================= 1. HERO (video) ======================= -->
+<!-- ======================= 1. HERO (image) ======================= -->
 <section class="hero">
   <div class="hero__grid">
 
-    <!-- Box 1: main video box -->
+    <!-- Box 1: main image box -->
     <div class="hero__card hbox--main">
-      <div class="hero__video" aria-hidden="true"><div id="hero-video" data-yt="Jp6DX_V8168"></div></div>
       <div class="hero__content">
         <span class="tag tag--light">A Church On Fire For Jesus</span>
         <h1>Nation <em>Transformation</em></h1>
@@ -378,20 +377,6 @@
   const fill = (el, list) => { const html = list.map(p => `<img src="${up + p}" alt="Life at CSLG Church" loading="lazy">`).join(''); el.innerHTML = html + html; };
   fill(document.getElementById('strip1'), photos.slice(0, 8));
   fill(document.getElementById('strip2'), photos.slice(8));
-
-  // Hero background video: photo shows until YouTube is actually playing
-  const hv = document.getElementById('hero-video');
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.onYouTubeIframeAPIReady = () => new YT.Player(hv, {
-      videoId: hv.dataset.yt, host: 'https://www.youtube-nocookie.com',
-      playerVars: { autoplay: 1, mute: 1, loop: 1, playlist: hv.dataset.yt, controls: 0, rel: 0, playsinline: 1, disablekb: 1 },
-      events: {
-        onReady: e => { e.target.mute(); e.target.playVideo(); },
-        onStateChange: e => { if (e.data === 1) document.querySelector('.hero__video').classList.add('is-playing'); }
-      }
-    });
-    const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
-  }
 
   // Reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
