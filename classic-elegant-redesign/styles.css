@@ -225,18 +225,19 @@ p { margin: 0 0 1.1em; }
 .section-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 48px; align-items: end; margin-bottom: 64px; }
 .section-head p { margin: 0; }
 .section-head .head-link { justify-self: end; }
-.split-rows { display: flex; flex-direction: column; gap: 24px; }
-.split-row { display: flex; height: 460px; background: var(--white); overflow: hidden; }
-.split-row.flip { flex-direction: row-reverse; }
+.split-rows { display: flex; flex-direction: column; gap: 28px; }
+.split-row { display: flex; height: 400px; background: var(--ivory); overflow: hidden; box-shadow: 0 30px 60px -45px rgba(20,32,51,.35); }
 .split-row > div { flex: 1 1 0; min-width: 0; transition: flex .8s var(--ease); }
-.split-row:hover > div { flex-grow: .75; }
-.split-row > div:hover { flex-grow: 1.45; }
+.split-row > .split-media { flex-grow: 1.1; }
+.split-row:hover > .split-media { flex-grow: 1.35; }
 .split-media { position: relative; overflow: hidden; }
 .split-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 .split-row:hover .split-media img { transform: scale(1.04); }
-.split-text { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(36px, 5vw, 72px); }
-.split-text h3 { font-size: clamp(36px, 3.4vw, 52px); line-height: 1.02; }
-.split-text p { margin: 22px 0 30px; max-width: 460px; font-size: 16px; line-height: 1.75; }
+.split-text { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 48px clamp(36px, 5vw, 72px); }
+.split-text::before { content: ""; position: absolute; left: 0; top: 48px; bottom: 48px; width: 3px; background: var(--gold); transform: scaleY(0); transform-origin: top; transition: transform .8s var(--ease); }
+.split-row:hover .split-text::before { transform: scaleY(1); }
+.split-text h3 { font-size: clamp(34px, 3vw, 46px); line-height: 1.04; }
+.split-text p { margin: 20px 0 28px; max-width: 480px; font-size: 16px; line-height: 1.75; }
 
 /* =========================================================
    4. WORSHIP — times + order of service (dark)
@@ -376,8 +377,9 @@ p { margin: 0 0 1.1em; }
   .welcome-grid, .worship-grid, .cta-grid, .section-head, .sermon { grid-template-columns: 1fr; }
   .section-head .head-link { justify-self: start; }
   .welcome-media { max-width: 520px; }
-  .split-row, .split-row.flip { flex-direction: column; height: auto; }
-  .split-row > div, .split-row:hover > div, .split-row > div:hover { flex: none; }
+  .split-row { flex-direction: column; height: auto; }
+  .split-row > div, .split-row > .split-media, .split-row:hover > .split-media { flex: none; }
+  .split-text::before { display: none; }
   .split-media { height: 300px; }
   .sermon-media { min-height: 340px; }
   .welcome-video { min-height: 420px; }
