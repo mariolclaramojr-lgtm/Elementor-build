@@ -314,6 +314,9 @@ p { margin: 0 0 1.1em; }
 .site-footer li { margin-bottom: 12px; line-height: 1.5; }
 .site-footer a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 80px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.1); font-size: 13px; color: rgba(255,255,255,.45); }
+.footer-bottom .sep { margin: 0 14px; opacity: .35; }
+.footer-bottom .powered a { color: var(--gold-light); border-bottom: 1px solid rgba(214,183,113,.4); padding-bottom: 1px; transition: color .3s, border-color .3s; }
+.footer-bottom .powered a:hover { color: var(--white); border-color: var(--white); }
 
 /* ---------- Scroll reveal ---------- */
 .js .rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
