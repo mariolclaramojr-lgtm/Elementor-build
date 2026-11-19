@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vertical Church — Phoenix, AZ</title>
+<meta name="description" content="Premium redesign mockup of the Vertical Church (Bold & Energetic) template.">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjUyIiBoZWlnaHQ9IjUyIiByeD0iMTQiIGZpbGw9IiNGRjRBMUMiIHRyYW5zZm9ybT0icm90YXRlKC04IDMyIDMyKSIvPgogIDxwYXRoIGQ9Ik0zMiAxN3YzME0yMiAyN2gyMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   VERTICAL CHURCH — PREMIUM REDESIGN
+   Tokens below map 1:1 to Global Colors / Global Fonts.
+   ===================================================================== */
+:root {
+  /* Colours */
+  --ink:        #0A0A0C;   /* page background (dark)        */
+  --ink-2:      #121216;   /* raised dark surface           */
+  --ink-3:      #1B1B21;   /* cards on dark                 */
+  --bone:       #F3EFE8;   /* light section background      */
+  --bone-2:     #E9E3D9;   /* light cards / dividers        */
+  --white:      #FFFFFF;
+  --flame:      #FF4A1C;   /* brand accent (on dark)        */
+  --flame-deep: #E0330A;   /* brand accent (on light, CTA)  */
+  --flame-dark: #B8290A;   /* footer background            */
+  --text-dark:  #0F0F12;
+  --muted-dark: #5D5A55;   /* body copy on light            */
+  --muted:      #A3A1A8;   /* body copy on dark             */
+  --line:       rgba(255,255,255,.10);
+  --line-dark:  rgba(15,15,18,.12);
+
+  /* Type */
+  --font-display: "Archivo", "Inter", system-ui, sans-serif;
+  --font-serif:   "Instrument Serif", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+
+  /* Layout */
+  --wrap: 1280px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --section: clamp(88px, 11vw, 160px);
+  --radius: 22px;
+  --radius-sm: 14px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+p { margin: 0 0 1em; }
+h1, h2, h3, h4 { margin: 0; font-weight: 800; }
+.wrap { width: 100%; max-width: calc(var(--wrap) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Display type ---------- */
+.display, h1, h2 {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.025em;
+  line-height: .92;
+}
+h2 { font-size: clamp(40px, 5.6vw, 84px); }
+h3 { font-family: var(--font-display); font-stretch: 105%; font-size: 24px; letter-spacing: -.01em; line-height: 1.1; }
+/* The accent word: italic serif, lowercase-friendly, in brand colour. Editors just use <em>. */
+h1 em, h2 em, .display em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+  color: var(--flame);
+  padding-right: .04em;
+}
+.on-light h2 em { color: var(--flame-deep); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 12px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 26px;
+}
+.eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--flame); }
+.on-light .eyebrow { color: var(--muted-dark); }
+.lead { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: rgba(255,255,255,.78); }
+.on-light .lead { color: var(--muted-dark); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  --h: 56px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  height: var(--h); padding: 0 28px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 600; letter-spacing: .04em;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; transition: transform .3s var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+.btn-primary { background: var(--flame); color: var(--white); }
+.btn-primary:hover { background: var(--white); color: var(--ink); }
+.btn-ghost { border: 1px solid rgba(255,255,255,.35); color: var(--white); backdrop-filter: blur(8px); }
+.btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: var(--flame-deep); }
+.btn-outline-dark { border: 1px solid var(--line-dark); color: var(--text-dark); }
+.btn-outline-dark:hover { border-color: var(--text-dark); }
+.btn-play .play {
+  width: 32px; height: 32px; margin-left: -14px; border-radius: 50%;
+  background: rgba(255,255,255,.14); display: grid; place-items: center;
+}
+.btn-play .play svg { width: 12px; height: 12px; transform: none !important; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+}
+.link-arrow svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+.link-arrow:hover svg { transform: translateX(4px); }
+
+/* =====================================================================
+   0. ANNOUNCEMENT BAR
+   ===================================================================== */
+.topbar {
+  position: relative; z-index: 30;
+  background: var(--ink-2); color: rgba(255,255,255,.82); border-bottom: 1px solid var(--line);
+  font-size: 13.5px; font-weight: 500;
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 42px; text-align: center; }
+.topbar .tag { font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.1); color: var(--white); }
+.topbar a { font-weight: 600; color: var(--white); border-bottom: 1px solid rgba(255,255,255,.4); }
+
+/* =====================================================================
+   HEADER (floats over the hero, solid once scrolled)
+   ===================================================================== */
+.header {
+  position: absolute; top: 42px; left: 0; right: 0; z-index: 20;
+  transition: background .35s var(--ease), padding .35s var(--ease), top .35s var(--ease);
+}
+.header::before { content: ""; position: absolute; inset: 0; background: rgba(10,10,12,.86); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); opacity: 0; transition: opacity .35s; }
+.header::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 200px; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(10,10,12,.85) 0%, rgba(10,10,12,.55) 45%, rgba(10,10,12,0) 100%); transition: opacity .35s; }
+.header.is-stuck::after { opacity: 0; }
+.header.is-stuck { position: fixed; top: 0; }
+.header.is-stuck::before { opacity: 1; }
+.header .wrap { position: relative; z-index: 1; }
+.header .logo, .header .menu-toggle { position: relative; z-index: 2; }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .35s var(--ease); }
+.header.is-stuck .wrap { height: 72px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-stretch: 115%; font-weight: 800; font-size: 17px; letter-spacing: .02em; text-transform: uppercase; }
+.logo-mark { width: 34px; height: 34px; border-radius: 9px; background: var(--flame); color: var(--white); display: grid; place-items: center; transform: rotate(-8deg); }
+.logo-mark svg { width: 16px; height: 16px; transform: rotate(8deg); }
+.logo small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: .24em; color: var(--muted); margin-top: 2px; }
+.nav { display: flex; align-items: center; gap: 36px; }
+.nav a:not(.btn) { position: relative; font-size: 14px; font-weight: 500; color: rgba(255,255,255,.82); transition: color .25s; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1.5px; background: var(--white); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.nav a:not(.btn):hover { color: var(--white); }
+.nav a:not(.btn):hover::after { transform: scaleX(1); }
+.nav .btn { --h: 46px; padding: 0 22px; margin-left: 8px; }
+.menu-toggle { display: none; background: none; border: 1px solid var(--line); color: var(--white); width: 46px; height: 46px; border-radius: 50%; cursor: pointer; }
+.menu-toggle svg { width: 20px; height: 20px; }
+
+/* =====================================================================
+   1. HERO
+   ===================================================================== */
+.hero {
+  position: relative; isolation: isolate;
+  min-height: max(760px, 100svh);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 200px 0 0;
+  overflow: hidden;
+}
+.hero-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: scale(1.06); animation: heroZoom 18s var(--ease) forwards; }
+.hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,10,12,.55) 0%, rgba(10,10,12,.15) 35%, rgba(10,10,12,.7) 72%, var(--ink) 100%);
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+.hero-content { padding-bottom: 64px; }
+.hero .eyebrow { color: rgba(255,255,255,.85); }
+.hero .eyebrow::before { background: var(--flame); }
+.hero h1 { font-size: clamp(64px, 12.4vw, 196px); line-height: .84; letter-spacing: -.035em; margin: 0 0 40px -.04em; }
+.hero h1 em { display: inline-block; font-size: 1.08em; line-height: .7; }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end; }
+.hero .lead { max-width: 480px; margin: 0 0 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Service card (glass) */
+.service-card {
+  width: 380px; padding: 26px 28px;
+  border-radius: var(--radius);
+  background: rgba(18,18,22,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+.service-card .label { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--flame); box-shadow: 0 0 0 0 rgba(255,74,28,.6); animation: pulse 2s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(255,74,28,0); } 100% { box-shadow: 0 0 0 0 rgba(255,74,28,0); } }
+.times { display: grid; grid-template-columns: repeat(3, 1fr); margin: 18px 0 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.times div { padding: 16px 0; text-align: center; font-family: var(--font-display); font-stretch: 110%; font-size: 30px; font-weight: 800; line-height: 1; }
+.times div + div { border-left: 1px solid var(--line); }
+.times small { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--muted); margin-top: 8px; }
+.service-card address { font-style: normal; font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.5; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.service-card address a { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); display: grid; place-items: center; transition: background .3s, color .3s; }
+.service-card address a:hover { background: var(--bone-2); }
+.service-card address svg { width: 16px; height: 16px; }
+
+/* =====================================================================
+   2. MARQUEE
+   ===================================================================== */
+.marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 26px 0; background: var(--ink); }
+.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee span {
+  display: inline-flex; align-items: center; gap: 44px; padding-right: 44px;
+  font-family: var(--font-display); font-stretch: 115%; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(28px, 3.4vw, 48px); letter-spacing: -.01em; line-height: 1; white-space: nowrap;
+}
+.marquee .outline { color: transparent; -webkit-text-stroke: 1.2px rgba(255,255,255,.45); }
+.marquee .star { color: rgba(255,255,255,.4); font-size: .6em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* =====================================================================
+   3. WELCOME (light)
+   ===================================================================== */
+.on-light { background: var(--bone); color: var(--text-dark); }
+.welcome { padding: var(--section) 0; }
+.welcome-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(48px, 7vw, 112px); align-items: center; }
+.welcome h2 { margin-bottom: 32px; }
+.welcome p { color: var(--muted-dark); }
+.pastor { display: flex; align-items: center; gap: 16px; margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--line-dark); }
+.pastor img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.pastor strong { display: block; font-size: 15px; }
+.pastor span { font-size: 13.5px; color: var(--muted-dark); }
+.pastor .sig { margin-left: auto; font-family: var(--font-serif); font-style: italic; font-size: 30px; color: var(--text-dark); line-height: 1; }
+
+.collage { position: relative; aspect-ratio: 4 / 4.6; }
+.collage .main { position: absolute; inset: 0 0 12% 14%; border-radius: var(--radius); overflow: hidden; }
+.collage .main img, .collage .sub img { width: 100%; height: 100%; object-fit: cover; }
+.collage .sub { position: absolute; left: 0; bottom: 0; width: 46%; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; border: 8px solid var(--bone); }
+.collage .badge {
+  position: absolute; right: -18px; bottom: 6%;
+  width: 148px; height: 148px; border-radius: 50%;
+  background: var(--ink); color: var(--white);
+  display: grid; place-items: center; text-align: center;
+}
+.collage .badge svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 24s linear infinite; }
+.collage .badge svg.x { position: static; width: 34px; height: 34px; animation: none; }
+.collage .badge b { font-family: var(--font-display); font-stretch: 115%; font-size: 34px; line-height: 1; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* =====================================================================
+   4. FIND YOUR PLACE (bento)
+   ===================================================================== */
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 56px; }
+.section-head p { max-width: 380px; margin: 0; color: var(--muted); }
+.on-light .section-head p { color: var(--muted-dark); }
+.place { padding: var(--section) 0; }
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 300px; gap: 18px; }
+.tile { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--radius); display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: var(--ink-3); }
+.tile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.tile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,10,12,0) 30%, rgba(10,10,12,.88) 100%); transition: background .4s; }
+.tile:hover img { transform: scale(1.06); }
+.tile-1 { grid-column: span 7; grid-row: span 2; }
+.tile-2 { grid-column: span 5; }
+.tile-3 { grid-column: span 5; }
+.tile-4 { grid-column: span 4; }
+.tile-5 { grid-column: span 8; }
+.tile .num { position: absolute; top: 28px; left: 32px; font-size: 12px; font-weight: 600; letter-spacing: .2em; color: rgba(255,255,255,.7); }
+.tile .go { position: absolute; top: 22px; right: 22px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); display: grid; place-items: center; transition: background .35s var(--ease), border-color .35s, transform .35s var(--ease); }
+.tile .go svg { width: 18px; height: 18px; transform: rotate(-45deg); }
+.tile:hover .go { background: var(--white); border-color: var(--white); color: var(--ink); transform: rotate(45deg); }
+.tile h3 { font-size: clamp(26px, 2.4vw, 36px); text-transform: uppercase; font-stretch: 115%; letter-spacing: -.02em; }
+.tile-1 h3 { font-size: clamp(36px, 4vw, 60px); line-height: .95; }
+.tile p { margin: 12px 0 0; max-width: 440px; color: rgba(255,255,255,.75); font-size: 15.5px; }
+.tile-4 { background: var(--bone); color: var(--text-dark); }
+.tile-4 .go { border-color: var(--line-dark); }
+.tile-4:hover .go { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.tile-4::before { display: none; }
+.tile-4 p { color: var(--muted-dark); }
+.tile-4 .big { position: absolute; top: 18px; left: 28px; font-family: var(--font-display); font-stretch: 115%; font-weight: 800; font-size: 120px; line-height: 1; letter-spacing: -.05em; opacity: .1; }
+
+/* =====================================================================
+   5. PLAN YOUR SUNDAY (light)
+   ===================================================================== */
+.sunday { padding: var(--section) 0; }
+.sunday-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(48px, 7vw, 112px); }
+.sunday h2 { margin-bottom: 28px; }
+.expect { list-style: none; padding: 0; margin: 40px 0 44px; border-top: 1px solid var(--line-dark); }
+.expect li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line-dark); }
+.expect .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--white); display: grid; place-items: center; color: var(--text-dark); }
+.expect .ico svg { width: 20px; height: 20px; }
+.expect strong { display: block; font-size: 16px; }
+.expect span { font-size: 15px; color: var(--muted-dark); }
+.sunday .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.gatherings { display: grid; gap: 14px; grid-template-rows: auto auto auto 1fr; }
+.map { min-height: 300px; border-radius: var(--radius); overflow: hidden; background: var(--bone-2); }
+.map iframe { display: block; width: 100%; height: 100%; min-height: 300px; border: 0; filter: grayscale(.35) contrast(1.05); }
+.gathering {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+  padding: 26px 30px; border-radius: var(--radius); background: var(--white);
+  border: 1px solid transparent; transition: border-color .3s, transform .3s var(--ease), box-shadow .3s;
+}
+.gathering:hover { border-color: var(--text-dark); transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(15,15,18,.35); }
+.gathering time { font-family: var(--font-display); font-stretch: 115%; font-weight: 800; font-size: clamp(44px, 4.4vw, 60px); line-height: 1; letter-spacing: -.035em; }
+.gathering time small { font-size: .38em; letter-spacing: 0; margin-left: 4px; color: var(--muted-dark); }
+.gathering strong { display: block; font-size: 17px; }
+.gathering span { font-size: 14.5px; color: var(--muted-dark); }
+.gathering .pill { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; background: var(--bone); color: var(--text-dark); white-space: nowrap; }
+.gathering.featured { background: var(--ink); color: var(--white); }
+.gathering.featured span, .gathering.featured time small { color: var(--muted); }
+.gathering.featured .pill { background: rgba(255,255,255,.12); color: var(--white); }
+.location {
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; margin-top: 6px;
+  padding: 26px 30px; border-radius: var(--radius); border: 1px dashed rgba(15,15,18,.22);
+}
+.location b { display: block; font-size: 16px; }
+.location span { font-size: 14.5px; color: var(--muted-dark); }
+
+/* =====================================================================
+   6. CTA
+   ===================================================================== */
+.cta { position: relative; isolation: isolate; overflow: hidden; padding: clamp(120px, 14vw, 200px) 0; text-align: center; }
+.cta > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,10,12,.78), rgba(10,10,12,.9)); }
+.cta .eyebrow { justify-content: center; color: var(--white); }
+.cta .eyebrow::after { content: ""; width: 28px; height: 1.5px; background: currentColor; }
+.cta h2 { font-size: clamp(56px, 10vw, 156px); line-height: .86; letter-spacing: -.035em; margin-bottom: 32px; }
+.cta h2 em { color: var(--white); }
+.cta .lead { max-width: 560px; margin: 0 auto 40px; color: rgba(255,255,255,.88); }
+.cta .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.cta .btn-primary { background: var(--white); color: var(--ink); }
+.cta .btn-primary:hover { background: var(--ink); color: var(--white); }
+
+/* =====================================================================
+   7. FOOTER
+   ===================================================================== */
+.footer { padding: 96px 0 0; background: var(--ink); border-top: 1px solid var(--line); overflow: hidden; }
+.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 72px; }
+.footer .about p { color: var(--muted); max-width: 320px; margin: 22px 0 28px; font-size: 15.5px; }
+.socials { display: flex; gap: 10px; }
+.socials a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: background .3s, border-color .3s; }
+.socials a:hover { background: var(--white); border-color: var(--white); color: var(--ink); }
+.socials svg { width: 18px; height: 18px; }
+.footer h4 { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.footer li a { font-size: 15.5px; color: rgba(255,255,255,.86); transition: color .25s; }
+.footer li a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+.footer li span { font-size: 15.5px; color: rgba(255,255,255,.86); }
+.footer li small { color: var(--muted); margin-left: 8px; font-size: 13px; }
+.footer .contact p { color: rgba(255,255,255,.86); font-size: 15.5px; margin-bottom: 8px; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 24px; padding: 28px 0 32px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
+.footer-bottom nav { display: flex; gap: 24px; }
+.footer-bottom a:hover { color: var(--white); }
+
+/* Red footer variant */
+.footer { background: var(--flame-dark); border-top: 0; --line: rgba(255,255,255,.22); --muted: rgba(255,255,255,.72); }
+.footer .logo-mark { background: var(--white); color: var(--flame-dark); }
+.footer .about p { color: rgba(255,255,255,.85); }
+.footer h4 { color: rgba(255,255,255,.7); }
+.footer li a, .footer li span, .footer .contact p { color: var(--white); }
+.footer li a:hover { color: var(--white); }
+.socials a { border-color: rgba(255,255,255,.4); }
+.socials a:hover { background: var(--white); border-color: var(--white); color: var(--flame-dark); }
+
+/* =====================================================================
+   Responsive
+   ===================================================================== */
+@media (max-width: 1100px) {
+  .nav { gap: 26px; }
+  .hero-row { grid-template-columns: 1fr; }
+  .service-card { width: 100%; max-width: 460px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 920px) {
+  .menu-toggle { display: grid; place-items: center; }
+  .nav {
+    position: fixed; inset: 0; z-index: 1;
+    flex-direction: column; justify-content: center; gap: 28px;
+    background: var(--ink); opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s;
+  }
+  .nav.open { opacity: 1; visibility: visible; }
+  .nav a:not(.btn) { font-family: var(--font-display); font-stretch: 115%; font-weight: 800; font-size: 36px; text-transform: uppercase; }
+  .nav .btn { margin: 12px 0 0; }
+  .welcome-grid, .sunday-grid { grid-template-columns: 1fr; }
+  .collage { max-width: 560px; }
+  .bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(280px, auto); }
+  .tile-1 { grid-column: span 2; grid-row: span 1; min-height: 400px; }
+  .tile-2, .tile-3, .tile-4, .tile-5 { grid-column: span 1; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .topbar .wrap { flex-wrap: wrap; gap: 6px 10px; padding-top: 8px; padding-bottom: 8px; font-size: 12.5px; }
+  .topbar .msg { display: none; }
+  .header { top: 40px; }
+  .header .wrap { height: 76px; }
+  .logo small { display: none; }
+  .hero { padding-top: 160px; min-height: 0; }
+  .hero h1 { font-size: clamp(54px, 17vw, 80px); margin-bottom: 28px; }
+  .hero-content { padding-bottom: 40px; }
+  .hero-actions .btn { flex: 1 1 auto; }
+  .times div { font-size: 26px; }
+  .collage .badge { width: 112px; height: 112px; right: -4px; }
+  .collage .badge b { font-size: 26px; }
+  .pastor .sig { display: none; }
+  .bento { grid-template-columns: 1fr; grid-auto-rows: minmax(260px, auto); }
+  .tile, .tile-1, .tile-2, .tile-3, .tile-4, .tile-5 { grid-column: span 1; }
+  .tile-1 { min-height: 340px; }
+  .tile { padding: 24px; }
+  .gathering { grid-template-columns: auto 1fr; gap: 6px 20px; padding: 22px; }
+  .gathering .pill { grid-column: 1 / -1; justify-self: start; margin-top: 8px; }
+  .location { grid-template-columns: 1fr; padding: 22px; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; }
+}
+
+</style>
+<!--
+  VERTICAL CHURCH — PREMIUM REDESIGN (home)
+  Original: demo-bold-energetic.promptly.church — 6 blocks (hero, welcome, 3 cards,
+  "this week", CTA, footer). Rethought as 7 sections:
+    0. Announcement bar   — global component
+    1. Hero               — full-bleed photo, oversized headline, glass "This Sunday" card
+    2. Marquee            — brand line, replaces the plain times ticker
+    3. Welcome            — story + pastor sign-off + image collage                (light)
+    4. Find Your Place    — 5-tile bento: Sundays, Kids, Students, Groups, Serve
+    5. Plan Your Sunday   — 3 gathering cards, what-to-expect list, location   (light)
+    6. Next Step CTA      — photo with brand-colour wash
+    7. Footer             — about, explore, gatherings, contact (red)
+
+  Accent words in headings are plain <em> (italic serif, brand colour) — no custom code per heading.
+  Colours / fonts are the :root tokens in styles.css → set once as Global Colors / Global Fonts.
+  Images: the template's own stock library.
+-->
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17v2M19 17v2M3.5 12.5L5.5 7a2 2 0 0 1 1.9-1.4h9.2A2 2 0 0 1 18.5 7l2 5.5V17H3.5v-4.5zM3.5 12.5h17"/><circle cx="7.5" cy="14.8" r=".6" fill="currentColor"/><circle cx="16.5" cy="14.8" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 3v18M6 9h12"/></symbol>
+</svg>
+
+<!-- ===== 0. ANNOUNCEMENT BAR ===== -->
+<div class="topbar" role="region" aria-label="Announcement">
+  <div class="wrap">
+    <span class="tag">New Series</span>
+    <span class="msg">“All In” starts this Sunday — 9, 11 &amp; 5.</span>
+    <a href="#sunday">Plan your visit</a>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Vertical Church home">
+      <span class="logo-mark"><svg><use href="#i-cross"/></svg></span>
+      <span>Vertical<small>Phoenix, AZ</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#welcome">About</a>
+      <a href="#place">Ministries</a>
+      <a href="#">Sermons</a>
+      <a href="#">Events</a>
+      <a href="#">Give</a>
+      <a href="#sunday" class="btn btn-primary">Plan Your Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-185-hero.webp" alt="" fetchpriority="high">
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">A church for Phoenix · Since 2015</span>
+    <h1>Life goes<br><em>vertical.</em></h1>
+    <div class="hero-row">
+      <div>
+        <p class="lead">A church in the heart of Phoenix where the gospel changes everything. Come as you are. Leave different.</p>
+        <div class="hero-actions">
+          <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+          <a href="#" class="btn btn-ghost btn-play"><span class="play"><svg><use href="#i-play"/></svg></span>Watch Online</a>
+        </div>
+      </div>
+      <aside class="service-card" aria-label="Service times">
+        <div class="label"><span class="live-dot"></span>This Sunday</div>
+        <div class="times">
+          <div>9:00<small>AM</small></div>
+          <div>11:00<small>AM</small></div>
+          <div>5:00<small>PM</small></div>
+        </div>
+        <address>
+          <span>2800 North Central Ave<br>Phoenix, AZ 85004</span>
+          <a href="https://maps.google.com/?q=2800+North+Central+Avenue+Phoenix+AZ+85004" aria-label="Get directions"><svg><use href="#i-arrow"/></svg></a>
+        </address>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. MARQUEE ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Come as you are <i class="star">✦</i> <b class="outline">Leave different</b> <i class="star">✦</i> High-energy worship <i class="star">✦</i> <b class="outline">Honest preaching</b> <i class="star">✦</i></span>
+    <span>Come as you are <i class="star">✦</i> <b class="outline">Leave different</b> <i class="star">✦</i> High-energy worship <i class="star">✦</i> <b class="outline">Honest preaching</b> <i class="star">✦</i></span>
+  </div>
+</div>
+
+<!-- ===== 3. WELCOME ===== -->
+<section class="welcome on-light" id="welcome">
+  <div class="wrap">
+    <div class="welcome-grid">
+      <div class="reveal">
+        <span class="eyebrow">Welcome to Vertical</span>
+        <h2>You'll say, “that was <em>church?”</em></h2>
+        <p class="lead">Vertical exists to help people take their next step with Jesus — no matter where they're starting.</p>
+        <p>From the moment you walk in, you'll find high-energy worship, honest preaching, and a room full of people who are done playing it safe with their faith. We planted this church in 2015 with one conviction: the gospel changes everything. We think you're about to find out why.</p>
+        <div class="pastor">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&q=75&auto=format&fit=crop&crop=faces" alt="Pastor Marcus Reyes">
+          <div><strong>Marcus Reyes</strong><span>Lead Pastor</span></div>
+          <span class="sig">Marcus</span>
+        </div>
+      </div>
+      <div class="collage reveal">
+        <div class="main"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-hands-raised-190-section.webp" alt="A worshipper with arms raised under stage lights" loading="lazy"></div>
+        <div class="sub"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-coffee-fellowship-134-section.webp" alt="Friends talking over coffee" loading="lazy"></div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 148 148" aria-hidden="true"><defs><path id="circ" d="M74,74 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text font-size="10.5" font-weight="600" letter-spacing="3.2" fill="#fff" font-family="Inter, sans-serif"><textPath href="#circ">THE GOSPEL CHANGES EVERYTHING ✦ </textPath></text></svg>
+          <b><svg class="x" viewBox="0 0 24 24"><use href="#i-cross"/></svg></b>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 4. FIND YOUR PLACE ===== -->
+<section class="place" id="place">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Get started</span>
+        <h2>Find your <em>place.</em></h2>
+      </div>
+      <p>Whether you're brand new or ready to go deeper, there's a next step with your name on it.</p>
+    </div>
+
+    <div class="bento">
+      <a href="#sunday" class="tile tile-1 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-worship-team-stage-103-section.webp" alt="" loading="lazy">
+        <span class="num">01 — SUNDAYS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>The Sunday<br>Experience</h3>
+        <p>Cinematic production, bold preaching, and worship that actually moves you. Seventy minutes you won't want to end.</p>
+      </a>
+      <a href="#" class="tile tile-2 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/kids/kids-group-huddle-160-section.webp" alt="" loading="lazy">
+        <span class="num">02 — KIDS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Vertical Kids</h3>
+        <p>Safe, secure, and genuinely fun. Birth – 5th grade, every gathering.</p>
+      </a>
+      <a href="#" class="tile tile-3 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-085-section.webp" alt="" loading="lazy">
+        <span class="num">03 — STUDENTS</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Vertical Students</h3>
+        <p>Middle and high school. Wednesday nights, 6:30 PM.</p>
+      </a>
+      <a href="#" class="tile tile-4 reveal">
+        <span class="big">40+</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Groups</h3>
+        <p>Real community doesn't happen from a seat. Find a group near you.</p>
+      </a>
+      <a href="#" class="tile tile-5 reveal">
+        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-team-huddle-hands-079-section.webp" alt="" loading="lazy">
+        <span class="num">05 — SERVE</span>
+        <span class="go"><svg><use href="#i-arrow"/></svg></span>
+        <h3>Join the Team</h3>
+        <p>Worship, production, kids, hospitality — use what you've got to make Sundays happen.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PLAN YOUR SUNDAY ===== -->
+<section class="sunday on-light" id="sunday">
+  <div class="wrap sunday-grid">
+    <div class="reveal">
+      <span class="eyebrow">Join us this Sunday</span>
+      <h2>Three ways to be in <em>the room.</em></h2>
+      <p class="lead">Pick the gathering that works for you. Every one has the same worship, the same message, and a seat with your name on it.</p>
+      <ul class="expect">
+        <li><span class="ico"><svg><use href="#i-shield"/></svg></span><div><strong>Secure kids check-in</strong><span>Pre-register online and skip the line.</span></div></li>
+        <li><span class="ico"><svg><use href="#i-clock"/></svg></span><div><strong>About 70 minutes</strong><span>Worship, a message, and you're out on time.</span></div></li>
+        <li><span class="ico"><svg><use href="#i-car"/></svg></span><div><strong>Guest parking up front</strong><span>Turn on your hazards and we'll wave you in.</span></div></li>
+      </ul>
+      <div class="actions">
+        <a href="#" class="btn btn-dark">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+        <a href="#" class="btn btn-outline-dark">I'm New — Ask a Question</a>
+      </div>
+    </div>
+
+    <div class="gatherings reveal">
+      <div class="gathering">
+        <time datetime="09:00">9:00<small>AM</small></time>
+        <div><strong>Morning Gathering</strong><span>Quieter start, great for families</span></div>
+        <span class="pill">Kids · Birth–5th</span>
+      </div>
+      <div class="gathering featured">
+        <time datetime="11:00">11:00<small>AM</small></time>
+        <div><strong>Main Gathering</strong><span>Our biggest room, full band</span></div>
+        <span class="pill">Most popular</span>
+      </div>
+      <div class="gathering">
+        <time datetime="17:00">5:00<small>PM</small></time>
+        <div><strong>Night Gathering</strong><span>Students &amp; young adults, extended worship</span></div>
+        <span class="pill">Kids · Birth–5th</span>
+      </div>
+      <div class="map">
+        <iframe title="Map to Vertical Church, 2800 North Central Avenue, Phoenix" src="https://www.google.com/maps?q=2800+North+Central+Avenue,+Phoenix,+AZ+85004&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. NEXT STEP CTA ===== -->
+<section class="cta">
+  <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-hands-joined-196-hero.webp" alt="" loading="lazy">
+  <div class="wrap reveal">
+    <span class="eyebrow">Your next step</span>
+    <h2>Starts <em>here.</em></h2>
+    <p class="lead">No matter where you've been or where you're starting from, there's a seat saved for you this Sunday.</p>
+    <div class="actions">
+      <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
+      <a href="#" class="btn btn-ghost">Watch Online First</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 7. FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="about">
+        <a href="#" class="logo"><span class="logo-mark"><svg><use href="#i-cross"/></svg></span><span>Vertical<small>Phoenix, AZ</small></span></a>
+        <p>We exist to help people take their next step with Jesus — no matter where they're starting.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.5 21v-7.5H17l.5-3h-3V8.8c0-.9.4-1.6 1.7-1.6H17.6V4.6c-.5-.1-1.4-.2-2.4-.2-2.4 0-3.9 1.4-3.9 4v2.1H9v3h2.3V21"/></svg></a>
+          <a href="#" aria-label="Spotify podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.6c2.5-.7 5-.4 7 .7M8.7 15.5c1.8-.4 3.6-.2 5.1.6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#">I'm New</a></li>
+          <li><a href="#welcome">About</a></li>
+          <li><a href="#place">Ministries</a></li>
+          <li><a href="#">Sermons</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Give</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sundays</h4>
+        <ul>
+          <li><span>9:00 AM</span><small>Morning</small></li>
+          <li><span>11:00 AM</span><small>Main</small></li>
+          <li><span>5:00 PM</span><small>Night</small></li>
+          <li><span>Wed 6:30 PM</span><small>Students</small></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h4>Visit &amp; Contact</h4>
+        <p>2800 North Central Avenue<br>Phoenix, AZ 85004</p>
+        <p><a href="tel:+16025550187">(602) 555-0187</a><br><a href="mailto:info@verticalchurch.com">info@verticalchurch.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Vertical Church. All rights reserved.</span>
+      <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Powered by Promptly</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  // Sticky header
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 160);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle'), nav = document.getElementById('nav');
+  toggle.addEventListener('click', () => { const o = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', false); document.body.style.overflow = ''; }));
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
