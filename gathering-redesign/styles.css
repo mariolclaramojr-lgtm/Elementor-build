@@ -103,14 +103,25 @@ h1 em,h2 em{font-style:normal;background:var(--brass);color:var(--ink);padding:.
 .hero-actions{display:flex;flex-wrap:wrap;gap:0}
 .hero-actions .btn-ghost{border-left:0}
 @media (max-width:480px){.hero-actions{gap:10px}.hero-actions .btn-ghost{border-left:1px solid rgba(244,240,232,.22)}}
-.hero-media{position:relative;aspect-ratio:4/5;max-height:640px;justify-self:end;width:100%}
-.hero-media .main{position:absolute;inset:0 0 0 12%;border-radius:220px 220px 6px 6px;overflow:hidden}
-.hero-media .main img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transform:scale(1.04);transition:filter 1.2s,transform 1.6s var(--ease)}
+/* Circle composition — Cornerstone: Div (relative) › Images with 50% radius + an orbit Line ring */
+.hero-media{position:relative;aspect-ratio:1;width:100%;max-width:600px;justify-self:end}
+.hero-media .orbit{position:absolute;inset:4% 0 0 8%;border-radius:50%;border:1px solid rgba(217,164,65,.35);animation:spin 40s linear infinite}
+.hero-media .orbit::before{content:"";position:absolute;top:50%;right:-7px;width:14px;height:14px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 6px rgba(217,164,65,.18)}
+.hero-media .orbit::after{content:"";position:absolute;inset:-7%;border-radius:50%;border:1px dashed rgba(244,240,232,.1)}
+.hero-media .main{position:absolute;top:10%;left:16%;width:80%;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.hero-media .main img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transform:scale(1.06);transition:filter 1.2s,transform 1.6s var(--ease)}
 .hero-media:hover .main img{filter:grayscale(0);transform:scale(1)}
-.hero-media .inset{position:absolute;left:0;bottom:8%;width:38%;aspect-ratio:1;border-radius:6px;overflow:hidden;border:6px solid var(--ink)}
+.hero-media .inset{position:absolute;left:0;bottom:2%;width:38%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--ink)}
 .hero-media .inset img{width:100%;height:100%;object-fit:cover}
-.hero-media .badge{position:absolute;top:10%;left:2%;width:118px;height:118px;border-radius:50%;background:var(--brass);color:var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--font-head);font-weight:700;font-size:11px;line-height:1.2;letter-spacing:.18em;text-transform:uppercase}
-.hero-media .badge b{display:block;font-weight:800;font-size:30px;line-height:1;letter-spacing:-.02em;margin-top:4px}
+.hero-media .badge{position:absolute;top:2%;left:4%;width:136px;height:136px;border-radius:50%;background:var(--brass);color:var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--font-head);font-weight:700;font-size:10px;line-height:1.1;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 0 0 8px var(--ink)}
+.hero-media .badge svg{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 22s linear infinite}
+.hero-media .badge text{font-family:var(--font-head);font-weight:700;font-size:9.5px;fill:var(--ink)}
+.hero-media .badge b{display:block;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.02em;margin-top:3px}
+.hero-media .dot{position:absolute;right:4%;bottom:10%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--brass);display:grid;place-items:center;color:var(--ink);transition:transform .4s var(--ease)}
+.hero-media .dot svg{width:26%;height:26%}
+.hero-media .dot:hover{transform:scale(1.08)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.hero-media .orbit,.hero-media .badge svg{animation:none}}
 .hero-meta{position:relative;display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--line-dark)}
 .hero-meta div{padding:28px 0 32px;border-right:1px solid var(--line-dark);padding-left:32px}
 .hero-meta div:first-child{padding-left:0}
@@ -119,7 +130,8 @@ h1 em,h2 em{font-style:normal;background:var(--brass);color:var(--ink);padding:.
 .hero-meta strong{font-family:var(--font-head);font-size:21px;font-weight:700;letter-spacing:-.02em}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr}
-  .hero-media{max-width:520px;justify-self:start}
+  .hero-media{max-width:460px;justify-self:center;margin-top:16px}
+  .hero-media .badge{width:108px;height:108px}.hero-media .badge b{font-size:20px}
   .hero-meta{grid-template-columns:1fr}
   .hero-meta div{padding:20px 0;border-right:0;border-bottom:1px solid var(--line-dark)}
   .hero-meta div:last-child{border-bottom:0}
