@@ -12,17 +12,15 @@
 <!--
   VERTICAL CHURCH — PREMIUM REDESIGN (home)
   Original: demo-bold-energetic.promptly.church — 6 blocks (hero, welcome, 3 cards,
-  "this week", CTA, footer). Rethought as 9 sections:
+  "this week", CTA, footer). Rethought as 7 sections:
     0. Announcement bar   — global component
     1. Hero               — full-bleed photo, oversized headline, glass "This Sunday" card
     2. Marquee            — brand line, replaces the plain times ticker
-    3. Welcome            — story + pastor sign-off + image collage + 4 stats   (light)
+    3. Welcome            — story + pastor sign-off + image collage                (light)
     4. Find Your Place    — 5-tile bento: Sundays, Kids, Students, Groups, Serve
     5. Plan Your Sunday   — 3 gathering cards, what-to-expect list, location   (light)
-    6. Latest Message     — featured sermon, current series progress, recent list
-    7. Upcoming Events    — editorial event rows                                (light)
-    8. Next Step CTA      — photo with brand-colour wash
-    9. Footer             — about, explore, gatherings, contact + newsletter, giant wordmark
+    6. Next Step CTA      — photo with brand-colour wash
+    7. Footer             — about, explore, gatherings, contact + newsletter, giant wordmark
 
   Accent words in headings are plain <em> (italic serif, brand colour) — no custom code per heading.
   Colours / fonts are the :root tokens in styles.css → set once as Global Colors / Global Fonts.
@@ -47,7 +45,7 @@
   <div class="wrap">
     <span class="tag">New Series</span>
     <span class="msg">“All In” starts this Sunday — 9, 11 &amp; 5.</span>
-    <a href="#message">Watch the trailer</a>
+    <a href="#sunday">Plan your visit</a>
   </div>
 </div>
 
@@ -64,8 +62,8 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#welcome">About</a>
       <a href="#place">Ministries</a>
-      <a href="#message">Sermons</a>
-      <a href="#events">Events</a>
+      <a href="#">Sermons</a>
+      <a href="#">Events</a>
       <a href="#">Give</a>
       <a href="#sunday" class="btn btn-primary">Plan Your Visit</a>
     </nav>
@@ -87,7 +85,7 @@
         <p class="lead">A church in the heart of Phoenix where the gospel changes everything. Come as you are. Leave different.</p>
         <div class="hero-actions">
           <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
-          <a href="#message" class="btn btn-ghost btn-play"><span class="play"><svg><use href="#i-play"/></svg></span>Watch Online</a>
+          <a href="#" class="btn btn-ghost btn-play"><span class="play"><svg><use href="#i-play"/></svg></span>Watch Online</a>
         </div>
       </div>
       <aside class="service-card" aria-label="Service times">
@@ -139,12 +137,6 @@
       </div>
     </div>
 
-    <div class="stats reveal">
-      <div class="stat"><b>2015</b><span>Planted in downtown Phoenix</span></div>
-      <div class="stat"><b>3</b><span>Gatherings every Sunday</span></div>
-      <div class="stat"><b>40<sup>+</sup></b><span>Groups meeting across the Valley</span></div>
-      <div class="stat"><b>1</b><span>Conviction: the gospel changes everything</span></div>
-    </div>
   </div>
 </section>
 
@@ -241,81 +233,7 @@
   </div>
 </section>
 
-<!-- ===== 6. LATEST MESSAGE ===== -->
-<section class="message" id="message">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow">Watch &amp; listen</span>
-        <h2>Latest <em>message.</em></h2>
-      </div>
-      <a href="#" class="btn btn-ghost">All Sermons <svg><use href="#i-arrow"/></svg></a>
-    </div>
-
-    <div class="message-grid">
-      <a href="#" class="feature-video reveal">
-        <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-081-section.webp" alt="" loading="lazy">
-        <span class="play-btn" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-        <div class="meta"><span class="series">All In · Part 3</span><span>Pastor Marcus Reyes</span><span>Nov 16, 2026</span><span>42 min</span></div>
-        <h3>No Plan B: Faith That Burns the Boats</h3>
-      </a>
-      <div class="message-side">
-        <div class="series-card reveal">
-          <span class="eyebrow">Current series</span>
-          <h3>All In</h3>
-          <p>A five-week call to stop sitting on the fence — with your time, your money, and your whole heart.</p>
-          <div class="progress" aria-label="Week 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-          <div class="progress-label"><span>Week 3 of 5</span><span>Ends Dec 14</span></div>
-        </div>
-        <div class="recent reveal">
-          <a href="#"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-142-section.webp" alt="" loading="lazy"><div><strong>Count the Cost</strong><span>All In · Part 2 · Nov 9</span></div><svg><use href="#i-arrow"/></svg></a>
-          <a href="#"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-congregation-praise-013-section.webp" alt="" loading="lazy"><div><strong>Why Halfway Doesn't Work</strong><span>All In · Part 1 · Nov 2</span></div><svg><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 7. UPCOMING EVENTS ===== -->
-<section class="events on-light" id="events">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow">What's happening</span>
-        <h2>Upcoming <em>events.</em></h2>
-      </div>
-      <a href="#" class="btn btn-outline-dark">Full Calendar <svg><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="event-list">
-      <article class="event reveal">
-        <div class="date"><b>23</b><span>Nov · Sun</span></div>
-        <h3>Newcomers Lunch</h3>
-        <p>Meet Pastor Marcus and the team over lunch after the 11 AM gathering.</p>
-        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-coffee-fellowship-134-section.webp" alt="" loading="lazy"></div>
-        <span class="go"><svg><use href="#i-arrow"/></svg></span>
-        <a href="#" class="cover" aria-label="Newcomers Lunch details"></a>
-      </article>
-      <article class="event reveal">
-        <div class="date"><b>06</b><span>Dec · Sat</span></div>
-        <h3>Serve Phoenix Day</h3>
-        <p>Twelve projects across the city in one morning. Bring the whole family.</p>
-        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-hands-together-unity-077-section.webp" alt="" loading="lazy"></div>
-        <span class="go"><svg><use href="#i-arrow"/></svg></span>
-        <a href="#" class="cover" aria-label="Serve Phoenix Day details"></a>
-      </article>
-      <article class="event reveal">
-        <div class="date"><b>24</b><span>Dec · Wed</span></div>
-        <h3>Christmas Eve at Vertical</h3>
-        <p>Candlelight, carols, and the story that changes everything. 3, 5 &amp; 7 PM.</p>
-        <div class="thumb"><img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/worship/worship-hands-raised-083-section.webp" alt="" loading="lazy"></div>
-        <span class="go"><svg><use href="#i-arrow"/></svg></span>
-        <a href="#" class="cover" aria-label="Christmas Eve details"></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 8. NEXT STEP CTA ===== -->
+<!-- ===== 6. NEXT STEP CTA ===== -->
 <section class="cta">
   <img src="https://n8i4m4wevn75ybx4.public.blob.vercel-storage.com/stock-library/community/community-hands-joined-196-hero.webp" alt="" loading="lazy">
   <div class="wrap reveal">
@@ -324,14 +242,14 @@
     <p class="lead">No matter where you've been or where you're starting from, there's a seat saved for you this Sunday.</p>
     <div class="actions">
       <a href="#sunday" class="btn btn-primary">Plan Your Visit <svg><use href="#i-arrow"/></svg></a>
-      <a href="#message" class="btn btn-ghost">Watch Online First</a>
+      <a href="#" class="btn btn-ghost">Watch Online First</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ===== 9. FOOTER ===== -->
+<!-- ===== 7. FOOTER ===== -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
@@ -351,8 +269,8 @@
           <li><a href="#">I'm New</a></li>
           <li><a href="#welcome">About</a></li>
           <li><a href="#place">Ministries</a></li>
-          <li><a href="#message">Sermons</a></li>
-          <li><a href="#events">Events</a></li>
+          <li><a href="#">Sermons</a></li>
+          <li><a href="#">Events</a></li>
           <li><a href="#">Give</a></li>
         </ul>
       </div>
