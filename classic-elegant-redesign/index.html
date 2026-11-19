@@ -16,6 +16,8 @@
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-logo" viewBox="0 0 40 52"><g fill="none" stroke="currentColor" stroke-linecap="square"><path d="M3 51V21a17 17 0 0 1 34 0v30" stroke-width="1.4"/><path d="M8 51V22a12 12 0 0 1 24 0v29" stroke-width=".8" opacity=".55"/><path d="M1 51h38" stroke-width="1.4"/></g><path d="M18.9 15h2.2v8h6v2.2h-6V44h-2.2V25.2h-6V23h6z" fill="currentColor"/></symbol>
+  <symbol id="i-church" viewBox="0 0 24 24"><path d="M12 2v4M10 4h4M5 21V11l7-5 7 5v10M3 21h18M10 21v-4a2 2 0 0 1 4 0v4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M15.5 14.2H17a4 4 0 0 1 4 4V20"/></g></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5-12-7.5Z" fill="currentColor"/></symbol>
@@ -137,7 +139,7 @@
 </section>
 
 <!-- ===== 3. FIND YOUR PLACE ===== -->
-<!-- Section › Row: Heading Group › 3 Rows (Image left / Text right) -->
+<!-- Section › Row: Heading Group › Timeline (3 rows: Image / Node / Text) -->
 <section class="section band-stone" id="ministries">
   <div class="wrap">
     <div class="section-head">
@@ -147,12 +149,15 @@
       </div>
       <p class="lead rv">There is a place at St. Matthew's for every season of life. Here are a few ways to begin.</p>
     </div>
-    <!-- Rows: one per card — Image left / Text right; photo widens on hover (global CSS) -->
-    <div class="split-rows">
+    <!-- Timeline: one row per card — Image / Node on the line / Text (line + nodes via global CSS/JS) -->
+    <div class="split-rows timeline" id="timeline">
+      <span class="tl-line" aria-hidden="true"><span class="tl-progress"></span></span>
       <!-- Row: Card – Sunday Experience -->
       <div class="split-row rv">
         <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
         <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/worship-hands-raised-085-card.webp" alt="" loading="lazy"></div></div>
+        <!-- Column: Timeline Node -->
+        <div class="tl-node" aria-hidden="true"><svg><use href="#i-church"/></svg></div>
         <!-- Column: Text -->
         <div class="split-text">
           <div class="eyebrow">Sundays · 8:30 &amp; 11:00 AM</div>
@@ -165,6 +170,8 @@
       <div class="split-row rv">
         <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
         <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/kids-group-huddle-160-card.webp" alt="" loading="lazy"></div></div>
+        <!-- Column: Timeline Node -->
+        <div class="tl-node" aria-hidden="true"><svg><use href="#i-child"/></svg></div>
         <!-- Column: Text -->
         <div class="split-text">
           <div class="eyebrow">Nursery – Grade 5</div>
@@ -177,6 +184,8 @@
       <div class="split-row rv">
         <!-- Column: Image (Div: Image Frame › Frame Outline + Image) -->
         <div class="split-media"><span class="frame"></span><div class="photo"><img src="img/groups-prayer.jpg" alt="" loading="lazy"></div></div>
+        <!-- Column: Timeline Node -->
+        <div class="tl-node" aria-hidden="true"><svg><use href="#i-people"/></svg></div>
         <!-- Column: Text -->
         <div class="split-text">
           <div class="eyebrow">Midweek &amp; Weekends</div>
@@ -294,6 +303,22 @@
   document.getElementById('menuOpen').onclick = function () { m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); };
   document.getElementById('menuClose').onclick = function () { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); };
   m.querySelectorAll('a').forEach(function (a) { a.onclick = function () { m.classList.remove('open'); }; });
+
+  // Timeline: gold line fills as you scroll, nodes light up as they pass the middle of the screen
+  var tl = document.getElementById('timeline');
+  if (tl) {
+    var bar = tl.querySelector('.tl-progress'), line = tl.querySelector('.tl-line'), rows = tl.querySelectorAll('.split-row');
+    var tick = function () {
+      var r = line.getBoundingClientRect(), mid = window.innerHeight * 0.6;
+      var pct = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+      bar.style.height = (pct * 100) + '%';
+      rows.forEach(function (row) {
+        var n = row.querySelector('.tl-node').getBoundingClientRect();
+        row.classList.toggle('active', n.top + n.height / 2 < mid);
+      });
+    };
+    window.addEventListener('scroll', tick, { passive: true }); window.addEventListener('resize', tick); tick();
+  }
 
   // Scroll reveal
   var els = document.querySelectorAll('.rv');

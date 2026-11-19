@@ -226,20 +226,26 @@ p { margin: 0 0 1.1em; }
 .section-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 48px; align-items: end; margin-bottom: 64px; }
 .section-head p { margin: 0; }
 .section-head .head-link { justify-self: end; }
-.split-rows { border-top: 1px solid var(--linen); }
-.split-row { display: flex; align-items: center; gap: clamp(48px, 7vw, 104px); padding: clamp(56px, 6vw, 88px) 0; border-bottom: 1px solid var(--linen); }
-.split-row > div { min-width: 0; transition: flex .9s var(--ease); }
-.split-media { flex: 1.15 1 0; position: relative; padding: 0 0 26px 26px; }
-.split-text { flex: 1 1 0; }
-.split-row:hover .split-media { flex-grow: 1.4; }
+.split-rows { position: relative; padding: 24px 0; }
+.split-row { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: center; column-gap: clamp(32px, 4.5vw, 64px); padding: clamp(40px, 5vw, 64px) 0; }
+.split-media { position: relative; padding: 0 0 22px 22px; }
 .split-media .frame { position: absolute; left: 0; bottom: 0; width: 72%; height: 82%; border: 1px solid var(--gold); transition: transform .9s var(--ease); }
 .split-row:hover .split-media .frame { transform: translate(-8px, 8px); }
-.split-media .photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; box-shadow: 0 34px 60px -40px rgba(20,32,51,.45); }
+.split-media .photo { position: relative; aspect-ratio: 16 / 11; overflow: hidden; box-shadow: 0 34px 60px -40px rgba(20,32,51,.45); }
 .split-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
 .split-row:hover .split-media img { transform: scale(1.05); }
 .split-text .eyebrow { margin-bottom: 22px; }
 .split-text h3 { font-size: clamp(38px, 3.6vw, 54px); line-height: 1.02; letter-spacing: -0.015em; }
-.split-text p { margin: 24px 0 32px; max-width: 460px; font-size: 16px; line-height: 1.8; }
+.split-text p { margin: 24px 0 32px; max-width: 440px; font-size: 16px; line-height: 1.8; }
+
+/* Timeline line + nodes */
+.tl-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(180deg, transparent, var(--linen) 8%, var(--linen) 92%, transparent); }
+.tl-line .tl-progress { position: absolute; top: 0; left: 0; width: 1px; height: 0; background: linear-gradient(180deg, transparent, var(--gold) 12%); transition: height .15s linear; }
+.tl-node { position: relative; z-index: 1; width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; background: var(--stone); border: 1px solid var(--gold); color: var(--gold); transition: background .6s var(--ease), color .6s var(--ease), box-shadow .6s var(--ease); }
+.tl-node::before { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 1px solid rgba(168,132,58,.28); transition: inset .6s var(--ease), opacity .6s; }
+.tl-node svg { width: 26px; height: 26px; }
+.split-row.active .tl-node { background: var(--gold); color: var(--white); box-shadow: 0 14px 30px -12px rgba(138,107,43,.6); }
+.split-row.active .tl-node::before { inset: -13px; }
 
 /* =========================================================
    4. WORSHIP — times + order of service (dark)
@@ -329,9 +335,16 @@ p { margin: 0 0 1.1em; }
   .welcome-grid, .worship-grid, .cta-grid, .section-head { grid-template-columns: 1fr; }
   .section-head .head-link { justify-self: start; }
   .welcome-media { max-width: 520px; }
-  .split-row { flex-direction: column; align-items: stretch; gap: 36px; }
-  .split-media { padding: 0 0 18px 18px; }
-  .split-row > div, .split-row:hover .split-media { flex: none; }
+  .split-row { grid-template-columns: 52px 1fr; column-gap: 22px; row-gap: 32px; align-items: start; padding: 36px 0; }
+  .tl-node { grid-column: 1; grid-row: 1; width: 52px; height: 52px; }
+  .tl-node::before { inset: -7px; }
+  .split-row.active .tl-node::before { inset: -9px; }
+  .tl-node svg { width: 20px; height: 20px; }
+  .split-media { grid-column: 2; grid-row: 1; padding: 0 0 16px 16px; }
+  .split-text { grid-column: 2; grid-row: 2; }
+  .tl-line { left: 26px; }
+  .split-text .eyebrow { letter-spacing: .2em; }
+  .split-text .eyebrow::before { width: 24px; }
   .welcome-video { min-height: 420px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-about { grid-column: 1 / -1; }
