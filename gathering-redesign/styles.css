@@ -193,9 +193,11 @@ h1 em,h2 em{font-style:normal;background:var(--brass);color:var(--ink);padding:.
 .address span{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
 .address strong{font-family:var(--font-head);font-weight:700;font-size:20px;letter-spacing:-.01em}
 .address .btn{height:48px}
-.expect{background:var(--bone);border-radius:6px;padding:clamp(28px,4vw,48px)}
+.expect{background:var(--bone);border-radius:6px;overflow:hidden;align-self:start}
+.expect-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;margin:0}
+.expect-body{padding:clamp(28px,4vw,48px)}
 .expect h3{font-size:26px;margin-bottom:8px}
-.expect > p{margin-bottom:28px}
+.expect-body > p{margin-bottom:28px}
 .steps{list-style:none;counter-reset:s}
 .steps li{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:22px 0;border-top:1px solid var(--line-light);counter-increment:s}
 .steps li::before{content:"0" counter(s);grid-row:span 2;align-self:start;justify-self:start;font-family:var(--font-head);font-weight:800;font-size:13px;letter-spacing:.08em;background:var(--brass);color:var(--ink);padding:5px 9px;line-height:1.2}
