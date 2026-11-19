@@ -364,6 +364,20 @@ h1 em, h2 em, .display em {
 .footer-bottom nav { display: flex; gap: 24px; }
 .footer-bottom a:hover { color: var(--white); }
 
+/* Red footer variant */
+.footer { background: var(--flame-deep); border-top: 0; --line: rgba(255,255,255,.22); --muted: rgba(255,255,255,.72); }
+.footer .logo-mark { background: var(--white); color: var(--flame-deep); }
+.footer .about p { color: rgba(255,255,255,.85); }
+.footer h4 { color: rgba(255,255,255,.7); }
+.footer li a, .footer li span, .footer .contact p { color: var(--white); }
+.footer li a:hover { color: var(--white); }
+.socials a { border-color: rgba(255,255,255,.4); }
+.socials a:hover { background: var(--white); border-color: var(--white); color: var(--flame-deep); }
+.newsletter { border-bottom-color: rgba(255,255,255,.5); }
+.newsletter input::placeholder { color: rgba(255,255,255,.75); }
+.wordmark { background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0) 92%); -webkit-background-clip: text; background-clip: text; }
+.footer-bottom { color: rgba(255,255,255,.75); }
+
 /* =====================================================================
    Reveal on scroll (JS adds .js; content stays visible without it)
    ===================================================================== */
