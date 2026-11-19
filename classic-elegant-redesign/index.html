@@ -137,7 +137,7 @@
 </section>
 
 <!-- ===== 3. FIND YOUR PLACE ===== -->
-<!-- Section › Row: Heading Group › Row: Cards (3 cols, expand on hover via global CSS) -->
+<!-- Section › Row: Heading Group › 3 Rows (Image / Text, alternating) -->
 <section class="section band-stone" id="ministries">
   <div class="wrap">
     <div class="section-head">
@@ -147,40 +147,41 @@
       </div>
       <p class="lead rv">There is a place at St. Matthew's for every season of life. Here are a few ways to begin.</p>
     </div>
-    <div class="place-cards rv">
-      <!-- Column: Card – Sunday Experience -->
-      <a class="place-card" href="#visit">
-        <img src="img/worship-hands-raised-085-card.webp" alt="" loading="lazy">
-        <div class="body">
+    <!-- Rows: one per card, image/text alternate sides; hovered column widens (global CSS) -->
+    <div class="split-rows">
+      <!-- Row: Card – Sunday Experience -->
+      <div class="split-row rv">
+        <!-- Column: Image -->
+        <div class="split-media"><img src="img/worship-hands-raised-085-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Text -->
+        <div class="split-text">
           <h3>Sunday<br>Experience</h3>
-          <div class="reveal"><div>
-            <p>Services at 8:30 and 11:00 follow a traditional liturgical order — Scripture, prayer, proclamation and the Lord's Supper — led with reverence by Rev. Dr. James Whitfield.</p>
-            <span class="text-link">Plan Your Visit <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-          </div></div>
+          <p>Services at 8:30 and 11:00 follow a traditional liturgical order — Scripture, prayer, proclamation and the Lord's Supper — led with reverence by Rev. Dr. James Whitfield.</p>
+          <a class="text-link" href="#visit">Plan Your Visit <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
-      </a>
-      <!-- Column: Card – Children's Ministry -->
-      <a class="place-card" href="#">
-        <img src="img/kids-group-huddle-160-card.webp" alt="" loading="lazy">
-        <div class="body">
+      </div>
+      <!-- Row: Card – Children's Ministry (image right) -->
+      <div class="split-row flip rv">
+        <!-- Column: Image -->
+        <div class="split-media"><img src="img/kids-group-huddle-160-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Text -->
+        <div class="split-text">
           <h3>Children's<br>Ministry</h3>
-          <div class="reveal"><div>
-            <p>Age-appropriate classes where children meet Scripture, song and the beauty of the Reformed faith, in a safe, checked-in environment led by trained teachers.</p>
-            <span class="text-link">Learn More <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-          </div></div>
+          <p>Age-appropriate classes where children meet Scripture, song and the beauty of the Reformed faith, in a safe, checked-in environment led by trained teachers.</p>
+          <a class="text-link" href="#">Learn More <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
-      </a>
-      <!-- Column: Card – Groups & Ministries -->
-      <a class="place-card" href="#">
-        <img src="img/small-groups-prayer-bible-study-178-card.webp" alt="" loading="lazy">
-        <div class="body">
+      </div>
+      <!-- Row: Card – Groups & Ministries -->
+      <div class="split-row rv">
+        <!-- Column: Image -->
+        <div class="split-media"><img src="img/small-groups-prayer-bible-study-178-card.webp" alt="" loading="lazy"></div>
+        <!-- Column: Text -->
+        <div class="split-text">
           <h3>Groups &amp;<br>Ministries</h3>
-          <div class="reveal"><div>
-            <p>From Wednesday Evening Prayer to small-group fellowship, there are many ways to grow in faith, serve your neighbour and build lasting friendships.</p>
-            <span class="text-link">Explore Ministries <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-          </div></div>
+          <p>From Wednesday Evening Prayer to small-group fellowship, there are many ways to grow in faith, serve your neighbour and build lasting friendships.</p>
+          <a class="text-link" href="#">Explore Ministries <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
